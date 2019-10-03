@@ -22,10 +22,10 @@ export default {
 
   &__block {
     position: absolute;
-    right: 550px;
+    right: 590px;
     background: white;
     height: 100%;
-    width: calc((100vw - 1440px)/2 + 616px);
+    width: calc((100vw - 1440px)/2 + 577px);
     // margin-right: 550px;
     color: black;
   }
@@ -33,7 +33,7 @@ export default {
 
 @media (max-width: 1440px) {
   .ad__block {
-    width: 616px;
+    width: 577px;
   }
 }
 </style>

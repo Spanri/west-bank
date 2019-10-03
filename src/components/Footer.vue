@@ -78,16 +78,19 @@ export default {
   }
 
   &__input {
-    position: relative;
-    // left: 1500px;
-    width: calc(392px + 1500px);
-
+		width: calc((100vw - 1440px)/2 + 392px);
+    margin-top: 13px;
     height: 42px;
     border: 0;
     background: rgba(45, 155, 219, 0.2);
-    margin-top: 13px;
     padding: 0 15px;
     color: #F2F2F2;
+  }
+}
+
+@media (max-width: 1440px) {
+  .search__input {
+		width: 392px;
   }
 }
 </style>
