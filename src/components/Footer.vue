@@ -25,37 +25,44 @@ export default {
 <style scoped lang="scss">
 .footer {
   height: 172px;
-  color: #F2F2F2;
+
   display: flex;
   flex-direction: row;
+
+  color: $color-light;
   font-family: Play;
   font-style: normal;
   font-weight: normal;
 
   &__logo {
-    margin: 0;
     width: 135px;
+
     flex-basis: 135px;
     flex-grow: 0;
     flex-shrink: 0;
+
+    margin: 0;
     padding-left: 6px;
     padding-right: 72px;
+
+    color: $color-main;
     font-size: 24px;
     line-height: 172.5%;
     text-align: center;
     letter-spacing: 0.22em;
-    color: #2D9CDB;
   }
 }
 
 .contacts {
   width: 100%;
+
   display: flex;
   flex-direction: column;
+
+  color: $color-light;
   font-size: 18px;
   line-height: 22px;
   letter-spacing: 0.135em;
-  color: #F2F2F2;
   text-align: left;
 
   &__item {
@@ -64,27 +71,30 @@ export default {
 }
 
 .search {
+  width: 392px;
+
   display: flex;
   flex-direction: column;
-  width: 392px;
+  
   overflow: visible;
   
   &__text {
+    color: $color-light;
     font-size: 18px;
     line-height: 22px;
     letter-spacing: 0.135em;
-    color: #F2F2F2;
     text-align: left;
   }
 
   &__input {
-		width: calc((100vw - 1440px)/2 + 392px);
-    margin-top: 13px;
+    width: calc((100vw - 1440px)/2 + 392px);
     height: 42px;
+
+    margin-top: 13px;
     border: 0;
-    background: rgba(45, 155, 219, 0.2);
+    background: $color-main02;
     padding: 0 15px;
-    color: #F2F2F2;
+    color: $color-light;
   }
 }
 

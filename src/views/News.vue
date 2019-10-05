@@ -4,7 +4,13 @@
 			<div class="rectangles-and-card__first"></div>
 			<div class="rectangles-and-card__second"></div>
 			<Ad class="rectangles-and-card__ad"/>
-			<img src="../assets/card.svg" alt="Банковская карта" width="384" height="220" class="rectangles-and-card__card">
+			<img
+				src="../assets/card.svg"
+				alt="Банковская карта" 
+				width="384" 
+				height="220" 
+				class="rectangles-and-card__card"
+			>
 		</div>
 		<div class="currency">
 			<table class="currency__rates">
@@ -17,7 +23,7 @@
 					<td class="currency__subtitle">Продажа</td>
 				</tr>
 				<tr>
-					<td class="currency__type">
+					<td class="select-inner currency__type">
 						<select class="select currency__type-select">
 							<option class="select__item">USD</option>
 							<option selected class="select__item">EUR</option>
@@ -29,7 +35,7 @@
 					<td class="currency__value">67,85</td>
 				</tr>
 				<tr>
-					<td class="currency__type">
+					<td class="select-inner currency__type">
 						<select class="select currency__type-select">
 							<option class="select__item">USD</option>
 							<option class="select__item">EUR</option>
@@ -47,7 +53,7 @@
 				</tr>
 				<tr>
 					<td class="currency__value">10000</td>
-					<td class="currency__symbol">
+					<td class="select-inner currency__symbol">
 						<select class="select currency__symbol-select">
 							<option class="select__item">$</option>
 							<option class="select__item">₽</option>
@@ -59,7 +65,7 @@
 				</tr>
 				<tr>
 					<td class="currency__value">134,10</td>
-					<td class="currency__symbol">
+					<td class="select-inner currency__symbol">
 						<select class="select currency__symbol-select">
 							<option class="select__item">$</option>
 							<option class="select__item">₽</option>
@@ -71,17 +77,16 @@
 				</tr>
 			</table>
 		</div>
+		<Footer />
 	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Ad from '@/components/Ad.vue'
-
 export default {
-	name: 'news',
+	name: 'News',
 	components: {
-		Ad
+		Ad: () => import('@/components/Ad.vue'),
+		Footer: () => import('@/components/Footer.vue'),
 	}
 }
 </script>
@@ -89,8 +94,9 @@ export default {
 <style scoped lang="scss">
 .home {
 	height: auto;
-	color: white;
 	position: relative;
+
+	color: white;
 }
 
 .rectangles-and-card {
@@ -101,31 +107,29 @@ export default {
 		position: absolute;
 		top: 65px;
 		left: calc((100vw - 1440px)/2 * (-1));
+
 		width: calc((100vw - 1440px)/2 + 720px);
 		height: 220px;
-		background: rgba(45, 155, 219, 0.5);
+
+		background: $color-main05;
 	}
 
 	&__second {
 		position: absolute;
 		top: 150px;
 		left: calc((100vw - 1440px)/2 * (-1));
+
 		width: calc((100vw - 1440px)/2 + 908px);
 		height: 257px;
-		background: rgba(45, 155, 219, 0.8);
-	}
 
-	&__ad {
-		position: absolute;
-		top: 267px;
-		left: calc((100vw - 1440px)/2 * (-1));
-		width: calc((100vw - 1440px)/2 + 1166px);
+		background: $color-main08;
 	}
 
 	&__card {
 		position: absolute;
 		top: 289px;
 		left: 650px;
+
 		margin-bottom: -220px;
 		transform: rotate(-15deg);
 		box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.3), inset -2px -4px 0px rgba(0, 0, 0, 0.25);
@@ -133,16 +137,18 @@ export default {
 }
 
 .currency {
-	margin-bottom: 158px;
 	display: flex;
 	justify-content: center;
-	color: #F2F2F2;
+
+	margin-bottom: 158px;
+	color: $color-light;
 	text-align: left;
 
 	&__rates {
+		width: 431px;
+
 		margin-right: 221px;
 		margin-left: 232px;
-		width: 431px;
 	}
 
 	&__converter {
@@ -151,16 +157,18 @@ export default {
 
 	&__title {
 		height: 65px;
-		vertical-align: top;
+
 		font-family: Roboto;
 		font-style: normal;
 		font-weight: bold;
 		font-size: 24px;
 		line-height: 28px;
+		vertical-align: top;
 	}
 
 	&__subtitle {
 		height: 65px;
+
 		vertical-align: top;
 		font-family: Roboto;
 		font-style: normal;
@@ -171,6 +179,7 @@ export default {
 
 	&__value {
 		height: 65px;
+	
 		font-family: Play;
 		font-style: normal;
 		font-weight: normal;
@@ -179,42 +188,26 @@ export default {
 	}
 
 	&__type {
-		position: relative;
 
 		&-select {
 			color: #6FCF97;
 		}
 
 		&::before{
-			content: "▼";
-			color: #F2F2F2;
-			position: absolute;
 			left: 0;
 			top: 25px;
-			pointer-events: none;
-			display: inline-block;
-			width: 24px;
-			height: 24px;
 		}
 	}
 
 	&__symbol {
-		position: relative;
-
+		
 		&-select {
-			color: #F2F2F2;
+			color: $color-light;
 		}
 
 		&::before{
-			content: "▼";
-			color: #F2F2F2;
-			position: absolute;
 			left: 35px;
 			top: 50px;
-			pointer-events: none;
-			display: inline-block;
-			width: 24px;
-			height: 24px;
 		}
 	}
 }
@@ -223,7 +216,7 @@ export default {
 	display: block;
 	width: 100%;
 	height: 65px;
-	box-sizing: border-box;
+
 	padding-left: 26px;
 	border: none;
 	appearance: none;
@@ -237,21 +230,36 @@ export default {
 	line-height: 42px;
 
 	&__item {
-		background: #F2F2F2;
+		background: $color-light;
 		border: 0;
+		
 		color: black;
+		font-size: 20px;
+	}
+
+	&-inner {
+		position: relative;
+
+		&::before{
+			content: "▼";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+
+			position: absolute;
+
+			color: $color-light;
+			pointer-events: none;
+		}
+	}
+
+	&:hover, &-inner:hover::before {
+		cursor: pointer;
+		color: $color-main;
 	}
 
 	&::-ms-expand {
 		display: none;
-	}
-
-	&:active {
-		transition: all ease-in-out 1s;
-		transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-		transition-duration: 0.15s, 0.15s;
-		transition-timing-function: ease-in-out, ease-in-out;
-		transition-delay: 0s, 0s;
 	}
 }
 

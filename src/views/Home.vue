@@ -8,13 +8,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Ad from '@/components/Ad.vue'
-
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    Ad
+    Ad: () => import('@/components/Ad.vue'),
   }
 }
 </script>

@@ -1,6 +1,9 @@
 <template>
   <div class="ad">
-    <div class="ad__block">
+    <div
+      class="ad__block" 
+      :style="{'width': lengthAdBlock}"
+    >
       Реклама
     </div>
   </div>
@@ -9,6 +12,12 @@
 <script>
 export default {
   name: 'Ad',
+  props: {
+    lengthAdBlock: {
+      type: String,
+      default: '100%'
+    }
+  },
 }
 </script>
 
@@ -17,16 +26,23 @@ export default {
 .ad {
   width: 1166px;
   height: 263px;
-  background: #2D9CDB;
+  width: calc((100vw - 1440px)/2 + 1166px);
+
+  position: absolute;
+  top: 267px;
+  left: calc((100vw - 1440px)/2 * (-1));
+  
+  background: $color-main;
   margin-bottom: 89px;
 
   &__block {
-    position: absolute;
-    right: 590px;
-    background: white;
     height: 100%;
     width: calc((100vw - 1440px)/2 + 577px);
-    // margin-right: 550px;
+  
+    position: absolute;
+    right: 590px;
+
+    background: white;
     color: black;
   }
 }
