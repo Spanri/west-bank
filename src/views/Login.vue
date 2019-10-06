@@ -1,10 +1,21 @@
 <template>
   <div class="login">
     <p class="login__title">Войти</p>
-    <Input :blocks="[
-      {title: 'Логин *', model: 'login'},
-      {title:'Пароль *', model: 'password'}
-    ]"/>
+    <div class="input-block-wrapper">
+      <div
+        class="input-block"
+        v-for="(block, index) in blocks"
+        :key="index"
+      >
+        <span class="input-block__title">{{block.title}}</span>
+        <input
+          class="input-block__input"
+          :v-model="block.model"
+          :required="block.required"
+          :type="block.type"
+        >
+      </div>
+    </div>
     <button class="button login__button">Войти</button>
     <div class="login__ad">
       <Ad />
@@ -17,10 +28,13 @@ export default {
   name: 'Login',
   components: {
     Ad: () => import('@/components/Ad.vue'),
-    Input: () => import('@/components/Input.vue'),
   },
   data() {
     return {
+      blocks: [
+        {title: 'Логин *', model: 'login'},
+        {title:'Пароль *', model: 'password'}
+      ],
       login: '',
       password: '',
     }

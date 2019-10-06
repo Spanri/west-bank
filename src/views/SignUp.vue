@@ -13,7 +13,6 @@
 export default {
   name: 'SignUp',
   components: {
-    Input: () => import('@/components/Input.vue'),
     SignUp1: () => import('@/components/SignUp1.vue'),
     SignUp2: () => import('@/components/SignUp2.vue'),
     SignUp3: () => import('@/components/SignUp3.vue'),

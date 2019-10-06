@@ -1,18 +1,36 @@
 <template>
   <form 
-    class="signup1" 
-    @submit.prevent="" 
-    @submit="checkForm" 
-    novalidate="true"
+    class="signup1"
+    @submit.prevent=""
+    @submit="checkForm"
   >
+    <p>0 {{$v.lastName}}</p>
+    <p>1 {{a}}</p>
     <p class="signup1__title">Регистрация</p>
-    <Input :blocks="[
-      {title: 'Фамилия *', model: 'lastName', required: true, type: 'text'},
-      {title: 'Имя *', model: 'firstName', required: true, type: 'text'},
-      {title: 'Отчество *', model: 'patronymic', required: true, type: 'text'},
-      {title: 'Телефон *', model: 'phone', required: true, type: 'text'},
-      {title: 'Email', model: 'email', required: false, type: 'email'},
-    ]"/>
+    <input
+        class="input-block__input"
+        v-model="firstName"
+        @input="a.$touch()"
+        :class="{invalid: a.$invalid}"
+      >
+    <div class="input-block-wrapper">
+      <div
+        class="input-block"
+        v-for="(block, index) in blocks"
+        :key="index"
+      >
+        <span class="input-block__title">{{block.title}}</span>
+        {{ $v[blocks[0].model] }}
+        <input
+          class="input-block__input"
+          :v-model="block.model"
+          :required="block.required"
+          :type="block.type"
+          @input="$v[blocks[0].model].$touch()"
+          :class="{invalid: $v[blocks[0].model].$invalid}"
+        >
+      </div>
+    </div>
     <p v-if="errors.length">
       <b>Пожалуйста, исправьте указанные ошибки:</b>
       <ul>
@@ -41,14 +59,18 @@ import { required, minLength, /*between*/ } from 'vuelidate/lib/validators'
 
 export default {
   name: 'SignUp1',
-  components: {
-    Input: () => import('@/components/Input.vue')
-  },
   data() {
     return {
+      blocks: [
+        {title: 'Фамилия *', model: 'lastName', required: true, type: 'text'},
+        {title: 'Имя *', model: 'firstName', required: true, type: 'text'},
+        {title: 'Отчество *', model: 'patronymic', required: true, type: 'text'},
+        {title: 'Телефон *', model: 'phone', required: true, type: 'text'},
+        {title: 'Email', model: 'email', required: false, type: 'email'},
+      ],
       lastName: null,
-      firstName: null,
-      patronymic: null,
+      firstName: 'null',
+      patronymic: 'null',
       phone: null,
       email: null,
       errors: [],
@@ -59,11 +81,21 @@ export default {
       required,
       minLength: minLength(4)
     },
+    lastName: {
+      required,
+      minLength: minLength(4)
+    },
+  },
+  computed: {
+    a() {
+      console.log(this.blocks[1].model);
+      console.log(this.$v[this.blocks[1].model]);
+      let a = this[this.blocks[1].model];
+      console.log(a);
+      return this.$v[this.blocks[1].model];
+    }
   },
   methods: {
-    signUp1to2() {
-      
-    },
     checkForm: function (e) {
       let { lastName, firstName, patronymic, phone, /*email*/ } = this;
       if (lastName && firstName && patronymic && phone) {

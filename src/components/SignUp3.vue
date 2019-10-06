@@ -1,13 +1,7 @@
 <template>
   <div class="signup1">
     <p class="signup1__title">Регистрация3</p>
-    <Input :blocks="[
-      {title: 'Фамилия *', model: 'lastName'},
-      {title:'Имя *', model: 'firstName'},
-      {title:'Отчество *', model: 'patronymic'},
-      {title:'Телефон *', model: 'phone'},
-      {title:'Email', model: 'email'},
-    ]"/>
+    
     <button class="button signup1__button" @click="signUp1to2()">
       Далее 
       <svg class="signup1__button-svg" width="27" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,11 +19,15 @@
 <script>
 export default {
   name: 'SignUp3',
-  components: {
-    Input: () => import('@/components/Input.vue')
-  },
   data() {
     return {
+      blocks: [
+        {title: 'Фамилия *', model: 'lastName'},
+        {title:'Имя *', model: 'firstName'},
+        {title:'Отчество *', model: 'patronymic'},
+        {title:'Телефон *', model: 'phone'},
+        {title:'Email', model: 'email'},
+      ],
       lastName: '',
       firstName: '',
       patronymic: '',
