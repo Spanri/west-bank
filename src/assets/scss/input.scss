@@ -1,11 +1,38 @@
+.form-control {
+	border: 1px blueviolet solid;
+	
+	.is-valid:focus {
+		border-color: $success;
+	}
+
+	.is-invalid:focus {
+		border-color: $error;
+	}
+}
+
+.invalid-feedback {
+	margin-top: 15px;
+	margin-left: 155px;
+
+	color: $error;
+	font-family: Play;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	letter-spacing: 0.08em;
+}
+
 .input-block {
 	width: 714px;
 
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 
 	margin: 0 auto;
 	margin-top: 45px;
+	border: 0;
 
 	&:last-child {
 		margin-bottom: 69px;
@@ -13,9 +40,9 @@
 
 	&__input {
 		width: 529px;
-		height: 26px;
+		height: 42px;
 
-		background: #4F4F4F;
+		background: $color-medium;
 		border-radius: 10px;
 		border: 0;
 		padding: 8px 15px;
@@ -32,11 +59,26 @@
 		align-self: flex-end;
 
 		color: $color-light;
+		text-align: left;
 		font-family: Play;
 		font-style: normal;
 		font-weight: bold;
 		font-size: 24px;
 		line-height: 28px;
 		letter-spacing: 0.08em;
+	}
+
+	&__description {
+		margin-top: 15px;
+		margin-left: 155px;
+
+		color: $color-pre-medium;
+		font-family: Play;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: 0.08em;
+		text-align: left;
 	}
 }
