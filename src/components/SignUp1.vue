@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { /*required,*/ minLength, email } from 'vuelidate/lib/validators'
+// import { required, minLength, email } from 'vuelidate/lib/validators'
 
 export default {
 	name: 'SignUp1',
@@ -61,23 +61,23 @@ export default {
 	validations: {
 		firstName: {
 			// required,
-			minLength: minLength(4)
+			// minLength: minLength(4)
 		},
 		lastName: {
 			// required,
-			minLength: minLength(4)
+			// minLength: minLength(4)
 		},
 		patronymic: {
 			// required,
-			minLength: minLength(4)
+			// minLength: minLength(4)
 		},
 		phone: {
-			type: Number,
+			// type: Number,
 			// required,
-			minLength: minLength(4)
+			// minLength: minLength(4)
 		},
 		email: {
-			email
+			// email
 		},
 	},
 	methods: {
@@ -116,12 +116,12 @@ export default {
 
 	&__button {
 		background: transparent;
-		
 		border: 0;
 		margin-left: 155px;
+		margin-top: 69px;
 		margin-bottom: 78px;
 
-		color: white;
+		color: $color-very-light;
 		font-family: Play;
 		font-style: normal;
 		font-weight: normal;

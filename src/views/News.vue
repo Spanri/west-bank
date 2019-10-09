@@ -66,6 +66,7 @@
 				<tr>
 					<td class="currency__value">134,10</td>
 					<td class="select-inner currency__symbol">
+						<input type="radio">
 						<select class="select currency__symbol-select">
 							<option class="select__item">$</option>
 							<option class="select__item">₽</option>
@@ -111,7 +112,8 @@ export default {
 		width: calc((100vw - 1440px)/2 + 720px);
 		height: 220px;
 
-		background: $color-main05;
+		@include color-main(background, 0.5);
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	}
 
 	&__second {
@@ -122,7 +124,8 @@ export default {
 		width: calc((100vw - 1440px)/2 + 908px);
 		height: 257px;
 
-		background: $color-main08;
+		@include color-main(background, 0.8);
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	}
 
 	&__card {
@@ -212,6 +215,10 @@ export default {
 	}
 }
 
+option:checked {
+	background: red;
+}
+
 .select {
 	display: block;
 	width: 100%;
@@ -235,6 +242,10 @@ export default {
 		
 		color: black;
 		font-size: 20px;
+
+		&:checked {
+			background: red !important;
+		}
 	}
 
 	&-inner {

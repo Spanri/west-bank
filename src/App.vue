@@ -3,6 +3,7 @@
     <div id="app-inner">
       <Header />
       <main class="main" v-cloak>
+        <NavIfAuth v-if="$store.getters.IsAuthenticated"/>
         <router-view/>
       </main>
     </div>
@@ -14,6 +15,7 @@ export default {
   name: 'App',
   components: {
     Header: () => import('@/components/Header.vue'),
+    NavIfAuth: () => import('@/components/NavIfAuth.vue'),
   }
 }
 </script>
@@ -39,7 +41,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: #090909;
+  background: $color-background;
   font-family: Play;
   font-style: normal;
   font-weight: normal;

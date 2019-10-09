@@ -6,12 +6,12 @@
         alt="Логотип вест банк"
       >
     </div>
-    <div class="nav-and-other">
-      <div class="nav-and-other__first_line">
+    <div class="header__nav">
+      <div class="header__top">
         <p>ООО РНКО “ВЕСТ”</p>
         <p>+7 (495) 215 57 74</p>
       </div>
-      <div class="nav-and-other__second_line">
+      <div class="header__content">
         <div class="nav">
           <nav class="nav__inner">
             <router-link to="news" class="nav__item">Новости</router-link>
@@ -24,10 +24,11 @@
         </div>
         <div class="auth">
           <router-link to="signup" class="auth__login_false">
-            <svg class="auth__logo" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 21.16V25H23V1H7V5.8" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel"/>
-              <path d="M1 12C0.447715 12 0 12.4477 0 13C0 13.5523 0.447715 14 1 14L1 12ZM17.7071 13.7071C18.0976 13.3166 18.0976 12.6834 17.7071 12.2929L11.3431 5.92893C10.9526 5.53841 10.3195 5.53841 9.92893 5.92893C9.53841 6.31946 9.53841 6.95262 9.92893 7.34315L15.5858 13L9.92893 18.6569C9.53841 19.0474 9.53841 19.6805 9.92893 20.0711C10.3195 20.4616 10.9526 20.4616 11.3431 20.0711L17.7071 13.7071ZM1 14L17 14V12L1 12L1 14Z" fill="#F2F2F2"/>
-            </svg>
+            <img
+              class="auth__logo"
+              src="../assets/auth-link.svg"
+              alt="Иконка входа в веб-банк"
+            >
             <span class="auth__text">Войти в веб-банк</span>
           </router-link>
         </div>
@@ -56,28 +57,28 @@ export default {
   &__logo {
     padding: 9px 25px 0 14px;
   }
-}
 
-.nav-and-other {
-  width: 100%;
-  max-width: 1227px;
+  &__nav {
+    width: 100%;
+    max-width: 1227px;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  padding: 31px 0 0 0;
-  font-size: 24px;
-  line-height: 28px;
+    padding: 31px 0 0 0;
+    font-size: 24px;
+    line-height: 28px;
 
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 10%;
-    min-width: 100px;
-    max-width: 200px;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 10%;
+      min-width: 100px;
+      max-width: 200px;
+    }
   }
 
-  &__first_line {
+  &__top {
     display: flex;
     justify-content: space-between;
 
@@ -85,7 +86,7 @@ export default {
     padding-right: 60.66px;
   }
 
-  &__second_line {
+  &__content {
     height: 100%;
 
     display: flex;
@@ -135,7 +136,9 @@ export default {
   height: 90px;
 
   display: flex;
+
   background: $color-main;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   
   &__login_false {
     width: 274px;
@@ -151,6 +154,7 @@ export default {
 
   &__logo {
     padding-right: 13px;
+    width: 35px;
   }
 }
 

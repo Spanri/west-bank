@@ -1,13 +1,33 @@
-$color-light: #F2F2F2;
-$color-pre-medium: #BDBDBD;
-$color-medium: #4F4F4F;
+$dark-theme: true !default;
 
-$color-main: rgb(45, 155, 219);
-$color-main02: rgba(45, 155, 219, 0.2);
-$color-main05: rgba(45, 155, 219, 0.5);
-$color-main08: rgba(45, 155, 219, 0.8);
+$color-very-light: #FFFFFF;
+$color-light: #F2F2F2 !default;
+$color-pre-medium: #BDBDBD !default;
+$color-medium: #4F4F4F !default;
 
-$color-main-light: #6DB0FF;
+$color-main: rgb(46, 38, 131) !default;
 
-$error: #D35858;
-$success: #6FCF97;
+$color-main-light: #5A4EDB !default;
+
+$color-background: #1D1F2C !default;
+
+$error: #D35858 !default;
+$success: #6FCF97 !default;
+
+@if $dark-theme {
+  $color-light: #F2F2F2;
+  $color-pre-medium: #BDBDBD;
+  $color-medium: #4F4F4F;
+
+  $color-main: rgb(45, 155, 219);
+  $color-main02: rgba(45, 155, 219, 0.2);
+  $color-main05: rgba(45, 155, 219, 0.5);
+  $color-main08: rgba(45, 155, 219, 0.8);
+
+  $color-main-light: #6DB0FF;
+
+  $color-background: #090909;
+
+  $error: #D35858;
+  $success: #6FCF97;
+}

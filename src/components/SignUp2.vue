@@ -10,7 +10,7 @@
 				v-for="(block, index) in blocks"
 				:key="index"
 			>
-				<span class="input-block__title" v-html="block.title"></span>
+				<span class="input-block__title" :class="block.model == 'passwordRepeat' ? 'input-block__title-password' : ''" v-html="block.title"></span>
 				<b-form-input
 					class="input-block__input"
 					:type="(block.model == 'password' || block.model == 'passwordRepeat') ? 'password' : 'text'"
@@ -22,7 +22,7 @@
 					{{ block.error }}
 				</b-form-invalid-feedback>
 				<p v-if="block.model == 'password'" class="input-block__description">
-					Пароль должен содержать не менее 8 символов, должны присутствоввать 
+					Пароль должен содержать не менее 8 символов, должны присутствовать 
 					строчные и заглавные буквы, должен присутствовать один из символов 
 					!»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
 					повторяющиеся символы в нижнем и верхнем регистре.
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { required, minLength, sameAs } from 'vuelidate/lib/validators'
+// import { required, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
 	name: 'SignUp2',
@@ -59,29 +59,29 @@ export default {
 	},
 	validations: {
 		login: {
-			required,
-			minLength: minLength(4)
+			// required,
+			// minLength: minLength(4)
 		},
 		password: {
-			required,
-			goodPassword:(password) => {
-				return password.length >= 8 &&
-				/[a-z]/.test(password) &&
-				/[A-Z]/.test(password) &&
-				/[0-9]/.test(password) &&
-				/[!»№;%:?*?()]/.test(password)
-			}
+			// required,
+			// goodPassword:(password) => {
+			// 	return password.length >= 8 &&
+			// 	/[a-z]/.test(password) &&
+			// 	/[A-Z]/.test(password) &&
+			// 	/[0-9]/.test(password) &&
+			// 	/[!»№;%:?*?()]/.test(password)
+			// }
 		},
 		passwordRepeat: {
-			required,
-			sameAsPassword: sameAs('password')
+			// required,
+			// sameAsPassword: sameAs('password')
 		},
 	},
 	methods: {
 		submit(){
 			this.$v.$touch();
 			if(!this.$v.$invalid){
-				this.$emit('next', 'SignUp2');
+				this.$emit('next', 'SignUp3');
 			}
 		},
 	}
@@ -107,11 +107,12 @@ export default {
 
 	&__button {
 		background: transparent;
-		color: $color-main;
 		border: 0;
 		margin-left: 155px;
+		margin-top: 90px;
 		margin-bottom: 80px;
 
+		color: $color-main;
 		font-family: Play;
 		font-style: normal;
 		font-weight: normal;
@@ -120,7 +121,7 @@ export default {
 		text-align: center;
 
 		&:hover {
-			color: $color-light;
+			color: $color-very-light;
 			transition: 0.1s all ease-in-out;
 		}
 	}

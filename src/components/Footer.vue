@@ -92,7 +92,7 @@ export default {
 
     margin-top: 13px;
     border: 0;
-    background: $color-main02;
+    @include color-main(background, 0.2);
     padding: 0 15px;
     color: $color-light;
   }

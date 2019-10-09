@@ -25,7 +25,6 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
-    "vuelidate": "^0.7.4",
-    "vuelidate-error-extractor": "^2.4.0"
+    "vuelidate": "^0.7.4"
   }
 }
