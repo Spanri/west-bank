@@ -6,9 +6,19 @@ import Login from './views/Login.vue';
 import SignUp from './views/SignUp.vue';
 import About from './views/About.vue';
 import Profile from './views/Profile.vue';
+import BillOrCard from './views/BillOrCard.vue';
 import store from './store';
 
 Vue.use(Router);
+
+// как определять это?
+const ifAuthenticatedAndValidId = (to, from, next) => {
+  if (store.getters.isLoggedIn) {
+    next();
+    return;
+  }
+  next('/login');
+};
 
 const ifNotAuthenticated = (to, from, next) => {
   if (!store.getters.isLoggedIn) {
@@ -57,6 +67,20 @@ export default new Router({
       name: 'profile',
       component: Profile,
       beforeEnter: ifAuthenticated,
+    },
+    {
+      path: '/bill/:id',
+      name: 'bill',
+      component: BillOrCard,
+      props: true,
+      beforeEnter: ifAuthenticatedAndValidId,
+    },
+    {
+      path: '/card/:id',
+      name: 'card',
+      component: BillOrCard,
+      props: true,
+      beforeEnter: ifAuthenticatedAndValidId,
     },
     {
       path: '/about',

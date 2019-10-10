@@ -1,11 +1,14 @@
 <template>
   <header class="header">
-    <div class="header__logo">
+    <router-link 
+      to="/" 
+      class="header__logo"
+    >
       <img
         src="../assets/logo-header.svg"
         alt="Логотип вест банк"
       >
-    </div>
+    </router-link>
     <div class="header__nav">
       <div class="header__top">
         <p>ООО РНКО “ВЕСТ”</p>
@@ -14,11 +17,11 @@
       <div class="header__content">
         <div class="nav">
           <nav class="nav__inner">
-            <router-link to="news" class="nav__item">Новости</router-link>
-            <router-link to="about" class="nav__item">Частным<br>клиентам</router-link>
-            <router-link to="about" class="nav__item">Бизнесу</router-link>
-            <router-link to="about" class="nav__item">Финансовым<br>институтам</router-link>
-            <router-link to="about" class="nav__item">О банке</router-link>
+            <router-link to="/news" class="nav__item">Новости</router-link>
+            <router-link to="/about" class="nav__item">Частным<br>клиентам</router-link>
+            <router-link to="/about" class="nav__item">Бизнесу</router-link>
+            <router-link to="/about" class="nav__item">Финансовым<br>институтам</router-link>
+            <router-link to="/about" class="nav__item">О банке</router-link>
           </nav>
           <hr class="nav__line">
         </div>
@@ -57,7 +60,6 @@ export default {
     },
     name() {
       let user = this.$store.getters.getUser;
-      console.log(user);
       return user.profile.firstName;
     },
   },

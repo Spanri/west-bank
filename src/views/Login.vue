@@ -48,7 +48,7 @@ export default {
     loginMethod() {
       this.$store.dispatch('login')
       .then(() => {
-        this.$router.push('news');
+        this.$router.push('/');
       });	
     },
   },

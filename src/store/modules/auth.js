@@ -77,7 +77,13 @@ export default {
           data: {
             token: '123456',
             user: {
-              username: 'Username',
+              profile: {
+                firstName: 'Елизавета',
+                lastName: 'Иванникова',
+                patronymic: 'Александровна',
+                phone: '123456',
+                email: 'email@mail.ru',
+              },
             },
           },
         };
@@ -86,7 +92,7 @@ export default {
         localStorage.setItem('token', token);
         // Add the following line:
         axios.defaults.headers.common['Authorization'] = token;
-        commit('auth_success', token, user);
+        commit('auth_success', { token, user, });
         resolve(resp);
         // })
         // .catch(err => {

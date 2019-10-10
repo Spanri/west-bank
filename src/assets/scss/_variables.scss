@@ -1,15 +1,16 @@
-$dark-theme: true !default;
+$dark-theme: false !default;
 
 $color-very-light: #FFFFFF;
 $color-light: #F2F2F2 !default;
 $color-pre-medium: #BDBDBD !default;
 $color-medium: #4F4F4F !default;
+$color-dark: rgb(19, 24, 28);
 
-$color-main: rgb(46, 38, 131) !default;
+$color-main: rgb(211, 88, 88) !default;
 
-$color-main-light: #5A4EDB !default;
+$color-main-light: #D35858 !default;
 
-$color-background: #1D1F2C !default;
+$color-background: #15172D !default;
 
 $error: #D35858 !default;
 $success: #6FCF97 !default;
@@ -18,11 +19,9 @@ $success: #6FCF97 !default;
   $color-light: #F2F2F2;
   $color-pre-medium: #BDBDBD;
   $color-medium: #4F4F4F;
+  $color-dark: rgb(19, 24, 28);
 
   $color-main: rgb(45, 155, 219);
-  $color-main02: rgba(45, 155, 219, 0.2);
-  $color-main05: rgba(45, 155, 219, 0.5);
-  $color-main08: rgba(45, 155, 219, 0.8);
 
   $color-main-light: #6DB0FF;
 

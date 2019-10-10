@@ -1,3 +1,7 @@
-@mixin color-main($property, $opacity) {
-  #{$property}: rgba(45, 155, 219, $opacity);
+@mixin color-main($property, $opacity, $important: none) {
+  #{$property}: rgba(211, 88, 88, $opacity) $important;
+}
+
+@mixin color-dark($property, $opacity) {
+  #{$property}: lighten($color-dark, $opacity);
 }

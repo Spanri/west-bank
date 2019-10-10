@@ -12,7 +12,7 @@
     </p>
     <router-link
       class="signup3__link"
-      to="news"
+      to="/news"
     >
       Перейти в онлайн-банк
     </router-link>
@@ -62,11 +62,16 @@ export default {
   }
 
   &__link {
+    color: $color-main;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;
     line-height: 144.2%;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   &__ad {

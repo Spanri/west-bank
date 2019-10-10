@@ -35,7 +35,7 @@
 		<br>
 		<p class="signup2__login">
 			Уже есть аккаунт?<br>
-			<router-link to="login" class="button signup2__login-button">Войти</router-link>
+			<router-link to="/login" class="button signup2__login-button">Войти</router-link>
 		</p>
 	</form>
 </template>

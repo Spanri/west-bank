@@ -20,18 +20,20 @@
         <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
-    <button 
-      class="button profile__edit-data" 
-      @click="editData"
-    >
-      Редактировать данные
-    </button>
-    <button 
-      class="button profile__logout" 
-      @click="logout"
-    >
-      Выйти из аккаунта
-    </button>
+    <div class="profile__buttons">
+      <button 
+        class="button profile__edit-data" 
+        @click="editData"
+      >
+        Редактировать данные
+      </button>
+      <button 
+        class="button profile__logout" 
+        @click="logout"
+      >
+        Выйти из аккаунта
+      </button>
+    </div>
     <Footer class="profile__footer"/>
   </div>
 </template>
@@ -49,6 +51,9 @@ export default {
     },
   },
   methods: {
+    editPhoto() {
+
+    },
     editData() {
 
     },
@@ -64,15 +69,11 @@ export default {
 
 <style scoped lang="scss">
 .button {
-  width: 1166px;
   height: 62px;
-
-  // position: absolute;
-  left: calc((100vw - 1440px)/2 * (-1));
-
   width: calc((100vw - 1440px)/2 + 1166px);
 
-  background: #13181C;
+  padding-left: calc((100vw - 1440px)/2);
+  background: $color-dark;
   border: 0;
   user-select: none;
 
@@ -83,9 +84,15 @@ export default {
   font-size: 36px;
   line-height: 42px;
   letter-spacing: 0.09em;
+
+  &:hover {
+    @include color-dark(background, 5);
+  }
 }
 
 .profile {
+  position: relative;
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -98,22 +105,45 @@ export default {
     margin-top: 92px;
   }
 
+  &__buttons {
+    width: calc((100vw - 1440px)/2 + 1166px);
+
+    position: absolute;
+    left: calc((100vw - 1440px)/2 * (-1));
+    top: 627px;
+
+    .button:nth-child(1) {
+      margin-bottom: 50px;
+    }
+  }
+
   &__img {
     display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
 
     color: white;
 
     margin-left: 44px;
+    margin-right: 72px;
   }
 
   &__edit-photo {
     border: 0;
     background: transparent;
+    margin-top: 24px;
 
-    color: $color-main;
+    color: $color-main-light;
+    font-family: Play;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+
+    &:hover {
+      @include color-main(color, 0.6);
+    }
   }
 
   &__data {
@@ -139,5 +169,15 @@ export default {
   &__footer {
     margin-top: 533px;
   }
+}
+
+@media (max-width: 1440px) {
+  .profile__buttons {
+    left: 0;
+  }
+
+	.button {
+    width: 1166px;
+	}
 }
 </style>
