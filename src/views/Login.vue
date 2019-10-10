@@ -16,7 +16,12 @@
         >
       </div>
     </div>
-    <button class="button login__button">Войти</button>
+    <button
+      class="button login__button"
+      @click="loginMethod"
+    >
+      Войти
+    </button>
     <div class="login__ad">
       <Ad />
     </div>
@@ -32,22 +37,25 @@ export default {
   data() {
     return {
       blocks: [
-        {title: 'Логин *', model: 'login'},
-        {title:'Пароль *', model: 'password'}
+        {title: 'Логин *', model: 'login',},
+        {title:'Пароль *', model: 'password',},
       ],
       login: '',
       password: '',
-    }
-  }
-}
+    };
+  },
+  methods: {
+    loginMethod() {
+      this.$store.dispatch('login')
+      .then(() => {
+        this.$router.push('news');
+      });	
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-.button:hover {
-  color: $color-light;
-  transition: 0.1s all ease-in-out;
-}
-
 .login {
   height: auto;
 
@@ -67,16 +75,19 @@ export default {
   &__button {
     background: transparent;
     border: 0;
-    margin-left: 155px;
-    margin-bottom: 142px;
+    margin: 282px 0 155px 142px;
 
     color: $color-main;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 35px;
+    line-height: 28px;
     text-align: center;
+
+    &:hover {
+      color: darken($color: $color-main, $amount: 20);
+    }
   }
 
   &__ad {

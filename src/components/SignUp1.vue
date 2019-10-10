@@ -5,7 +5,7 @@
 	>
 		<p class="signup1__title">Регистрация</p>
 		<div class="input-block-wrapper">
-			<form-group
+			<div
 				class="input-block"
 				v-for="(block, index) in blocks"
 				:key="index"
@@ -20,7 +20,7 @@
 				<b-form-invalid-feedback :id="`input-block__invalid-feedback-${block.model}`">
 					{{ block.error }}
 				</b-form-invalid-feedback>
-			</form-group>
+			</div>
 		</div>
 		<button type="submit" class="button signup1__button" :class="{invalid: $v.$invalid}">
 			Далее 
@@ -44,11 +44,11 @@ export default {
 	data() {
 		return {
 			blocks: [
-				{title: 'Фамилия *', model: 'lastName', error: 'Обязательное поле, минимум 4 символа.'},
-				{title:'Имя *', model: 'firstName', error: 'Обязательное поле, минимум 4 символа.'},
-				{title:'Отчество *', model: 'patronymic', error: 'Обязательное поле, минимум 4 символа.'},
-				{title:'Телефон *', model: 'phone', error: 'Обязательное поле, только цифры.'},
-				{title:'Email', model: 'email', error: 'Невалидный email.'},
+				{title: 'Фамилия *', model: 'lastName', error: 'Обязательное поле, минимум 4 символа.',},
+				{title:'Имя *', model: 'firstName', error: 'Обязательное поле, минимум 4 символа.',},
+				{title:'Отчество *', model: 'patronymic', error: 'Обязательное поле, минимум 4 символа.',},
+				{title:'Телефон *', model: 'phone', error: 'Обязательное поле, только цифры.',},
+				{title:'Email', model: 'email', error: 'Невалидный email.',},
 			],
 			lastName: null,
 			firstName: null,
@@ -56,7 +56,7 @@ export default {
 			phone: null,
 			email: null,
 			errors: [],
-		}
+		};
 	},
 	validations: {
 		firstName: {
@@ -87,14 +87,14 @@ export default {
 				this.$emit('next', 'SignUp2');
 			}
 		},
-	}
-}
+	},
+};
 </script>
 
 <style scoped lang="scss">
 .button:hover, .button:hover .signup1__button-svg {
-	color: $color-main;
-	fill: $color-main;
+	color: darken($color: $color-light, $amount: 40);
+	fill: darken($color: $color-light, $amount: 40);
 	transition: 0.1s all ease-in-out;
 }
 

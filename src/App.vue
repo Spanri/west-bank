@@ -3,7 +3,7 @@
     <div id="app-inner">
       <Header />
       <main class="main" v-cloak>
-        <NavIfAuth v-if="$store.getters.IsAuthenticated"/>
+        <NavIfAuth v-if="isLoggedIn"/>
         <router-view/>
       </main>
     </div>
@@ -11,13 +11,28 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'App',
   components: {
     Header: () => import('@/components/Header.vue'),
     NavIfAuth: () => import('@/components/NavIfAuth.vue'),
-  }
-}
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+  },
+  created() {
+    const token = this.$store.state.token;
+    console.log(token);
+    if(token) {
+      axios.defaults.headers.common['Authorization'] = token;
+      localStorage.setItem('token', token);
+    }
+  },
+};
 </script>
 
 <style lang="scss">
@@ -25,6 +40,10 @@ export default {
 
 .button:hover {
   cursor: pointer;
+}
+
+::selection {
+  background: $color-main;
 }
 
 [v-cloak] > * { display:none; }

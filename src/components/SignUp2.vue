@@ -5,7 +5,7 @@
 	>
 		<p class="signup2__title">Регистрация</p>
 		<div class="input-block-wrapper">
-			<form-group
+			<div
 				class="input-block"
 				v-for="(block, index) in blocks"
 				:key="index"
@@ -27,7 +27,7 @@
 					!»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
 					повторяющиеся символы в нижнем и верхнем регистре.
 				</p>
-			</form-group>
+			</div>
 		</div>
 		<button type="submit" class="button signup2__button">
 			Зарегистрироваться
@@ -48,14 +48,14 @@ export default {
 	data() {
 		return {
 			blocks: [
-				{title: 'Логин *', model: 'login', error: 'Обязательное поле, минимум 4 символа.'},
-				{title:'Пароль *', model: 'password', error: 'Пароль не соответствует правилам.'},
-				{title:'Повторите<br>пароль *', model: 'passwordRepeat', error: 'Пароли должны совпадать.'},
+				{title: 'Логин *', model: 'login', error: 'Обязательное поле, минимум 4 символа.',},
+				{title:'Пароль *', model: 'password', error: 'Пароль не соответствует правилам.',},
+				{title:'Повторите<br>пароль *', model: 'passwordRepeat', error: 'Пароли должны совпадать.',},
 			],
 			login: '',
 			password: '',
 			passwordRepeat: '',
-		}
+		};
 	},
 	validations: {
 		login: {
@@ -81,14 +81,23 @@ export default {
 		submit(){
 			this.$v.$touch();
 			if(!this.$v.$invalid){
-				this.$emit('next', 'SignUp3');
+				this.$store.dispatch('register')
+				.then(() => {
+					this.$emit('next', 'SignUp3');
+				});				
 			}
 		},
-	}
-}
+	},
+};
 </script>
 
 <style scoped lang="scss">
+.button:hover, .button:hover .signup1__button-svg {
+	color: darken($color: $color-light, $amount: 40);
+	fill: darken($color: $color-light, $amount: 40);
+	transition: 0.1s all ease-in-out;
+}
+
 .signup2 {
 	height: auto;
 	
@@ -121,7 +130,7 @@ export default {
 		text-align: center;
 
 		&:hover {
-			color: $color-very-light;
+			color: darken($color: $color-main, $amount: 20);
 			transition: 0.1s all ease-in-out;
 		}
 	}

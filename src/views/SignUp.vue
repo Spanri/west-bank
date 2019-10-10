@@ -29,8 +29,8 @@ export default {
   props: {
     phase: {
       type: String,
-      default: 'SignUp1'
-    }
+      default: 'SignUp1',
+    },
   },
   data() {
     return {
@@ -40,14 +40,14 @@ export default {
       patronymic: '',
       phone: '',
       email: '',
-    }
+    };
   },
   methods: {
     next(component) {
       this.signUpPhase = component;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -83,6 +83,7 @@ export default {
 
       @include color-main(background, 0.6);
       box-shadow: 0px 4px 4px #000000;
+      user-select: none;
       
       font-family: Play;
       font-style: normal;

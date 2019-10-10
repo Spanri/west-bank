@@ -88,8 +88,8 @@ export default {
 	components: {
 		Ad: () => import('@/components/Ad.vue'),
 		Footer: () => import('@/components/Footer.vue'),
-	}
-}
+	},
+};
 </script>
 
 <style scoped lang="scss">

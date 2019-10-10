@@ -12,8 +12,8 @@ export default {
   name: 'Home',
   components: {
     Ad: () => import('@/components/Ad.vue'),
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

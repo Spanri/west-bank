@@ -1,5 +1,8 @@
 module.exports = {
   plugins: {
-    autoprefixer: {}
-  }
-}
+    autoprefixer: {
+      flexbox: true,
+    },
+    'postcss-responsive-type': {},
+  },
+};

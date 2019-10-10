@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.3",
     "core-js": "^2.6.5",
@@ -23,8 +24,12 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",
+    "postcss-responsive-type": "^1.0.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
-    "vuelidate": "^0.7.4"
+    "vuelidate": "^0.7.4",
+    "vuex-cache": "^3.1.0",
+    "vuex-persistedstate": "^2.5.4",
+    "vuex-shared-mutations": "^1.0.2"
   }
 }

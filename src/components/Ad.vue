@@ -15,10 +15,10 @@ export default {
   props: {
     lengthAdBlock: {
       type: String,
-      default: '100%'
-    }
+      default: '100%',
+    },
   },
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

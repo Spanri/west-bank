@@ -23,13 +23,24 @@
           <hr class="nav__line">
         </div>
         <div class="auth">
-          <router-link to="signup" class="auth__login_false">
+          <router-link
+            to="signup"
+            class="auth__login_false"
+            v-if="!isLoggedIn"
+          >
             <img
               class="auth__logo"
               src="../assets/auth-link.svg"
               alt="Иконка входа в веб-банк"
             >
             <span class="auth__text">Войти в веб-банк</span>
+          </router-link>
+          <router-link
+            to="profile"
+            class="auth__login_true"
+            v-if="isLoggedIn"
+          >
+            {{ name }}
           </router-link>
         </div>
       </div>
@@ -40,7 +51,17 @@
 <script>
 export default {
   name: 'Header',
-}
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+    name() {
+      let user = this.$store.getters.getUser;
+      console.log(user);
+      return user.profile.firstName;
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -119,7 +140,9 @@ export default {
   &__item {
     color: white;
     text-decoration: none;
+
     padding-bottom: 37px;
+    user-select: none;
 
     &:hover {
       color: $color-main-light;
@@ -140,16 +163,38 @@ export default {
   background: $color-main;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   
-  &__login_false {
-    width: 274px;
+  &__login {
+    &_false {
+      width: 274px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    letter-spacing: 0.05em;
-    color: white;
-    text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      letter-spacing: 0.05em;
+      color: white;
+      text-decoration: none;
+
+      user-select: none;
+    }
+
+    &_true {
+      width: 274px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      letter-spacing: 0.05em;
+      color: white;
+      text-decoration: none;
+
+      user-select: none;
+    }
+
+    &_false:hover, &_true:hover {
+      background: darken($color: $color-main, $amount: 20);
+    }
   }
 
   &__logo {
