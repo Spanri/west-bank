@@ -3,6 +3,6 @@ module.exports = {
     autoprefixer: {
       flexbox: true,
     },
-    'postcss-responsive-type': {},
+    "postcss-responsive-type": {},
   },
 };

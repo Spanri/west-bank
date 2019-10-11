@@ -1,25 +1,23 @@
 <template>
   <div class="login">
     <p class="login__title">Войти</p>
-    <div class="input-block-wrapper">
+    <div class="login__input input-block-wrapper">
       <div
-        class="input-block"
-        v-for="(block, index) in blocks"
-        :key="index"
-      >
-        <span class="input-block__title">{{block.title}}</span>
+class="input-block"
+v-for="(block, index) in blocks"
+:key="index">
+        <span class="input-block__title">{{ block.title }}</span>
         <input
           class="input-block__input"
           :v-model="block.model"
           :required="block.required"
           :type="block.type"
-        >
+        />
       </div>
     </div>
     <button
-      class="button login__button"
-      @click="loginMethod"
-    >
+class="button login__button"
+@click="loginMethod">
       Войти
     </button>
     <div class="login__ad">
@@ -30,26 +28,25 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: "Login",
   components: {
-    Ad: () => import('@/components/Ad.vue'),
+    Ad: () => import("@/components/Ad.vue"),
   },
   data() {
     return {
       blocks: [
-        {title: 'Логин *', model: 'login',},
-        {title:'Пароль *', model: 'password',},
+        { title: "Логин *", model: "login", },
+        { title: "Пароль *", model: "password", },
       ],
-      login: '',
-      password: '',
+      login: "",
+      password: "",
     };
   },
   methods: {
     loginMethod() {
-      this.$store.dispatch('login')
-      .then(() => {
-        this.$router.push('/');
-      });	
+      this.$store.dispatch("login").then(() => {
+        this.$router.push("/");
+      });
     },
   },
 };
@@ -57,6 +54,8 @@ export default {
 
 <style scoped lang="scss">
 .login {
+  @include input;
+
   height: auto;
 
   color: $color-light;

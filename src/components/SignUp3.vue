@@ -5,7 +5,7 @@
         class="signup3__logo"
         src="../assets/logo-without-letters.svg"
         alt="Логотип вест банк"
-      >
+      />
     </div>
     <p class="signup3__text">
       Добро пожаловать!
@@ -16,35 +16,36 @@
     >
       Перейти в онлайн-банк
     </router-link>
-    <Ad class="signup3__ad"/>
-    <Footer class="signup3__footer"/>
+    <Ad class="signup3__ad" />
+    <Footer class="signup3__footer" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SignUp3',
+  name: "SignUp3",
   components: {
-    Ad: () => import('@/components/Ad.vue'),
-    Footer: () => import('@/components/Footer.vue'),
+    Ad: () => import("@/components/Ad.vue"),
+    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
 
 <style scoped lang="scss">
-.button:hover, .button:hover .signup__button-svg {
+.button:hover,
+.button:hover .signup__button-svg {
   color: $color-main;
+
   fill: $color-main;
   transition: 0.1s all ease-in-out;
 }
 
 .signup3 {
   height: auto;
-  
+
   color: $color-light;
 
   &__welcome {
@@ -71,6 +72,7 @@ export default {
 
     &:hover {
       text-decoration: none;
+      color: darken($color: $color-main, $amount: 20);
     }
   }
 

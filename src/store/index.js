@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import auth from './modules/auth';
-import createPersistedState from 'vuex-persistedstate';
+import Vue from "vue";
+import Vuex from "vuex";
+import auth from "./modules/auth";
+import createPersistedState from "vuex-persistedstate";
 import createMutationsSharer from "vuex-shared-mutations";
-import createCache from 'vuex-cache';
+import createCache from "vuex-cache";
 
 Vue.use(Vuex);
 

@@ -3,20 +3,26 @@ module.exports = {
   env: {
     node: true,
   },
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended',
+  extends: [
+    "plugin:vue/essential",
+    "eslint:recommended",
   ],
   rules: {
-    "semi": [2, "always",],
-    "no-extra-semi": "error",
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 1,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": false,
+      },
+    },],
+    "vue/component-name-in-template-casing": ["error", "PascalCase",],
+    semi: [2, "always",],
+    "no-extra-semi": "warn",
     "no-console": "off",
     "comma-dangle": [2, "always",],
     "space-before-function-paren": [2, "never",],
-    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: "babel-eslint",
   },
 };

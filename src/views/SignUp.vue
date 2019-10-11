@@ -7,39 +7,46 @@
         :key="item"
         :class="[
           signUpPhase == `SignUp${item}` ? 'signup__nav-item_selected' : '',
-          signUpPhase == `SignUp${item+1}` ? 'signup__nav-item_preselected' : '',
-          signUpPhase == 'SignUp1' && item == 2 ? 'signup__nav-item_preselected' : '',
+          signUpPhase == `SignUp${item + 1}`
+            ? 'signup__nav-item_preselected'
+            : '',
+          signUpPhase == 'SignUp1' && item == 2
+            ? 'signup__nav-item_preselected'
+            : ''
         ]"
       >
         {{ item }}
       </span>
     </nav>
-    <component :is="signUpPhase" @next="next"></component>
+    <component
+:is="signUpPhase"
+@next="next"
+class="signup__content" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SignUp',
+  name: "SignUp",
   components: {
-    SignUp1: () => import('@/components/SignUp1.vue'),
-    SignUp2: () => import('@/components/SignUp2.vue'),
-    SignUp3: () => import('@/components/SignUp3.vue'),
+    SignUp1: () => import("@/components/SignUp1.vue"),
+    SignUp2: () => import("@/components/SignUp2.vue"),
+    SignUp3: () => import("@/components/SignUp3.vue"),
   },
   props: {
     phase: {
       type: String,
-      default: 'SignUp1',
+      default: "SignUp1",
     },
   },
   data() {
     return {
       signUpPhase: this.phase,
-      lastName: '',
-      firstName: '',
-      patronymic: '',
-      phone: '',
-      email: '',
+      lastName: "",
+      firstName: "",
+      patronymic: "",
+      phone: "",
+      email: "",
     };
   },
   methods: {
@@ -51,19 +58,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button:hover, .button:hover .signup__button-svg {
+.button:hover,
+.button:hover .signup__button-svg {
   color: $color-main;
   fill: $color-main;
   transition: 0.1s all ease-in-out;
 }
 
 .signup {
-  // position: relative;
-
   &__nav {
     position: absolute;
     right: 0;
-    margin-top: calc(100%/2 - 550px);
+    margin-top: calc(100% / 2 - 550px);
 
     display: flex;
     flex-direction: column;
@@ -84,7 +90,7 @@ export default {
       @include color-main(background, 0.6);
       box-shadow: 0px 4px 4px #000000;
       user-select: none;
-      
+
       font-family: Play;
       font-style: normal;
       font-weight: bold;
@@ -103,16 +109,18 @@ export default {
       &:nth-child(1) {
         width: 168px;
       }
-      
+
       &:nth-child(2) {
         width: 148px;
+
         top: -7px;
+
         z-index: 2;
-        // @include color-main(background, 0.8);
       }
 
       &:nth-child(3) {
         width: 128px;
+        
         top: -29px;
       }
     }

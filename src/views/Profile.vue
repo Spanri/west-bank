@@ -2,48 +2,56 @@
   <div class="profile">
     <div class="profile__info">
       <div class="profile__img">
-        <img 
+        <img
           v-if="!profile.photo"
           src="../assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя"
-        >
-        <img 
+        />
+        <img
           v-else
           src="../assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя 2"
-        >
-        <button class="profile__edit-photo" @click="editPhoto">Изменить</button>
+        />
+        <button
+class="profile__edit-photo"
+@click="editPhoto">Изменить</button>
       </div>
       <div class="profile__data">
-        <p class="profile__data-item">{{ profile.lastName + ' ' + profile.firstName + ' ' + profile.patronymic }}</p>
+        <p class="profile__data-item">
+          {{
+            profile.lastName +
+              " " +
+              profile.firstName +
+              " " +
+              profile.patronymic
+          }}
+        </p>
         <p class="profile__data-item">{{ profile.phone }}</p>
         <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
     <div class="profile__buttons">
-      <button 
-        class="button profile__edit-data" 
-        @click="editData"
-      >
+      <button
+class="button profile__edit-data"
+@click="editData">
         Редактировать данные
       </button>
-      <button 
-        class="button profile__logout" 
-        @click="logout"
-      >
+      <button
+class="button profile__logout"
+@click="logout">
         Выйти из аккаунта
       </button>
     </div>
-    <Footer class="profile__footer"/>
+    <Footer class="profile__footer" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Profile',
+  name: "Profile",
   components: {
-		Footer: () => import('@/components/Footer.vue'),
-	},
+    Footer: () => import("@/components/Footer.vue"),
+  },
   computed: {
     profile() {
       let user = this.$store.getters.getUser;
@@ -51,16 +59,11 @@ export default {
     },
   },
   methods: {
-    editPhoto() {
-
-    },
-    editData() {
-
-    },
+    editPhoto() {},
+    editData() {},
     logout() {
-      this.$store.dispatch('logout')
-      .then(() => {
-        this.$router.push('/login');
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
       });
     },
   },
@@ -70,9 +73,9 @@ export default {
 <style scoped lang="scss">
 .button {
   height: 62px;
-  width: calc((100vw - 1440px)/2 + 1166px);
+  width: calc((100vw - 1440px) / 2 + 1166px);
 
-  padding-left: calc((100vw - 1440px)/2);
+  padding-left: calc((100vw - 1440px) / 2);
   background: $color-dark;
   border: 0;
   user-select: none;
@@ -106,10 +109,10 @@ export default {
   }
 
   &__buttons {
-    width: calc((100vw - 1440px)/2 + 1166px);
+    width: calc((100vw - 1440px) / 2 + 1166px);
 
     position: absolute;
-    left: calc((100vw - 1440px)/2 * (-1));
+    left: calc((100vw - 1440px) / 2 * (-1));
     top: 627px;
 
     .button:nth-child(1) {
@@ -176,8 +179,8 @@ export default {
     left: 0;
   }
 
-	.button {
+  .button {
     width: 1166px;
-	}
+  }
 }
 </style>
