@@ -3,11 +3,11 @@
     <div id="app-inner">
       <Header class="app__header"/>
       <main
-class="app__main"
-v-cloak>
+        class="app__main"
+        v-cloak>
         <NavIfAuth
-class="app__nav-if-auth"
-v-if="isLoggedIn" />
+          class="app__nav-if-auth"
+          v-if="isLoggedIn" />
         <router-view class="app__content"/>
       </main>
     </div>
@@ -78,7 +78,7 @@ export default {
   &-inner {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
 
     min-height: 100vh;
     max-width: 1440px;

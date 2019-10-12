@@ -76,7 +76,7 @@ export default {
   width: calc((100vw - 1440px) / 2 + 1166px);
 
   padding-left: calc((100vw - 1440px) / 2);
-  background: $color-dark;
+  @include color-main(background, 0.2);
   border: 0;
   user-select: none;
 
