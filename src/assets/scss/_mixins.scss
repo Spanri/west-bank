@@ -1,5 +1,10 @@
-@mixin color-main($property, $opacity, $important: none) {
-  #{$property}: rgba(211, 88, 88, $opacity) $important;
+@mixin color-opacity($property, $color, $opacity, $important: false) {
+  @if $important {
+    #{$property}: rgba(red($color), green($color), blue($color), $opacity) !important;
+  }
+  @else {
+    #{$property}: rgba(red($color), green($color), blue($color), $opacity);
+  }
 }
 
 @mixin color-dark($property, $opacity) {
@@ -15,7 +20,6 @@
       .is-valid:focus {
         border-color: $success;
         box-shadow: 0 0 0 2px $success;
-        // box-shadow: 10px 10px 5px 0px rgba(204, 102, 102, 0.75);
       }
 
       .is-invalid:focus {
@@ -69,7 +73,7 @@
       background: $color-medium;
       border-radius: 10px;
       border: 0;
-      padding: 8px 15px;
+      padding: 8px 18px;
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 
       color: $color-light;

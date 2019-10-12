@@ -14,13 +14,9 @@
       <b-form-input
         class="input-block__input"
         v-model="$v[block.model].$model"
-        @keydown="
-          $v[block.model].$model = patternPhone(
-            block.model,
-            $v[block.model].$model
-          )
-        "
+        :placeholder="block.placeholder ? block.placeholder : ''"
         :type="block.type ? block.type : 'text'"
+        v-mask="block.mask ? block.mask : customToken"
         :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
         :aria-describedby="`input-block__invalid-feedback-${block.model}`"
       />
@@ -55,11 +51,30 @@
 
 <script>
 // import { required, minLength, email, } from 'vuelidate/lib/validators';
+import { mask, } from 'vue-the-mask';
 
 export default {
   name: "SignUp1Inputs",
+  // directives: {
+  //   mask: {
+  //     ...mask,
+  //     tokens: {
+  //       ...mask.tokens,
+  //         '*': /./,
+  //       },
+  //   },
+  // },
   data() {
     return {
+      customToken: {
+        mask: {
+          ...mask,
+          tokens: {
+            ...mask.tokens,
+              '*': /./,
+            },
+        },
+      },
       blocks: [
         {
           title: "Фамилия *",
@@ -79,10 +94,17 @@ export default {
         {
           title: "Телефон *",
           type: "tel",
+          mask: "+7 (###) ###-##-##",
+          placeholder: "+7 (999) 999-99-99",
           model: "phone",
           error: "Обязательное поле, только цифры.",
         },
-        { title: "Email", model: "email", error: "Невалидный email.", },
+        { 
+          title: "Email", 
+          // type: "email",
+          model: "email", 
+          error: "Невалидный email.", 
+        },
       ],
       lastName: null,
       firstName: null,
@@ -177,5 +199,10 @@ export default {
       pointer-events: none;
     }
   }
+}
+
+.form-control::placeholder {
+  color: $color-pre-medium;
+  opacity: 1;
 }
 </style>

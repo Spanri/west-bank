@@ -33,7 +33,7 @@ export default {
 
 <style scoped lang="scss">
 .button:hover {
-  color: darken($color: $color-light, $amount: 40);
+  color: darken($color: $color-accent, $amount: 20);
   fill: darken($color: $color-light, $amount: 40);
   transition: 0.1s all ease-in-out;
 }
@@ -55,6 +55,7 @@ export default {
   }
 
   &__login {
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -67,9 +68,9 @@ export default {
     margin-bottom: 348px;
 
     &-button {
+      color: $color-accent;
       font-size: 36px;
       line-height: 154.2%;
-      color: white;
       text-decoration: none;
     }
   }

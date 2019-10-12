@@ -3,7 +3,7 @@
     <div class="signup3__welcome">
       <img
         class="signup3__logo"
-        src="../assets/logo-without-letters.svg"
+        src="../assets/logo.svg"
         alt="Логотип вест банк"
       />
     </div>
@@ -49,7 +49,12 @@ export default {
   color: $color-light;
 
   &__welcome {
-    margin-top: 129px;
+    margin-top: 62px;
+  }
+
+  &__logo {
+    margin-top: 189px;
+    margin-bottom: 60px;
   }
 
   &__text {
@@ -77,7 +82,7 @@ export default {
   }
 
   &__ad {
-    margin-top: 600px;
+    margin-top: 48px;
   }
 
   &__footer {

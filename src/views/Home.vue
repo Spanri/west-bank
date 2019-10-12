@@ -2,7 +2,7 @@
   <div class="home">
     <div class="bills">
       <p class="home__title home__title_bills">Счета</p>
-      <ItemCardOrBill
+      <ItemBillOrCard
         class="home__item"
         v-for="(item, index) in bills"
         :key="index"
@@ -12,7 +12,7 @@
     </div>
     <div class="cards">
       <p class="home__title home__title_cards">Карты</p>
-      <ItemCardOrBill
+      <ItemBillOrCard
         class="home__item"
         v-for="(item, index) in cards"
         :key="index"
@@ -75,7 +75,7 @@
 export default {
   name: "Home",
   components: {
-    ItemCardOrBill: () => import("@/components/ItemCardOrBill.vue"),
+    ItemBillOrCard: () => import("@/components/ItemBillOrCard.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
@@ -104,7 +104,7 @@ export default {
   width: calc((100vw - 1440px) / 2 + 654px);
 
   padding-left: calc((100vw - 1440px) / 2 + 43px);
-  @include color-main(background, 0.2);
+  @include color-opacity(background, $color-main, 0.2);
   border: 0;
   user-select: none;
 
@@ -118,7 +118,7 @@ export default {
   letter-spacing: 0.09em;
 
   &:hover {
-    @include color-dark(background, 5);
+    @include color-opacity(background, $color-main, 0.4);
   }
 }
 

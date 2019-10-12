@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <div id="app-inner">
+    <div class="app__header-wrapper">
       <Header class="app__header"/>
-      <main
-        class="app__main"
-        v-cloak>
-        <NavIfAuth
-          class="app__nav-if-auth"
-          v-if="isLoggedIn" />
-        <router-view class="app__content"/>
-      </main>
     </div>
+    <main class="app__main">
+      <NavIfAuth
+        class="app__nav-if-auth"
+        v-if="isLoggedIn" />
+      <router-view class="app__content"/>
+    </main>
   </div>
 </template>
 
@@ -42,25 +40,16 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Play&display=swap");
 
+*:hover {
+  transition: ease-in-out all 0.15s;
+}
+
 .button:hover {
   cursor: pointer;
 }
 
 ::selection {
   background: $color-main;
-}
-
-[v-cloak] > * {
-  display: none;
-}
-[v-cloak]::before {
-  content: " ";
-  background-image: url("data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==");
-
-  display: block;
-
-  width: 16px;
-  height: 16px;
 }
 
 #app {
@@ -74,20 +63,24 @@ export default {
   font-family: Play;
   font-style: normal;
   font-weight: normal; 
+}
 
-  &-inner {
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-
-    min-height: 100vh;
+.app {
+  &__header {
     max-width: 1440px;
-
+    
     margin: 0 auto;
+
+    &-wrapper {
+      background: $color-header;
+    }
   }
 
   &__main {
-    flex: 2 0px;
+    min-height: calc(100vh - 180px);
+    max-width: 1440px;
+
+    margin: 0 auto;
   }
 }
 </style>

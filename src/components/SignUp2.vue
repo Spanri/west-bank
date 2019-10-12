@@ -57,6 +57,7 @@ export default {
   }
 
   &__login {
+    color: $color-pre-light;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -68,9 +69,9 @@ export default {
     margin-bottom: 348px;
 
     &-button {
+      color: $color-pre-light;
       font-size: 36px;
       line-height: 144.2%;
-      color: $color-light;
       text-decoration: none;
     }
   }

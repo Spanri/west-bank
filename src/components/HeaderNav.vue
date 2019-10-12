@@ -1,43 +1,40 @@
 <template>
-  <div class="nav">
-    <nav class="nav__inner">
-      <router-link
-        to="/news"
-        class="nav__item"
-      >
-        Новости
-      </router-link>
-      <router-link
-        to="/about"
-        class="nav__item"
-      >
-        Частным
-        <br />
-        клиентам
-      </router-link>
-      <router-link
-        to="/about"
-        class="nav__item"
-      >
-        Бизнесу
-      </router-link>
-      <router-link
-        to="/about"
-        class="nav__item"
-      >
-        Финансовым
-        <br />
-        институтам
-      </router-link>
-      <router-link
-        to="/about"
-        class="nav__item"
-      >
-        О банке
-      </router-link>
-    </nav>
-    <hr class="nav__line" />
-  </div>
+  <nav class="nav">
+    <router-link
+      to="/news"
+      class="nav__item"
+    >
+      Новости
+    </router-link>
+    <router-link
+      to="/about"
+      class="nav__item"
+    >
+      Частным
+      <br />
+      клиентам
+    </router-link>
+    <router-link
+      to="/about"
+      class="nav__item"
+    >
+      Бизнесу
+    </router-link>
+    <router-link
+      to="/about"
+      class="nav__item"
+    >
+      Финансовым
+      <br />
+      институтам
+    </router-link>
+    <router-link
+      to="/about"
+      class="nav__item"
+    >
+      О банке
+    </router-link>
+  </nav>
 </template>
 
 <script>
@@ -49,25 +46,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .nav {
-  width: 100%;
-
-  display: inline-block;
-
   padding-right: 30px;
 
-  &__inner {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-  }
-
-  &__line {
-    margin: 0;
-    border: 2px solid $color-light;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
 
   &__item {
     color: white;
@@ -77,12 +63,12 @@ export default {
     user-select: none;
 
     &:hover {
-      color: $color-main-light;
+      color: $color-main;
     }
   }
 }
 
 .router-link-exact-active {
-  color: $color-main-light;
+  color: $color-main;
 }
 </style>

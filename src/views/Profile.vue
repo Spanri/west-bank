@@ -13,8 +13,11 @@
           alt="Иконка вместо фотографии пользователя 2"
         />
         <button
-class="profile__edit-photo"
-@click="editPhoto">Изменить</button>
+          class="profile__edit-photo"
+          @click="editPhoto"
+        >
+          Изменить
+        </button>
       </div>
       <div class="profile__data">
         <p class="profile__data-item">
@@ -32,13 +35,15 @@ class="profile__edit-photo"
     </div>
     <div class="profile__buttons">
       <button
-class="button profile__edit-data"
-@click="editData">
+        class="button profile__edit-data"
+        @click="editData"
+      >
         Редактировать данные
       </button>
       <button
-class="button profile__logout"
-@click="logout">
+        class="button profile__logout"
+        @click="logout"
+      >
         Выйти из аккаунта
       </button>
     </div>
@@ -76,7 +81,7 @@ export default {
   width: calc((100vw - 1440px) / 2 + 1166px);
 
   padding-left: calc((100vw - 1440px) / 2);
-  @include color-main(background, 0.2);
+  @include color-opacity(background, $color-main, 0.2);
   border: 0;
   user-select: none;
 
@@ -89,7 +94,7 @@ export default {
   letter-spacing: 0.09em;
 
   &:hover {
-    @include color-dark(background, 5);
+    @include color-opacity(background, $color-main, 0.4);
   }
 }
 
@@ -136,7 +141,7 @@ export default {
     background: transparent;
     margin-top: 24px;
 
-    color: $color-main-light;
+    color: $color-main;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -145,7 +150,7 @@ export default {
     text-align: right;
 
     &:hover {
-      @include color-main(color, 0.6);
+      @include color-opacity(background, $color-main, 0.6);
     }
   }
 

@@ -166,7 +166,7 @@ export default {
 
   &:hover {
     cursor: pointer;
-    @include color-main(background, 0.2);
+    @include color-opacity(background, $color-main, 0.6);
   }
 }
 

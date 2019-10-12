@@ -68,7 +68,6 @@
       <tr>
         <td class="currency__value">134,10</td>
         <td class="select-inner currency__symbol">
-          <input type="radio" />
           <select class="select currency__symbol-select">
             <option class="select__item">$</option>
             <option class="select__item">₽</option>
@@ -94,6 +93,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+*:hover {
+  transition: all ease-in-out 0s;
+}
+
 .currency {
   display: flex;
   justify-content: center;

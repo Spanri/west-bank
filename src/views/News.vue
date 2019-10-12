@@ -20,8 +20,5 @@ export default {
 <style scoped lang="scss">
 .news {
   height: 100%;
-  // position: relative;
-
-  color: white;
 }
 </style>

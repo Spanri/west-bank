@@ -1,6 +1,5 @@
 <template>
   <footer class="footer">
-    <p class="footer__logo">ООО<br />РНКО<br />”ВЕСТ”</p>
     <div class="footer__contacts">
       <span class="footer__contacts-item">Контактная информация</span>
       <span class="footer__contacts-item">+7 (495) 215 57 74</span>
@@ -32,24 +31,6 @@ export default {
   font-style: normal;
   font-weight: normal;
 
-  &__logo {
-    width: 135px;
-
-    flex-basis: 135px;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    margin: 0;
-    padding-left: 6px;
-    padding-right: 72px;
-
-    color: $color-main;
-    font-size: 24px;
-    line-height: 172.5%;
-    text-align: center;
-    letter-spacing: 0.22em;
-  }
-
   &__contacts {
     width: 100%;
 
@@ -61,6 +42,8 @@ export default {
     line-height: 22px;
     letter-spacing: 0.135em;
     text-align: left;
+
+    margin-left: 213px;
 
     &-item {
       padding-bottom: 24px;
@@ -89,7 +72,7 @@ export default {
 
       margin-top: 13px;
       border: 0;
-      @include color-main(background, 0.2);
+      @include color-opacity(background, $color-accent, 0.6);
       padding: 0 15px;
 
       color: $color-light;

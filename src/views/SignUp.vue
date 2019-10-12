@@ -5,23 +5,18 @@
         class="signup__nav-item"
         v-for="item in 3"
         :key="item"
-        :class="[
-          signUpPhase == `SignUp${item}` ? 'signup__nav-item_selected' : '',
-          signUpPhase == `SignUp${item + 1}`
-            ? 'signup__nav-item_preselected'
-            : '',
-          signUpPhase == 'SignUp1' && item == 2
-            ? 'signup__nav-item_preselected'
-            : ''
-        ]"
+        :class="`signup__nav-item${item}_phase${
+          signUpPhase.substring(signUpPhase.length - 1)
+        }`"
       >
         {{ item }}
       </span>
     </nav>
     <component
-:is="signUpPhase"
-@next="next"
-class="signup__content" />
+      :is="signUpPhase"
+      @next="next"
+      class="signup__content" 
+    />
   </div>
 </template>
 
@@ -85,10 +80,8 @@ export default {
       position: relative;
 
       height: 90px;
-      width: 128px;
 
-      @include color-main(background, 0.6);
-      box-shadow: 0px 4px 4px #000000;
+      @include color-opacity(background, $color-block-light, 0.8);
       user-select: none;
 
       font-family: Play;
@@ -97,30 +90,84 @@ export default {
       font-size: 24px;
       line-height: 28px;
 
-      &_selected {
-        z-index: 3;
-        @include color-main(background, 0.95);
+      &1_phase {
+        &1 {
+          width: 168px;
+
+          z-index: 3;
+          @include color-opacity(background, $color-block-dark, 0.95);
+          box-shadow: 0px 4px 4px #00000095;
+        } 
+
+        &2 {
+          width: 148px;
+
+          @include color-opacity(background, $color-block-light, 0.8); 
+          box-shadow: 0px 4px 4px #00000080;
+        } 
+
+        &3 {
+          width: 128px;
+
+          z-index: 3;
+          @include color-opacity(background, $color-block-light, 0.6); 
+          box-shadow: 0px 4px 4px #00000060;
+        } 
       }
 
-      &_preselected {
-        @include color-main(background, 0.8);
+      &2_phase {
+        &1 {
+          width: 148px;
+
+          @include color-opacity(background, $color-block-medium, 0.9);
+          box-shadow: 0px 4px 4px #00000090;
+        } 
+
+        &2 {
+          width: 168px;
+
+          z-index: 3;
+          @include color-opacity(background, $color-block-dark, 0.95); 
+          box-shadow: 0px 4px 4px #00000095;
+        } 
+
+        &3 {
+          width: 148px;
+          
+          @include color-opacity(background, $color-block-medium, 0.8); 
+          box-shadow: 0px 4px 4px #00000080;
+        } 
       }
 
-      &:nth-child(1) {
-        width: 168px;
+      &3_phase {
+        &1 {
+          width: 128px;
+
+          @include color-opacity(background, $color-block-light, 0.85);
+          box-shadow: 0px 4px 4px #00000085;
+        } 
+
+        &2 {
+          width: 128px;
+
+          @include color-opacity(background, $color-block-medium, 0.6); 
+          box-shadow: 0px 4px 4px #00000060;
+        } 
+
+        &3 {
+          width: 168px;
+
+          z-index: 3;
+          @include color-opacity(background, $color-block-dark, 0.95); 
+          box-shadow: 0px 4px 4px #00000095;
+        } 
       }
 
       &:nth-child(2) {
-        width: 148px;
-
         top: -7px;
-
-        z-index: 2;
       }
 
       &:nth-child(3) {
-        width: 128px;
-        
         top: -29px;
       }
     }

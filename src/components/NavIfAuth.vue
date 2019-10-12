@@ -18,7 +18,7 @@
 <style lang="scss" scoped>
 .router-link-active {
   box-shadow: none !important;
-  @include color-main(background, 0.95, !important);
+  @include color-opacity(background, $color-main, 0.95);
   width: calc((100vw - 1440px) / 2 + 383px) !important;
   z-index: 3;
 }
@@ -50,7 +50,8 @@
     position: absolute;
     right: 0;
 
-    @include color-main(background, 0.8);
+    @include color-opacity(background, $color-main, 0.8);
+
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
     user-select: none;
 

@@ -1,11 +1,12 @@
 <template>
   <div class="login">
-    <p class="login__title">Войти</p>
+    <p class="login__title">Вход</p>
     <div class="login__input input-block-wrapper">
       <div
-class="input-block"
-v-for="(block, index) in blocks"
-:key="index">
+        class="input-block"
+        v-for="(block, index) in blocks"
+        :key="index"
+      >
         <span class="input-block__title">{{ block.title }}</span>
         <input
           class="input-block__input"
@@ -16,8 +17,9 @@ v-for="(block, index) in blocks"
       </div>
     </div>
     <button
-class="button login__button"
-@click="loginMethod">
+      class="button login__button"
+      @click="loginMethod"
+    >
       Войти
     </button>
     <div class="login__ad">
@@ -36,7 +38,7 @@ export default {
     return {
       blocks: [
         { title: "Логин *", model: "login", },
-        { title: "Пароль *", model: "password", },
+        { title: "Пароль *", model: "password", type: "password", },
       ],
       login: "",
       password: "",
