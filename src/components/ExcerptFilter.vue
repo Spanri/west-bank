@@ -1,6 +1,6 @@
 <template>
   <div class="filter">
-    <div>Выписка за период</div>
+    <div class="filter__title">Выписка за период</div>
     <div />
     <span>с</span>
     <input
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "Profile",
+  name: "ExcerptFilter",
   data() {
     return {
       dateStart: null,
@@ -50,10 +50,8 @@ export default {
   line-height: 42px;
   letter-spacing: 0.09em;
 
-  *:nth-child(1) {
-    height: 60px;
-
-    
+  &__title {
+    margin-bottom: 18px;
   }
 
   &__input {
@@ -66,10 +64,6 @@ export default {
     margin: 0 42px;
     padding: 0 auto;
 
-    // display: flex;
-    align-items: center;
-    flex-direction: row;
-
     color: $color-light;
     vertical-align: middle;
     font-family: Play;
@@ -79,5 +73,4 @@ export default {
     line-height: 28px;
   }
 }
-  
 </style>

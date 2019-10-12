@@ -32,7 +32,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header {
   height: 172px;
@@ -45,6 +44,7 @@ export default {
   box-sizing: border-box;
 
   &__logo {
+    user-select: none;
     padding: 15px 25px 0 27px;
   }
 

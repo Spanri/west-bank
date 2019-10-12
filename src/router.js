@@ -7,6 +7,7 @@ import SignUp from "./views/SignUp.vue";
 import Profile from "./views/Profile.vue";
 import BillOrCard from "./views/BillOrCard.vue";
 import Excerpt from "./views/Excerpt.vue";
+import Transfers from "./views/Transfers.vue";
 import store from "./store";
 
 Vue.use(Router);
@@ -84,6 +85,12 @@ export default new Router({
       path: "/excerpt/:id",
       name: "excerpt",
       component: Excerpt,
+      beforeEnter: ifAuthenticated,
+    },
+    {
+      path: "/transfers/:type",
+      name: "transfers",
+      component: Transfers,
       beforeEnter: ifAuthenticated,
     },
   ],

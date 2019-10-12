@@ -77,7 +77,7 @@ export default {
   }
 
   &__main {
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 172px);
     max-width: 1440px;
 
     margin: 0 auto;

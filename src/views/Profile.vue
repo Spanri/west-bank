@@ -12,12 +12,12 @@
           src="../assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя 2"
         />
-        <button
+        <div
           class="profile__edit-photo"
           @click="editPhoto"
         >
           Изменить
-        </button>
+        </div>
       </div>
       <div class="profile__data">
         <p class="profile__data-item">
@@ -34,18 +34,18 @@
       </div>
     </div>
     <div class="profile__buttons">
-      <button
+      <div
         class="button profile__edit-data"
         @click="editData"
       >
-        Редактировать данные
-      </button>
-      <button
+        <p class="profile__buttons-text">Редактировать данные</p>
+      </div>
+      <div
         class="button profile__logout"
         @click="logout"
       >
-        Выйти из аккаунта
-      </button>
+        <p class="profile__buttons-text">Выйти из аккаунта</p>
+      </div>
     </div>
     <Footer class="profile__footer" />
   </div>
@@ -94,6 +94,7 @@ export default {
   letter-spacing: 0.09em;
 
   &:hover {
+    cursor: pointer;
     @include color-opacity(background, $color-main, 0.4);
   }
 }
@@ -119,6 +120,10 @@ export default {
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
     top: 627px;
+
+    &-text {
+      padding-top: 7px;
+    }
 
     .button:nth-child(1) {
       margin-bottom: 50px;
@@ -150,7 +155,8 @@ export default {
     text-align: right;
 
     &:hover {
-      @include color-opacity(background, $color-main, 0.6);
+      cursor: pointer;
+      @include color-opacity(color, $color-main, 0.6);
     }
   }
 

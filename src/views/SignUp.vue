@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <nav class="signup__nav">
-      <span
+      <div
         class="signup__nav-item"
         v-for="item in 3"
         :key="item"
@@ -9,9 +9,9 @@
           signUpPhase.substring(signUpPhase.length - 1)
         }`"
       >
-        {{ item }}
-      </span>
-    </nav>
+        <span class="signup__nav-text">{{ item }}</span>
+      </div>
+    </nav>    
     <component
       :is="signUpPhase"
       @next="next"
@@ -64,7 +64,7 @@ export default {
   &__nav {
     position: absolute;
     right: 0;
-    margin-top: calc(100% / 2 - 550px);
+    margin-top: 353px;
 
     display: flex;
     flex-direction: column;
@@ -72,9 +72,13 @@ export default {
 
     color: $color-light;
 
+    &-text {
+      width: calc((100vw - 1440px) / 2 + 84px);
+    }
+
     &-item {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
 
       position: relative;
@@ -84,6 +88,7 @@ export default {
       @include color-opacity(background, $color-block-light, 0.8);
       user-select: none;
 
+      text-align: left;
       font-family: Play;
       font-style: normal;
       font-weight: bold;
@@ -92,7 +97,7 @@ export default {
 
       &1_phase {
         &1 {
-          width: 168px;
+          width: calc((100vw - 1440px) / 2 + 168px);
 
           z-index: 3;
           @include color-opacity(background, $color-block-dark, 0.95);
@@ -100,14 +105,14 @@ export default {
         } 
 
         &2 {
-          width: 148px;
+          width: calc((100vw - 1440px) / 2 + 148px);
 
           @include color-opacity(background, $color-block-light, 0.8); 
           box-shadow: 0px 4px 4px #00000080;
         } 
 
         &3 {
-          width: 128px;
+          width: calc((100vw - 1440px) / 2 + 128px);
 
           z-index: 3;
           @include color-opacity(background, $color-block-light, 0.6); 
@@ -117,14 +122,14 @@ export default {
 
       &2_phase {
         &1 {
-          width: 148px;
+          width: calc((100vw - 1440px) / 2 + 148px);
 
           @include color-opacity(background, $color-block-medium, 0.9);
           box-shadow: 0px 4px 4px #00000090;
         } 
 
         &2 {
-          width: 168px;
+          width: calc((100vw - 1440px) / 2 + 168px);
 
           z-index: 3;
           @include color-opacity(background, $color-block-dark, 0.95); 
@@ -132,7 +137,7 @@ export default {
         } 
 
         &3 {
-          width: 148px;
+          width: calc((100vw - 1440px) / 2 + 148px);
           
           @include color-opacity(background, $color-block-medium, 0.8); 
           box-shadow: 0px 4px 4px #00000080;
@@ -141,21 +146,21 @@ export default {
 
       &3_phase {
         &1 {
-          width: 128px;
+          width: calc((100vw - 1440px) / 2 + 128px);
 
           @include color-opacity(background, $color-block-light, 0.85);
           box-shadow: 0px 4px 4px #00000085;
         } 
 
         &2 {
-          width: 128px;
+          width: calc((100vw - 1440px) / 2 + 128px);
 
           @include color-opacity(background, $color-block-medium, 0.6); 
           box-shadow: 0px 4px 4px #00000060;
         } 
 
         &3 {
-          width: 168px;
+          width: calc((100vw - 1440px) / 2 + 168px);
 
           z-index: 3;
           @include color-opacity(background, $color-block-dark, 0.95); 
@@ -170,6 +175,56 @@ export default {
       &:nth-child(3) {
         top: -29px;
       }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .signup__nav-text {
+    width: 84px;
+  }
+
+  .signup__nav-item {
+    &1_phase {
+      &1 {
+        width: 168px;
+      } 
+
+      &2 {
+        width: 148px;
+      } 
+
+      &3 {
+        width: 128px;
+      } 
+    }
+
+    &2_phase {
+      &1 {
+        width: 148px;
+      } 
+
+      &2 {
+        width: 168px;
+      } 
+
+      &3 {
+        width: 148px;
+      } 
+    }
+
+    &3_phase {
+      &1 {
+        width: 128px;
+      } 
+
+      &2 {
+        width: 128px;
+      } 
+
+      &3 {
+        width: 168px;
+      } 
     }
   }
 }

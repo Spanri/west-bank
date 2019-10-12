@@ -5,6 +5,7 @@
         class="excerpt__filter"
         @filter="filter"
       />
+      <ExcerptTable class="excerpt__table"/>
     </div>
     <div class="excerpt__doc-and-footer">
       <div class="excerpt__document-wrapper">
@@ -22,9 +23,10 @@
 
 <script>
 export default {
-  name: "Profile",
+  name: "Excerpt",
   components: {
     ExcerptFilter: () => import("@/components/ExcerptFilter.vue"),
+    ExcerptTable: () => import("@/components/ExcerptTable.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
@@ -33,13 +35,6 @@ export default {
       dateStart: null,
       dateEnd: null,
     };
-  },
-  filters: {
-    excerptFilter(value) {
-      if (!value) return this.items;
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    },
   },
   methods: {
     filter(data) {
@@ -63,43 +58,7 @@ export default {
   }
 
   &__filter {
-    color: $color-light;
-    text-align: left;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: 0.09em;
-
-    *:nth-child(1) {
-      height: 60px;
-
-      margin-top: 87px;
-    }
-  }
-
-  &__input {
-    width: 281px;
-    height: 37px;
-
-    background: $color-medium;
-    border: 0;
-    border-radius: 10px;
-    margin: 0 42px;
-    padding: 0 auto;
-
-    // display: flex;
-    align-items: center;
-    flex-direction: row;
-
-    color: $color-light;
-    vertical-align: middle;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
-    line-height: 28px;
+    margin-bottom: 48px;
   }
 
   &__document {
@@ -112,6 +71,7 @@ export default {
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
 
+    user-select: none;
     margin-left: 0px;
     @include color-opacity(background, $color-block-light, 0.2);
 
