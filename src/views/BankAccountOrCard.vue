@@ -1,39 +1,39 @@
 <template>
-  <div class="bill-or-card">
-    <ItemBillOrCard
-      class="bill-or-card__item"
-      type="bill"
+  <div class="bankAccount-or-card">
+    <ItemBankAccountOrCard
+      class="bankAccount-or-card__item"
+      type="bankAccount"
       :item="item"
     />
-    <div class="bill-or-card__info">
-      <p class="bill-or-card__info-item">
-        <span class="bill-or-card__info-title">
+    <div class="bankAccount-or-card__info">
+      <p class="bankAccount-or-card__info-item">
+        <span class="bankAccount-or-card__info-title">
           Статус:
         </span>
-        <span class="bill-or-card__info-data">
+        <span class="bankAccount-or-card__info-data">
           {{ item.status }}
         </span>
       </p>
-      <p class="bill-or-card__info-item">
-        <span class="bill-or-card__info-title">
+      <p class="bankAccount-or-card__info-item">
+        <span class="bankAccount-or-card__info-title">
           Вид:
         </span>
-        <span class="bill-or-card__info-data">
+        <span class="bankAccount-or-card__info-data">
           {{ item.type }}
         </span>
       </p>
-      <p class="bill-or-card__info-item">
-        <span class="bill-or-card__info-title">
+      <p class="bankAccount-or-card__info-item">
+        <span class="bankAccount-or-card__info-title">
           Ограничения:
         </span>
-        <span class="bill-or-card__info-data">
+        <span class="bankAccount-or-card__info-data">
           {{ item.constraints }}
         </span>
       </p>
     </div>
-    <div class="bill-or-card__button">
+    <div class="bankAccount-or-card__button">
       <div 
-        class="bill-or-card__excerpt"
+        class="bankAccount-or-card__excerpt"
         @click="goToExcerpt"
       >
         <span>Выписка</span>
@@ -50,9 +50,9 @@
           />
         </svg>
       </div>
-      <div class="bill-or-card__lock-out-wrapper">
-        <div class="button bill-or-card__lock-out">
-          <span class="button bill-or-card__lock-out-button">
+      <div class="bankAccount-or-card__lock-out-wrapper">
+        <div class="button bankAccount-or-card__lock-out">
+          <span class="button bankAccount-or-card__lock-out-button">
             Заблокировать счёт
           </span>
         </div>
@@ -64,9 +64,9 @@
 
 <script>
 export default {
-  name: "BillOrCard",
+  name: "bankAccountOrCard",
   components: {
-    ItemBillOrCard: () => import("@/components/ItemBillOrCard.vue"),
+    ItemBankAccountOrCard: () => import("@/components/ItemBankAccountOrCard.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
@@ -107,7 +107,7 @@ export default {
   padding: 0;
 }
 
-.bill-or-card {
+.bankAccount-or-card {
   height: 100%;
 
   color: $color-light;
@@ -124,7 +124,7 @@ export default {
 
     /* 
     Не получается переопределить то, то в 
-    компоненте ItemBillOrCard:^(
+    компоненте ItembankAccountOrCard:^(
     */
     .item:hover {
       cursor: default !important;

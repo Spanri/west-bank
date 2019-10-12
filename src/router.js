@@ -5,9 +5,10 @@ import News from "./views/News.vue";
 import Login from "./views/Login.vue";
 import SignUp from "./views/SignUp.vue";
 import Profile from "./views/Profile.vue";
-import BillOrCard from "./views/BillOrCard.vue";
+import BankAccountOrCard from "./views/BankAccountOrCard.vue";
 import Excerpt from "./views/Excerpt.vue";
 import Transfers from "./views/Transfers.vue";
+import ForPrivateClients from "./views/ForPrivateClients.vue";
 import store from "./store";
 
 Vue.use(Router);
@@ -70,15 +71,15 @@ export default new Router({
       beforeEnter: ifAuthenticated,
     },
     {
-      path: "/bill/:id",
-      name: "bill",
-      component: BillOrCard,
+      path: "/bank-account/:id",
+      name: "bank-account",
+      component: BankAccountOrCard,
       beforeEnter: ifAuthenticatedAndValidId,
     },
     {
       path: "/card/:id",
       name: "card",
-      component: BillOrCard,
+      component: BankAccountOrCard,
       beforeEnter: ifAuthenticatedAndValidId,
     },
     {
@@ -88,10 +89,20 @@ export default new Router({
       beforeEnter: ifAuthenticated,
     },
     {
+      path: "/transfers",
+      name: "transfers-links",
+      component: Transfers,
+    },
+    {
       path: "/transfers/:type",
       name: "transfers",
       component: Transfers,
       beforeEnter: ifAuthenticated,
+    },
+    {
+      path: "/for-private-clients",
+      name: "for-private-clients",
+      component: ForPrivateClients,
     },
   ],
 });

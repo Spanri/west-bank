@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <div class="bills">
-      <p class="home__title home__title_bills">Счета</p>
-      <ItemBillOrCard
+    <div class="bank-accounts">
+      <p class="home__title home__title_bank-accounts">Счета</p>
+      <ItemBankAccountOrCard
         class="home__item"
-        v-for="(item, index) in bills"
+        v-for="(item, index) in bankAccounts"
         :key="index"
-        type="bill"
+        type="bank-account"
         :item="item"
       />
     </div>
     <div class="cards">
       <p class="home__title home__title_cards">Карты</p>
-      <ItemBillOrCard
+      <ItemBankAccountOrCard
         class="home__item"
         v-for="(item, index) in cards"
         :key="index"
@@ -23,8 +23,8 @@
     <div class="home__buttons-wrapper">
       <div class="home__buttons">
         <button
-          class="button home__open-bill"
-          @click="goToOpenBill"
+          class="button home__open-bank-account"
+          @click="goToOpenBankAccount"
         >
           <svg
             width="26"
@@ -75,15 +75,15 @@
 export default {
   name: "Home",
   components: {
-    ItemBillOrCard: () => import("@/components/ItemBillOrCard.vue"),
+    ItemBankAccountOrCard: () => import("@/components/ItemBankAccountOrCard.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
-      bills: [
+      bankAccounts: [
         { id: 0, number: "4560", money: "65.25", currency: 0, },
         { id: 1, number: "7654", money: "123.84", currency: 1, },
-        { id: 1, number: "7777", money: "9999999999.99", currency: 2, },
+        { id: 2, number: "7777", money: "9999999999.99", currency: 2, },
       ],
       cards: [
         { id: 0, number: "4560", money: "65.25", currency: 0, },
@@ -92,7 +92,7 @@ export default {
     };
   },
   methods: {
-    goToOpenBill() {},
+    goToOpenBankAccount() {},
     goToMobileNetwork() {},
   },
 };
@@ -134,7 +134,7 @@ export default {
   line-height: 42px;
 
   &__title {
-    &_bills {
+    &_bank-accounts {
       margin-top: 64px;
       margin-bottom: 40px;
 
@@ -177,7 +177,7 @@ export default {
 }
 
 .cards,
-.bills {
+.bank-accounts {
   margin-left: 43px;
 }
 

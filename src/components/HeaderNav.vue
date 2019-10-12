@@ -7,7 +7,7 @@
       Новости
     </router-link>
     <router-link
-      to="/about"
+      to="/for-private-clients"
       class="nav__item"
     >
       Частным

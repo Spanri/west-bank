@@ -2,7 +2,7 @@
   <div class="item-wrapper">
     <div
       class="item"
-      @click="goToBillorCard(item.id)"
+      @click="goToBankAccountorCard(item.id)"
     >
       <div class="item-without-currency">
         <svg
@@ -114,7 +114,7 @@ export default {
     },
   },
   methods: {
-    goToBillorCard(id) {
+    goToBankAccountorCard(id) {
       this.$router.push({
         name: this.type,
         params: {

@@ -6,7 +6,7 @@
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth"
-        v-if="isLoggedIn" />
+        v-if="isLoggedIn && currentRouteName != 'for-private-clients'" />
       <router-view class="app__content"/>
     </main>
   </div>
@@ -24,6 +24,9 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
+    },
+    currentRouteName() {
+      return this.$route.name;
     },
   },
   created() {
