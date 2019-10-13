@@ -1,16 +1,10 @@
 <template>
-  <div class="signup2">
-    <p class="signup2__title">Регистрация</p>
-    <SignUp2Inputs 
-      class="signup2__inputs" 
-      @next="next"
-    />
-    <p class="signup2__login">
+  <div class="signup1">
+    <p class="signup1__title">Регистрация</p>
+    <SignUp1Inputs class="signup1__inputs" @next="next" />
+    <p class="signup1__login">
       Уже есть аккаунт?<br />
-      <router-link
-        to="/login"
-        class="button signup2__login-button"
-      >
+      <router-link to="/login" class="button signup1__login-button">
         Войти
       </router-link>
     </p>
@@ -19,9 +13,9 @@
 
 <script>
 export default {
-  name: "SignUp2",
+  name: "SignUp1",
   components: {
-    SignUp2Inputs: () => import("@/components/SignUp2Inputs.vue"),
+    SignUp1Inputs: () => import("@/components/SignUp/SignUp1Inputs.vue"),
   },
   methods: {
     next(component) {
@@ -32,15 +26,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button:hover,
-.button:hover .signup1__button-svg {
-  color: darken($color: $color-light, $amount: 40);
-
+.button:hover {
+  color: darken($color: $color-accent, $amount: 20);
   fill: darken($color: $color-light, $amount: 40);
   transition: 0.1s all ease-in-out;
 }
 
-.signup2 {
+.signup1 {
   height: auto;
 
   color: $color-light;
@@ -48,7 +40,7 @@ export default {
   &__title {
     margin: 88px 0 111px 155px;
 
-    color: $color-light;
+    color: white;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -57,7 +49,7 @@ export default {
   }
 
   &__login {
-    color: $color-pre-light;
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -65,13 +57,14 @@ export default {
     line-height: 35px;
     text-align: center;
 
+    margin: 0;
     margin-left: 155px;
     margin-bottom: 348px;
 
     &-button {
-      color: $color-pre-light;
+      color: $color-accent;
       font-size: 36px;
-      line-height: 144.2%;
+      line-height: 154.2%;
       text-decoration: none;
     }
   }

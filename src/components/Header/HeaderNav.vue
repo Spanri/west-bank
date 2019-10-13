@@ -1,40 +1,21 @@
 <template>
-  <nav class="nav">
-    <router-link
-      to="/news"
-      class="nav__item"
-    >
+  <div class="nav">
+    <router-link to="/news" class="nav__item">
       Новости
     </router-link>
-    <router-link
-      to="/for-private-clients"
-      class="nav__item"
-    >
-      Частным
-      <br />
-      клиентам
+    <router-link to="/for-private-clients" class="nav__item">
+      Частным <br /> клиентам
     </router-link>
-    <router-link
-      to="/about"
-      class="nav__item"
-    >
+    <router-link to="/about" class="nav__item">
       Бизнесу
     </router-link>
-    <router-link
-      to="/about"
-      class="nav__item"
-    >
-      Финансовым
-      <br />
-      институтам
+    <router-link to="/about" class="nav__item">
+      Финансовым <br /> институтам
     </router-link>
-    <router-link
-      to="/about"
-      class="nav__item"
-    >
+    <router-link to="/about" class="nav__item">
       О банке
     </router-link>
-  </nav>
+  </div>
 </template>
 
 <script>
@@ -43,7 +24,6 @@ export default {
 };
 </script>
 
- 
 <style scoped lang="scss">
 .nav {
   padding-right: 30px;

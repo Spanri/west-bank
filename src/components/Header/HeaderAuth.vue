@@ -7,7 +7,7 @@
     >
       <img
         class="auth__logo"
-        src="../assets/auth-link.svg"
+        src="@/assets/auth-link.svg"
         alt="Иконка входа в веб-банк"
       />
       <span class="auth__text">Войти в веб-банк</span>

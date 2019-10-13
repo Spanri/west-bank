@@ -1,12 +1,8 @@
 <template>
-  <form 
-    class="input-block-wrapper"
-    @submit.prevent="submit"
-  >
+  <form class="input-block-wrapper" @submit.prevent="submit">
     <div 
       class="input-block" 
-      v-for="(block, index) in blocks" 
-      :key="index"
+      v-for="(block, index) in blocks" :key="index"
     >
       <span class="input-block__title">
         {{ block.title }}
@@ -27,17 +23,14 @@
       </b-form-invalid-feedback>
     </div>
     <button
-      type="submit"
+      type="submit" :class="{ invalid: $v.$invalid }"
       class="button input-block__submit"
-      :class="{ invalid: $v.$invalid }"
     >
       <span class="input-block__submit-text">Далее </span>
       <svg
         class="input-block__submit-svg"
-        width="27"
-        height="16"
-        viewBox="0 0 27 16"
-        fill="none"
+        width="27" height="16"
+        viewBox="0 0 27 16" fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

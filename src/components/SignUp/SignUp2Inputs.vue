@@ -1,12 +1,8 @@
 <template>
-  <form 
-    class="input-block-wrapper" 
-    @submit.prevent="submit"
-  >
+  <form class="input-block-wrapper" @submit.prevent="submit">
     <div
       class="input-block"
-      v-for="(block, index) in blocks"
-      :key="index"
+      v-for="(block, index) in blocks" :key="index"
     >
       <span
         class="input-block__title"
@@ -31,26 +27,17 @@
       >
         {{ block.error }}
       </b-form-invalid-feedback>
-      <p
-        v-if="block.model == 'password'"
-        class="input-block__description"
-      >
+      <p v-if="block.model == 'password'" class="input-block__description">
         Пароль должен содержать не менее 8 символов, должны присутствовать 
         строчные и заглавные буквы, должен присутствовать один из символов 
         !»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
         повторяющиеся символы в нижнем и верхнем регистре.
       </p>
-      <p
-        v-if="block.model == 'password'"
-        class="input-block__edit"
-      >
+      <p v-if="block.model == 'password'" class="input-block__edit">
         изменить
       </p>
     </div>
-    <button
-      type="submit"
-      class="button input-block__submit"
-    >
+    <button type="submit" class="button input-block__submit">
       Зарегистрироваться
     </button>
     <br />

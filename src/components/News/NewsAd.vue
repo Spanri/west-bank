@@ -3,12 +3,9 @@
     <div class="news-ad">
       <div class="news-ad__first"></div>
       <div class="news-ad__second"></div>
-      <Ad 
-        class="news-ad__ad"
-        lengthAdBlock="680px"
-      />
+      <Ad class="news-ad__ad" lengthAdBlock="680px"/>
       <img
-        src="../assets/card.svg"
+        src="@/assets/card.svg"
         alt="Банковская карта"
         class="news-ad__card"
       />

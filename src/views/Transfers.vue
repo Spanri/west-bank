@@ -4,21 +4,17 @@
     <div v-if="$route.params.type == undefined">
       <p 
         class="transfers__button"
-        v-for="(item, index) in items"
-        :key="index"
+        v-for="(item, index) in items" :key="index"
       >
         <router-link
-          class="transfers__link"
+          class="transfers__link" :to="item.to"
           :class="index == 0 ? 'transfers__link-accent' : ''"
-          :to="item.to"
         >
           {{ item.title }}
         </router-link>
         <svg
-          width="38"
-          height="38"
-          viewBox="0 0 38 38"
-          fill="none"
+          width="38" height="38"
+          viewBox="0 0 38 38" fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -28,10 +24,7 @@
         </svg>
       </p>
     </div>
-    <TransfersInputs
-      v-else
-      class="transfers__inputs"
-    />
+    <TransfersInputs v-else class="transfers__inputs" />
   </div>
 </template>
 

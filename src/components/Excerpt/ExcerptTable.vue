@@ -6,10 +6,7 @@
       <th class="table__header-item">Статус</th>
       <th class="table__header-item">Куда</th>
     </tr>
-    <tr
-      v-for="(item, index) in items"
-      :key="index"
-    >
+    <tr v-for="(item, index) in items" :key="index">
       <td class="table__item table__item_first">{{ item.date }}</td>
       <td 
         class="table__item"

@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <div class="app__header-wrapper">
-      <Header class="app__header"/>
+      <Header class="app__header app__header_more768"/>
+      <Header768 class="app__header app__header_768"/>
     </div>
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth"
-        v-if="isLoggedIn && currentRouteName != 'for-private-clients'" />
+        v-if="isLoggedIn && currentRouteName != 'for-private-clients'" 
+      />
       <router-view class="app__content"/>
     </main>
   </div>
@@ -18,7 +20,8 @@ import axios from "axios";
 export default {
   name: "App",
   components: {
-    Header: () => import("@/components/Header.vue"),
+    Header: () => import("@/components/Header/Header.vue"),
+    Header768: () => import("@/components/Header/Header768.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
   },
   computed: {
@@ -84,6 +87,32 @@ export default {
     max-width: 1440px;
 
     margin: 0 auto;
+  }
+}
+
+
+@media (min-width: 951px) {
+  .app__header {
+    &_more768 {
+      display: flex;
+    }
+
+    &_768 {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .app__header {
+    &_more768 {
+      display: none;
+      background: red;
+    }
+
+    &_768 {
+      display: flex;
+    }
   }
 }
 </style>

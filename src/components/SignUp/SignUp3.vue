@@ -3,17 +3,14 @@
     <div class="signup3__welcome">
       <img
         class="signup3__logo"
-        src="../assets/logo.svg"
+        src="@/assets/logo.svg"
         alt="Логотип вест банк"
       />
     </div>
     <p class="signup3__text">
       Добро пожаловать!
     </p>
-    <router-link
-      class="signup3__link"
-      to="/news"
-    >
+    <router-link class="signup3__link" to="/news">
       Перейти в онлайн-банк
     </router-link>
     <Ad class="signup3__ad" />

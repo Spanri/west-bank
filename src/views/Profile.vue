@@ -12,10 +12,7 @@
           src="../assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя 2"
         />
-        <div
-          class="profile__edit-photo"
-          @click="editPhoto"
-        >
+        <div class="profile__edit-photo" @click="editPhoto">
           Изменить
         </div>
       </div>
@@ -34,16 +31,10 @@
       </div>
     </div>
     <div class="profile__buttons">
-      <div
-        class="button profile__edit-data"
-        @click="editData"
-      >
+      <div class="button profile__edit-data" @click="editData">
         <p class="profile__buttons-text">Редактировать данные</p>
       </div>
-      <div
-        class="button profile__logout"
-        @click="logout"
-      >
+      <div class="button profile__logout" @click="logout">
         <p class="profile__buttons-text">Выйти из аккаунта</p>
       </div>
     </div>

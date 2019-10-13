@@ -3,8 +3,7 @@
     <nav class="signup__nav">
       <div
         class="signup__nav-item"
-        v-for="item in 3"
-        :key="item"
+        v-for="item in 3" :key="item"
         :class="`signup__nav-item${item}_phase${
           signUpPhase.substring(signUpPhase.length - 1)
         }`"
@@ -13,8 +12,7 @@
       </div>
     </nav>    
     <component
-      :is="signUpPhase"
-      @next="next"
+      :is="signUpPhase" @next="next"
       class="signup__content" 
     />
   </div>
@@ -24,9 +22,9 @@
 export default {
   name: "SignUp",
   components: {
-    SignUp1: () => import("@/components/SignUp1.vue"),
-    SignUp2: () => import("@/components/SignUp2.vue"),
-    SignUp3: () => import("@/components/SignUp3.vue"),
+    SignUp1: () => import("@/components/SignUp/SignUp1.vue"),
+    SignUp2: () => import("@/components/SignUp/SignUp2.vue"),
+    SignUp3: () => import("@/components/SignUp/SignUp3.vue"),
   },
   props: {
     phase: {

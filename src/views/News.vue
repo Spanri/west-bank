@@ -10,8 +10,8 @@
 export default {
   name: "News",
   components: {
-    NewsAd: () => import("@/components/NewsAd.vue"),
-    NewsCurrency: () => import("@/components/NewsCurrency.vue"),
+    NewsAd: () => import("@/components/News/NewsAd.vue"),
+    NewsCurrency: () => import("@/components/News/NewsCurrency.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
 };

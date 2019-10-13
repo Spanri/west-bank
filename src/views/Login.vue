@@ -4,22 +4,17 @@
     <div class="login__input input-block-wrapper">
       <div
         class="input-block"
-        v-for="(block, index) in blocks"
-        :key="index"
+        v-for="(block, index) in blocks" :key="index"
       >
         <span class="input-block__title">{{ block.title }}</span>
         <input
           class="input-block__input"
-          :v-model="block.model"
-          :required="block.required"
+          :v-model="block.model" :required="block.required"
           :type="block.type"
         />
       </div>
     </div>
-    <button
-      class="button login__button"
-      @click="loginMethod"
-    >
+    <button class="button login__button" @click="loginMethod">
       Войти
     </button>
     <div class="login__ad">

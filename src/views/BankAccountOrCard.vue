@@ -2,8 +2,7 @@
   <div class="bankAccount-or-card">
     <ItemBankAccountOrCard
       class="bankAccount-or-card__item"
-      type="bankAccount"
-      :item="item"
+      type="bankAccount" :item="item"
     />
     <div class="bankAccount-or-card__info">
       <p class="bankAccount-or-card__info-item">
@@ -32,16 +31,11 @@
       </p>
     </div>
     <div class="bankAccount-or-card__button">
-      <div 
-        class="bankAccount-or-card__excerpt"
-        @click="goToExcerpt"
-      >
+      <div class="bankAccount-or-card__excerpt" @click="goToExcerpt">
         <span>Выписка</span>
         <svg
-          width="38"
-          height="38"
-          viewBox="0 0 38 38"
-          fill="none"
+          width="38" height="38"
+          viewBox="0 0 38 38" fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

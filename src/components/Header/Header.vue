@@ -1,11 +1,8 @@
 <template>
   <header class="header">
-    <router-link
-      to="/"
-      class="header__logo"
-    >
+    <router-link to="/" class="header__logo">
       <img
-        src="../assets/logo-header.svg"
+        src="@/assets/logo-header.svg"
         alt="Логотип вест банк"
         class="header__logo-img"
       />
@@ -26,8 +23,8 @@
 export default {
   name: "Header",
   components: {
-    HeaderNav: () => import("@/components/HeaderNav.vue"),
-    HeaderAuth: () => import("@/components/HeaderAuth.vue"),
+    HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
+    HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },
 };
 </script>

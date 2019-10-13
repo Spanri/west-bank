@@ -1,15 +1,9 @@
 <template>
   <nav class="nav">
-    <router-link
-      to="/home"
-      class="nav__item"
-    >
+    <router-link to="/home" class="nav__item">
       <span class="nav__text">Онлайн-банк</span>
     </router-link>
-    <router-link
-      to="/transfers"
-      class="nav__item"
-    >
+    <router-link to="/transfers" class="nav__item">
       <span class="nav__text">Переводы</span>
     </router-link>
   </nav>

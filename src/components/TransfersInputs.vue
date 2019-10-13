@@ -1,12 +1,8 @@
 <template>
-  <form
-    class="input-block-wrapper"
-    @submit.prevent="submit"
-  >
+  <form class="input-block-wrapper" @submit.prevent="submit">
     <div
       class="input-block" 
-      v-for="(block, index) in blocks" 
-      :key="index"
+      v-for="(block, index) in blocks" :key="index"
     >
       <span class="input-block__title">
         {{ block.title }}
@@ -27,17 +23,14 @@
       </b-form-invalid-feedback>
     </div>
     <button
-      type="submit"
-      class="button input-block__submit"
+      type="submit" class="button input-block__submit"
       :class="{ invalid: $v.$invalid }"
     >
       <span class="input-block__submit-text">Далее </span>
       <svg
         class="input-block__submit-svg"
-        width="27"
-        height="16"
-        viewBox="0 0 27 16"
-        fill="none"
+        width="27" height="16"
+        viewBox="0 0 27 16" fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -100,13 +93,37 @@ export default {
           error: "Обязательное поле, минимум 4 символа.",
         },
       ],
-      lastName: null,
-      firstName: null,
-      patronymic: null,
-      phone: null,
-      email: null,
+      amount: null,
+      BIK: null,
+      INN: null,
+      KPP: null,
+      nameOfRecipient: null,
+      nameOfRecipient2: null,
+      nameOfRecipient3: null,
       errors: [],
     };
+  },
+  validations: {
+    amount: {
+      // required,
+      // minLength: minLength(4)
+    },
+    BIK: {
+      // required,
+      // minLength: minLength(4),
+    },
+    INN: {
+      // required,
+      // minLength: minLength(4)
+    },
+    KPP: {
+      // type: Number,
+      // required,
+      // minLength: minLength(4)
+    },
+    nameOfRecipient: {
+      // email,
+    },
   },
   methods: {
     goToExcerpt() {

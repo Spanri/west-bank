@@ -13,12 +13,7 @@
         <td class="select-inner currency__type">
           <select class="select currency__type-select">
             <option class="select__item">USD</option>
-            <option
-              selected
-              class="select__item"
-            >
-              EUR
-            </option>
+            <option selected class="select__item">EUR</option>
             <option class="select__item">GBP</option>
             <option class="select__item">CHF</option>
           </select>
@@ -31,12 +26,7 @@
           <select class="select currency__type-select">
             <option class="select__item">USD</option>
             <option class="select__item">EUR</option>
-            <option
-              selected
-              class="select__item"
-            >
-              GBP
-            </option>
+            <option selected class="select__item">GBP</option>
             <option class="select__item">CHF</option>
           </select>
         </td>
@@ -54,12 +44,7 @@
           <select class="select currency__symbol-select">
             <option class="select__item">$</option>
             <option class="select__item">₽</option>
-            <option
-              selected
-              class="select__item"
-            >
-              €
-            </option>
+            <option selected class="select__item">€</option>
             <option class="select__item">£</option>
             <option class="select__item">CHf</option>
           </select>
@@ -71,12 +56,7 @@
           <select class="select currency__symbol-select">
             <option class="select__item">$</option>
             <option class="select__item">₽</option>
-            <option
-              selected
-              class="select__item"
-            >
-              €
-            </option>
+            <option selected class="select__item">€</option>
             <option class="select__item">£</option>
             <option class="select__item">CHf</option>
           </select>

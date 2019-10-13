@@ -1,10 +1,7 @@
 <template>
   <div class="excerpt">
     <div class="excerpt__content">
-      <ExcerptFilter
-        class="excerpt__filter"
-        @filter="filter"
-      />
+      <ExcerptFilter class="excerpt__filter" @filter="filter"/>
       <ExcerptTable class="excerpt__table"/>
     </div>
     <div class="excerpt__doc-and-footer">
@@ -25,8 +22,8 @@
 export default {
   name: "Excerpt",
   components: {
-    ExcerptFilter: () => import("@/components/ExcerptFilter.vue"),
-    ExcerptTable: () => import("@/components/ExcerptTable.vue"),
+    ExcerptFilter: () => import("@/components/Excerpt/ExcerptFilter.vue"),
+    ExcerptTable: () => import("@/components/Excerpt/ExcerptTable.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
