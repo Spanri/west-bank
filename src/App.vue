@@ -91,7 +91,7 @@ export default {
 }
 
 
-@media (min-width: 951px) {
+@media (min-width: 769px) {
   .app__header {
     &_more768 {
       display: flex;
@@ -103,11 +103,10 @@ export default {
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 768px) {
   .app__header {
     &_more768 {
       display: none;
-      background: red;
     }
 
     &_768 {

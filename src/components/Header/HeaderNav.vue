@@ -51,4 +51,10 @@ export default {
 .router-link-exact-active {
   color: $color-main;
 }
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+  }
+}
 </style>

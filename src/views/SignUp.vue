@@ -1,16 +1,6 @@
 <template>
   <div class="signup">
-    <nav class="signup__nav">
-      <div
-        class="signup__nav-item"
-        v-for="item in 3" :key="item"
-        :class="`signup__nav-item${item}_phase${
-          signUpPhase.substring(signUpPhase.length - 1)
-        }`"
-      >
-        <span class="signup__nav-text">{{ item }}</span>
-      </div>
-    </nav>    
+    <NavPhases class="signup__nav" :phase="signUpPhase"/> 
     <component
       :is="signUpPhase" @next="next"
       class="signup__content" 
@@ -22,6 +12,7 @@
 export default {
   name: "SignUp",
   components: {
+    NavPhases: () => import("@/components/NavPhases.vue"),
     SignUp1: () => import("@/components/SignUp/SignUp1.vue"),
     SignUp2: () => import("@/components/SignUp/SignUp2.vue"),
     SignUp3: () => import("@/components/SignUp/SignUp3.vue"),

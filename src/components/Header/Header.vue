@@ -1,19 +1,21 @@
 <template>
   <header class="header">
-    <router-link to="/" class="header__logo">
-      <img
-        src="@/assets/logo-header.svg"
-        alt="Логотип вест банк"
-        class="header__logo-img"
-      />
-    </router-link>
-    <div class="header__content">
-      <p class="header__top">
-        +7 (495) 215 57 74
-      </p>
-      <div class="header__bottom">
-        <HeaderNav class="header__bottom-nav" />
-        <HeaderAuth class="header__bottom-auth" />
+    <div class="header-inner">
+      <router-link to="/" class="header__logo">
+        <img
+          src="@/assets/logo-header.svg"
+          alt="Логотип вест банк"
+          class="header__logo-img"
+        />
+      </router-link>
+      <div class="header__content">
+        <p class="header__top">
+          +7 (495) 215 57 74
+        </p>
+        <div class="header__bottom">
+          <HeaderNav class="header__bottom-nav" />
+          <HeaderAuth class="header__bottom-auth" />
+        </div>
       </div>
     </div>
   </header>
@@ -31,14 +33,17 @@ export default {
 
 <style scoped lang="scss">
 .header {
-  height: 172px;
+  &-inner {
+    height: 172px;
+    width: 100%;
 
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 
-  color: white;
+    color: white;
 
-  box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
   &__logo {
     user-select: none;

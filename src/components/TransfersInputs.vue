@@ -11,8 +11,6 @@
         class="input-block__input"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
-        :type="block.type ? block.type : 'text'"
-        v-mask="block.mask ? block.mask : customToken"
         :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
         :aria-describedby="`input-block__invalid-feedback-${block.model}`"
       />
@@ -43,6 +41,8 @@
 </template>
 
 <script>
+import { required, /*minLength, email,*/ } from 'vuelidate/lib/validators';
+
 export default {
   name: "TransfersInputs",
   data() {
@@ -60,17 +60,17 @@ export default {
         {
           title: "Сумма",
           model: "amount",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле, только цифры.",
         },
         {
           title: "БИК Банка",
           model: "BIK",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле, только цифры.",
         },
         {
           title: "ИНН получателя",
           model: "INN",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле, только цифры.",
         },
         {
           title: "КПП получателя",
@@ -80,17 +80,17 @@ export default {
         {
           title: "Наименование получателя",
           model: "nameOfRecipient",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле.",
         },
         {
           title: "Счет в банке получателя",
-          model: "patronymic",
-          error: "Обязательное поле, минимум 4 символа.",
+          model: "accountOfRecipient",
+          error: "Обязательное поле, только цифры.",
         },
         {
           title: "Название платежа",
-          model: "patronymic",
-          error: "Обязательное поле, минимум 4 символа.",
+          model: "nameOfPayment",
+          error: "Обязательное поле.",
         },
       ],
       amount: null,
@@ -98,34 +98,50 @@ export default {
       INN: null,
       KPP: null,
       nameOfRecipient: null,
-      nameOfRecipient2: null,
-      nameOfRecipient3: null,
+      accountOfRecipient: null,
+      nameOfPayment: null,
       errors: [],
     };
   },
   validations: {
     amount: {
-      // required,
+      type: Number,
+      required,
       // minLength: minLength(4)
     },
     BIK: {
-      // required,
+      required,
       // minLength: minLength(4),
     },
     INN: {
-      // required,
+      type: Number,
+      required,
       // minLength: minLength(4)
     },
     KPP: {
-      // type: Number,
-      // required,
+      type: Number,
+      required,
       // minLength: minLength(4)
     },
     nameOfRecipient: {
+      required,
+      // email,
+    },
+    accountOfRecipient: {
+      required,
+      // email,
+    },
+    nameOfPayment: {
       // email,
     },
   },
   methods: {
+    submit() {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        console.log('нормас');
+      }
+    },
     goToExcerpt() {
       this.$router.push({
         name: "excerpt",
@@ -139,5 +155,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.input-block {
+  &-wrapper {
+    @include input;
+  }
+}
 </style>
