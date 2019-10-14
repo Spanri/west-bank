@@ -4,12 +4,12 @@
       <div class="profile__img">
         <img
           v-if="!profile.photo"
-          src="../assets/profile-photo.svg"
+          src="@/assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя"
         />
         <img
           v-else
-          src="../assets/profile-photo.svg"
+          src="@/assets/profile-photo.svg"
           alt="Иконка вместо фотографии пользователя 2"
         />
         <div class="profile__edit-photo" @click="editPhoto">
@@ -59,7 +59,7 @@ export default {
     editData() {},
     logout() {
       this.$store.dispatch("logout").then(() => {
-        this.$router.push("/login");
+        this.$router.push("/signup");
       });
     },
   },

@@ -1,25 +1,25 @@
 <template>
   <div class="login">
-    <p class="login__title">Вход</p>
-    <div class="login__input input-block-wrapper">
-      <div
-        class="input-block"
-        v-for="(block, index) in blocks" :key="index"
-      >
-        <span class="input-block__title">{{ block.title }}</span>
-        <input
-          class="input-block__input"
-          :v-model="block.model" :required="block.required"
-          :type="block.type"
-        />
+    <div class="login-inner">
+      <p class="login__title">Вход</p>
+      <div class="login__input input-block-wrapper">
+        <div
+          class="input-block"
+          v-for="(block, index) in blocks" :key="index"
+        >
+          <span class="input-block__title">{{ block.title }}</span>
+          <input
+            class="input-block__input"
+            :v-model="block.model" :required="block.required"
+            :type="block.type"
+          />
+        </div>
       </div>
+      <button class="button login__button" @click="loginMethod">
+        Войти
+      </button>
     </div>
-    <button class="button login__button" @click="loginMethod">
-      Войти
-    </button>
-    <div class="login__ad">
-      <Ad />
-    </div>
+    <Footer class="login__footer" />
   </div>
 </template>
 
@@ -27,7 +27,7 @@
 export default {
   name: "Login",
   components: {
-    Ad: () => import("@/components/Ad.vue"),
+    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
@@ -53,9 +53,17 @@ export default {
 .login {
   @include input;
 
-  height: auto;
+  min-height: calc(100vh - 172px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   color: $color-light;
+
+  .input-block + .input-block{
+    margin-top: 25px;
+  }
 
   &__title {
     margin: 88px 0 111px 155px;
@@ -86,16 +94,8 @@ export default {
     }
   }
 
-  &__ad {
-    height: calc(263px + 167px);
-
-    .ad {
-      top: auto;
-
-      &__block {
-        width: 100%;
-      }
-    }
+  &__footer {
+    justify-self: flex-end;
   }
 }
 </style>

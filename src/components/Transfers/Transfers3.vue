@@ -1,18 +1,18 @@
 <template>
-  <div class="signup3">
+  <div class="transfers3">
     <img
-      class="signup3__logo"
+      class="transfers3__logo"
       src="@/assets/logo.svg"
       alt="Логотип вест банк"
     />
-    <p class="signup3__text">
-      Добро пожаловать!
+    <p class="transfers3__text">
+      Перевод совершен
     </p>
-    <router-link class="signup3__link" to="/news">
-      Перейти в онлайн-банк
+    <router-link class="transfers3__link" to="/news">
+      <img src="@/assets/document-red.svg">
+      <span class="transfers3__link-text">Показать чек</span>
     </router-link>
-    <Ad class="signup3__ad" />
-    <Footer class="signup3__footer" />
+    <Ad class="transfers3__ad" />
   </div>
 </template>
 
@@ -21,7 +21,6 @@ export default {
   name: "SignUp3",
   components: {
     Ad: () => import("@/components/Ad.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {};
@@ -31,19 +30,21 @@ export default {
 
 <style scoped lang="scss">
 .button:hover,
-.button:hover .signup__button-svg {
+.button:hover .transfers3__button-svg {
   color: $color-main;
 
   fill: $color-main;
   transition: 0.1s all ease-in-out;
 }
 
-.signup3 {
+.transfers3 {
   height: auto;
 
   color: $color-light;
+  text-align: center;
 
   &__logo {
+    margin: 0 auto;
     margin-top: 189px;
     margin-bottom: 60px;
   }
@@ -65,6 +66,10 @@ export default {
     font-weight: normal;
     font-size: 36px;
     line-height: 144.2%;
+
+    &-text {
+      margin-left: 52px;
+    }
 
     &:hover {
       text-decoration: none;

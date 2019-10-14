@@ -1,12 +1,11 @@
 <template>
   <form class="input-block-wrapper" @submit.prevent="submit">
+    <p class="input-block-wrapper__title">Переводы</p>
     <div
       class="input-block" 
       v-for="(block, index) in blocks" :key="index"
     >
-      <span class="input-block__title">
-        {{ block.title }}
-      </span>
+      <span class="input-block__title" v-html="block.title"/>
       <b-form-input
         class="input-block__input"
         v-model="$v[block.model].$model"
@@ -21,8 +20,8 @@
       </b-form-invalid-feedback>
     </div>
     <button
-      type="submit" class="button input-block__submit"
-      :class="{ invalid: $v.$invalid }"
+      type="submit" :class="{ invalid: $v.$invalid }"
+      class="button input-block__submit"
     >
       <span class="input-block__submit-text">Далее </span>
       <svg
@@ -41,21 +40,12 @@
 </template>
 
 <script>
-import { required, /*minLength, email,*/ } from 'vuelidate/lib/validators';
+// import { required, minLength, email, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
   data() {
     return {
-      item: {
-        id: 0,
-        number: "4560",
-        money: "65.25",
-        currency: 0,
-        status: "Открыт",
-        type: "Не персонализирован",
-        constraints: "Не персонализирован Не персонализирован Не персон ализирован Не персо нализирован Не персонализирован Не персонал изирован Не персонНе персонализирован ",
-      },
       blocks: [
         {
           title: "Сумма",
@@ -68,7 +58,7 @@ export default {
           error: "Обязательное поле, только цифры.",
         },
         {
-          title: "ИНН получателя",
+          title: "ИНН</br>получателя",
           model: "INN",
           error: "Обязательное поле, только цифры.",
         },
@@ -105,41 +95,35 @@ export default {
   },
   validations: {
     amount: {
-      type: Number,
-      required,
-      // minLength: minLength(4)
+      // type: Number,
+      // required,
     },
     BIK: {
-      required,
-      // minLength: minLength(4),
+      // required,
     },
     INN: {
-      type: Number,
-      required,
-      // minLength: minLength(4)
+      // type: Number,
+      // required,
     },
     KPP: {
-      type: Number,
-      required,
-      // minLength: minLength(4)
+      // type: Number,
+      // required,
     },
     nameOfRecipient: {
-      required,
-      // email,
+      // required,
     },
     accountOfRecipient: {
-      required,
-      // email,
+      // required,
     },
     nameOfPayment: {
-      // email,
+
     },
   },
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        console.log('нормас');
+        this.$emit("next", 'Transfers3');
       }
     },
     goToExcerpt() {
@@ -151,13 +135,99 @@ export default {
       });
     },
   },
+  beforeRouteLeave(to, from, next) {
+    if (this.$route.params.type == undefined) {
+      next();
+    } else {
+      const answer = window.confirm('Вы точно хотите уйти?');
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    }
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.button:hover,
+.button:hover .input-block__submit-svg {
+  color: darken($color: $color-light, $amount: 40);
+
+  fill: darken($color: $color-light, $amount: 40);
+  transition: 0.1s all ease-in-out;
+}
+
 .input-block {
   &-wrapper {
     @include input;
+
+    .input-block + .input-block {
+      margin-top: 74px;
+    }
+
+    /* переопределение стилей */
+    .input-block {
+      margin: 0;
+
+      flex-shrink: 2;
+
+      width: 808px;
+
+      &__title {
+        width: 487px;
+
+        font-weight: normal;
+      }
+
+      &__input {
+        width: 321px;
+      }
+    }
+
+    .invalid-feedback {
+      width: 587px;
+      flex-basis: 487px;
+      margin: 0;
+      margin: 10px 0 -31px;
+
+    }
+
+    &__title {
+      margin-top: 137px;
+      margin-bottom: 34px;
+    }
+  }
+
+  &__submit {
+    background: transparent;
+    border: 0;
+    margin: 0 auto;
+    margin-top: 69px;
+    margin-bottom: 78px;
+
+    display: block;
+
+    color: $color-pre-light;
+    font-family: Play;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 144.2%;
+    text-align: center;
+
+    user-select: none;
+
+    &-svg {
+      fill: $color-light;
+    }
+
+    .invalid {
+      color: $color-medium;
+
+      pointer-events: none;
+    }
   }
 }
 </style>

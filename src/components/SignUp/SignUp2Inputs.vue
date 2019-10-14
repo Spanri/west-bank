@@ -33,8 +33,8 @@
         !»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
         повторяющиеся символы в нижнем и верхнем регистре.
       </p>
-      <p v-if="block.model == 'password'" class="input-block__edit">
-        изменить
+      <p v-if="block.model == 'password'" class="input-block__show-password">
+        показать
       </p>
     </div>
     <button type="submit" class="button input-block__submit">
@@ -132,6 +132,19 @@ export default {
 
       fill: darken($color: $color-light, $amount: 40);
       transition: 0.1s all ease-in-out;
+    }
+  }
+
+  &__show-password {
+    position: relative;
+    top: -180px;
+    right: -740px;
+
+    color: $color-other;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-block-light;
     }
   }
 }

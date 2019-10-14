@@ -22,6 +22,18 @@ export default {
       this.$emit("next", component);
     },
   },
+  beforeRouteLeave(to, from, next) {
+    if (to.name == 'login') {
+      next();
+    } else {
+      const answer = window.confirm('Вы точно хотите уйти?');
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    }
+  },
 };
 </script>
 

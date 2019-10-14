@@ -182,6 +182,8 @@ export default {
     line-height: 144.2%;
     text-align: center;
 
+    user-select: none;
+
     &-svg {
       fill: $color-light;
     }

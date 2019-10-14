@@ -21,7 +21,7 @@ export default {
       default: "SignUp1",
     },
   },
-  watch: { 
+  watch: {
     phase: function(newVal) {
       this.signUpPhase = newVal;
     },
@@ -159,11 +159,11 @@ export default {
 }
 
 @media (max-width: 1440px) {
-  .signup__nav-text {
+  .nav-text {
     width: 84px;
   }
 
-  .signup__nav-item {
+  .nav-item {
     &1_phase {
       &1 {
         width: 168px;

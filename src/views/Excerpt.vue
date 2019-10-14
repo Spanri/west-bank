@@ -8,7 +8,7 @@
       <div class="excerpt__document-wrapper">
         <div class="excerpt__document">
           <div class="excerpt__document-button">
-            <img src="../assets/excerpt-document.svg">
+            <img src="@/assets/document.svg">
             <span>Документ</span>
           </div>
         </div>

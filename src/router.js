@@ -19,7 +19,7 @@ const ifAuthenticatedAndValidId = (to, from, next) => {
     next();
     return;
   }
-  next("/login");
+  next("/signup");
 };
 
 const ifNotAuthenticated = (to, from, next) => {
@@ -44,8 +44,13 @@ export default new Router({
   routes: [
     {
       path: "/",
+      redirect: '/home',
+    },
+    {
+      path: "/home",
       name: "home",
       component: Home,
+      beforeEnter: ifAuthenticated,
     },
     {
       path: "/news",

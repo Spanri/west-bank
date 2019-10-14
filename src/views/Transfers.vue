@@ -1,30 +1,11 @@
 <template>
   <div class="transfers">
-    <p class="transfers__title">Переводы</p>
-    <div v-if="$route.params.type == undefined">
-      <p 
-        class="transfers__button"
-        v-for="(item, index) in items" :key="index"
-      >
-        <router-link
-          class="transfers__link" :to="item.to"
-          :class="index == 0 ? 'transfers__link-accent' : ''"
-        >
-          {{ item.title }}
-        </router-link>
-        <svg
-          width="38" height="38"
-          viewBox="0 0 38 38" fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.952 35.094C5.82031 36.6809 2.12474 34.7029 2.1673 31.4627L2.49544 6.47833C2.53963 3.11435 6.55007 0.929276 9.64239 2.58435L33.4616 15.3329C36.5539 16.988 36.3506 21.2107 33.0993 22.8582L8.952 35.094Z"
-            stroke-width="3"
-          />
-        </svg>
-      </p>
-    </div>
-    <TransfersInputs v-else class="transfers__inputs" />
+    <NavPhases class="signup__nav" :phase="transfersPhase"/> 
+    <component
+      :is="transfersPhase" @next="next"
+      class="signup__content"
+    />
+    <Footer class="transfers__footer"/>
   </div>
 </template>
 
@@ -32,10 +13,28 @@
 export default {
   name: "Transfers",
   components: {
-    TransfersInputs: () => import("@/components/TransfersInputs.vue"),
+    NavPhases: () => import("@/components/NavPhases.vue"),
+    Transfers1: () => import("@/components/Transfers/Transfers1.vue"),
+    Transfers2: () => import("@/components/Transfers/Transfers2.vue"),
+    Transfers3: () => import("@/components/Transfers/Transfers3.vue"),
+    Footer: () => import("@/components/Footer.vue"),
+  },
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    },
+  },
+  watch: { 
+    currentRouteName: function(newVal) {
+      console.log(newVal);
+      if (newVal == 'transfers-links') {
+        this.transfersPhase = 'Transfers1';
+      }
+    },
   },
   data() {
     return {
+      transfersPhase: 'Transfers1',
       items: [
         { 
           title: 'Перевод без открытия счета в рублях', 
@@ -46,23 +45,22 @@ export default {
       ],
     };
   },
-  beforeRouteLeave(to, from, next) {
-    if (this.$route.params.type == undefined) {
-      next();
-    } else {
-      const answer = window.confirm('Вы точно хотите уйти?');
-      if (answer) {
-        next();
-      } else {
-        next(false);
-      }
-    }
+  methods: {
+    next(component) {
+      this.transfersPhase = component;
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .transfers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: calc(100vh - 172px);
+
   font-family: Play;
   font-style: normal;
   font-weight: normal;
