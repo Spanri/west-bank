@@ -61,6 +61,8 @@ export default {
 
   height: 100%;
 
+  margin-left: 41px;
+
   &__title {
     margin-top: 137px;
     margin-bottom: 165px;

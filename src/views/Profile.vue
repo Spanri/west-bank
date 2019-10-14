@@ -13,7 +13,7 @@
           alt="Иконка вместо фотографии пользователя 2"
         />
         <div class="profile__edit-photo" @click="editPhoto">
-          Изменить
+          <span>Изменить</span>
         </div>
       </div>
       <div class="profile__data">
@@ -135,7 +135,7 @@ export default {
   &__edit-photo {
     border: 0;
     background: transparent;
-    margin-top: 24px;
+    padding: 24px 10px;
 
     color: $color-main;
     font-family: Play;

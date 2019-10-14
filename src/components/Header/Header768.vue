@@ -37,10 +37,11 @@
           <HeaderAuth class="header__bottom-auth" />
         </div>
         <router-link to="/" class="header__logo">
-          <img
-            src="@/assets/logo-header-mobile.svg"
-            alt="Логотип вест банк"
-            class="header__logo-img"
+          <Logo
+            class="transfers3__logo"
+            :color1="logoColor1" :color2="logoColor2"
+            @mouseenter.native="logoColor1 = 'white'; logoColor2 = 'white';" 
+            @mouseleave.native="logoColor1 = '#6DB0FF'; logoColor2 = '#766BF8';"
           />
         </router-link>
       </div>
@@ -74,12 +75,15 @@
 export default {
   name: "Header",
   components: {
+    Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },
   data() {
     return {
       open: false,
+      logoColor1: "#6DB0FF",
+      logoColor2: "#766BF8",
     };
   },
 };

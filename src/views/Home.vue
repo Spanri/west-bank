@@ -141,6 +141,23 @@ export default {
   &__item {
     display: flex;
     align-content: stretch;
+    padding-left: -15px;
+
+    &:hover {
+      cursor: pointer;
+      @include color-opacity(background, $color-main, 0.6);
+      margin-left: -15px;
+      transition: background ease-in-out 0.2s;
+
+      max-width: 1100px;
+
+      &::before {
+        content: '';
+        width: 15px;
+        height: 100%;
+        @include color-opacity(background, $color-main, 0.6);
+      }
+    }
   }
 
   &__buttons {

@@ -50,7 +50,8 @@ export default {
 
   &__login {
     &:hover {
-      background: darken($color: $color-main, $amount: 5);
+      box-shadow: 0 0 24px $color-block-light;
+      // background: darken($color: $color-main, $amount: 15);
     }
 
     &_false {

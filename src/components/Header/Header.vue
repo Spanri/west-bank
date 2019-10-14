@@ -2,10 +2,11 @@
   <header class="header">
     <div class="header-inner">
       <router-link to="/" class="header__logo">
-        <img
-          src="@/assets/logo-header.svg"
-          alt="Логотип вест банк"
-          class="header__logo-img"
+        <Logo
+          class="transfers3__logo"
+          :color1="logoColor1" :color2="logoColor2"
+          @mouseenter.native="logoColor1 = 'white'"
+          @mouseleave.native="logoColor1 = '#6DB0FF'"
         />
       </router-link>
       <div class="header__content">
@@ -25,8 +26,15 @@
 export default {
   name: "Header",
   components: {
+    Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
+  },
+  data() {
+    return {
+      logoColor1: "#6DB0FF",
+      logoColor2: "#766BF8",
+    };
   },
 };
 </script>

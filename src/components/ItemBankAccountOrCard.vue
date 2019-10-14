@@ -147,13 +147,14 @@ export default {
     }
   }
 
-  &__currency {
-    margin-left: 26px;
+  &__money {
+    align-self: center;
   }
 
-  &:hover {
-    cursor: pointer;
-    @include color-opacity(background, $color-main, 0.6);
+  &__currency {
+    margin-left: 26px;
+    
+    align-self: center;
   }
 }
 

@@ -53,6 +53,7 @@
     // }
 
     &:hover {
+      z-index: 4;
       text-decoration: none;
       @include color-opacity(background, $color-block-medium, 0.55);
     }

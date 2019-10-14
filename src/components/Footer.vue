@@ -7,7 +7,7 @@
     </div>
     <div class="footer__search">
       <span class="footer__search-text">Поиск по сайту</span>
-      <input class="footer__search-input" />
+      <input class="footer__search-input" v-on:keyup.enter="search"/>
     </div>
   </footer>
 </template>
@@ -15,6 +15,11 @@
 <script>
 export default {
   name: "Footer",
+  methods: {
+    search() {
+      console.log('Поиск');
+    },
+  },
 };
 </script>
 
@@ -76,6 +81,10 @@ export default {
 
       color: $color-light;
       font-size: 24px;
+
+      &:focus {
+        box-shadow: 0 0 14px $color-block-light;
+      }
     }
   }
 }

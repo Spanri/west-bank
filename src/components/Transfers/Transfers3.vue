@@ -1,15 +1,23 @@
 <template>
   <div class="transfers3">
-    <img
+    <Logo
       class="transfers3__logo"
-      src="@/assets/logo.svg"
-      alt="Логотип вест банк"
+      size="271"
+      color1="white"
+      color2="white"
     />
     <p class="transfers3__text">
       Перевод совершен
     </p>
-    <router-link class="transfers3__link" to="/news">
-      <img src="@/assets/document-red.svg">
+    <router-link 
+      class="transfers3__link" to=""
+      @mouseenter.native="logoColor1 = 'none'; logoColor2 = '#9c2929';" 
+      @mouseleave.native="logoColor1 = 'none'; logoColor2 = '#D35858';"
+    >
+      <Document
+        class="transfers3__link-img"
+        :color1="logoColor1" :color2="logoColor2"
+      />
       <span class="transfers3__link-text">Показать чек</span>
     </router-link>
     <Ad class="transfers3__ad" />
@@ -20,10 +28,15 @@
 export default {
   name: "SignUp3",
   components: {
+    Logo: () => import("@/icons/Logo.vue"),
+    Document: () => import("@/icons/Document.vue"),
     Ad: () => import("@/components/Ad.vue"),
   },
   data() {
-    return {};
+    return {
+      logoColor1: "none",
+      logoColor2: "#D35858",
+    };
   },
 };
 </script>
@@ -63,12 +76,13 @@ export default {
     color: $color-main;
     font-family: Play;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 36px;
     line-height: 144.2%;
 
     &-text {
       margin-left: 52px;
+      vertical-align: middle;
     }
 
     &:hover {
@@ -79,6 +93,7 @@ export default {
 
   &__ad {
     margin-top: 48px;
+    margin-bottom: 89px;
   }
 
   &__footer {

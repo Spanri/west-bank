@@ -163,6 +163,8 @@ export default {
   &-wrapper {
     @include input;
 
+    margin-left: 41px;
+
     .input-block + .input-block {
       margin-top: 74px;
     }

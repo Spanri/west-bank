@@ -5,10 +5,18 @@
       <ExcerptTable class="excerpt__table"/>
     </div>
     <div class="excerpt__doc-and-footer">
-      <div class="excerpt__document-wrapper">
-        <div class="excerpt__document">
+      <div 
+      class="excerpt__document-wrapper">
+        <div 
+          class="excerpt__document"
+          @mouseenter="logoColor1 = '#385F7B'"
+          @mouseleave="logoColor1 = '#3D4168'"
+        >
           <div class="excerpt__document-button">
-            <img src="@/assets/document.svg">
+            <Document
+              class="excerpt__document-button-img"
+              :color1="logoColor1" :color2="logoColor2"
+            />
             <span>Документ</span>
           </div>
         </div>
@@ -22,12 +30,15 @@
 export default {
   name: "Excerpt",
   components: {
+    Document: () => import("@/icons/Document.vue"),
     ExcerptFilter: () => import("@/components/Excerpt/ExcerptFilter.vue"),
     ExcerptTable: () => import("@/components/Excerpt/ExcerptTable.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
+      logoColor1: '#3D4168',
+      logoColor2: '#F2F2F2',
       items: [],
       dateStart: null,
       dateEnd: null,
@@ -96,6 +107,10 @@ export default {
 
       & > * + * {
         padding-left: 34px;
+      }
+
+      &-img {
+        margin-left: 43px;
       }
     }
 

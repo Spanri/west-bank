@@ -50,8 +50,8 @@ export default {
   line-height: 42px;
   letter-spacing: 0.09em;
 
-  &__title {
-    margin-bottom: 18px;
+  span {
+    line-height: 60px;
   }
 
   &__input {
