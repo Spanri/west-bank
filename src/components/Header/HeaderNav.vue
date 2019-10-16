@@ -1,18 +1,33 @@
 <template>
   <div class="nav">
-    <router-link to="/news" class="nav__item">
+    <router-link 
+      to="/news" class="nav__item"
+      @click.native="goToPage()"
+    >
       Новости
     </router-link>
-    <router-link to="/for-private-clients" class="nav__item">
+    <router-link 
+      to="/for-private-clients" class="nav__item"
+      @click.native="goToPage()"
+    >
       Частным <br /> клиентам
     </router-link>
-    <router-link to="/about" class="nav__item">
+    <router-link 
+      to="/about" class="nav__item"
+      @click.native="goToPage()"
+    >
       Бизнесу
     </router-link>
-    <router-link to="/about" class="nav__item">
+    <router-link 
+      to="/about" class="nav__item"
+      @click.native="goToPage()"
+    >
       Финансовым <br /> институтам
     </router-link>
-    <router-link to="/about" class="nav__item">
+    <router-link 
+      to="/about" class="nav__item"
+      @click.native="goToPage()"
+    >
       О банке
     </router-link>
   </div>
@@ -21,6 +36,11 @@
 <script>
 export default {
   name: "HeaderNav",
+  methods: {
+    goToPage() {
+      this.$emit("goToPage");
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="checkbox">
     <input 
+      @click="openMenu()" :checked="openProp"
       type="checkbox" id="checkbox2" 
       class="checkbox2 visuallyHidden"
     >
@@ -15,60 +16,123 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Header",
+  props: {
+    open: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  watch: {
+    open(newVal) {
+      this.openProp = newVal;
+    },
+  },
+  data() {
+    return {
+      openProp: false,
+    };
+  },
+  methods: {
+    openMenu() {
+      this.openProp = !this.openProp;
+      this.$emit("openMenu", this.openProp);
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
-.hamburger {
-    margin: 0 auto;
-    margin-top: 30px;
-    width: 30px;
-    height: 30px;
-    position: relative;
-}
-.checkbox2:checked + label > .hamburger2 > .bar1{
-    transform: translateX(40px);
-    background-color: transparent;
-}
-.checkbox2:checked + label > .hamburger2 > .bar2{
-    transform: rotate(45deg);
-}
-.checkbox2:checked + label > .hamburger2 > .bar3{
-    transform: rotate(-45deg);
-}
-.checkbox2:checked + label > .hamburger2 > .bar4{
-    transform: translateX(-40px);
-    background-color: transparent;
-}
 .visuallyHidden {
-    position: absolute; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height: 1px; width: 1px; 
-    margin: -1px; padding: 0; border: 0; 
+  position: absolute; 
+
+  height: 1px; 
+  width: 1px; 
+
+  margin: -1px; 
+  padding: 0; 
+  border: 0; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
 }
-.hamburger .bar {
-    padding: 0;
-    width: 30px;
-    height: 4px;
-    background-color: $color-accent;
+
+.hamburger {
+  margin: 0 auto;
+
+  width: 40px;
+  height: 30px;
+
+  position: relative;
+
+  .bar {
     display: block;
+    
+    position: absolute; 
+    
+    width: 40px;
+    height: 4px;
+
+    background-color: $color-accent;
+    padding: 0;
     border-radius: 4px;
     transition: all 0.4s ease-in-out;
-    position: absolute; 
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .bar {
+      @include color-opacity(background, $color-accent, 0.6);
+    }
+
+    .bar2, .bar3 {
+      @include color-opacity(background, $color-accent, 0.3);
+    }
+  }
+}
+
+.checkbox:hover {
+  .checkbox2:checked + label > .hamburger2 > .bar2{
+    @include color-opacity(background, $color-accent, 0.6);
+  }
+
+  .checkbox2:checked + label > .hamburger2 > .bar3{
+    @include color-opacity(background, $color-accent, 0.6);
+  }
+}
+
+.checkbox2:checked + label > .hamburger2 > .bar1{
+  transform: translateX(40px);
+  background-color: transparent;
+}
+.checkbox2:checked + label > .hamburger2 > .bar2 {
+  transform: translateX(-3px) translateY(-8px) rotate(45deg);
+  width: 28.34px;
+}
+.checkbox2:checked + label > .hamburger2 > .bar3 {
+  transform: translateX(-15px) translateY(-8px) rotate(-45deg);
+  width: 28.34px;
+}
+.checkbox2:checked + label > .hamburger2 > .bar4 {
+  transform: translateX(-40px);
+  background-color: transparent;
 }
 
 .bar1 {
-    top: 0;
+  top: 0;
 }
 
-.bar2,
-.bar3 {
-    top: 13.5px;
+.bar2, .bar3 {
+  top: 13.5px;
 }
 
 .bar3 {
-    right: 0;
+  right: 0;
 }
 
 .bar4 {
-    bottom: 0;
+  bottom: 0;
 }
 </style>

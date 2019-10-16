@@ -37,7 +37,6 @@ export default {
 };
 </script>
 
- 
 <style scoped lang="scss">
 .auth {
   width: 274px;

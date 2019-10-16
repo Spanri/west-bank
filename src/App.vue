@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app__header-wrapper">
       <Header class="app__header app__header_more768"/>
-      <Header768 class="app__header app__header_768"/>
+      <HeaderMobile class="app__header app__header_768"/>
     </div>
     <main class="app__main">
       <NavIfAuth
@@ -21,7 +21,7 @@ export default {
   name: "App",
   components: {
     Header: () => import("@/components/Header/Header.vue"),
-    Header768: () => import("@/components/Header/Header768.vue"),
+    HeaderMobile: () => import("@/components/Header/HeaderMobile.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
   },
   computed: {
