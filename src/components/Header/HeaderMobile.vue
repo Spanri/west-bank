@@ -96,7 +96,6 @@ export default {
 
     display: flex;
     justify-content: space-between;
-    // align-items: center;
 
     box-sizing: border-box;
     z-index: 5;
@@ -106,6 +105,7 @@ export default {
     align-self: center;
 
     margin: 15px 0 0 21px;
+    z-index: 5;
   }
 
   &__logo {
@@ -125,6 +125,8 @@ export default {
     background: $color-header;
     margin-left: -60px;
     margin-top: 24px;
+    z-index: 4;
+
     height: 426px;
     width: 100vw;
 

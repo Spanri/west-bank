@@ -1,5 +1,6 @@
 module.exports = {
   assetsDir: './',
+  publicPath: '',
   css: {
     loaderOptions: {
       sass: {
@@ -8,7 +9,9 @@ module.exports = {
           @import "@/assets/scss/_mixins.scss";
         `,
       },
+      postcss: {
+        // options here will be passed to postcss-loader
+      },
     },
   },
-  publicPath: './',
 };
