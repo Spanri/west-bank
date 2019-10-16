@@ -67,7 +67,6 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Play&display=swap");
-
 *:hover {
   transition: ease-in-out all 0.15s;
 }

@@ -38,7 +38,7 @@ const ifAuthenticated = (to, from, next) => {
   next("/login");
 };
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -144,3 +144,11 @@ export default new Router({
     },
   ],
 });
+
+router.afterEach((to) => {
+  Vue.nextTick(() => {
+    document.title = to.meta.title ? to.meta.title : 'Страница платежей';
+  });
+});
+
+export default router;
