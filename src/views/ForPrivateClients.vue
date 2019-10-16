@@ -1,15 +1,17 @@
 <template>
   <div class="for-private-clients">
     <p class="for-private-clients__title">Описание</p>
-    <nav>
-      
-    </nav>
+    <ForPrivateClientsNav />
   </div>
 </template>
 
 <script>
 export default {
   name: "ForPrivateClients",
+  components: {
+    ForPrivateClientsNav: () => 
+    import("@/components/ForPrivateClients/ForPrivateClientsNav.vue"),
+  },
   data() {
     return {
       items: [

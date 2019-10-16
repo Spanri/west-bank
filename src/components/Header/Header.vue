@@ -82,9 +82,6 @@ export default {
   }
 
   &__top {
-    display: flex;
-    justify-content: space-between;
-
     text-align: right;
 
     padding-bottom: 0;

@@ -7,11 +7,7 @@
     <div class="excerpt__doc-and-footer">
       <div 
       class="excerpt__document-wrapper">
-        <div 
-          class="excerpt__document"
-          @mouseenter="logoColor1 = '#385F7B'"
-          @mouseleave="logoColor1 = '#3D4168'"
-        >
+        <div class="excerpt__document">
           <div class="excerpt__document-button">
             <Document
               class="excerpt__document-button-img"
@@ -97,6 +93,7 @@ export default {
 
       height: 62px;
       margin-bottom: 58px;
+      margin-top: 150px;
     }
 
     &-button {

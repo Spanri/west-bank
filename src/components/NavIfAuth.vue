@@ -1,9 +1,9 @@
 <template>
   <nav class="nav">
-    <router-link to="/home" class="nav__item">
+    <router-link to="/home" class="nav__item nav__item_online-bank">
       <span class="nav__text">Онлайн-банк</span>
     </router-link>
-    <router-link to="/transfers" class="nav__item">
+    <router-link to="/transfers" class="nav__item nav__item_transfers">
       <span class="nav__text">Переводы</span>
     </router-link>
   </nav>
@@ -28,6 +28,7 @@
   color: $color-light;
 
   margin-top: 30px;
+  z-index: 2;
 
   & > * + * {
     top: 62px;
@@ -48,14 +49,22 @@
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
     user-select: none;
 
-    // &:nth-child(1) {
-    //   z-index: 2;
-    // }
+    &_online-bank {
+      padding-bottom: 15px;
+    }
+
+    &_transfers {
+      padding-top: 15px;
+    }
 
     &:hover {
       z-index: 4;
       text-decoration: none;
-      @include color-opacity(background, $color-block-medium, 0.55);
+      background: $color-block-light;
+    }
+
+    &:focus {
+      transition: background 0s ease-in-out;
     }
   }
 

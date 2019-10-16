@@ -27,11 +27,7 @@
             viewBox="0 0 26 26" fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              fill-rule="evenodd" clip-rule="evenodd"
-              d="M14.8571 1.85714C14.8571 0.831471 14.0257 0 13 0C11.9743 0 11.1429 0.831471 11.1429 1.85714V11.1429H1.85714C0.831471 11.1429 0 11.9743 0 13C0 14.0257 0.831471 14.8571 1.85714 14.8571H11.1429V24.1429C11.1429 25.1685 11.9743 26 13 26C14.0257 26 14.8571 25.1685 14.8571 24.1429V14.8571H24.1429C25.1685 14.8571 26 14.0257 26 13C26 11.9743 25.1685 11.1429 24.1429 11.1429H14.8571V1.85714Z"
-              fill="#2D9CDB"
-            />
+            <Cross class="home__cross"/>
           </svg>
           <span class="home__button-text">
             Открытие счета
@@ -41,16 +37,7 @@
           class="button home__mobile-network"
           @click="goToMobileNetwork"
         >
-          <svg
-            width="26" height="40"
-            viewBox="0 0 26 40" fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 38.6948L1 1.3052C1 1.14029 1.13526 1 1.31026 1H24.6897C24.8647 1 25 1.14029 25 1.3052L25 38.6948C25 38.8597 24.8647 39 24.6897 39H1.31026C1.13525 39 1 38.8597 1 38.6948Z"
-              stroke="#2D9CDB" stroke-width="2"
-            />
-          </svg>
+          <Rectangle class="home__rectangle"/>
           <span class="home__button-text">
             Мобильная связь
           </span>
@@ -65,7 +52,10 @@
 export default {
   name: "Home",
   components: {
-    ItemBankAccountOrCard: () => import("@/components/ItemBankAccountOrCard.vue"),
+    Cross: () => import("@/icons/Cross.vue"),
+    Rectangle: () => import("@/icons/Rectangle.vue"),
+    ItemBankAccountOrCard: () => 
+      import("@/components/ItemBankAccountOrCard.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
@@ -94,7 +84,7 @@ export default {
   width: calc((100vw - 1440px) / 2 + 654px);
 
   padding-left: calc((100vw - 1440px) / 2 + 43px);
-  @include color-opacity(background, $color-main, 0.2);
+  @include color-opacity(background, $color-block-light, 0.2);
   border: 0;
   user-select: none;
 
@@ -108,7 +98,7 @@ export default {
   letter-spacing: 0.09em;
 
   &:hover {
-    @include color-opacity(background, $color-main, 0.4);
+    @include color-opacity(background, $color-block-light, 0.4);
   }
 }
 
@@ -125,7 +115,7 @@ export default {
 
   &__title {
     &_bank-accounts {
-      margin-top: 64px;
+      padding-top: 64px;
       margin-bottom: 40px;
 
       display: flex;
@@ -180,6 +170,14 @@ export default {
 
   &__button-text {
     margin-left: 37px;
+  }
+
+  &__cross {
+    margin-bottom: 5px;
+  }
+
+  &__rectangle {
+    margin-bottom: 3px;
   }
 }
 

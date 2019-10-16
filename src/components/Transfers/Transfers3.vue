@@ -42,12 +42,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button:hover,
-.button:hover .transfers3__button-svg {
-  color: $color-main;
-
-  fill: $color-main;
-  transition: 0.1s all ease-in-out;
+/* для показать чек, не поняла, что переопределила */
+* {
+  transition: 0.15s;
 }
 
 .transfers3 {
@@ -73,7 +70,7 @@ export default {
   }
 
   &__link {
-    color: $color-main;
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: bold;

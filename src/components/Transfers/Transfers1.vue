@@ -95,13 +95,14 @@ export default {
       color: $color-accent;
 
       &:hover {
-        @include color-opacity(color, $color-accent, 0.5, true);
+        /* я не знаю, как это переопределить */
+        color: darken($color: $color-accent, $amount: 20) !important;
       }
     }
 
     &:hover {
       text-decoration: none;
-      color: $color-medium;
+      color: $color-accent;
     }
   }
 }

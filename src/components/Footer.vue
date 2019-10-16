@@ -83,7 +83,8 @@ export default {
       font-size: 24px;
 
       &:focus {
-        box-shadow: 0 0 14px $color-block-light;
+        // box-shadow: 0 0 14px $color-block-light;
+        @include color-opacity(background, $color-accent, 0.45);
       }
     }
   }

@@ -49,10 +49,6 @@ export default {
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__login {
-    &:hover {
-      box-shadow: 0 0 24px $color-block-light;
-      // background: darken($color: $color-main, $amount: 15);
-    }
 
     &_false {
       width: 274px;
@@ -87,6 +83,10 @@ export default {
     padding-right: 13px;
 
     width: 35px;
+  }
+
+  &:hover {
+    @include color-opacity(background, $color-accent, 0.6);
   }
 }
 

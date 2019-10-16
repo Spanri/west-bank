@@ -62,6 +62,11 @@
           </select>
         </td>
       </tr>
+      <tr>
+        <td colspan="2" class="currency__text">
+          Курс актуален на 19:00:05, 2.09.2019
+        </td>
+      </tr>
     </table>
   </div>
 </template>
@@ -72,7 +77,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="scss">    
+select { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px; } 
+select:hover { background-color:gren; } 
+option:hover { background-color:yellow; } 
+option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px; color:blue; background-color:yellow; }
+
+
 *:hover {
   transition: all ease-in-out 0s;
 }
@@ -94,7 +105,19 @@ export default {
   }
 
   &__converter {
-    width: 232px;
+    width: 250px;
+  }
+
+  &__text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 144.69%;
+    color: $color-light;
+
+    padding-top: 32px;
+    opacity: 0.6;
   }
 
   &__title {
@@ -152,10 +175,6 @@ export default {
   }
 }
 
-option:checked {
-  background: red;
-}
-
 .select {
   display: block;
 
@@ -180,10 +199,6 @@ option:checked {
 
     color: black;
     font-size: 20px;
-
-    &:checked {
-      background: red !important;
-    }
   }
 
   &-inner {

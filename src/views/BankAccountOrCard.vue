@@ -183,8 +183,8 @@ export default {
 
     &:hover {
       cursor: pointer;
-      stroke: $color-medium;
-      color: $color-medium;
+      stroke: $color-accent;
+      color: $color-accent;
     }
   }
 

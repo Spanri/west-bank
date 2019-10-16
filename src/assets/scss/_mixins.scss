@@ -84,7 +84,8 @@
       line-height: 28px;
 
       &:focus {
-        box-shadow: 0 0 14px $color-block-light;
+        // box-shadow: 0 0 14px $color-block-light;
+        @include color-opacity(background, $color-medium, 0.65);
       }
     }
 
