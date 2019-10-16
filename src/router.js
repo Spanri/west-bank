@@ -51,63 +51,96 @@ export default new Router({
       name: "home",
       component: Home,
       beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, главная',
+      },
     },
     {
       path: "/news",
       name: "news",
       component: News,
+      meta: {
+        title: 'Вест Банк, новости',
+      },
     },
     {
       path: "/login",
       name: "login",
       component: Login,
       beforeEnter: ifNotAuthenticated,
+      meta: {
+        title: 'Вест Банк, вход',
+      },
     },
     {
       path: "/signup",
       name: "signup",
       component: SignUp,
       beforeEnter: ifNotAuthenticated,
+      meta: {
+        title: 'Вест Банк, регистрация',
+      },
     },
     {
       path: "/profile",
       name: "profile",
       component: Profile,
       beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, профиль',
+      },
     },
     {
       path: "/bank-account/:id",
       name: "bank-account",
       component: BankAccountOrCard,
       beforeEnter: ifAuthenticatedAndValidId,
+      meta: {
+        title: 'Вест Банк, счет/карта',
+      },
     },
     {
       path: "/card/:id",
       name: "card",
       component: BankAccountOrCard,
       beforeEnter: ifAuthenticatedAndValidId,
+      meta: {
+        title: 'Вест Банк, счет/карта',
+      },
     },
     {
       path: "/excerpt/:id",
       name: "excerpt",
       component: Excerpt,
       beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, выписка',
+      },
     },
     {
       path: "/transfers",
       name: "transfers-links",
       component: Transfers,
+      meta: {
+        title: 'Вест Банк, переводы',
+      },
     },
     {
       path: "/transfers/:type",
       name: "transfers",
       component: Transfers,
       beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, переводы',
+      },
     },
     {
       path: "/for-private-clients",
       name: "for-private-clients",
       component: ForPrivateClients,
+      meta: {
+        title: 'Вест Банк, для приватных клиентов',
+      },
     },
   ],
 });
