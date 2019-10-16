@@ -32,9 +32,9 @@ export default {
 <style scoped lang="scss">
 .button:hover,
 .button:hover .signup__button-svg {
-  color: $color-main;
+  color: $color-accent;
 
-  fill: $color-main;
+  fill: $color-accent;
   transition: 0.1s all ease-in-out;
 }
 
@@ -59,7 +59,7 @@ export default {
   }
 
   &__link {
-    color: $color-main;
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -68,7 +68,7 @@ export default {
 
     &:hover {
       text-decoration: none;
-      color: darken($color: $color-main, $amount: 20);
+      color: darken($color: $color-accent, $amount: 20);
     }
   }
 

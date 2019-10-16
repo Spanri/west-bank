@@ -1,10 +1,12 @@
 <template>
   <div class="transfers">
     <NavPhases class="signup__nav" :phase="transfersPhase"/> 
-    <component
-      :is="transfersPhase" @next="next"
-      class="signup__content"
-    />
+    <transition name="slide" mode="out-in">
+      <component
+        :is="transfersPhase" @next="next"
+        class="signup__content"
+      />
+    </transition>
     <Footer class="transfers__footer"/>
   </div>
 </template>
@@ -55,6 +57,8 @@ export default {
 
 <style scoped lang="scss">
 .transfers {
+  @include slide;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

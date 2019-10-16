@@ -16,7 +16,10 @@
             class="header__bottom-nav" 
             @goToPage="goToPage"
           />
-          <HeaderAuth class="header__bottom-auth" />
+          <HeaderAuth 
+            class="header__bottom-auth" 
+            @goToPage="goToPage"
+          />
         </div>
       </transition>
       <div v-if="open" class="header__menu-helper" />
@@ -59,6 +62,7 @@ export default {
       this.open = value;
     },
     goToPage() {
+      console.log('aaa');
       this.open = false;
     },
   },
@@ -129,10 +133,6 @@ export default {
     }
   }
 
-  .auth__login {
-    background: transparent;
-  }
-
   &__bottom {
     &-auth {
       align-self: center;
@@ -146,18 +146,6 @@ export default {
         align-self: center;
       }
     }
-  }
-}
-
-@media (max-width: 680px) {
-  .fade-enter, .fade-leave-to {
-    transform: translateX(-90px);
-  }
-}
-
-@media (max-width: 600px) {
-  .fade-enter, .fade-leave-to {
-    transform: translateX(-50px);
   }
 }
 </style>

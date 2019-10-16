@@ -1,23 +1,24 @@
 <template>
-  <div class="auth">
+  <div 
+    class="auth"
+    @mouseenter="changeColorEnter()"
+    @mouseleave="changeColorLeave()"
+    @click="goToPage()"
+  >
     <router-link
-      to="/signup"
+      to="/signup" v-if="!isLoggedIn"
       class="auth__login auth__login_false"
-      v-if="!isLoggedIn"
     >
-      <img
-        class="auth__logo"
-        src="@/assets/auth-link.svg"
-        alt="Иконка входа в веб-банк"
-      />
-      <span class="auth__text">Войти в веб-банк</span>
+      <AuthLogo class="auth__logo" :color="logoColor" />
+      <span class="auth__text">Личный кабинет</span>
     </router-link>
     <router-link
       to="/profile"
       class="auth__login auth__login_true"
       v-if="isLoggedIn"
     >
-      {{ name }}
+      <ProfileLogo class="auth__logo" :color="logoColor" />
+      <span class="auth__text">{{ name }}</span>
     </router-link>
   </div>
 </template>
@@ -25,6 +26,15 @@
 <script>
 export default {
   name: "HeaderAuth",
+  components: {
+    AuthLogo: () => import("@/icons/AuthLogo.vue"),
+    ProfileLogo: () => import("@/icons/ProfileLogo.vue"),
+  },
+  data() {
+    return {
+      logoColor: 'white',
+    };
+  },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
@@ -32,6 +42,21 @@ export default {
     name() {
       let user = this.$store.getters.getUser;
       return user.profile.firstName;
+    },
+  },
+  methods: {
+    goToPage() {
+      this.$emit("goToPage");
+    },
+    changeColorEnter() {
+      if(window.innerWidth < 768) {
+        this.logoColor = '#D35858';
+      }
+    },
+    changeColorLeave() {
+      if(window.innerWidth < 768) {
+        this.logoColor = 'white';
+      }
     },
   },
 };
@@ -44,34 +69,34 @@ export default {
 
   display: flex;
 
-  background: $color-main;
+  background: $color-accent;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__login {
 
     &_false {
-      width: 274px;
+      width: 278px;
 
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       letter-spacing: 0.05em;
-      color: white;
+      color: $color-light;
       text-decoration: none;
 
       user-select: none;
     }
 
     &_true {
-      width: 274px;
+      width: 278px;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
       letter-spacing: 0.05em;
-      color: white;
+      color: $color-light;
       text-decoration: none;
 
       user-select: none;
@@ -94,8 +119,44 @@ export default {
     width: 180px;
 
     &__logo {
-      padding-left: 10px;
-      padding-right: 0px;
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .auth {
+    flex-direction: column;
+
+    background: transparent;
+    box-shadow: none;
+    color: $color-light;
+
+    height: 40px;
+
+    &__login {
+      background: transparent;
+      transition: 0s;
+
+      &_false {
+        margin-left: -35px;
+      }
+
+      &_true {
+        margin-left: -35px;
+      }
+    }
+
+    &__text {
+      padding-left: 20px;
+    }
+
+    &:hover {
+      background: transparent;
+      
+      .auth__login {
+        color: $color-accent;
+      }
     }
   }
 }

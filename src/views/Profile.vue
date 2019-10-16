@@ -72,7 +72,7 @@ export default {
   width: calc((100vw - 1440px) / 2 + 1166px);
 
   padding-left: calc((100vw - 1440px) / 2);
-  @include color-opacity(background, $color-main, 0.2);
+  @include color-opacity(background, $color-accent, 0.2);
   border: 0;
   user-select: none;
 
@@ -86,7 +86,7 @@ export default {
 
   &:hover {
     cursor: pointer;
-    @include color-opacity(background, $color-main, 0.4);
+    @include color-opacity(background, $color-accent, 0.4);
   }
 }
 
@@ -137,7 +137,7 @@ export default {
     background: transparent;
     padding: 24px 10px;
 
-    color: $color-main;
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -147,7 +147,7 @@ export default {
 
     &:hover {
       cursor: pointer;
-      @include color-opacity(color, $color-main, 0.6);
+      @include color-opacity(color, $color-accent, 0.6);
     }
   }
 

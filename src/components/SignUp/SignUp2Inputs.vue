@@ -119,7 +119,7 @@ export default {
     margin-top: 90px;
     margin-bottom: 80px;
 
-    color: $color-main;
+    color: $color-accent;
     font-family: Play;
     font-style: normal;
     font-weight: normal;
@@ -128,7 +128,7 @@ export default {
     text-align: center;
 
     &:hover {
-      color: darken($color: $color-main, $amount: 20);
+      color: darken($color: $color-accent, $amount: 20);
 
       fill: darken($color: $color-light, $amount: 40);
       transition: 0.1s all ease-in-out;

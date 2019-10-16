@@ -84,7 +84,7 @@ export default {
 
     &:hover {
       text-decoration: none;
-      color: darken($color: $color-main, $amount: 20);
+      color: darken($color: $color-accent, $amount: 20);
     }
   }
 

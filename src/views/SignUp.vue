@@ -1,10 +1,12 @@
 <template>
   <div class="signup">
     <NavPhases class="signup__nav" :phase="signUpPhase"/> 
-    <component
-      :is="signUpPhase" @next="next"
-      class="signup__content" 
-    />
+    <transition name="slide" mode="out-in">
+      <component
+        :is="signUpPhase" @next="next"
+        class="signup__content" 
+      />
+    </transition>
   </div>
 </template>
 
@@ -49,8 +51,12 @@ export default {
 <style scoped lang="scss">
 .button:hover,
 .button:hover .signup__button-svg {
-  color: $color-main;
-  fill: $color-main;
+  color: $color-accent;
+  fill: $color-accent;
   transition: 0.1s all ease-in-out;
+}
+
+.signup {
+  @include slide;
 }
 </style>

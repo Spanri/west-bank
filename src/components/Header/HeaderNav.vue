@@ -56,25 +56,34 @@ export default {
   flex-wrap: wrap;
 
   &__item {
-    color: white;
+    align-self: center;
+
+    color: $color-light;
     text-decoration: none;
 
     padding-bottom: 37px;
     user-select: none;
 
     &:hover {
-      color: $color-main;
+      color: $color-accent;
     }
   }
 }
 
 .router-link-exact-active {
-  color: $color-main;
+  color: $color-accent;
 }
 
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
+
+    &__item {
+      align-self: flex-start;
+
+      padding-left: calc(100vw/2 - 61px);
+      text-align: left;
+    }
   }
 }
 </style>

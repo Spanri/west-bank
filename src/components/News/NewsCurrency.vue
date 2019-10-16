@@ -223,7 +223,7 @@ option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px
   &-inner:hover::before {
     cursor: pointer;
 
-    color: $color-main;
+    color: $color-accent;
   }
 
   &::-ms-expand {

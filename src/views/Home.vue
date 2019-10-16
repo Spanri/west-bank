@@ -131,11 +131,12 @@ export default {
   &__item {
     display: flex;
     align-content: stretch;
+
     padding-left: -15px;
 
     &:hover {
       cursor: pointer;
-      @include color-opacity(background, $color-main, 0.6);
+      @include color-opacity(background, $color-accent, 0.6);
       margin-left: -15px;
       transition: background ease-in-out 0.2s;
 
@@ -145,7 +146,7 @@ export default {
         content: '';
         width: 15px;
         height: 100%;
-        @include color-opacity(background, $color-main, 0.6);
+        @include color-opacity(background, $color-accent, 0.6);
       }
     }
   }

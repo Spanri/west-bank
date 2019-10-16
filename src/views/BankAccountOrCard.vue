@@ -115,6 +115,7 @@ export default {
 
   &__item  {
     margin: 140px 0 0;
+    pointer-events: none;
 
     /* 
     Не получается переопределить то, то в 

@@ -1,15 +1,24 @@
 <template>
   <div id="app">
     <div class="app__header-wrapper">
-      <Header class="app__header app__header_more768"/>
-      <HeaderMobile class="app__header app__header_768"/>
+      <component 
+        :is="currentWidth > 768 ? 'Header' : 'HeaderMobile'"
+        class="app__header"
+        :class="
+          currentWidth > 768 ? 
+          'app__header_not-mobile' :
+          'app__header_mobile'
+        "
+      />
     </div>
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth"
         v-if="isLoggedIn && currentRouteName != 'for-private-clients'" 
       />
-      <router-view class="app__content"/>
+      <transition name="slide" mode="out-in">
+        <router-view class="app__content"/>
+      </transition>
     </main>
   </div>
 </template>
@@ -23,6 +32,14 @@ export default {
     Header: () => import("@/components/Header/Header.vue"),
     HeaderMobile: () => import("@/components/Header/HeaderMobile.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
+  },
+  mounted() {
+    window.addEventListener('resize', this.setCurrentWidth);
+  },
+  data() {
+    return {
+      currentWidth: window.innerWidth,
+    };
   },
   computed: {
     isLoggedIn() {
@@ -39,6 +56,11 @@ export default {
       axios.defaults.headers.common["Authorization"] = token;
       localStorage.setItem("token", token);
     }
+  },
+  methods: {
+    setCurrentWidth(e) {
+      this.currentWidth = e.currentTarget.innerWidth;
+    },
   },
 };
 </script>
@@ -69,6 +91,8 @@ export default {
   font-family: Play;
   font-style: normal;
   font-weight: normal; 
+
+  @include slide;
 }
 
 .app {
@@ -87,31 +111,6 @@ export default {
     max-width: 1440px;
 
     margin: 0 auto;
-  }
-}
-
-
-@media (min-width: 769px) {
-  .app__header {
-    &_more768 {
-      display: flex;
-    }
-
-    &_768 {
-      display: none;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .app__header {
-    &_more768 {
-      display: none;
-    }
-
-    &_768 {
-      display: flex;
-    }
   }
 }
 </style>
