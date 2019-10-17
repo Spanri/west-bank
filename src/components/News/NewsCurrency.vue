@@ -11,12 +11,11 @@
       </tr>
       <tr>
         <td class="select-inner currency__type">
-          <select class="select currency__type-select">
-            <option class="select__item">USD</option>
-            <option selected class="select__item">EUR</option>
-            <option class="select__item">GBP</option>
-            <option class="select__item">CHF</option>
-          </select>
+          <v-select
+            class="select currency__type-select"
+            :options="['USD', 'EUR', 'GBP', 'CHF']"
+            v-model="selected1" :searchable="false"
+          />
         </td>
         <td class="currency__value">65,66</td>
         <td class="currency__value">67,85</td>
@@ -26,13 +25,8 @@
           <v-select
             class="select currency__type-select"
             :options="['USD', 'EUR', 'GBP', 'CHF']"
+            v-model="selected2" :searchable="false"
           />
-          <!-- <select class="select currency__type-select">
-            <option class="select__item">USD</option>
-            <option class="select__item">EUR</option>
-            <option selected class="select__item">GBP</option>
-            <option class="select__item">CHF</option>
-          </select> -->
         </td>
         <td class="currency__value">72,12</td>
         <td class="currency__value">74,57</td>
@@ -45,25 +39,21 @@
       <tr>
         <td class="currency__value">10000</td>
         <td class="select-inner currency__symbol">
-          <select class="select currency__symbol-select">
-            <option class="select__item">$</option>
-            <option class="select__item">₽</option>
-            <option selected class="select__item">€</option>
-            <option class="select__item">£</option>
-            <option class="select__item">CHf</option>
-          </select>
+          <v-select
+            class="select currency__symbol-select"
+            :options="['$', '₽', '€', '£']"
+            v-model="selected3" :searchable="false"
+          />
         </td>
       </tr>
       <tr>
         <td class="currency__value">134,10</td>
         <td class="select-inner currency__symbol">
-          <select class="select currency__symbol-select">
-            <option class="select__item">$</option>
-            <option class="select__item">₽</option>
-            <option selected class="select__item">€</option>
-            <option class="select__item">£</option>
-            <option class="select__item">CHf</option>
-          </select>
+          <v-select
+            class="select currency__symbol-select"
+            :options="['$', '₽', '€', '£']"
+            v-model="selected4" :searchable="false"
+          />
         </td>
       </tr>
       <tr>
@@ -78,14 +68,43 @@
 <script>
 export default {
   name: "NewsCurrency",
+  data() {
+    return {
+      selected1: 'USD',
+      selected2: 'EUR',
+      selected3: '$',
+      selected4: '€',
+    };
+  },
 };
 </script>
 
-<style scoped lang="scss">    
-select { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px; } 
-select:hover { background-color:gren; } 
-option:hover { background-color:yellow; } 
-option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px; color:blue; background-color:yellow; }
+<style scoped lang="scss">  
+.vs__search {
+  display: none;
+  background: red;
+}  
+
+.vs--single .vs__selected {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
+
+.v-select .vs__search::placeholder,
+.v-select .vs__dropdown-toggle,
+.v-select .vs__dropdown-menu {
+  background: #dfe5fb;
+  border: none;
+  color: #d81212;
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+.v-select .vs__clear,
+.v-select .vs__open-indicator {
+  fill: #394066;
+}
 
 
 *:hover {
@@ -130,8 +149,8 @@ option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 21px;
     vertical-align: top;
   }
 
@@ -142,8 +161,8 @@ option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 19px;
   }
 
   &__value {
@@ -152,8 +171,8 @@ option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px
     font-family: Play;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 24px;
+    line-height: 28px;
   }
 
   &__type {
@@ -194,8 +213,8 @@ option { -webkit-border-radius:25px; -moz-border-radius:25px; border-radius:25px
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 28px;
 
   &__item {
     background: $color-light;

@@ -15,6 +15,15 @@ Vue.use(VueTheMask);
 Vue.component('v-select', vSelect);
 Vue.config.productionTip = false;
 
+vSelect.props.components.default = () => ({
+  Deselect: {
+    render: createElement => createElement('span', ''),
+  },
+  OpenIndicator: {
+    render: createElement => createElement('span', ''),
+  },
+});
+
 new Vue({
   router,
   store,
