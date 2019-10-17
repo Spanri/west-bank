@@ -70,16 +70,6 @@ export default {
 
     font-size: 24px;
     line-height: 28px;
-
-    &:before {
-      content: "";
-
-      width: 10%;
-      min-width: 100px;
-      max-width: 200px;
-
-      display: inline-block;
-    }
   }
 
   &__auth-block {

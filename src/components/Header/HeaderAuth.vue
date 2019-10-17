@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      logoColor: 'white',
+      logoColor: '#F2F2F2',
     };
   },
   computed: {
@@ -74,7 +74,7 @@ export default {
 
   &__login {
 
-    &_false {
+    &_false, &_true {
       width: 278px;
 
       display: flex;
@@ -90,19 +90,19 @@ export default {
       user-select: none;
     }
 
-    &_true {
-      width: 278px;
+    // &_true {
+    //   width: 278px;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
 
-      letter-spacing: 0.05em;
-      color: $color-light;
-      text-decoration: none;
+    //   letter-spacing: 0.05em;
+    //   color: $color-light;
+    //   text-decoration: none;
 
-      user-select: none;
-    }
+    //   user-select: none;
+    // }
   }
 
   &__logo {

@@ -2,10 +2,7 @@
   <div class="ad-wrapper">
     <div class="ad">
       <div class="ad-inner">
-        <div 
-          class="ad__content"
-          :style="{ width: lengthAdBlock }"
-        >
+        <div class="ad__content">
           Реклама
         </div>
       </div>
@@ -16,12 +13,6 @@
 <script>
 export default {
   name: "Ad",
-  props: {
-    lengthAdBlock: {
-      type: String,
-      default: "1166px",
-    },
-  },
 };
 </script>
 

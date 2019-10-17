@@ -23,12 +23,16 @@
       </tr>
       <tr>
         <td class="select-inner currency__type">
-          <select class="select currency__type-select">
+          <v-select
+            class="select currency__type-select"
+            :options="['USD', 'EUR', 'GBP', 'CHF']"
+          />
+          <!-- <select class="select currency__type-select">
             <option class="select__item">USD</option>
             <option class="select__item">EUR</option>
             <option selected class="select__item">GBP</option>
             <option class="select__item">CHF</option>
-          </select>
+          </select> -->
         </td>
         <td class="currency__value">72,12</td>
         <td class="currency__value">74,57</td>

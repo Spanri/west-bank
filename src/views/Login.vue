@@ -19,6 +19,7 @@
         Войти
       </button>
     </div>
+    <Ad />
     <Footer class="login__footer" />
   </div>
 </template>
@@ -27,6 +28,7 @@
 export default {
   name: "Login",
   components: {
+    Ad: () => import("@/components/Ad.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   data() {
@@ -65,8 +67,16 @@ export default {
     margin-top: 25px;
   }
 
+  .input-block {
+    &__title {
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: 0.08em;
+    }
+  }
+
   &__title {
-    margin: 88px 0 111px 155px;
+    margin: 20px 0 82px 170px;
 
     color: white;
     font-family: Play;
@@ -74,12 +84,13 @@ export default {
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
+    text-align: center;
   }
 
   &__button {
     background: transparent;
     border: 0;
-    margin: 282px 0 155px 142px;
+    margin: 282px 0 155px 170px;
 
     color: $color-accent;
     font-family: Play;
