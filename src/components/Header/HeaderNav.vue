@@ -10,7 +10,7 @@
       to="/for-private-clients" class="nav__item"
       @click.native="goToPage()"
     >
-      Частным <br /> клиентам
+      Частным клиентам
     </router-link>
     <router-link 
       to="/about" class="nav__item"
@@ -22,7 +22,7 @@
       to="/about" class="nav__item"
       @click.native="goToPage()"
     >
-      Финансовым <br /> институтам
+      Финансовым институтам
     </router-link>
     <router-link 
       to="/about" class="nav__item"
@@ -46,22 +46,25 @@ export default {
 
 <style scoped lang="scss">
 .nav {
-  padding-right: 30px;
+  padding-right: 20px;
 
   width: 100%;
 
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: wrap;
+  flex-basis: 100%;
 
   &__item {
     align-self: center;
 
     color: $color-light;
     text-decoration: none;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.08em;
 
-    padding-bottom: 37px;
     user-select: none;
 
     &:hover {

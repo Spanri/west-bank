@@ -64,8 +64,8 @@ export default {
 
 <style scoped lang="scss">
 .auth {
-  width: 274px;
-  height: 90px;
+  width: 278px;
+  height: 72px;
 
   display: flex;
 
@@ -81,6 +81,8 @@ export default {
       justify-content: flex-start;
       align-items: center;
 
+      font-size: 16px;
+      line-height: 19px;
       letter-spacing: 0.05em;
       color: $color-light;
       text-decoration: none;
@@ -104,7 +106,7 @@ export default {
   }
 
   &__logo {
-    padding-right: 13px;
+    margin: 0 8px;
 
     width: 35px;
   }
