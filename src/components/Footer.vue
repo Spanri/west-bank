@@ -26,6 +26,7 @@ export default {
 <style scoped lang="scss">
 .footer {
   height: 172px;
+  max-width: 1440px;
 
   display: flex;
   flex-direction: row;
@@ -34,6 +35,8 @@ export default {
   font-family: Play;
   font-style: normal;
   font-weight: normal;
+
+  margin: 0 auto;
 
   &__contacts {
     width: 100%;
@@ -85,8 +88,7 @@ export default {
       letter-spacing: 0.05em;
 
       &:focus {
-        // box-shadow: 0 0 14px $color-block-light;
-        @include color-opacity(background, $color-accent, 0.45);
+        background: $color-block-light;
       }
     }
   }

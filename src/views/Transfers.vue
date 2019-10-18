@@ -7,7 +7,6 @@
         class="signup__content"
       />
     </transition>
-    <Footer class="transfers__footer"/>
   </div>
 </template>
 
@@ -19,7 +18,6 @@ export default {
     Transfers1: () => import("@/components/Transfers/Transfers1.vue"),
     Transfers2: () => import("@/components/Transfers/Transfers2.vue"),
     Transfers3: () => import("@/components/Transfers/Transfers3.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   computed: {
     currentRouteName() {

@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="login-inner">
+    <div class="login__content">
       <p class="login__title">Вход</p>
       <div class="login__input input-block-wrapper">
         <div
@@ -19,8 +19,7 @@
         Войти
       </button>
     </div>
-    <Ad />
-    <Footer class="login__footer" />
+    <Ad class="login__ad"/>
   </div>
 </template>
 
@@ -29,7 +28,6 @@ export default {
   name: "Login",
   components: {
     Ad: () => import("@/components/Ad.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
@@ -90,7 +88,7 @@ export default {
   &__button {
     background: transparent;
     border: 0;
-    margin: 282px 0 155px 170px;
+    margin: 38px 0 155px 170px;
 
     color: $color-accent;
     font-family: Play;
@@ -105,8 +103,8 @@ export default {
     }
   }
 
-  &__footer {
-    justify-self: flex-end;
+  &__ad {
+    margin-bottom: 96px;
   }
 }
 </style>

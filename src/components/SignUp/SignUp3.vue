@@ -12,7 +12,6 @@
       Перейти в онлайн-банк
     </router-link>
     <Ad class="signup3__ad" />
-    <Footer class="signup3__footer" />
   </div>
 </template>
 
@@ -22,7 +21,6 @@ export default {
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Ad: () => import("@/components/Ad.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {};
@@ -53,8 +51,8 @@ export default {
     font-family: Play;
     font-style: normal;
     font-weight: bold;
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 36px;
+    line-height: 42px;
     text-align: center;
     letter-spacing: 0.09em;
   }
@@ -64,21 +62,17 @@ export default {
     font-family: Play;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 144.2%;
 
     &:hover {
       text-decoration: none;
-      color: darken($color: $color-accent, $amount: 20);
+      color: $color-light;
     }
   }
 
   &__ad {
     margin-top: 48px;
-  }
-
-  &__footer {
-    margin-top: 412px;
   }
 }
 </style>

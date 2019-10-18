@@ -2,7 +2,6 @@
   <div class="news">
     <NewsAd class="news__ad"/>
     <NewsCurrency class="news__currency"/>
-    <Footer />
   </div>
 </template>
 
@@ -12,7 +11,6 @@ export default {
   components: {
     NewsAd: () => import("@/components/News/NewsAd.vue"),
     NewsCurrency: () => import("@/components/News/NewsCurrency.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
 };
 </script>

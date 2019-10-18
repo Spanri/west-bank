@@ -4,7 +4,11 @@
       <div class="profile__photo-block">
         <ProfilePhoto class="profile__not-photo" v-if="!profile.photo"/>
         <ProfilePhoto class="profile__photo" v-else/>
-        <div class="profile__edit-photo" @click="editPhoto">
+        <div 
+          class="profile__edit-photo" 
+          @click="editPhoto"
+          title="Изменить"
+        >
           <span>Изменить</span>
         </div>
       </div>
@@ -22,15 +26,18 @@
         <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
-    <div class="profile__buttons">
-      <div class="button profile__edit-data" @click="editData">
-        <p class="profile__buttons-text">Редактировать данные</p>
-      </div>
-      <div class="button profile__logout" @click="logout">
-        <p class="profile__buttons-text">Выйти из аккаунта</p>
+    <div class="profile__buttons-wrapper">
+      <div class="profile__buttons">
+        <div class="profile__buttons-inner">
+          <div class="button profile__edit-data" @click="editData">
+            <p class="profile__buttons-text">Редактировать данные</p>
+          </div>
+          <div class="button profile__logout" @click="logout">
+            <p class="profile__buttons-text">Выйти из аккаунта</p>
+          </div>
+        </div>
       </div>
     </div>
-    <Footer class="profile__footer" />
   </div>
 </template>
 
@@ -39,7 +46,6 @@ export default {
   name: "Profile",
   components: {
     ProfilePhoto: () => import("@/icons/ProfilePhoto.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   computed: {
     profile() {
@@ -86,6 +92,10 @@ export default {
 .profile {
   position: relative;
 
+  &__content {
+    position: relative;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -99,12 +109,27 @@ export default {
   }
 
   &__buttons {
-    position: absolute;
-    left: calc((100vw - 1440px) / 2 * (-1));
-    top: 627px;
+    height: 268px;
+
+    &-wrapper {
+      position: relative;
+
+      margin-top: 185px;
+      margin-bottom: 100px;
+    }
+
+    &-inner {      
+      position: absolute;
+      left: calc((100vw - 1440px) / 2 * (-1));
+
+      width: calc((100vw - 1440px) / 2 + 654px);
+      height: 268px;
+    }
 
     &-text {
       padding-top: 15px;
+      padding-left: 42px;
+      text-align: left;
     }
 
     .button + .button {
@@ -136,9 +161,19 @@ export default {
     line-height: 16px;
     text-align: right;
 
+    &::after {
+      display: block;
+      content: attr(title);
+      font-weight: bold;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
     &:hover {
       cursor: pointer;
-      @include color-opacity(color, $color-accent, 0.6);
+      color: $color-light;
+      font-weight: bold;
     }
   }
 
@@ -156,24 +191,20 @@ export default {
       line-height: 28px;
       color: $color-light;
 
-      &:nth-child(1) {
+      &:first-child {
         margin-top: 98px;
       }
     }
   }
-
-  &__footer {
-    margin-top: 533px;
-  }
 }
 
 @media (max-width: 1440px) {
-  .profile__buttons {
-    left: 0;
-  }
-
   .button {
     width: 654px;
+  }
+
+  .profile__buttons-inner {
+    left: 0;
   }
 }
 </style>

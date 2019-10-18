@@ -4,20 +4,16 @@
       <ExcerptFilter class="excerpt__filter" @filter="filter"/>
       <ExcerptTable class="excerpt__table"/>
     </div>
-    <div class="excerpt__doc-and-footer">
-      <div 
-      class="excerpt__document-wrapper">
-        <div class="excerpt__document">
-          <div class="excerpt__document-button">
-            <Document
-              class="excerpt__document-button-img"
-              :color1="logoColor1" :color2="logoColor2"
-            />
-            <span>Документ</span>
-          </div>
+    <div class="excerpt__document-wrapper">
+      <div class="excerpt__document">
+        <div class="excerpt__document-button">
+          <Document
+            class="excerpt__document-button-img"
+            :color1="logoColor1" :color2="logoColor2"
+          />
+          <span>Документ</span>
         </div>
       </div>
-      <Footer class="excerpt__footer" />
     </div>
   </div>
 </template>
@@ -29,7 +25,6 @@ export default {
     Document: () => import("@/icons/Document.vue"),
     ExcerptFilter: () => import("@/components/Excerpt/ExcerptFilter.vue"),
     ExcerptTable: () => import("@/components/Excerpt/ExcerptTable.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
@@ -84,8 +79,8 @@ export default {
     font-family: Play;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 24px;
+    line-height: 28px;
     letter-spacing: 0.09em;
 
     &-wrapper {
@@ -120,8 +115,7 @@ export default {
 
 @media (max-width: 1440px) {
   .excerpt__document {
-    width: 1166px;
-
+    width: 654px;
     left: 0;
   }
 }

@@ -20,6 +20,7 @@
         <router-view class="app__content"/>
       </transition>
     </main>
+    <Footer class="app__footer" />
   </div>
 </template>
 
@@ -32,6 +33,7 @@ export default {
     Header: () => import("@/components/Header/Header.vue"),
     HeaderMobile: () => import("@/components/Header/HeaderMobile.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
+    Footer: () => import("@/components/Footer.vue"),
   },
   mounted() {
     window.addEventListener('resize', this.setCurrentWidth);

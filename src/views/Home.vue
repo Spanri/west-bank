@@ -44,7 +44,6 @@
         </button>
       </div>
     </div>
-    <Footer class="home_footer"/>
   </div>
 </template>
 
@@ -56,7 +55,6 @@ export default {
     Rectangle: () => import("@/icons/Rectangle.vue"),
     ItemBankAccountOrCard: () => 
       import("@/components/ItemBankAccountOrCard.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {

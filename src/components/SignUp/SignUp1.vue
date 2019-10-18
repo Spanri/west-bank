@@ -2,10 +2,10 @@
   <div class="signup1">
     <p class="signup1__title">Регистрация</p>
     <SignUp1Inputs class="signup1__inputs" @next="next" />
-    <p class="signup1__login">
-      Уже есть аккаунт?<br />
-      <router-link to="/login" class="button signup1__login-button">
-        Войти
+    <p class="signup1__login-wrapper">
+      <router-link to="/login" class="button signup1__login">
+        <p class="signup1__text1">Уже есть аккаунт?</p>
+        <p class="signup1__text2">Войти</p>
       </router-link>
     </p>
   </div>
@@ -38,12 +38,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button:hover {
-  color: darken($color: $color-accent, $amount: 20);
-  fill: darken($color: $color-light, $amount: 40);
-  transition: 0.1s all ease-in-out;
-}
-
 .signup1 {
   height: auto;
 
@@ -65,20 +59,34 @@ export default {
     font-family: Play;
     font-style: normal;
     font-weight: normal;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    &-wrapper {
+      margin-top: 85px;
+      margin-bottom: 150px;
+    }
+
+    & > * {
+      margin: 0;
+      margin-left: 155px;
+    }
+
+    &:hover {
+      color: $color-light;
+      transition: 0.1s all ease-in-out;
+    }
+  }
+
+  &__text1 {
     font-size: 24px;
     line-height: 35px;
-    text-align: center;
+  }
 
-    margin: 0;
-    margin-left: 155px;
-    margin-bottom: 348px;
-
-    &-button {
-      color: $color-accent;
-      font-size: 36px;
-      line-height: 154.2%;
-      text-decoration: none;
-    }
+  &__text2 {
+    font-size: 36px;
+    line-height: 52px;
   }
 }
 </style>

@@ -85,10 +85,11 @@ export default {
     flex-grow: 2;
     align-self: center;
 
-    margin-left: 24.29px;
+    margin-left: 44.78px;
 
     &-svg {
       vertical-align: inherit;
+      margin-right: 10px;
     }
   }
 

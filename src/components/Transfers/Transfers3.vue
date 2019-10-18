@@ -92,9 +92,5 @@ export default {
     margin-top: 48px;
     margin-bottom: 89px;
   }
-
-  &__footer {
-    margin-top: 412px;
-  }
 }
 </style>

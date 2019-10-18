@@ -156,9 +156,9 @@ export default {
 <style scoped lang="scss">
 .button:hover,
 .button:hover .input-block__submit-svg {
-  color: darken($color: $color-light, $amount: 40);
+  color: $color-accent;
 
-  fill: darken($color: $color-light, $amount: 40);
+  fill: $color-accent;
   transition: 0.1s all ease-in-out;
 }
 
@@ -173,6 +173,7 @@ export default {
     margin-left: 155px;
     margin-top: 69px;
     margin-bottom: 78px;
+    user-select: none;
 
     color: $color-pre-light;
     font-family: Play;

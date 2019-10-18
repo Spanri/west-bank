@@ -52,7 +52,6 @@
         </div>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 
@@ -61,7 +60,6 @@ export default {
   name: "bankAccountOrCard",
   components: {
     ItemBankAccountOrCard: () => import("@/components/ItemBankAccountOrCard.vue"),
-    Footer: () => import("@/components/Footer.vue"),
   },
   data() {
     return {
