@@ -71,8 +71,8 @@ export default {
   font-family: Play;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 28px;
 
   &-without-currency {
     width: 878px;

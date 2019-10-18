@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      logoColor: 'white',
+      logoColor: '#F2F2F2',
     };
   },
   computed: {
@@ -64,8 +64,8 @@ export default {
 
 <style scoped lang="scss">
 .auth {
-  width: 274px;
-  height: 90px;
+  width: 278px;
+  height: 72px;
 
   display: flex;
 
@@ -74,13 +74,15 @@ export default {
 
   &__login {
 
-    &_false {
+    &_false, &_true {
       width: 278px;
 
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
+      font-size: 16px;
+      line-height: 19px;
       letter-spacing: 0.05em;
       color: $color-light;
       text-decoration: none;
@@ -88,29 +90,29 @@ export default {
       user-select: none;
     }
 
-    &_true {
-      width: 278px;
+    // &_true {
+    //   width: 278px;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
 
-      letter-spacing: 0.05em;
-      color: $color-light;
-      text-decoration: none;
+    //   letter-spacing: 0.05em;
+    //   color: $color-light;
+    //   text-decoration: none;
 
-      user-select: none;
-    }
+    //   user-select: none;
+    // }
   }
 
   &__logo {
-    padding-right: 13px;
+    margin: 0 8px;
 
     width: 35px;
   }
 
   &:hover {
-    @include color-opacity(background, $color-accent, 0.6);
+    background: $color-block-light;
   }
 }
 

@@ -17,3 +17,15 @@ $color-accent: #C66166; //C66166
 
 $error: #C66166;
 $success: #6FCF97;
+
+$vs-border-width: 0px;
+$vs-selected-bg: $color-block-medium;
+$vs-dropdown-bg: $color-block-medium;
+
+$vs-state-active-bg: $color-block-medium;
+$vs-state-active-color: $color-accent;
+
+$vs-state-disabled-bg: rgb(82, 27, 27);
+$vs-state-disabled-color: $color-light;
+
+$vs-dropdown-min-width: 20px;

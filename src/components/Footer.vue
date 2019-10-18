@@ -43,7 +43,7 @@ export default {
 
     color: $color-light;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 21px;
     letter-spacing: 0.135em;
     text-align: left;
 
@@ -65,22 +65,24 @@ export default {
     &-text {
       color: $color-light;
       font-size: 18px;
-      line-height: 22px;
-      letter-spacing: 0.135em;
+      line-height: 21px;
+      letter-spacing: 0.205em;
       text-align: left;
     }
 
     &-input {
-      width: calc((100vw - 1440px) / 2 + 392px);
-      height: 42px;
+      width: 279px;
+      height: 72px;
 
       margin-top: 13px;
       border: 0;
       @include color-opacity(background, $color-accent, 0.6);
-      padding: 0 15px;
+      padding: 0 10px;
 
       color: $color-light;
-      font-size: 24px;
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 0.05em;
 
       &:focus {
         // box-shadow: 0 0 14px $color-block-light;

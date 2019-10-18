@@ -1,9 +1,9 @@
 <template>
   <div class="signup3">
-    <img
+    <Logo 
       class="signup3__logo"
-      src="@/assets/logo.svg"
-      alt="Логотип вест банк"
+      color1="white" color2="white" 
+      size="271"
     />
     <p class="signup3__text">
       Добро пожаловать!
@@ -20,6 +20,7 @@
 export default {
   name: "SignUp3",
   components: {
+    Logo: () => import("@/icons/Logo.vue"),
     Ad: () => import("@/components/Ad.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },

@@ -1,17 +1,9 @@
 <template>
   <div class="profile">
     <div class="profile__info">
-      <div class="profile__img">
-        <img
-          v-if="!profile.photo"
-          src="@/assets/profile-photo.svg"
-          alt="Иконка вместо фотографии пользователя"
-        />
-        <img
-          v-else
-          src="@/assets/profile-photo.svg"
-          alt="Иконка вместо фотографии пользователя 2"
-        />
+      <div class="profile__photo-block">
+        <ProfilePhoto class="profile__not-photo" v-if="!profile.photo"/>
+        <ProfilePhoto class="profile__photo" v-else/>
         <div class="profile__edit-photo" @click="editPhoto">
           <span>Изменить</span>
         </div>
@@ -46,6 +38,7 @@
 export default {
   name: "Profile",
   components: {
+    ProfilePhoto: () => import("@/icons/ProfilePhoto.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
   computed: {
@@ -69,10 +62,10 @@ export default {
 <style scoped lang="scss">
 .button {
   height: 62px;
-  width: calc((100vw - 1440px) / 2 + 1166px);
+  width: calc((100vw - 1440px) / 2 + 654px);
 
   padding-left: calc((100vw - 1440px) / 2);
-  @include color-opacity(background, $color-accent, 0.2);
+  @include color-opacity(background, $color-block-light, 0.2);
   border: 0;
   user-select: none;
 
@@ -80,8 +73,8 @@ export default {
   font-family: Play;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 28px;
   letter-spacing: 0.09em;
 
   &:hover {
@@ -106,22 +99,20 @@ export default {
   }
 
   &__buttons {
-    width: calc((100vw - 1440px) / 2 + 1166px);
-
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
     top: 627px;
 
     &-text {
-      padding-top: 7px;
+      padding-top: 15px;
     }
 
-    .button:nth-child(1) {
-      margin-bottom: 50px;
+    .button + .button {
+      margin-top: 78px;
     }
   }
 
-  &__img {
+  &__photo-block {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -161,8 +152,8 @@ export default {
       font-family: Play;
       font-style: normal;
       font-weight: normal;
-      font-size: 36px;
-      line-height: 42px;
+      font-size: 24px;
+      line-height: 28px;
       color: $color-light;
 
       &:nth-child(1) {
@@ -182,7 +173,7 @@ export default {
   }
 
   .button {
-    width: 1166px;
+    width: 654px;
   }
 }
 </style>
