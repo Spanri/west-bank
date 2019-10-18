@@ -68,6 +68,20 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Play&display=swap");
 
+.vs__selected-options {
+    flex-basis: auto;
+}
+
+.vs__search {
+  width: 0px;
+}  
+
+.vs--single .vs__selected {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
+
 *:hover {
   transition: ease-in-out all 0.15s;
 }

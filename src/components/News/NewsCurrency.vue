@@ -10,22 +10,24 @@
         <td class="currency__subtitle">Продажа</td>
       </tr>
       <tr>
-        <td class="select-inner currency__type">
-          <v-select
-            class="select currency__type-select"
-            :options="['USD', 'EUR', 'GBP', 'CHF']"
-            v-model="selected1" :searchable="false"
+        <td class="currency__select-wrapper currency__type">
+          <Select 
+            class="currency__select currency__type-select"
+            :items="['USD', 'EUR', 'GBP', 'CHF']"
+            default="USD" @select="select" 
+            model="selected1"
           />
         </td>
         <td class="currency__value">65,66</td>
         <td class="currency__value">67,85</td>
       </tr>
       <tr>
-        <td class="select-inner currency__type">
-          <v-select
-            class="select currency__type-select"
-            :options="['USD', 'EUR', 'GBP', 'CHF']"
-            v-model="selected2" :searchable="false"
+        <td class="currency__select-wrapper currency__type">
+          <Select 
+            class="currency__select currency__type-select"
+            :items="['USD', 'EUR', 'GBP', 'CHF']"
+            default="EUR" @select="select" 
+            model="selected2"
           />
         </td>
         <td class="currency__value">72,12</td>
@@ -34,25 +36,25 @@
     </table>
     <table class="currency__converter">
       <tr class="currency__title">
-        <th colspan="2">Конвертер</th>
+        <th colspan="1">Конвертер</th>
       </tr>
       <tr>
         <td class="currency__value">10000</td>
-        <td class="select-inner currency__symbol">
-          <v-select
-            class="select currency__symbol-select"
-            :options="['$', '₽', '€', '£']"
-            v-model="selected3" :searchable="false"
+        <td class="currency__select-wrapper currency__symbol">
+          <Select 
+            class="currency__select currency__symbol-select"
+            :items="['$', '₽', '€', '£']" default="$"
+            @select="select" model="selected3"
           />
         </td>
       </tr>
       <tr>
         <td class="currency__value">134,10</td>
-        <td class="select-inner currency__symbol">
-          <v-select
-            class="select currency__symbol-select"
-            :options="['$', '₽', '€', '£']"
-            v-model="selected4" :searchable="false"
+        <td class="currency__select-wrapper currency__symbol">
+          <Select 
+            class="currency__select currency__symbol-select"
+            :items="['$', '₽', '€', '£dfdfd']" default="$" 
+            @select="select" model="selected4"
           />
         </td>
       </tr>
@@ -68,6 +70,9 @@
 <script>
 export default {
   name: "NewsCurrency",
+  components: {
+    Select: () => import("@/components/Select.vue"),
+  },
   data() {
     return {
       selected1: 'USD',
@@ -76,37 +81,15 @@ export default {
       selected4: '€',
     };
   },
+  methods: {
+    select(val, model) {
+      this[model] = val;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">  
-.vs__search {
-  display: none;
-  background: red;
-}  
-
-.vs--single .vs__selected {
-  background-color: transparent;
-  border-color: transparent;
-  color: white;
-}
-
-.v-select .vs__search::placeholder,
-.v-select .vs__dropdown-toggle,
-.v-select .vs__dropdown-menu {
-  background: #dfe5fb;
-  border: none;
-  color: #d81212;
-  text-transform: lowercase;
-  font-variant: small-caps;
-}
-
-.v-select .vs__clear,
-.v-select .vs__open-indicator {
-  fill: #394066;
-}
-
-
 *:hover {
   transition: all ease-in-out 0s;
 }
@@ -125,10 +108,25 @@ export default {
 
     margin-right: 221px;
     margin-left: 232px;
+
+    .currency__title {
+      height: auto;
+    }
   }
 
   &__converter {
     width: 250px;
+
+    .currency__value {
+      width: 90px;
+      text-align: right;
+    }
+
+    .currency__title {
+      width: 90px;
+      height: 67px;
+      text-align: right;
+    }
   }
 
   &__text {
@@ -144,8 +142,6 @@ export default {
   }
 
   &__title {
-    height: 65px;
-
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -155,7 +151,7 @@ export default {
   }
 
   &__subtitle {
-    height: 65px;
+    height: 49px;
 
     vertical-align: top;
     font-family: Roboto;
@@ -166,7 +162,8 @@ export default {
   }
 
   &__value {
-    height: 65px;
+    /* нужно задавать высоту, ибо иначе она ставится по select */
+    height: 75px;
 
     font-family: Play;
     font-style: normal;
@@ -175,82 +172,83 @@ export default {
     line-height: 28px;
   }
 
+  /* для select курсов */
   &__type {
+    width: 150px;
+    position: relative;
+
     &-select {
       color: #6fcf97;
-    }
+      padding-left: 26px;
 
-    &::before {
-      left: 0;
-      top: 25px;
+      &::before {
+        content: "▼";
+
+        display: inline-block;
+
+        width: 24px;
+        height: 24px;
+
+        position: absolute;
+        top: 25px;
+        left: 0;
+
+        color: $color-light;
+        font-size: 18px;
+      }
+
+      &:hover::before {
+        cursor: pointer;
+        color: $color-accent;
+      }
     }
   }
 
+  /* для select конвертера */
   &__symbol {
-    &-select {
-      color: $color-light;
-    }
+    position: relative;
 
-    &::before {
-      left: 35px;
-      top: 50px;
+    &-select {
+      display: block;
+      position: relative;
+
+      padding-left: 61px;
+      color: $color-light;
+
+       &::after {
+        content: "▼";
+        display: inline-block;
+
+        width: 24px;
+        height: 24px;
+
+        position: relative;
+        left: 28px;
+        top: -30px;
+
+        margin-top: -30px;
+        margin-right: 15px;
+
+        color: $color-light;
+        font-size: 18px;
+      }
+
+      &:hover::after {
+        cursor: pointer;
+        color: $color-accent;
+      }
     }
   }
 }
 
-.select {
-  display: block;
-
-  width: 100%;
-  height: 65px;
-
-  padding-left: 26px;
-  border: none;
-  appearance: none;
-  background-color: transparent;
-  margin-right: 53px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-
-  &__item {
-    background: $color-light;
-    border: 0;
-
-    color: black;
-    font-size: 20px;
-  }
-
-  &-inner {
-    position: relative;
-
-    &::before {
-      content: "▼";
-      pointer-events: none;
-
-      display: inline-block;
-
-      width: 24px;
-      height: 24px;
-
-      position: absolute;
-
-      color: $color-light;
+.currency__select {
+  &-wrapper {
+    &:hover,
+    &:hover /deep/ .select__value,
+    &:hover::before {
+      cursor: pointer;
+      color: $color-accent;
     }
-  }
-
-  &:hover,
-  &-inner:hover::before {
-    cursor: pointer;
-
-    color: $color-accent;
-  }
-
-  &::-ms-expand {
-    display: none;
   }
 }
 </style>

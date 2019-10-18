@@ -112,7 +112,7 @@ export default {
   }
 
   &:hover {
-    @include color-opacity(background, $color-accent, 0.6);
+    background: $color-block-light;
   }
 }
 
