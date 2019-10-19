@@ -109,7 +109,7 @@ export default {
   }
 
   &__main {
-    min-height: calc(100vh - 172px);
+    min-height: calc(100vh - 290px);
     max-width: 1440px;
 
     margin: 0 auto;

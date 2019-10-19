@@ -120,9 +120,9 @@ export default {
   .auth {
     width: 180px;
 
-    &__logo {
-      display: none;
-    }
+    // &__logo {
+    //   display: none;
+    // }
   }
 }
 

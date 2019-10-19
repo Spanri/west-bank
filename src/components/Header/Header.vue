@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header-inner">
-      <router-link to="/" class="header__logo">
+      <router-link to="/home" class="header__logo">
         <Logo
           class="transfers3__logo" size="105"
           :color1="logoColor1" :color2="logoColor2"

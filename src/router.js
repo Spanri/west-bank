@@ -44,7 +44,7 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      redirect: '/home',
+      redirect: '/news',
     },
     {
       path: "/home",
