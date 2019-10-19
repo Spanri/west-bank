@@ -130,8 +130,6 @@ export default {
     display: flex;
     align-content: stretch;
 
-    padding-left: -15px;
-
     &:hover {
       cursor: pointer;
       @include color-opacity(background, $color-accent, 0.6);
