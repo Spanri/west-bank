@@ -61,8 +61,8 @@ export default {
   }
 
   &__document {
-    width: calc((100vw - 1440px) / 2 + 654px);
     height: 62px;
+    width: calc((100vw - 1440px) / 2 + 654px);
 
     display: flex;
     align-items: center;
@@ -70,25 +70,20 @@ export default {
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
 
-    user-select: none;
+    @include color-opacity(background, $color-block-light, .2);
     margin-left: 0px;
-    @include color-opacity(background, $color-block-light, 0.2);
-
+    user-select: none;
+    
     color: $color-light;
+    font: 24px/28px Play;
+    letter-spacing: .09em;
     vertical-align: middle;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.09em;
 
     &-wrapper {
       position: relative;
 
       height: 62px;
-      margin-bottom: 58px;
-      margin-top: 150px;
+      margin: 150px 0 58px 0;
     }
 
     &-button {
@@ -104,19 +99,24 @@ export default {
       &-img {
         margin-left: 43px;
       }
+
     }
 
     &:hover {
+      @include color-opacity(background, $color-block-light, .4);
       cursor: pointer;
-      @include color-opacity(background, $color-block-light, 0.4);
     }
+
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .excerpt__document {
-    width: 654px;
     left: 0;
+    width: 654px;
   }
+  
 }
 </style>

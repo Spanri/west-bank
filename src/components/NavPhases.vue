@@ -44,11 +44,12 @@ export default {
 .nav {
   position: absolute;
   right: 0;
+
   margin-top: 353px;
 
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
+  flex-direction: column;
 
   color: $color-light;
 
@@ -58,30 +59,27 @@ export default {
 
   &-item {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
 
     position: relative;
 
     height: 90px;
 
-    @include color-opacity(background, $color-block-light, 0.8);
+    @include color-opacity(background, $color-block-light, .8);
     user-select: none;
 
     text-align: left;
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
+    font: normal normal bold 24px/28px Play;
 
     &1_phase {
+
       &1 {
         width: calc((100vw - 1440px) / 2 + 168px);
 
+        @include color-opacity(background, $color-block-dark, .95);
+        box-shadow: 0 4px 4px #00000095;
         z-index: 3;
-        @include color-opacity(background, $color-block-dark, 0.95);
-        box-shadow: 0px 4px 4px #00000095;
       } 
 
       &2 {
@@ -98,22 +96,23 @@ export default {
         @include color-opacity(background, $color-block-light, 0.6); 
         box-shadow: 0px 4px 4px #00000060;
       } 
+
     }
 
     &2_phase {
+
       &1 {
         width: calc((100vw - 1440px) / 2 + 148px);
-
-        @include color-opacity(background, $color-block-medium, 0.9);
-        box-shadow: 0px 4px 4px #00000090;
+        @include color-opacity(background, $color-block-medium, .9);
+        box-shadow: 0 4px 4px #00000090;
       } 
 
       &2 {
         width: calc((100vw - 1440px) / 2 + 168px);
-
+        
+        @include color-opacity(background, $color-block-dark, .95); 
+        box-shadow: 0 4px 4px #00000095;
         z-index: 3;
-        @include color-opacity(background, $color-block-dark, 0.95); 
-        box-shadow: 0px 4px 4px #00000095;
       } 
 
       &3 {
@@ -122,30 +121,31 @@ export default {
         @include color-opacity(background, $color-block-medium, 0.8); 
         box-shadow: 0px 4px 4px #00000080;
       } 
+
     }
 
     &3_phase {
+
       &1 {
         width: calc((100vw - 1440px) / 2 + 128px);
-
-        @include color-opacity(background, $color-block-light, 0.85);
-        box-shadow: 0px 4px 4px #00000085;
+        @include color-opacity(background, $color-block-light, .85);
+        box-shadow: 0 4px 4px #00000085;
       } 
 
       &2 {
         width: calc((100vw - 1440px) / 2 + 128px);
-
-        @include color-opacity(background, $color-block-medium, 0.6); 
-        box-shadow: 0px 4px 4px #00000060;
+        @include color-opacity(background, $color-block-medium, .6); 
+        box-shadow: 0 4px 4px #00000060;
       } 
 
       &3 {
         width: calc((100vw - 1440px) / 2 + 168px);
 
+        @include color-opacity(background, $color-block-dark, .95); 
+        box-shadow: 0 4px 4px #00000095;
         z-index: 3;
-        @include color-opacity(background, $color-block-dark, 0.95); 
-        box-shadow: 0px 4px 4px #00000095;
       } 
+
     }
 
     &:nth-child(2) {
@@ -155,16 +155,21 @@ export default {
     &:nth-child(3) {
       top: -29px;
     }
+
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .nav-text {
     width: 84px;
   }
 
   .nav-item {
+
     &1_phase {
+
       &1 {
         width: 168px;
       } 
@@ -176,9 +181,11 @@ export default {
       &3 {
         width: 128px;
       } 
+
     }
 
     &2_phase {
+
       &1 {
         width: 148px;
       } 
@@ -190,9 +197,11 @@ export default {
       &3 {
         width: 148px;
       } 
+
     }
 
     &3_phase {
+
       &1 {
         width: 128px;
       } 
@@ -204,7 +213,10 @@ export default {
       &3 {
         width: 168px;
       } 
+
     }
+
   }
+  
 }
 </style>

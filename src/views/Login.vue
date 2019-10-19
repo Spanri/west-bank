@@ -66,22 +66,19 @@ export default {
   }
 
   .input-block {
+
     &__title {
-      font-size: 24px;
-      line-height: 28px;
-      letter-spacing: 0.08em;
+      font: 24px/28px;
+      letter-spacing: .08em;
     }
+
   }
 
   &__title {
     margin: 20px 0 82px 170px;
 
     color: white;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
     text-align: center;
   }
 
@@ -91,20 +88,18 @@ export default {
     margin: 38px 0 155px 170px;
 
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
     text-align: center;
 
     &:hover {
       color: darken($color: $color-accent, $amount: 20);
     }
+
   }
 
   &__ad {
     margin-bottom: 96px;
   }
+  
 }
 </style>

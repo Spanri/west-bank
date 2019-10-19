@@ -94,9 +94,9 @@ export default {
 
   background: transparent;
   border: 0;
-  user-select: none;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 .bankAccount-or-card {
@@ -123,13 +123,11 @@ export default {
       cursor: default !important;
       background: transparent !important;
     }
+
   }
 
   &__info {
-    font-family: Play;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
 
     max-width: 929px;
 
@@ -154,19 +152,16 @@ export default {
       color: $color-post-medium;
       font-weight: normal;
     }
+
   }
 
   &__button {
     margin-bottom: 150px;
 
     color: $color-light;
+    font: 36px/42px Play;
+    letter-spacing: .09em;
     text-align: left;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: 0.09em;
   }
 
   &__excerpt {
@@ -177,14 +172,15 @@ export default {
     stroke: $color-light;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
+    justify-content: space-between;
+    
     &:hover {
+      color: $color-accent;
       cursor: pointer;
       stroke: $color-accent;
-      color: $color-accent;
     }
+
   }
 
   &__lock-out {
@@ -192,8 +188,8 @@ export default {
 
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
-
-    @include color-opacity(background, $color-block-light, 0.2);
+    
+    @include color-opacity(background, $color-block-light, .2);
     margin-left: -42px;
 
     &-wrapper {
@@ -210,8 +206,10 @@ export default {
     }
 
     &:hover {
-      @include color-opacity(background, $color-block-light, 0.4);
+      @include color-opacity(background, $color-block-light, .4);
     }
+
   }
+  
 }
 </style>

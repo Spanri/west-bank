@@ -68,10 +68,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Play&display=swap");
-
 *:hover {
-  transition: ease-in-out all 0.15s;
+  transition: ease-in-out all .15s;
 }
 
 .button:hover {
@@ -83,21 +81,22 @@ export default {
 }
 
 #app {
+  background: $color-background;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: $color-background;
   overflow: hidden;
 
-  text-align: center;
   font-family: Play;
   font-style: normal;
-  font-weight: normal; 
+  font-weight: normal;
+  text-align: center;
 
   @include slide;
 }
 
 .app {
+
   &__header {
     max-width: 1440px;
     
@@ -106,13 +105,14 @@ export default {
     &-wrapper {
       background: $color-header;
     }
+
   }
 
   &__main {
     min-height: calc(100vh - 290px);
     max-width: 1440px;
-
     margin: 0 auto;
   }
+  
 }
 </style>

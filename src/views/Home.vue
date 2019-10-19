@@ -81,22 +81,18 @@ export default {
   height: 61px;
   width: calc((100vw - 1440px) / 2 + 654px);
 
-  padding-left: calc((100vw - 1440px) / 2 + 43px);
-  @include color-opacity(background, $color-block-light, 0.2);
+  @include color-opacity(background, $color-block-light, .2);
   border: 0;
+  padding-left: calc((100vw - 1440px) / 2 + 43px);
   user-select: none;
 
   color: $color-light;
+  font: normal normal normal 36px/42px Play;
+  letter-spacing: .09em;
   text-align: left;
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
-  letter-spacing: 0.09em;
 
   &:hover {
-    @include color-opacity(background, $color-block-light, 0.4);
+    @include color-opacity(background, $color-block-light, .4);
   }
 }
 
@@ -104,26 +100,23 @@ export default {
   height: auto;
 
   color: $color-light;
+  font: 24px/28px Play;
   text-align: left;
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
 
   &__title {
+
     &_bank-accounts {
-      padding-top: 64px;
       margin-bottom: 40px;
+      padding-top: 64px;
 
       display: flex;
       align-content: stretch;
     }
 
     &_cards {
-      margin-top: 50px;
-      margin-bottom: 45px;
+      margin: 50px 0 45px 0;
     }
+
   }
 
   &__item {
@@ -131,20 +124,23 @@ export default {
     align-content: stretch;
 
     &:hover {
+      @include color-opacity(background, $color-accent, .6);
       cursor: pointer;
-      @include color-opacity(background, $color-accent, 0.6);
       margin-left: -15px;
-      transition: background ease-in-out 0.2s;
+      transition: background ease-in-out .2s;
 
       max-width: 1100px;
 
       &::before {
+        @include color-opacity(background, $color-accent, .6);
         content: '';
-        width: 15px;
+
         height: 100%;
-        @include color-opacity(background, $color-accent, 0.6);
+        width: 15px;
       }
+
     }
+
   }
 
   &__buttons {
@@ -156,13 +152,13 @@ export default {
 
     &-wrapper {
       height: 402.25px;
-
       position: relative;
     }
 
     & > * + * {
       margin-top: 25px;
     }
+
   }
 
   &__button-text {
@@ -176,6 +172,7 @@ export default {
   &__rectangle {
     margin-bottom: 3px;
   }
+
 }
 
 .cards,
@@ -184,14 +181,15 @@ export default {
 }
 
 @media (max-width: 1440px) {
+
   .home__buttons {
     left: 0;
   }
 
   .button {
     width: 654px;
-
     padding-left: 43px;
   }
+
 }
 </style>

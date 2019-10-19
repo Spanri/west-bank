@@ -51,12 +51,8 @@ export default {
 
 <style scoped lang="scss">
 .transfers1 {
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
   color: $color-light;
+  font: 36px/42px Play;
   text-align: left;
 
   height: 100%;
@@ -64,8 +60,7 @@ export default {
   margin-left: 41px;
 
   &__title {
-    margin-top: 137px;
-    margin-bottom: 165px;
+    margin: 137px 0 165px;
   }
 
   &__button + &__button {
@@ -74,22 +69,18 @@ export default {
 
   &__button {
     width: 841px;
-
     display: flex;
     justify-content: space-between;
 
     &:hover {
       cursor: pointer;
     }
+
   }
 
   &__link {
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
     color: $color-light;
+    font: normal normal normal 36px/42px Play;
 
     &-accent {
       color: $color-accent;
@@ -98,12 +89,15 @@ export default {
         /* я не знаю, как это переопределить */
         color: darken($color: $color-accent, $amount: 20) !important;
       }
+
     }
 
     &:hover {
-      text-decoration: none;
       color: $color-accent;
+      text-decoration: none;
     }
+
   }
+  
 }
 </style>

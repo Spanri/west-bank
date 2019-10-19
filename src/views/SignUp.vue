@@ -53,7 +53,7 @@ export default {
 .button:hover .signup__button-svg {
   color: $color-accent;
   fill: $color-accent;
-  transition: 0.1s all ease-in-out;
+  transition: .1s all ease-in-out;
 }
 
 .signup {

@@ -106,8 +106,7 @@ export default {
   &__rates {
     width: 431px;
 
-    margin-right: 221px;
-    margin-left: 232px;
+    margin: 0 221px 0 232px;
 
     .currency__title {
       height: auto;
@@ -118,67 +117,53 @@ export default {
     width: 250px;
 
     .currency__value {
-      width: 90px;
       text-align: right;
+      width: 90px;
     }
 
     .currency__title {
-      width: 90px;
       height: 67px;
       text-align: right;
+      width: 90px;
     }
+
   }
 
   &__text {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 144.69%;
     color: $color-light;
+    font: 12px Roboto;
+    line-height: 144.69%;
 
-    padding-top: 32px;
     opacity: 0.6;
+    padding-top: 32px;
   }
 
   &__title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
+    font: normal normal bold 18px Roboto;
     vertical-align: top;
   }
 
   &__subtitle {
     height: 49px;
 
+    font: 16px/19px Roboto;
     vertical-align: top;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
   }
 
   &__value {
     /* нужно задавать высоту, ибо иначе она ставится по select */
     height: 75px;
 
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
   }
 
   /* для select курсов */
   &__type {
-    width: 150px;
     position: relative;
+    width: 150px;
 
     &-select {
-      color: #6fcf97;
+      color: $success;
       padding-left: 26px;
 
       &::before {
@@ -186,22 +171,24 @@ export default {
 
         display: inline-block;
 
-        width: 24px;
         height: 24px;
-
+        width: 24px;
+        
         position: absolute;
-        top: 25px;
         left: 0;
+        top: 25px;
 
         color: $color-light;
         font-size: 18px;
       }
 
       &:hover::before {
-        cursor: pointer;
         color: $color-accent;
+        cursor: pointer;
       }
+
     }
+
   }
 
   /* для select конвертера */
@@ -212,43 +199,49 @@ export default {
       display: block;
       position: relative;
 
-      padding-left: 61px;
       color: $color-light;
 
-       &::after {
+      padding-left: 61px;
+
+      &::after {
         content: "▼";
+        margin: -30px 15px 0 0;
+
         display: inline-block;
 
-        width: 24px;
         height: 24px;
+        width: 24px;
 
         position: relative;
         left: 28px;
         top: -30px;
-
-        margin-top: -30px;
-        margin-right: 15px;
 
         color: $color-light;
         font-size: 18px;
       }
 
       &:hover::after {
-        cursor: pointer;
         color: $color-accent;
+        cursor: pointer;
       }
+
     }
+
   }
+  
 }
 
 .currency__select {
+
   &-wrapper {
     &:hover,
     &:hover /deep/ .select__value,
     &:hover::before {
-      cursor: pointer;
       color: $color-accent;
+      cursor: pointer;
     }
+
   }
+
 }
 </style>

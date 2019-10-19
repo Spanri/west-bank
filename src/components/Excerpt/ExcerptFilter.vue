@@ -42,21 +42,17 @@ export default {
   margin-top: 87px;
 
   color: $color-light;
+  font: 36px/42px Play;
   text-align: left;
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
-  letter-spacing: 0.09em;
+  letter-spacing: .09em;
 
   span {
     line-height: 60px;
   }
 
   &__input {
-    width: 281px;
     height: 37px;
+    width: 281px;
 
     background: $color-medium;
     border: 0;
@@ -65,12 +61,9 @@ export default {
     padding: 0 auto;
 
     color: $color-light;
+    font: 26px/28px Play;
     vertical-align: middle;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
-    line-height: 28px;
   }
+  
 }
 </style>

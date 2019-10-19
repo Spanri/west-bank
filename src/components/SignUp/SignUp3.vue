@@ -32,47 +32,38 @@ export default {
 .button:hover,
 .button:hover .signup__button-svg {
   color: $color-accent;
-
   fill: $color-accent;
-  transition: 0.1s all ease-in-out;
+  transition: .1s all ease-in-out;
 }
 
 .signup3 {
+  color: $color-light;
   height: auto;
 
-  color: $color-light;
-
   &__logo {
-    margin-top: 189px;
-    margin-bottom: 60px;
+    margin: 189px 0 60px;
   }
 
   &__text {
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
-    text-align: center;
+    font: normal normal bold 36px/42px Play;
     letter-spacing: 0.09em;
+    text-align: center;
   }
 
   &__link {
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 144.2%;
+    font: 24px/144.2% Play;
 
     &:hover {
-      text-decoration: none;
       color: $color-light;
+      text-decoration: none;
     }
+
   }
 
   &__ad {
     margin-top: 48px;
   }
+  
 }
 </style>

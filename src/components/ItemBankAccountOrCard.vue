@@ -76,7 +76,6 @@ export default {
 
   &-without-currency {
     width: 878px;
-
     display: flex;
     justify-content: space-between;
   }
@@ -84,13 +83,13 @@ export default {
   &__number {
     flex-grow: 2;
     align-self: center;
-
     margin-left: 44.78px;
 
     &-svg {
       vertical-align: inherit;
       margin-right: 10px;
     }
+
   }
 
   &__money {
@@ -98,10 +97,10 @@ export default {
   }
 
   &__currency {
-    margin-left: 26px;
-    
+    margin-left: 26px; 
     align-self: center;
   }
+
 }
 
 @media (max-width: 1440px) {
@@ -111,8 +110,8 @@ export default {
 
   .button {
     width: 654px;
-
     padding-left: 43px;
   }
+
 }
 </style>

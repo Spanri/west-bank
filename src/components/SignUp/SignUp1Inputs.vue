@@ -157,12 +157,12 @@ export default {
 .button:hover,
 .button:hover .input-block__submit-svg {
   color: $color-accent;
-
   fill: $color-accent;
-  transition: 0.1s all ease-in-out;
+  transition: .1s all ease-in-out;
 }
 
 .input-block {
+
   &-wrapper {
     @include input;
   }
@@ -170,20 +170,12 @@ export default {
   &__submit {
     background: transparent;
     border: 0;
-    margin-left: 155px;
-    margin-top: 69px;
-    margin-bottom: 78px;
+    margin: 69px 0 78px 155px;
     user-select: none;
 
     color: $color-pre-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 144.2%;
+    font: 36px/144.2% Play;
     text-align: center;
-
-    user-select: none;
 
     &-svg {
       fill: $color-light;
@@ -191,10 +183,11 @@ export default {
 
     .invalid {
       color: $color-medium;
-
       pointer-events: none;
     }
+
   }
+
 }
 
 .form-control::placeholder {

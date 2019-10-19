@@ -32,9 +32,7 @@ export default {
   flex-direction: row;
 
   color: $color-light;
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
+  font: Play;
 
   margin: 0 auto;
 
@@ -45,9 +43,8 @@ export default {
     flex-direction: column;
 
     color: $color-light;
-    font-size: 18px;
-    line-height: 21px;
-    letter-spacing: 0.135em;
+    font: 18px/21px Play;
+    letter-spacing: .135em;
     text-align: left;
 
     margin-left: 213px;
@@ -55,6 +52,7 @@ export default {
     &-item {
       padding-bottom: 24px;
     }
+
   }
 
   &__search {
@@ -67,9 +65,8 @@ export default {
 
     &-text {
       color: $color-light;
-      font-size: 18px;
-      line-height: 21px;
-      letter-spacing: 0.205em;
+      font: 18px/21px;
+      letter-spacing: .205em;
       text-align: left;
     }
 
@@ -83,20 +80,24 @@ export default {
       padding: 0 10px;
 
       color: $color-light;
-      font-size: 16px;
-      line-height: 19px;
-      letter-spacing: 0.05em;
+      font: 16px/19px Play;
+      letter-spacing: .05em;
 
       &:focus {
         background: $color-block-light;
       }
+
     }
+
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .footer__search-input {
     width: 392px;
   }
+  
 }
 </style>

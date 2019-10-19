@@ -108,6 +108,7 @@ export default {
 
 <style scoped lang="scss">
 .input-block {
+
   &-wrapper {
     @include input;
   }
@@ -115,23 +116,18 @@ export default {
   &__submit {
     background: transparent;
     border: 0;
-    margin-left: 155px;
-    margin-top: 90px;
-    margin-bottom: 80px;
+    margin: 90px 0 80px 155px;
     user-select: none;
 
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 144.2%;
+    font: 36px/144.2% Play;
     text-align: center;
 
     &:hover {
       color: $color-light;
-      transition: 0.1s all ease-in-out;
+      transition: .1s all ease-in-out;
     }
+
   }
 
   &__show-password {
@@ -142,9 +138,11 @@ export default {
     color: $color-other;
 
     &:hover {
-      cursor: pointer;
       color: $color-block-light;
+      cursor: pointer;
     }
+
   }
+  
 }
 </style>

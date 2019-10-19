@@ -39,43 +39,34 @@ export default {
 
 <style scoped lang="scss">
 .signup1 {
-  height: auto;
-
   color: $color-light;
+  height: auto;
 
   &__title {
     margin: 88px 0 111px 155px;
 
-    color: white;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    color: $color-light;
+    font: normal normal normal 24px/28px Play;
   }
 
   &__login {
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
+    font: Play;
     
     text-align: center;
     text-decoration: none;
     
     &-wrapper {
-      margin-top: 85px;
-      margin-bottom: 150px;
+      margin: 85px 0 150px;
     }
 
     & > * {
-      margin: 0;
-      margin-left: 155px;
+      margin: 0 0 0 155px;
     }
 
     &:hover {
       color: $color-light;
-      transition: 0.1s all ease-in-out;
+      transition: .1s all ease-in-out;
     }
   }
 
@@ -88,5 +79,6 @@ export default {
     font-size: 36px;
     line-height: 52px;
   }
+  
 }
 </style>

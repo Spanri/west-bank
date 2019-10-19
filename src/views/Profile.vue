@@ -70,23 +70,20 @@ export default {
   height: 62px;
   width: calc((100vw - 1440px) / 2 + 654px);
 
-  padding-left: calc((100vw - 1440px) / 2);
-  @include color-opacity(background, $color-block-light, 0.2);
+  @include color-opacity(background, $color-block-light, .2);
   border: 0;
+  padding-left: calc((100vw - 1440px) / 2);
   user-select: none;
 
   color: $color-light;
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 0.09em;
+  font: normal normal normal 24px/28px Play;
+  letter-spacing: .09em;
 
   &:hover {
+    @include color-opacity(background, $color-accent, .4);
     cursor: pointer;
-    @include color-opacity(background, $color-accent, 0.4);
   }
+
 }
 
 .profile {
@@ -98,10 +95,10 @@ export default {
 
   &__info {
     display: flex;
+    align-items: stretch;
     flex-direction: column;
     flex-flow: wrap;
     justify-content: flex-start;
-    align-items: stretch;
 
     width: 100%;
 
@@ -113,7 +110,6 @@ export default {
 
     &-wrapper {
       position: relative;
-
       margin-top: 185px;
       margin-bottom: 100px;
     }
@@ -122,83 +118,81 @@ export default {
       position: absolute;
       left: calc((100vw - 1440px) / 2 * (-1));
 
-      width: calc((100vw - 1440px) / 2 + 654px);
       height: 268px;
+      width: calc((100vw - 1440px) / 2 + 654px);
     }
 
     &-text {
-      padding-top: 15px;
-      padding-left: 42px;
+      padding: 15px 0 0 42px;
       text-align: left;
     }
 
     .button + .button {
       margin-top: 78px;
     }
+
   }
 
   &__photo-block {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
 
-    color: white;
+    color: $color-light;
 
-    margin-left: 44px;
-    margin-right: 72px;
+    margin: 0 72px 0 44px;
   }
 
   &__edit-photo {
-    border: 0;
     background: transparent;
+    border: 0;
     padding: 24px 10px;
 
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
+    font: 14px/16px Play;
     text-align: right;
 
     &::after {
-      display: block;
       content: attr(title);
-      font-weight: bold;
-      height: 0;
       overflow: hidden;
       visibility: hidden;
+
+      display: block;
+      
+      font-weight: bold;
+      
+      height: 0;
     }
 
     &:hover {
-      cursor: pointer;
       color: $color-light;
+      cursor: pointer;
       font-weight: bold;
     }
+
   }
 
   &__data {
     text-align: left;
 
     &-item {
-      margin: 0;
-      margin-top: 88px;
+      margin: 88px 0 0;
 
-      font-family: Play;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 28px;
+      font: 24px/28px Play;
       color: $color-light;
 
       &:first-child {
         margin-top: 98px;
       }
+
     }
+
   }
+  
 }
 
 @media (max-width: 1440px) {
+
   .button {
     width: 654px;
   }
@@ -206,5 +200,6 @@ export default {
   .profile__buttons-inner {
     left: 0;
   }
+
 }
 </style>

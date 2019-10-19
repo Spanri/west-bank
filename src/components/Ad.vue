@@ -31,8 +31,8 @@ export default {
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
 
-    width: calc((100vw - 1440px) / 2 + 1166px);
     height: 263px;
+    width: calc((100vw - 1440px) / 2 + 1166px);
   }
 
   &__content {
@@ -44,17 +44,19 @@ export default {
 
     color: $color-pre-medium;
   }
+  
 }
 
 @media (max-width: 1440px) {
-  .ad-inner {
-    width: 1166px;
 
+  .ad-inner {
     left: 0;
+    width: 1166px; 
   }
 
   .ad__content {
     margin-left: 0;
   }
+
 }
 </style>

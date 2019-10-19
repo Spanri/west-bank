@@ -64,8 +64,8 @@ export default {
 
 <style scoped lang="scss">
 .auth {
-  width: 278px;
   height: 72px;
+  width: 278px;
 
   display: flex;
 
@@ -81,10 +81,9 @@ export default {
       justify-content: flex-start;
       align-items: center;
 
-      font-size: 16px;
-      line-height: 19px;
-      letter-spacing: 0.05em;
       color: $color-light;
+      font: 16px/19px;
+      letter-spacing: .05em;
       text-decoration: none;
 
       user-select: none;
@@ -107,16 +106,17 @@ export default {
 
   &__logo {
     margin: 0 8px;
-
     width: 35px;
   }
 
   &:hover {
     background: $color-block-light;
   }
+
 }
 
 @media (max-width: 1200px) {
+
   .auth {
     width: 180px;
 
@@ -124,14 +124,17 @@ export default {
     //   display: none;
     // }
   }
+
 }
 
 @media (max-width: 768px) {
+
   .auth {
     flex-direction: column;
 
     background: transparent;
     box-shadow: none;
+    
     color: $color-light;
 
     height: 40px;
@@ -147,6 +150,7 @@ export default {
       &_true {
         margin-left: -35px;
       }
+
     }
 
     &__text {
@@ -159,7 +163,10 @@ export default {
       .auth__login {
         color: $color-accent;
       }
+
     }
+
   }
+  
 }
 </style>

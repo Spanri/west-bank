@@ -39,6 +39,7 @@ export default {
 
 <style scoped lang="scss">
 .header {
+
   &-inner {
     height: 118px;
     width: 100%;
@@ -46,7 +47,7 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    color: white;
+    color: $color-light;
 
     box-sizing: border-box;
   }
@@ -80,13 +81,12 @@ export default {
 
   &__text {
     text-align: left;
-    font-size: 19px;
-    line-height: 22px;
-    letter-spacing: 0.015em;
+    font: 19px/22px;
+    letter-spacing: .015em;
 
-    padding-bottom: 3px;
-    padding-left: 6px;
+    padding: 0 0 3px 6px;
     margin: 0;
   }
+  
 }
 </style>

@@ -11,10 +11,11 @@
 
 <style lang="scss" scoped>
 .router-link-active {
+  @include color-opacity(background, $color-block-dark, .95, true);
   box-shadow: none !important;
-  @include color-opacity(background, $color-block-dark, 0.95, true);
-  width: calc((100vw - 1440px) / 2 + 383px) !important;
   z-index: 3;
+
+  width: calc((100vw - 1440px) / 2 + 383px) !important;
 }
 
 .nav {
@@ -39,14 +40,14 @@
     align-items: center;
     justify-content: flex-end;
 
-    width: calc((100vw - 1440px) / 2 + 337px);
     height: 90px;
+    width: calc((100vw - 1440px) / 2 + 337px);
 
     position: absolute;
     right: 0;
 
-    @include color-opacity(background, $color-block-medium, 0.85);
-    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
+    @include color-opacity(background, $color-block-medium, .85);
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, .1);
     user-select: none;
 
     &_online-bank {
@@ -64,26 +65,25 @@
     }
 
     &:focus {
-      transition: background 0s ease-in-out;
+      transition: background 0 ease-in-out;
     }
+
   }
 
   &__text {
     width: calc((100vw - 1440px) / 2 + 225px);
     align-items: flex-start;
 
+    color: $color-light;
+    font: normal normal bold 24px/28px Play;
     text-align: left;
     text-decoration: none;
-    color: $color-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .nav__text {
     width: 225px;
   }
@@ -95,5 +95,6 @@
   .router-link-active {
     width: 383px !important;
   }
+  
 }
 </style>

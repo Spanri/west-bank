@@ -52,8 +52,8 @@ export default {
   left: 0;
 
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
+  flex-direction: column;
 
   color: $color-light;
 
@@ -67,8 +67,8 @@ export default {
     display: flex;
     align-items: center;
 
-    width: calc((100vw - 1440px) / 2 + 600px);
     height: 90px;
+    width: calc((100vw - 1440px) / 2 + 600px);
 
     position: absolute;
     left: 0;
@@ -84,27 +84,26 @@ export default {
     }
 
     &:hover {
-      z-index: 4;
-      text-decoration: none;
       background: $color-block-light;
+      text-decoration: none;
+      z-index: 4;
     }
+    
   }
 
   &__text {
     padding-left: calc((100vw - 1440px) / 2 + 44px);
 
+    color: $color-light;
+    font: normal normal bold 24px/28px Play;
     text-align: left;
     text-decoration: none;
-    color: $color-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .nav__item {
     width: 600px;
   }
@@ -116,5 +115,6 @@ export default {
   .router-link-active {
     width: 383px !important;
   }
+
 }
 </style>

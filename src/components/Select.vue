@@ -62,18 +62,14 @@ export default {
 .select {
   display: block;
 
-  width: 100%;
   height: 65px;
+  width: 100%;
 
-  border: none;
   appearance: none;
   background-color: transparent;
-  
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  border: none;
+
+  font: 24px/28px Roboto;
 
   &__value {
     padding-top: 20px;
@@ -85,18 +81,20 @@ export default {
     color: $color-light;
 
     background: $color-block-medium;
+    margin: 10px 0 0 -38px;
     z-index: 10;
-    margin-top: 10px;
-    margin-left: -38px;
     
     &-item {
       padding: 10px 25px;
 
       &:hover {
-        cursor: pointer;
         color: $color-accent;
+        cursor: pointer;
       }
+
     }
+
   }
+  
 }
 </style>

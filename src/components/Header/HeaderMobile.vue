@@ -74,6 +74,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: all .3s;
 }
+
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
@@ -82,17 +83,19 @@ export default {
 .slide-fade-enter-active, .slide-fade-leave-active {
   transition: all .8s ease;
 }
+
 .slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(50px);
   opacity: 0;
 }
 
 .header {
+
   &-inner {
     height: 80px;
     width: 100%;
 
-    color: white;
+    color: $color-light;
 
     display: flex;
     justify-content: space-between;
@@ -103,28 +106,25 @@ export default {
 
   &__hamburger {
     align-self: center;
-
     margin: 15px 0 0 21px;
     z-index: 5;
   }
 
   &__logo {
     align-self: center;
-
     margin: 28px 21px 28px 0;
     user-select: none;
   }
 
   &__menu {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     flex-shrink: 0;
+    justify-content: flex-start;
 
     background: $color-header;
-    margin-left: -60px;
-    margin-top: 24px;
+    margin: 24px 0 0 -60px;
     z-index: 4;
 
     height: 426px;
@@ -133,9 +133,11 @@ export default {
     &-helper {
       width: 50px;
     }
+
   }
 
   &__bottom {
+
     &-auth {
       align-self: center;
     }
@@ -144,10 +146,13 @@ export default {
       padding-left: 30px;
 
       .nav__item {
-        text-align: center;
         align-self: center;
+        text-align: center;
       }
+
     }
+
   }
+  
 }
 </style>

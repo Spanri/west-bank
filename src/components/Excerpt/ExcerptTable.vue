@@ -61,15 +61,12 @@ export default {
 
   &__header {
     color: $color-light;
-    font-family: Play;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 21px;
+    font: 18px/21px Play;
     text-align: left;
 
     height: 47px;
 
-    @include color-opacity(background, $color-block-light, 0.2);
+    @include color-opacity(background, $color-block-light, .2);
 
     &-item {
       font-weight: normal;
@@ -77,16 +74,14 @@ export default {
       &_first {
         padding-left: 48px;
       }
+
     }
+
   }
 
   &__item {
     color: $color-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
+    font: 18px/21px Play;
     text-align: left;
 
     &_first {
@@ -100,6 +95,8 @@ export default {
     &_down {
       color: $error;
     }
+
   }
+
 }
 </style>

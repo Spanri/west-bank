@@ -47,26 +47,18 @@ export default {
     margin: 88px 0 111px 155px;
 
     color: $color-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
   }
 
   &__login {
     color: $color-pre-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
+    font: Play;
     
     text-align: center;
     text-decoration: none;
 
     &-wrapper {
-      margin-top: 124px;
-      margin-bottom: 150px;
-      margin-left: 170px;
+      margin: 124px 0 150px 170px;
     }
 
     & > * {
@@ -75,8 +67,9 @@ export default {
 
     &:hover {
       color: $color-accent;
-      transition: 0.1s all ease-in-out;
+      transition: .1s all ease-in-out;
     }
+
   }
 
   &__text1 {
@@ -88,5 +81,6 @@ export default {
     font-size: 36px;
     line-height: 52px;
   }
+  
 }
 </style>

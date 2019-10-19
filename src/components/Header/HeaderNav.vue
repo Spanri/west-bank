@@ -40,36 +40,40 @@ export default {
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   flex-basis: 100%;
+  justify-content: space-between;
 
   &__item {
     align-self: center;
 
     color: $color-light;
+    font: 16px/19px;
     text-decoration: none;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.08em;
+    letter-spacing: .08em;
 
     user-select: none;
 
     &::after {
-      display: block;
       content: attr(title);
-      font-weight: bold;
-      height: 0;
       overflow: hidden;
       visibility: hidden;
+
+      display: block;
+
+      font-weight: bold;
+
+      height: 0;
     }
 
     &:hover {
       color: $color-accent;
       font-weight: bold;
     }
+
   }
+
 }
 
 .router-link-exact-active {
@@ -78,15 +82,17 @@ export default {
 }
 
 @media (max-width: 768px) {
+
   .nav {
     flex-direction: column;
 
     &__item {
       align-self: flex-start;
-
       padding-left: calc(100vw/2 - 61px);
       text-align: left;
     }
+
   }
+  
 }
 </style>

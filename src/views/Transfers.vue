@@ -63,17 +63,12 @@ export default {
 
   min-height: calc(100vh - 172px);
 
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
   color: $color-light;
+  font: normal normal normal 36px/42px Play;
   text-align: left;
 
   &__title {
-    margin-top: 137px;
-    margin-bottom: 165px;
+    margin: 137px 0 165px;
   }
 
   &__button + &__button {
@@ -88,24 +83,20 @@ export default {
   }
 
   &__link {
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
+    font: normal normal normal 36px/42px Play;
     color: $color-light;
 
     &-accent {
       color: $color-accent;
 
       &:hover {
-        @include color-opacity(color, $color-accent, 0.5, true);
+        @include color-opacity(color, $color-accent, .5, true);
       }
     }
 
     &:hover {
-      text-decoration: none;
       color: $color-medium;
+      text-decoration: none;
     }
   }
 }

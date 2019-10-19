@@ -48,34 +48,23 @@ export default {
 }
 
 .transfers3 {
-  height: auto;
-
   color: $color-light;
+  height: auto;
   text-align: center;
 
   &__logo {
-    margin: 0 auto;
-    margin-top: 189px;
-    margin-bottom: 60px;
+    margin: 189px auto 60px;
   }
 
   &__text {
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 56px;
+    font: normal normal bold 48px/56px Play;
+    letter-spacing: .09em;
     text-align: center;
-    letter-spacing: 0.09em;
   }
 
   &__link {
     color: $color-accent;
-    font-family: Play;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 144.2%;
+    font: normal normal bold 36px/144.2% Play;
 
     &-text {
       margin-left: 52px;
@@ -83,14 +72,15 @@ export default {
     }
 
     &:hover {
-      text-decoration: none;
       color: darken($color: $color-accent, $amount: 20);
+      text-decoration: none; 
     }
+
   }
 
   &__ad {
-    margin-top: 48px;
-    margin-bottom: 89px;
+    margin: 48px 0 89px;
   }
+  
 }
 </style>

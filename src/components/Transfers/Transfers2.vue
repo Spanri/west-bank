@@ -153,16 +153,18 @@ export default {
 <style scoped lang="scss">
 .button:hover,
 .button:hover .input-block__submit-svg {
-  color: darken($color: $color-light, $amount: 40);
 
+  color: darken($color: $color-light, $amount: 40);
   fill: darken($color: $color-light, $amount: 40);
-  transition: 0.1s all ease-in-out;
+  transition: .1s all ease-in-out;
+
 }
 
 .input-block {
-  &-wrapper {
-    @include input;
 
+  &-wrapper {
+
+    @include input;
     margin-left: 41px;
 
     .input-block + .input-block {
@@ -171,55 +173,46 @@ export default {
 
     /* переопределение стилей */
     .input-block {
-      margin: 0;
-
+      
       flex-shrink: 2;
-
+      margin: 0;
       width: 808px;
 
       &__title {
         width: 487px;
-
         font-weight: normal;
       }
 
       &__input {
         width: 321px;
       }
+
     }
 
     .invalid-feedback {
-      width: 587px;
       flex-basis: 487px;
-      margin: 0;
       margin: 10px 0 -31px;
-
+      width: 587px;
     }
 
     &__title {
-      margin-top: 137px;
-      margin-bottom: 34px;
+      margin: 137px 0 34px 0;
     }
+
   }
 
   &__submit {
+
     background: transparent;
     border: 0;
-    margin: 0 auto;
-    margin-top: 69px;
-    margin-bottom: 78px;
+    margin: 69px auto 78px;
+    user-select: none;
 
     display: block;
 
     color: $color-pre-light;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 144.2%;
+    font: normal normal normal 36px/144.2% Play;
     text-align: center;
-
-    user-select: none;
 
     &-svg {
       fill: $color-light;
@@ -227,9 +220,10 @@ export default {
 
     .invalid {
       color: $color-medium;
-
       pointer-events: none;
     }
+
   }
+
 }
 </style>

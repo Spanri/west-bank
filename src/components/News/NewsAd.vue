@@ -27,23 +27,23 @@ export default {
 
   &__first {
     position: absolute;
-    top: 65px;
     left: calc((100vw - 1440px) / 2 * (-1));
+    top: 65px; 
 
-    width: calc((100vw - 1440px) / 2 + 720px);
     height: 220px;
+    width: calc((100vw - 1440px) / 2 + 720px);
 
-    @include color-opacity(background, $color-block-light, 0.5);
+    @include color-opacity(background, $color-block-light, .5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__second {
     position: absolute;
-    top: 150px;
     left: calc((100vw - 1440px) / 2 * (-1));
+    top: 150px;
 
-    width: calc((100vw - 1440px) / 2 + 908px);
     height: 257px;
+    width: calc((100vw - 1440px) / 2 + 908px);
 
     @include color-opacity(background, $color-block-medium, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -53,27 +53,28 @@ export default {
     position: absolute;
     top: 275px;
   }
+
 }
 
 @media (max-width: 1440px) {
+
   .news-ad {
     &__first {
       left: 0;
-
       width: 720px;
     }
 
     &__second {
       left: 0;
-
       width: 908px;
     }
 
     &__ad {
       left: 0;
-      
       width: 1166px;
     }
+
   }
+  
 }
 </style>
