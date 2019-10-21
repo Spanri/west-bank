@@ -16,20 +16,25 @@
             class="header__bottom-nav" 
             @goToPage="goToPage"
           />
-          <HeaderAuth 
-            class="header__bottom-auth" 
-            @goToPage="goToPage"
-          />
         </div>
       </transition>
       <div v-if="open" class="header__menu-helper" />
-      <transition name="slide-fade">
+      <transition name="slide-fade-auth">
+        <router-link
+          to="/download-app" v-if="!isLoggedIn"
+          class="header__auth-link"
+        >
+          <AuthLogo class="header__auth-logo" color="white" />
+          <span class="header__auth-text">Войти в личный кабинет</span>
+        </router-link>
+      </transition>
+      <transition name="slide-fade-logo">
         <router-link 
-          to="/home" class="header__logo" 
+          to="/home" class="header__logo-link" 
           v-if="!open"
         >
           <Logo
-            class="transfers3__logo"
+            class="header__logo"
             :color1="logoColor1" :color2="logoColor2"
             size="58"
             @mouseenter.native="logoColor1 = 'white'; logoColor2 = 'white';" 
@@ -48,7 +53,7 @@ export default {
     Logo: () => import("@/icons/Logo.vue"),
     Hamburger: () => import("@/icons/Hamburger.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
-    HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
+    AuthLogo: () => import("@/icons/AuthLogo.vue"),
   },
   data() {
     return {
@@ -56,6 +61,11 @@ export default {
       logoColor1: "#6DB0FF",
       logoColor2: "#766BF8",
     };
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
   },
   methods: {
     openMenu(value) {
@@ -79,12 +89,23 @@ export default {
   opacity: 0;
 }
 
+/* для аутентификации */
+.slide-fade-auth-enter-active, .slide-fade-auth-leave-active {
+  transform: translateX(-0px);
+  transition: all 1s ease;
+}
+
+.slide-fade-auth-enter, .slide-fade-auth-leave-to {
+  transform: translateX(150px);
+  opacity: 0;
+}
+
 /* для логотипа */
-.slide-fade-enter-active, .slide-fade-leave-active {
+.slide-fade-logo-enter-active, .slide-fade-logo-leave-active {
   transition: all .8s ease;
 }
 
-.slide-fade-enter, .slide-fade-leave-to {
+.slide-fade-logo-enter, .slide-fade-logo-leave-to {
   transform: translateX(50px);
   opacity: 0;
 }
@@ -110,7 +131,7 @@ export default {
     z-index: 5;
   }
 
-  &__logo {
+  &__logo-link {
     align-self: center;
     margin: 28px 21px 28px 0;
     user-select: none;
@@ -136,6 +157,13 @@ export default {
 
   }
 
+  &__auth {
+    &-text {
+      text-decoration: none;
+      color: $color-light;
+    }
+  }
+
   &__bottom {
 
     &-auth {
@@ -143,7 +171,6 @@ export default {
     }
     
     &-nav {
-      padding-left: 30px;
 
       .nav__item {
         align-self: center;

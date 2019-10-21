@@ -85,10 +85,12 @@ export default {
 
     .bar {
       @include color-opacity(background, $color-accent, 0.6);
+      background-color: $color-block-light;
     }
 
     .bar2, .bar3 {
       @include color-opacity(background, $color-accent, 0.3);
+      background-color: $color-block-light;
     }
   }
 }
@@ -96,10 +98,12 @@ export default {
 .checkbox:hover {
   .checkbox2:checked + label > .hamburger2 > .bar2{
     @include color-opacity(background, $color-accent, 0.6);
+    background-color: $color-block-light;
   }
 
   .checkbox2:checked + label > .hamburger2 > .bar3{
     @include color-opacity(background, $color-accent, 0.6);
+    background-color: $color-block-light;
   }
 }
 

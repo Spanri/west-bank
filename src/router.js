@@ -1,15 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import News from "./views/News.vue";
-import Login from "./views/Login.vue";
-import SignUp from "./views/SignUp.vue";
-import Profile from "./views/Profile.vue";
-import History from "./views/History.vue";
-import BankAccountOrCard from "./views/BankAccountOrCard.vue";
-import Excerpt from "./views/Excerpt.vue";
-import Transfers from "./views/Transfers.vue";
-import ForPrivateClients from "./views/ForPrivateClients.vue";
 import store from "./store";
 
 Vue.use(Router);
@@ -23,6 +13,8 @@ const ifAuthenticatedAndValidId = (to, from, next) => {
   next("/signup");
 };
 
+/* для страниц, где доступ только не авторизованным
+  (вход, регистрация) */
 const ifNotAuthenticated = (to, from, next) => {
   if (!store.getters.isLoggedIn) {
     next();
@@ -31,8 +23,23 @@ const ifNotAuthenticated = (to, from, next) => {
   next("/");
 };
 
+/* для ifAuthenticated */
+let width = 0;
+window.removeEventListener('resize', () => {
+  width = window.innerWidth;
+});
+
+/* Для страниц, где доступ только авторизованным.
+  Если размер экрана маленький, то функции, 
+  доступные авторизованным пользователям, 
+  недоступны. Вместо этого неренаправление
+  на страницу скачивания приложения */
 const ifAuthenticated = (to, from, next) => {
   if (store.getters.isLoggedIn) {
+    if (width < 500) {
+      next("/download-app");
+      return;
+    }
     next();
     return;
   }
@@ -50,51 +57,27 @@ const router = new Router({
     {
       path: "/home",
       name: "home",
-      component: Home,
+      component: () => import("@/views/Home.vue"),
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, главная',
       },
     },
+    /* история, при клике на кнопку на главной */
     {
-      path: "/news",
-      name: "news",
-      component: News,
-      meta: {
-        title: 'Вест Банк, новости',
-      },
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      beforeEnter: ifNotAuthenticated,
-      meta: {
-        title: 'Вест Банк, вход',
-      },
-    },
-    {
-      path: "/signup",
-      name: "signup",
-      component: SignUp,
-      beforeEnter: ifNotAuthenticated,
-      meta: {
-        title: 'Вест Банк, регистрация',
-      },
-    },
-    {
-      path: "/profile",
-      name: "profile",
-      component: Profile,
+      path: "/history",
+      name: "history",
+      component: () => import("@/views/History.vue"),
       beforeEnter: ifAuthenticated,
       meta: {
-        title: 'Вест Банк, профиль',
+        title: 'Вест Банк, история',
       },
     },
+    /* карта/счет, при клике на блок на главной */
     {
       path: "/bank-account/:id",
       name: "bank-account",
-      component: BankAccountOrCard,
+      component: () => import("@/views/BankAccountOrCard.vue"),
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
@@ -103,70 +86,115 @@ const router = new Router({
     {
       path: "/card/:id",
       name: "card",
-      component: BankAccountOrCard,
+      component: () => import("@/views/BankAccountOrCard.vue"),
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
       },
     },
-    {
-      path: "/history",
-      name: "history",
-      component: History,
-      beforeEnter: ifAuthenticated,
-      meta: {
-        title: 'Вест Банк, история',
-      },
-    },
+    /* выписка, при клике на кнопку в карте/счете */
     {
       path: "/excerpt/:id",
       name: "excerpt",
-      component: Excerpt,
+      component: () => import("@/views/Excerpt.vue"),
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, выписка',
       },
     },
+    /* навигация в шапке */
+    {
+      path: "/news",
+      name: "news",
+      component: () => import("@/views/News.vue"),
+      meta: {
+        title: 'Вест Банк, новости',
+      },
+    },
+    {
+      path: "/for-private-clients",
+      name: "for-private-clients",
+      component: () => import("@/views/ForPrivateClients.vue"),
+      meta: {
+        title: 'Вест Банк, для приватных клиентов',
+      },
+    },
+    /* вход, регистрация */
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("@/views/Login.vue"),
+      beforeEnter: ifNotAuthenticated,
+      meta: {
+        title: 'Вест Банк, вход',
+      },
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("@/views/SignUp.vue"),
+      beforeEnter: ifNotAuthenticated,
+      meta: {
+        title: 'Вест Банк, регистрация',
+      },
+    },
+    /* профиль */
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("@/views/Profile.vue"),
+      beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, профиль',
+      },
+    },
+    /* при клике на кнопку в NavIfAuth */
     {
       path: "/transfers",
       name: "transfers",
-      component: Transfers,
+      component: () => import("@/views/Transfers.vue"),
       meta: {
         title: 'Вест Банк, переводы',
       },
       children: [
         {
           path: "without-opening-an-account-in-rubles",
-          name: "transfers",
-          component: Transfers,
+          name: "transfers1",
+          component: () => import("@/views/Transfers.vue"),
           meta: {
             title: 'Вест Банк, перевод без открытия счета',
           },
         },
         {
           path: "to-card",
-          name: "transfers",
-          component: Transfers,
+          name: "transfers2",
+          component: () => import("@/views/Transfers.vue"),
           meta: {
             title: 'Вест Банк, перевод на карту',
           },
         },
         {
           path: "to-e-wallet",
-          name: "transfers",
-          component: Transfers,
+          name: "transfers3",
+          component: () => import("@/views/Transfers.vue"),
           meta: {
             title: 'Вест Банк, перевод на электронный кошелек',
           },
         },
       ],
-    }, 
+    },
+    /* если мобильная версия */
     {
-      path: "/for-private-clients",
-      name: "for-private-clients",
-      component: ForPrivateClients,
+      path: "/download-app",
+      name: "download-app",
+      component: () => import("@/views/DownloadApp.vue"),
+      // beforeRouteEnter(to, from, next) {
+      //   next(vm => {
+      //     vm.prevRoute = from;
+      //   });
+      // },
       meta: {
-        title: 'Вест Банк, для приватных клиентов',
+        title: 'Вест Банк, скачайте приложение',
       },
     },
   ],
@@ -174,7 +202,7 @@ const router = new Router({
 
 router.afterEach((to) => {
   Vue.nextTick(() => {
-    document.title = to.meta.title ? to.meta.title : 'Страница платежей';
+    document.title = to.meta.title ? to.meta.title : 'Вест Банк';
   });
 });
 

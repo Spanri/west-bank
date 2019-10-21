@@ -14,13 +14,18 @@
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth"
-        v-if="isLoggedIn && currentRouteName != 'for-private-clients'" 
+        v-if="isLoggedIn && 
+          currentRouteName != 'for-private-clients' && 
+          currentWidth > 500" 
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
       </transition>
     </main>
-    <Footer class="app__footer" />
+    <Footer 
+      class="app__footer"
+      v-if="currentRouteName != 'download-app'"
+    />
   </div>
 </template>
 
@@ -62,6 +67,9 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.currentWidth = e.currentTarget.innerWidth;
+      if (this.currentWidth < 500 && this.isLoggedIn) {
+        this.$router.push("/download-app");
+      }
     },
   },
 };
@@ -100,8 +108,11 @@ export default {
 
   &__header {
     max-width: 1440px;
-    
+
     margin: 0 auto;
+
+    position: sticky;
+    top: 0px;
 
     &-wrapper {
       background: $color-header;
@@ -109,7 +120,7 @@ export default {
 
   }
 
-  &__main {
+  &__content {
     min-height: calc(100vh - 290px);
     max-width: 1440px;
     margin: 0 auto;

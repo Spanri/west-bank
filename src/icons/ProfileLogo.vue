@@ -1,5 +1,5 @@
 <template>
-  <div class="logo">
+  <div class="profile-logo">
     <svg
       width="30" height="36"
       viewBox="0 0 30 36" fill="none"
