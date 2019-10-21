@@ -27,6 +27,9 @@ export default {
 
   &-inner {
     background: $color-block-dark;
+    background: 
+      linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+      $color-block-dark;
     
     position: absolute;
     left: calc((100vw - 1440px) / 2 * (-1));
@@ -43,6 +46,16 @@ export default {
     margin-left: calc((100vw - 1440px) / 2);
 
     color: $color-pre-medium;
+  }
+  
+}
+
+@media (min-width: 1440px) {
+
+  .ad-inner {
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      $color-block-dark;
   }
   
 }

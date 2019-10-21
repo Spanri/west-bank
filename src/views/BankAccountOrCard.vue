@@ -158,6 +158,12 @@ export default {
       width: calc((100vw - 1440px) / 2 + 654px);
 
       @include color-opacity(background, $color-block-light, .2);
+      background: 
+        linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+        rgba(red($color-block-light), 
+          green($color-block-light), 
+          blue($color-block-light),
+          .2); 
       border: 0;
       padding-left: calc((100vw - 1440px) / 2);
       user-select: none;
@@ -168,6 +174,9 @@ export default {
 
       &:hover {
         background: $color-accent;
+        background: 
+          linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+          $color-accent;
         cursor: pointer;
       }
     }
@@ -199,6 +208,26 @@ export default {
       color: $color-accent;
       cursor: pointer;
       stroke: $color-accent;
+    }
+
+  }
+  
+}
+
+@media (min-width: 1440px) {
+
+  .bank-account-or-card__buttons-inner {
+    background: 
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        rgba(red($color-block-light), 
+          green($color-block-light), 
+          blue($color-block-light),
+          .2); 
+
+    &:hover {
+      background:
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        $color-accent;
     }
 
   }

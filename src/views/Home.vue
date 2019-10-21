@@ -18,30 +18,40 @@
     </div>
     <div class="home__buttons-wrapper">
       <div class="home__buttons">
-        <button
-          class="button home__open-bank-account"
-          @click="goToOpenBankAccount"
-        >
-          <svg
-            width="26" height="26"
-            viewBox="0 0 26 26" fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="home__buttons-item home__history">
+          <router-link 
+            class="home__link"
+            to="/history"
+          >
+            <History class="home__history"/>
+            <span class="home__button-text">
+              История
+            </span>
+          </router-link>
+        </div>
+        <div class="home__buttons-item home__open-bank-account">
+          <router-link 
+            class="home__link"
+            to=""
           >
             <Cross class="home__cross"/>
-          </svg>
-          <span class="home__button-text">
-            Открытие счета
-          </span>
-        </button>
-        <button
-          class="button home__mobile-network"
-          @click="goToMobileNetwork"
-        >
-          <Rectangle class="home__rectangle"/>
-          <span class="home__button-text">
-            Мобильная связь
-          </span>
-        </button>
+            <span class="home__button-text">
+              Открытие счета
+            </span>
+          </router-link>
+        </div>
+        <div class="home__buttons-item home__mobile-network">
+          <router-link 
+            class="home__link"
+            to=""
+          >
+            <Rectangle class="home__rectangle"/>
+            <span class="home__button-text">
+              Мобильная связь
+            </span>
+          </router-link>
+        </div>
+        <br>
       </div>
     </div>
   </div>
@@ -51,6 +61,7 @@
 export default {
   name: "Home",
   components: {
+    History: () => import("@/icons/History.vue"),
     Cross: () => import("@/icons/Cross.vue"),
     Rectangle: () => import("@/icons/Rectangle.vue"),
     ItemBankAccountOrCard: () => 
@@ -69,33 +80,10 @@ export default {
       ],
     };
   },
-  methods: {
-    goToOpenBankAccount() {},
-    goToMobileNetwork() {},
-  },
 };
 </script>
 
 <style scoped lang="scss">
-.button {
-  height: 61px;
-  width: calc((100vw - 1440px) / 2 + 654px);
-
-  @include color-opacity(background, $color-block-light, .2);
-  border: 0;
-  padding-left: calc((100vw - 1440px) / 2 + 43px);
-  user-select: none;
-
-  color: $color-light;
-  font: normal normal normal 36px/42px Play;
-  letter-spacing: .09em;
-  text-align: left;
-
-  &:hover {
-    @include color-opacity(background, $color-block-light, .4);
-  }
-}
-
 .home {
   height: auto;
 
@@ -159,6 +147,39 @@ export default {
       margin-top: 25px;
     }
 
+    &-item {
+      height: 61px;
+      width: calc((100vw - 1440px) / 2 + 654px);
+
+      @include color-opacity(background, $color-block-light, .2);
+      background: 
+        linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+        rgba(red($color-block-light), 
+          green($color-block-light), 
+          blue($color-block-light), 
+          .2); 
+      border: 0;
+      padding-left: calc((100vw - 1440px) / 2 + 43px);    
+      padding-top: 5px;  
+
+      &:hover {
+        background: $color-accent;
+        background: 
+          linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+          $color-accent; 
+      }
+
+    }
+  }
+
+  &__link {
+    user-select: none;
+    text-decoration: none;
+
+    color: $color-light;
+    font: normal normal normal 36px/42px Play;
+    letter-spacing: .09em;
+    text-align: left;
   }
 
   &__button-text {
@@ -180,15 +201,32 @@ export default {
   margin-left: 43px;
 }
 
+@media (min-width: 1440px) {
+  .home__buttons-item {
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-light), 
+        green($color-block-light), 
+        blue($color-block-light), 
+        .2); 
+
+    &:hover {
+      background: 
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        $color-accent; 
+    }
+  }
+}
+
 @media (max-width: 1440px) {
 
   .home__buttons {
     left: 0;
-  }
 
-  .button {
-    width: 654px;
-    padding-left: 43px;
+    &-item {
+      width: 654px;
+      padding-left: 43px;
+    }
   }
 
 }

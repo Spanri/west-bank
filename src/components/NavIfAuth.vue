@@ -11,7 +11,10 @@
 
 <style lang="scss" scoped>
 .router-link-active {
+  /* как убрать important */
   @include color-opacity(background, $color-block-dark, .95, true);
+  background: linear-gradient(270deg, #15172D -90.71%, 
+      rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   box-shadow: none !important;
   z-index: 3;
 
@@ -47,6 +50,8 @@
     right: 0;
 
     @include color-opacity(background, $color-block-medium, .85);
+    background: linear-gradient(270deg, #15172D -90.71%, 
+      rgba(61, 65, 104, 0) 100%), $color-block-medium;
     box-shadow: 10px 10px 4px rgba(0, 0, 0, .1);
     user-select: none;
 
@@ -62,6 +67,9 @@
       z-index: 4;
       text-decoration: none;
       background: $color-block-light;
+      background: 
+        linear-gradient(270deg, #15172D -90.71%, rgba(61, 65, 104, 0) 100%),
+        $color-block-light; 
     }
 
     &:focus {
@@ -80,6 +88,26 @@
     text-decoration: none;
   }
 
+}
+
+@media (min-width: 1440px) {
+
+  .nav__item {
+    background: linear-gradient(270deg, #15172D -0.71%, 
+      rgba(61, 65, 104, 0) 100%), $color-block-medium;
+
+    &:hover {
+      background: 
+        linear-gradient(270deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        $color-block-light; 
+    }
+  }
+
+  .router-link-active {
+    background: linear-gradient(270deg, #15172D -20.71%, 
+      rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
+  }
+  
 }
 
 @media (max-width: 1440px) {

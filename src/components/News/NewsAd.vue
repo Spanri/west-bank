@@ -34,6 +34,12 @@ export default {
     width: calc((100vw - 1440px) / 2 + 720px);
 
     @include color-opacity(background, $color-block-light, .5);
+    background: 
+      linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-light), 
+        green($color-block-light), 
+        blue($color-block-light),
+        .5); 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -45,13 +51,44 @@ export default {
     height: 257px;
     width: calc((100vw - 1440px) / 2 + 908px);
 
-    @include color-opacity(background, $color-block-medium, 0.8);
+    @include color-opacity(background, $color-block-medium, .8);
+    background: 
+      linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-medium), 
+        green($color-block-medium), 
+        blue($color-block-medium),
+        .8); 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__ad {
     position: absolute;
     top: 275px;
+  }
+
+}
+
+@media (min-width: 1440px) {
+
+  .news-ad {
+    &__first {
+      background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-light), 
+        green($color-block-light), 
+        blue($color-block-light),
+        .5);
+    }
+
+    &__second {
+      background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-medium), 
+        green($color-block-medium), 
+        blue($color-block-medium),
+        .8); 
+    }
+
   }
 
 }

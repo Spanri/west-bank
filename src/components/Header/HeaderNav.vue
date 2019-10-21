@@ -17,11 +17,11 @@ export default {
   data() {
     return {
       items: [
-        { title: 'Новости', to: 'news', },
-        { title: 'Частным клиентам', to: 'for-private-clients', },
-        { title: 'Бизнесу', to: 'about', },
-        { title: 'Финансовым институтам', to: 'about', },
-        { title: 'О банке', to: 'about', },
+        { title: 'Новости', to: '/news', },
+        { title: 'Частным клиентам', to: '/for-private-clients', },
+        { title: 'Бизнесу', to: '/about', },
+        { title: 'Финансовым институтам', to: '/about', },
+        { title: 'О банке', to: '/about', },
       ],
     };
   },

@@ -5,6 +5,7 @@ import News from "./views/News.vue";
 import Login from "./views/Login.vue";
 import SignUp from "./views/SignUp.vue";
 import Profile from "./views/Profile.vue";
+import History from "./views/History.vue";
 import BankAccountOrCard from "./views/BankAccountOrCard.vue";
 import Excerpt from "./views/Excerpt.vue";
 import Transfers from "./views/Transfers.vue";
@@ -106,6 +107,15 @@ const router = new Router({
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
+      },
+    },
+    {
+      path: "/history",
+      name: "history",
+      component: History,
+      beforeEnter: ifAuthenticated,
+      meta: {
+        title: 'Вест Банк, история',
       },
     },
     {

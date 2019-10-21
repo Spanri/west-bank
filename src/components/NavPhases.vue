@@ -78,6 +78,11 @@ export default {
         width: calc((100vw - 1440px) / 2 + 168px);
 
         @include color-opacity(background, $color-block-dark, .95);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%), rgba(red($color-block-dark),
+            green($color-block-dark),
+            blue($color-block-dark),
+            .95);
         box-shadow: 0 4px 4px #00000095;
         z-index: 3;
       } 
@@ -85,7 +90,12 @@ export default {
       &2 {
         width: calc((100vw - 1440px) / 2 + 148px);
 
-        @include color-opacity(background, $color-block-light, 0.8); 
+        @include color-opacity(background, $color-block-light, .8); 
+        background: 
+          linear-gradient(270deg, #15172D -0.71%,rgba(61, 65, 104, 0) 100%), rgba(red($color-block-light), 
+            green($color-block-light), 
+            blue($color-block-light), 
+            .8);
         box-shadow: 0px 4px 4px #00000080;
       } 
 
@@ -93,7 +103,13 @@ export default {
         width: calc((100vw - 1440px) / 2 + 128px);
 
         z-index: 3;
-        @include color-opacity(background, $color-block-light, 0.6); 
+        @include color-opacity(background, $color-block-light, .6); 
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-light), 
+            green($color-block-light), 
+            blue($color-block-light), 
+            .6);
         box-shadow: 0px 4px 4px #00000060;
       } 
 
@@ -104,13 +120,25 @@ export default {
       &1 {
         width: calc((100vw - 1440px) / 2 + 148px);
         @include color-opacity(background, $color-block-medium, .9);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-medium), 
+            green($color-block-medium), 
+            blue($color-block-medium), 
+            .9);
         box-shadow: 0 4px 4px #00000090;
       } 
 
       &2 {
         width: calc((100vw - 1440px) / 2 + 168px);
         
-        @include color-opacity(background, $color-block-dark, .95); 
+        @include color-opacity(background, $color-block-dark, .95);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-dark), 
+            green($color-block-dark), 
+            blue($color-block-dark), 
+            .95); 
         box-shadow: 0 4px 4px #00000095;
         z-index: 3;
       } 
@@ -118,7 +146,13 @@ export default {
       &3 {
         width: calc((100vw - 1440px) / 2 + 148px);
         
-        @include color-opacity(background, $color-block-medium, 0.8); 
+        @include color-opacity(background, $color-block-medium, .8);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-medium), 
+            green($color-block-medium), 
+            blue($color-block-medium), 
+            .8); 
         box-shadow: 0px 4px 4px #00000080;
       } 
 
@@ -129,19 +163,37 @@ export default {
       &1 {
         width: calc((100vw - 1440px) / 2 + 128px);
         @include color-opacity(background, $color-block-light, .85);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-light), 
+            green($color-block-light), 
+            blue($color-block-light), 
+            .85); 
         box-shadow: 0 4px 4px #00000085;
       } 
 
       &2 {
         width: calc((100vw - 1440px) / 2 + 128px);
-        @include color-opacity(background, $color-block-medium, .6); 
+        @include color-opacity(background, $color-block-medium, .6);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-medium), 
+            green($color-block-medium), 
+            blue($color-block-medium), 
+            .6); 
         box-shadow: 0 4px 4px #00000060;
       } 
 
       &3 {
         width: calc((100vw - 1440px) / 2 + 168px);
 
-        @include color-opacity(background, $color-block-dark, .95); 
+        @include color-opacity(background, $color-block-dark, .95);
+        background: 
+          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
+          rgba(red($color-block-dark), 
+            green($color-block-dark), 
+            blue($color-block-dark), 
+            .95); 
         box-shadow: 0 4px 4px #00000095;
         z-index: 3;
       } 
