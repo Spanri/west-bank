@@ -1,10 +1,13 @@
 @mixin color-opacity($property, $color, $opacity, $important: false) {
+
   @if $important {
     #{$property}: rgba(red($color), green($color), blue($color), $opacity) !important;
   }
+  
   @else {
     #{$property}: rgba(red($color), green($color), blue($color), $opacity);
   }
+
 }
 
 @mixin color-dark($property, $opacity) {
@@ -13,6 +16,7 @@
 
 /* для перехода */
 @mixin slide {
+
   .slide-enter-active {
     transition: all .4s ease;
   }
@@ -25,13 +29,15 @@
   .slide-enter, .slide-leave-to {
     opacity: 0;
   }
+
 }
 
 @mixin input {
+
   .was-validated {
+
     .form-control {
       border: 1px blueviolet solid;
-      // box-shadow: 0 0 0 2px $color-accent;
       
       .is-valid:focus {
         border-color: $success;
@@ -47,7 +53,9 @@
         border: 1px blueviolet solid;
         box-shadow: 0 0 0 2px $success;
       }
+
     }
+
   }
 
   .was-validated {
@@ -59,12 +67,8 @@
     margin-left: 170px;
 
     color: $error;
-    font-family: Play;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    letter-spacing: 0.08em;
+    font: 18px/21px Play;
+    letter-spacing: .08em;
   }
 
   .input-block {
@@ -74,12 +78,11 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    margin: 0 auto;
-    margin-top: 45px;
+    margin: 45px auto 0;
     border: 0;
 
     &:last-child {
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
 
     &__input {
@@ -90,19 +93,15 @@
       border-radius: 10px;
       border: 0;
       padding: 8px 18px;
-      box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, .25);
 
       color: $color-light;
-      font-family: Play;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 28px;
+      font: 24px/28px Play;
 
       &:focus {
-        // box-shadow: 0 0 14px $color-block-light;
-        @include color-opacity(background, $color-medium, 0.65);
+        @include color-opacity(background, $color-medium, .65);
       }
+
     }
 
     &__title {
@@ -110,16 +109,13 @@
 
       color: $color-light;
       text-align: left;
-      font-family: Play;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 28px;
-      letter-spacing: 0.08em;
+      font: normal normal bold 24px/28px Play;
+      letter-spacing: .08em;
 
       &-password {
-        letter-spacing: 0.045em;
+        letter-spacing: .045em;
       }
+
     }
 
     &__description {
@@ -127,13 +123,11 @@
       margin-left: 170px;
 
       color: $color-pre-medium;
-      font-family: Play;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 21px;
-      letter-spacing: 0.08em;
+      font: 18px/21px Play;
+      letter-spacing: .08em;
       text-align: left;
     }
+
   }
+
 }

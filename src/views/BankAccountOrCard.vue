@@ -1,54 +1,51 @@
 <template>
-  <div class="bankAccount-or-card">
+  <div class="bank-account-or-card">
     <ItemBankAccountOrCard
-      class="bankAccount-or-card__item"
-      type="bankAccount" :item="item"
+      class="bank-account-or-card__item"
+      type="bank-account" :item="item"
     />
-    <div class="bankAccount-or-card__info">
-      <p class="bankAccount-or-card__info-item">
-        <span class="bankAccount-or-card__info-title">
+    <div class="bank-account-or-card__info">
+      <p class="bank-account-or-card__info-item">
+        <span class="bank-account-or-card__info-title">
           Статус:
         </span>
-        <span class="bankAccount-or-card__info-data">
+        <span class="bank-account-or-card__info-data">
           {{ item.status }}
         </span>
       </p>
-      <p class="bankAccount-or-card__info-item">
-        <span class="bankAccount-or-card__info-title">
+      <p class="bank-account-or-card__info-item">
+        <span class="bank-account-or-card__info-title">
           Вид:
         </span>
-        <span class="bankAccount-or-card__info-data">
+        <span class="bank-account-or-card__info-data">
           {{ item.type }}
         </span>
       </p>
-      <p class="bankAccount-or-card__info-item">
-        <span class="bankAccount-or-card__info-title">
+      <p class="bank-account-or-card__info-item">
+        <span class="bank-account-or-card__info-title">
           Ограничения:
         </span>
-        <span class="bankAccount-or-card__info-data">
+        <span class="bank-account-or-card__info-data">
           {{ item.constraints }}
         </span>
       </p>
     </div>
-    <div class="bankAccount-or-card__button">
-      <div class="bankAccount-or-card__excerpt" @click="goToExcerpt">
-        <span>Выписка</span>
-        <svg
-          width="38" height="38"
-          viewBox="0 0 38 38" fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.952 35.094C5.82031 36.6809 2.12474 34.7029 2.1673 31.4627L2.49544 6.47833C2.53963 3.11435 6.55007 0.929276 9.64239 2.58435L33.4616 15.3329C36.5539 16.988 36.3506 21.2107 33.0993 22.8582L8.952 35.094Z"
-            stroke-width="3"
-          />
-        </svg>
-      </div>
-      <div class="bankAccount-or-card__lock-out-wrapper">
-        <div class="button bankAccount-or-card__lock-out">
-          <span class="button bankAccount-or-card__lock-out-button">
+    <div class="bank-account-or-card__buttons-wrapper">
+      <div class="bank-account-or-card__buttons">
+        <div class="bank-account-or-card__buttons-inner">
+          <p 
+            class="bank-account-or-card__buttons-text" 
+            @click="goToExcerpt"
+          >
+            Выписка
+          </p>
+        </div>
+        <div class="bank-account-or-card__buttons-inner">
+          <p 
+            class="bank-account-or-card__buttons-text"
+          >
             Заблокировать счёт
-          </span>
+          </p>
         </div>
       </div>
     </div>
@@ -89,17 +86,7 @@ export default {
 
  
 <style scoped lang="scss">
-.button {
-  height: 62px;
-
-  background: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  user-select: none;
-}
-
-.bankAccount-or-card {
+.bank-account-or-card {
   height: 100%;
 
   color: $color-light;
@@ -109,10 +96,9 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
-  margin-left: 43px;
-
   &__item  {
     margin: 140px 0 0;
+    margin-left: 43px;
     pointer-events: none;
 
     /* 
@@ -134,6 +120,7 @@ export default {
     flex-grow: 2;
 
     margin-top: 50px;
+    margin-left: 43px;
 
     & > * + * {
       margin-top: 40px;
@@ -155,13 +142,46 @@ export default {
 
   }
 
-  &__button {
-    margin-bottom: 150px;
+  &__buttons {
+    height: 268px;
 
-    color: $color-light;
-    font: 36px/42px Play;
-    letter-spacing: .09em;
-    text-align: left;
+    &-wrapper {
+      position: relative;
+      margin: 71px 0 188px;
+    }
+
+    &-inner {      
+      position: absolute;
+      left: calc((100vw - 1440px) / 2 * (-1));
+
+      height: 62px;
+      width: calc((100vw - 1440px) / 2 + 654px);
+
+      @include color-opacity(background, $color-block-light, .2);
+      border: 0;
+      padding-left: calc((100vw - 1440px) / 2);
+      user-select: none;
+
+      color: $color-light;
+      font: normal normal normal 24px/28px Play;
+      letter-spacing: .09em;
+
+      &:hover {
+        background: $color-accent;
+        cursor: pointer;
+      }
+    }
+
+    &-inner + &-inner {
+      margin-top: 313px; // 90px (1ый блок) + 223px
+    }
+
+    &-text {
+      margin: 0;
+      padding: 15px 0 15px 42px;
+      text-align: left;
+    }    
+
   }
 
   &__excerpt {
@@ -182,34 +202,15 @@ export default {
     }
 
   }
-
-  &__lock-out {
-    width: calc((100vw - 1440px) / 2 + 654px);
-
-    position: absolute;
-    left: calc((100vw - 1440px) / 2 * (-1));
-    
-    @include color-opacity(background, $color-block-light, .2);
-    margin-left: -42px;
-
-    &-wrapper {
-      position: relative;
-    }
-
-    &-button {
-      width: calc((100vw - 1440px) / 2 + 654px);
-
-      display: flex;
-      align-items: center;
-
-      padding-left: calc((100vw - 1440px) / 2 + 42px);
-    }
-
-    &:hover {
-      @include color-opacity(background, $color-block-light, .4);
-    }
-
-  }
   
+}
+
+@media (max-width: 1440px) {
+
+  .bank-account-or-card__buttons-inner {
+    width: 654px;
+    left: 0;
+  }
+
 }
 </style>

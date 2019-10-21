@@ -62,7 +62,8 @@ export default {
   }
 
   &__ad {
-    margin-top: 48px;
+    margin-top: 149px;
+    margin-bottom: 71px;
   }
   
 }

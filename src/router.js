@@ -119,21 +119,38 @@ const router = new Router({
     },
     {
       path: "/transfers",
-      name: "transfers-links",
-      component: Transfers,
-      meta: {
-        title: 'Вест Банк, переводы',
-      },
-    },
-    {
-      path: "/transfers/:type",
       name: "transfers",
       component: Transfers,
-      beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, переводы',
       },
-    },
+      children: [
+        {
+          path: "without-opening-an-account-in-rubles",
+          name: "transfers",
+          component: Transfers,
+          meta: {
+            title: 'Вест Банк, перевод без открытия счета',
+          },
+        },
+        {
+          path: "to-card",
+          name: "transfers",
+          component: Transfers,
+          meta: {
+            title: 'Вест Банк, перевод на карту',
+          },
+        },
+        {
+          path: "to-e-wallet",
+          name: "transfers",
+          component: Transfers,
+          meta: {
+            title: 'Вест Банк, перевод на электронный кошелек',
+          },
+        },
+      ],
+    }, 
     {
       path: "/for-private-clients",
       name: "for-private-clients",

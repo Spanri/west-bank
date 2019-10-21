@@ -2,10 +2,11 @@
   <div class="transfers">
     <NavPhases class="signup__nav" :phase="transfersPhase"/> 
     <transition name="slide" mode="out-in">
-      <component
+      <!-- <component
         :is="transfersPhase" @next="next"
         class="signup__content"
-      />
+      /> -->
+      <Transfers1 class="signup__content"/>
     </transition>
   </div>
 </template>
@@ -16,21 +17,21 @@ export default {
   components: {
     NavPhases: () => import("@/components/NavPhases.vue"),
     Transfers1: () => import("@/components/Transfers/Transfers1.vue"),
-    Transfers2: () => import("@/components/Transfers/Transfers2.vue"),
-    Transfers3: () => import("@/components/Transfers/Transfers3.vue"),
+    // Transfers2: () => import("@/components/Transfers/Transfers2.vue"),
+    // Transfers3: () => import("@/components/Transfers/Transfers3.vue"),
   },
   computed: {
-    currentRouteName() {
-      return this.$route.name;
-    },
+    // currentRouteName() {
+    //   return this.$route.name;
+    // },
   },
   watch: { 
-    currentRouteName: function(newVal) {
-      console.log(newVal);
-      if (newVal == 'transfers-links') {
-        this.transfersPhase = 'Transfers1';
-      }
-    },
+    // currentRouteName: function(newVal) {
+    //   console.log(newVal);
+    //   if (newVal == 'transfers-links') {
+    //     this.transfersPhase = 'Transfers1';
+    //   }
+    // },
   },
   data() {
     return {

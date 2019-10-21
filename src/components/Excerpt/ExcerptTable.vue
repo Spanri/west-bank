@@ -1,12 +1,19 @@
 <template>
   <table class="table">
-    <tr class="table__header">
-      <th class="table__header-item table__header-item_first">Дата</th>
-      <th class="table__header-item">Сумма</th>
-      <th class="table__header-item">Статус</th>
-      <th class="table__header-item">Куда</th>
+    <tr class="table__header-wrapper">
+      <div class="table__header">
+        <div class="table__header-inner">
+          <th class="table__header-item table__header-item_first">Дата</th>
+          <th class="table__header-item">Сумма</th>
+          <th class="table__header-item">Статус</th>
+          <th class="table__header-item">Куда</th>
+        </div>
+      </div>
     </tr>
-    <tr v-for="(item, index) in items" :key="index">
+    <tr 
+      class="table__item-row"
+      v-for="(item, index) in items" :key="index"
+    >
       <td class="table__item table__item_first">{{ item.date }}</td>
       <td 
         class="table__item"
@@ -57,20 +64,38 @@ export default {
 }
 
 .table {
-  max-width: 1165px;
+  max-width: 1033px;
 
   &__header {
     color: $color-light;
     font: 18px/21px Play;
     text-align: left;
 
-    height: 47px;
+    height: 72px;
 
-    @include color-opacity(background, $color-block-light, .2);
+    &-wrapper {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    &-inner {
+      position: absolute;
+      left: calc((100vw - 1440px) / 2 * (-1));
+
+      height: 72px;
+      width: calc((100vw - 1440px) / 2 + 1033px);
+
+      @include color-opacity(background, $color-block-light, .2);
+      border: 0;
+      padding-left: calc((100vw - 1440px) / 2);
+      user-select: none;
+    }
 
     &-item {
+      height: 72px;
       font-weight: normal;
-
+      padding-top: 9px;
+      
       &_first {
         padding-left: 48px;
       }
@@ -84,6 +109,12 @@ export default {
     font: 18px/21px Play;
     text-align: left;
 
+    padding: 0.75rem;
+
+    &-row {
+      margin-top: 30px;
+    }
+
     &_first {
       padding-left: 48px;
     }
@@ -96,6 +127,15 @@ export default {
       color: $error;
     }
 
+  }
+
+}
+
+@media (max-width: 1440px) {
+  
+  .table__header-inner {
+    width: 1033px;
+    left: 0;
   }
 
 }

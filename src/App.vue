@@ -78,6 +78,7 @@ export default {
 
 ::selection {
   background: $color-block-light;
+  color: $color-light;
 }
 
 #app {

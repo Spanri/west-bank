@@ -52,12 +52,12 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
-  &__content {
-    margin-left: 43px;
-  }
+  // &__content {
+  //   margin-left: 43px;
+  // }
 
   &__filter {
-    margin-bottom: 48px;
+    margin: 41px 0 163px 187px;
   }
 
   &__document {

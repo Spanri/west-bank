@@ -29,12 +29,14 @@
     <div class="profile__buttons-wrapper">
       <div class="profile__buttons">
         <div class="profile__buttons-inner">
-          <div class="button profile__edit-data" @click="editData">
-            <p class="profile__buttons-text">Редактировать данные</p>
-          </div>
-          <div class="button profile__logout" @click="logout">
-            <p class="profile__buttons-text">Выйти из аккаунта</p>
-          </div>
+          <p class="profile__buttons-text" @click="editData">
+            Редактировать данные
+          </p>
+        </div>
+        <div class="profile__buttons-inner">
+          <p class="profile__buttons-text" @click="logout">
+            Выйти из аккаунта
+          </p>
         </div>
       </div>
     </div>
@@ -66,26 +68,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button {
-  height: 62px;
-  width: calc((100vw - 1440px) / 2 + 654px);
-
-  @include color-opacity(background, $color-block-light, .2);
-  border: 0;
-  padding-left: calc((100vw - 1440px) / 2);
-  user-select: none;
-
-  color: $color-light;
-  font: normal normal normal 24px/28px Play;
-  letter-spacing: .09em;
-
-  &:hover {
-    @include color-opacity(background, $color-accent, .4);
-    cursor: pointer;
-  }
-
-}
-
 .profile {
   position: relative;
 
@@ -110,25 +92,40 @@ export default {
 
     &-wrapper {
       position: relative;
-      margin-top: 185px;
-      margin-bottom: 100px;
+      margin: 185px 0 100px;
     }
 
     &-inner {      
       position: absolute;
       left: calc((100vw - 1440px) / 2 * (-1));
 
-      height: 268px;
+      height: 62px;
       width: calc((100vw - 1440px) / 2 + 654px);
+
+      @include color-opacity(background, $color-block-light, .2);
+      border: 0;
+      padding-left: calc((100vw - 1440px) / 2);
+      user-select: none;
+
+      color: $color-light;
+      font: normal normal normal 24px/28px Play;
+      letter-spacing: .09em;
+
+      &:hover {
+        background: $color-accent;
+        cursor: pointer;
+      }
+      
+    }
+
+    &-inner + &-inner {
+      margin-top: 168px; // 90px (1ый блок) + 78px
     }
 
     &-text {
-      padding: 15px 0 0 42px;
+      margin: 0;
+      padding: 15px 0 15px 42px;
       text-align: left;
-    }
-
-    .button + .button {
-      margin-top: 78px;
     }
 
   }
@@ -140,7 +137,7 @@ export default {
 
     color: $color-light;
 
-    margin: 0 72px 0 44px;
+    margin: 45px 52px 0 42px;
   }
 
   &__edit-photo {
@@ -175,14 +172,16 @@ export default {
   &__data {
     text-align: left;
 
-    &-item {
-      margin: 88px 0 0;
+    &-item + &-item {
+      margin: 111px 0 0;
+    }
 
+    &-item {
       font: 24px/28px Play;
       color: $color-light;
 
       &:first-child {
-        margin-top: 98px;
+        margin-top: 73px;
       }
 
     }
@@ -192,12 +191,9 @@ export default {
 }
 
 @media (max-width: 1440px) {
-
-  .button {
-    width: 654px;
-  }
-
+  
   .profile__buttons-inner {
+    width: 654px;
     left: 0;
   }
 

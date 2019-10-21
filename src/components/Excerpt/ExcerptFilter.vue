@@ -39,10 +39,8 @@ export default {
 
 <style scoped lang="scss">
 .filter {
-  margin-top: 87px;
-
   color: $color-light;
-  font: 36px/42px Play;
+  font: 24px/28px Play;
   text-align: left;
   letter-spacing: .09em;
 
