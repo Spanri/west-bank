@@ -19,7 +19,7 @@
         Войти
       </button>
     </div>
-    <Ad class="login__ad"/>
+    <Block class="login__block"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@
 export default {
   name: "Login",
   components: {
-    Ad: () => import("@/components/Ad.vue"),
+    Block: () => import("@/components/Block.vue"),
   },
   data() {
     return {
@@ -97,7 +97,7 @@ export default {
 
   }
 
-  &__ad {
+  &__block {
     margin-bottom: 96px;
   }
   

@@ -1,6 +1,6 @@
 <template>
   <div class="news">
-    <NewsAd class="news__ad"/>
+    <NewsBlock class="news__block"/>
     <NewsCurrency class="news__currency"/>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   name: "News",
   components: {
-    NewsAd: () => import("@/components/News/NewsAd.vue"),
+    NewsBlock: () => import("@/components/News/NewsBlock.vue"),
     NewsCurrency: () => import("@/components/News/NewsCurrency.vue"),
   },
 };

@@ -1,24 +1,24 @@
 <template>
-  <div class="news-ad-wrapper">
-    <div class="news-ad">
-      <div class="news-ad__first"></div>
-      <div class="news-ad__second"></div>
-      <Ad class="news-ad__ad"/>
+  <div class="news-block-wrapper">
+    <div class="news-block">
+      <div class="news-block__first"></div>
+      <div class="news-block__second"></div>
+      <Block class="news-block__block"/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "NewsAd",
+  name: "NewsBlock",
   components: {
-    Ad: () => import("@/components/Ad.vue"),
+    Block: () => import("@/components/Block.vue"),
   },
 };
 </script>
 
 <style scoped lang="scss">
-.news-ad {
+.news-block {
   height: 603px;
 
   &-wrapper {
@@ -61,7 +61,7 @@ export default {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  &__ad {
+  &__block {
     position: absolute;
     top: 275px;
   }
@@ -70,7 +70,7 @@ export default {
 
 @media (min-width: 1440px) {
 
-  .news-ad {
+  .news-block {
     &__first {
       background: 
       linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
@@ -95,7 +95,7 @@ export default {
 
 @media (max-width: 1440px) {
 
-  .news-ad {
+  .news-block {
     &__first {
       left: 0;
       width: 720px;
@@ -106,7 +106,7 @@ export default {
       width: 908px;
     }
 
-    &__ad {
+    &__block {
       left: 0;
       width: 1166px;
     }

@@ -38,6 +38,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+[type="date"] {
+  padding-left: 60px;
+  font: 24px/28px Play;
+  background: $color-pre-light url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
 .filter {
   color: $color-light;
   font: 24px/28px Play;

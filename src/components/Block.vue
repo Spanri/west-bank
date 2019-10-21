@@ -1,8 +1,8 @@
 <template>
-  <div class="ad-wrapper">
-    <div class="ad">
-      <div class="ad-inner">
-        <div class="ad__content">
+  <div class="block-wrapper">
+    <div class="block">
+      <div class="block-inner">
+        <div class="block__content">
           Реклама
         </div>
       </div>
@@ -12,13 +12,13 @@
 
 <script>
 export default {
-  name: "Ad",
+  name: "Block",
 };
 </script>
 
  
 <style scoped lang="scss">
-.ad {
+.block {
   height: 263px;
 
   &-wrapper {
@@ -52,7 +52,7 @@ export default {
 
 @media (min-width: 1440px) {
 
-  .ad-inner {
+  .block-inner {
     background: 
       linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
       $color-block-dark;
@@ -62,12 +62,12 @@ export default {
 
 @media (max-width: 1440px) {
 
-  .ad-inner {
+  .block-inner {
     left: 0;
     width: 1166px; 
   }
 
-  .ad__content {
+  .block__content {
     margin-left: 0;
   }
 

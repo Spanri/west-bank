@@ -11,7 +11,7 @@
     <router-link class="signup3__link" to="/news">
       Перейти в онлайн-банк
     </router-link>
-    <Ad class="signup3__ad" />
+    <Block class="signup3__block" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   name: "SignUp3",
   components: {
     Logo: () => import("@/icons/Logo.vue"),
-    Ad: () => import("@/components/Ad.vue"),
+    Block: () => import("@/components/Block.vue"),
   },
   data() {
     return {};
@@ -61,7 +61,7 @@ export default {
 
   }
 
-  &__ad {
+  &__block {
     margin-top: 149px;
     margin-bottom: 71px;
   }

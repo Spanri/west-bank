@@ -72,7 +72,7 @@ export default {
 
     @include color-opacity(background, $color-block-light, .2);
     background: 
-      linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+      linear-gradient(90deg, #15172D -50.71%, rgba(61, 65, 104, 0) 90%),
       rgba(red($color-block-light), 
         green($color-block-light), 
         blue($color-block-light),

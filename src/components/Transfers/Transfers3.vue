@@ -20,7 +20,7 @@
       />
       <span class="transfers3__link-text">Показать чек</span>
     </router-link>
-    <Ad class="transfers3__ad" />
+    <Block class="transfers3__block" />
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Document: () => import("@/icons/Document.vue"),
-    Ad: () => import("@/components/Ad.vue"),
+    Block: () => import("@/components/Block.vue"),
   },
   data() {
     return {
@@ -78,7 +78,7 @@ export default {
 
   }
 
-  &__ad {
+  &__block {
     margin: 48px 0 89px;
   }
   

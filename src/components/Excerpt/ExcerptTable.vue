@@ -86,6 +86,12 @@ export default {
       width: calc((100vw - 1440px) / 2 + 1033px);
 
       @include color-opacity(background, $color-block-light, .2);
+      background: 
+        linear-gradient(90deg, #15172D 0%, rgba(61, 65, 104, 0) 10%),
+        rgba(red($color-block-light), 
+          green($color-block-light), 
+          blue($color-block-light),
+          .2);
       border: 0;
       padding-left: calc((100vw - 1440px) / 2);
       user-select: none;
@@ -127,6 +133,19 @@ export default {
       color: $error;
     }
 
+  }
+
+}
+
+@media (min-width: 1440px) {
+  
+  .table__header-inner {
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      rgba(red($color-block-light), 
+        green($color-block-light), 
+        blue($color-block-light),
+        .2);
   }
 
 }
