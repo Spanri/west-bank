@@ -29,6 +29,6 @@ export default {
 
 <style scoped lang="scss">
 .for-private-clients {
-  color: white;
+  
 }
 </style>

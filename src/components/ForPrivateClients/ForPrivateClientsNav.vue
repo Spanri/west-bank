@@ -1,17 +1,18 @@
 <template>
-  <nav class="nav">
-    <div 
-      class="nav__item-wrapper" 
-      v-for="(item, index) in items" :key="index"
-    >
-      <router-link
-        class="nav__item" :to="item.to"
+  <div class="nav-wrapper">
+    <nav class="nav">
+      <div 
+        class="nav-inner" 
+        v-for="(item, index) in items" :key="index"
       >
-        <span class="nav__text">{{ item.title }}</span>
-      </router-link>
-    </div>
-    
-  </nav>
+        <router-link
+          class="nav__item" :to="item.to"
+        >
+          <span class="nav__text">{{ item.title }}</span>
+        </router-link>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -48,8 +49,8 @@ export default {
 
 <style scoped lang="scss">
 .nav {
-  position: absolute;
-  left: 0;
+  // position: absolute;
+  // left: 0;
 
   display: flex;
   align-items: flex-end;
@@ -59,22 +60,38 @@ export default {
 
   margin-top: 30px;
 
+  height: 600px;
+
   & > * + * {
     top: 62px;
+  }
+
+  &-wrapper {
+    position: relative;
+    margin: 185px 0 100px;
+  }
+
+  &-inner {
+    position: absolute;
+    left: calc((100vw - 1440px) / 2 * (-1));
+
+    height: 90px;
+    width: calc((100vw - 1440px) / 2 + 600px);
   }
 
   &__item {
     display: flex;
     align-items: center;
 
-    height: 90px;
-    width: calc((100vw - 1440px) / 2 + 600px);
+    // height: 90px;
+    // width: calc((100vw - 1440px) / 2 + 600px);
 
-    position: absolute;
-    left: 0;
+    // position: absolute;
+    // left: 0;
 
     @include color-opacity(background, $color-block-medium, 0.85);
-    background: linear-gradient(90deg, #15172D -80.71%, 
+    background: 
+      linear-gradient(90deg, #15172D -80.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-light;
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.1);
     user-select: none;
@@ -88,7 +105,7 @@ export default {
     &:hover {
       background: $color-block-light;
       background: 
-        linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
         $color-block-light;
       text-decoration: none;
       z-index: 4;
@@ -115,13 +132,13 @@ export default {
 
     &:hover {
       background: 
-        linear-gradient(270deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
         $color-block-light; 
     }
   }
 
   .router-link-active {
-    background: linear-gradient(270deg, #15172D -20.71%, 
+    background: linear-gradient(90deg, #15172D -20.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   }
   

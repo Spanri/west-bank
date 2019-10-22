@@ -23,23 +23,9 @@ const ifNotAuthenticated = (to, from, next) => {
   next("/");
 };
 
-/* для ifAuthenticated */
-let width = 0;
-window.removeEventListener('resize', () => {
-  width = window.innerWidth;
-});
-
-/* Для страниц, где доступ только авторизованным.
-  Если размер экрана маленький, то функции, 
-  доступные авторизованным пользователям, 
-  недоступны. Вместо этого неренаправление
-  на страницу скачивания приложения */
+/* Для страниц, где доступ только авторизованным. */
 const ifAuthenticated = (to, from, next) => {
   if (store.getters.isLoggedIn) {
-    if (width < 500) {
-      next("/download-app");
-      return;
-    }
     next();
     return;
   }

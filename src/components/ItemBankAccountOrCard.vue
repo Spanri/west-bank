@@ -88,6 +88,7 @@ export default {
     &-svg {
       vertical-align: inherit;
       margin-right: 10px;
+      background: transparent;
     }
 
   }

@@ -72,6 +72,9 @@ export default {
       }
     },
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setCurrentWidth);
+  },
 };
 </script>
 
@@ -118,6 +121,10 @@ export default {
       background: $color-header;
     }
 
+  }
+
+  &__main {
+    min-height: calc(100vh - 290px);
   }
 
   &__content {

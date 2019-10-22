@@ -23,7 +23,7 @@
             class="home__link"
             to="/history"
           >
-            <History class="home__history"/>
+            <History class="home__history" width="40"/>
             <span class="home__button-text">
               История
             </span>
@@ -34,7 +34,7 @@
             class="home__link"
             to=""
           >
-            <Cross class="home__cross"/>
+            <Cross class="home__cross" width="40"/>
             <span class="home__button-text">
               Открытие счета
             </span>
@@ -45,7 +45,7 @@
             class="home__link"
             to=""
           >
-            <Rectangle class="home__rectangle"/>
+            <Rectangle class="home__rectangle" width="40"/>
             <span class="home__button-text">
               Мобильная связь
             </span>
@@ -163,6 +163,7 @@ export default {
       padding-top: 5px;  
 
       &:hover {
+        cursor: pointer;
         background: $color-accent;
         background: 
           linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
