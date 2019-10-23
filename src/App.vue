@@ -97,7 +97,6 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 
   font-family: Play;
   font-style: normal;

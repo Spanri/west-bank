@@ -3,6 +3,8 @@
     <div class="filter__title">Выписка за период</div>
     <div />
     <span>с</span>
+    <!-- <datepicker :value="dateStart"/> -->
+    {{ dateStart }}
     <input
       @change="filter"
       class="filter__input"
@@ -18,8 +20,13 @@
 </template>
 
 <script>
+// import Datepicker from 'vuejs-datepicker';
+
 export default {
   name: "ExcerptFilter",
+  // components: {
+  //   Datepicker,
+  // },
   data() {
     return {
       dateStart: null,

@@ -15,7 +15,7 @@ module.exports = {
         "allowFirstLine": false,
       },
     },],
-    "vue/component-name-in-template-casing": ["error", "PascalCase",],
+    //"vue/component-name-in-template-casing": ["error", "PascalCase",],
     semi: [2, "always",],
     "no-extra-semi": "warn",
     "no-console": "off",
