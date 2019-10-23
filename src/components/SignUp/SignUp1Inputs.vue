@@ -7,30 +7,33 @@
       <span class="input-block__title">
         {{ block.title }}
       </span>
-      <b-form-input
+      <input
         v-if="block.model != 'phone'"
         class="input-block__input"
+        :class="{
+          'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+          'input-success': !$v[block.model].$invalid}"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
         :type="block.type ? block.type : 'text'"
-        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
-        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
       />
       <!-- для телефона, с маской (v-mask) -->
-      <b-form-input
+      <input
         v-else class="input-block__input"
+        :class="{
+          'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+          'input-success': !$v[block.model].$invalid}"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
         :type="block.type ? block.type : 'text'"
         v-mask="'+7 (###) ###-##-##'"
-        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
-        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
       />
-      <b-form-invalid-feedback
-        :id="`input-block__invalid-feedback-${block.model}`"
+      <div
+        class="error"
+        v-if="$v[block.model].$invalid && $v[block.model].$dirty"
       >
         {{ block.error }}
-      </b-form-invalid-feedback>
+      </div>
     </div>
     <button
       type="submit" :class="{ invalid: $v.$invalid }"
@@ -151,8 +154,8 @@ export default {
 }
 
 .input-block {
-
   &-wrapper {
+    @include error;
     @include input;
   }
 

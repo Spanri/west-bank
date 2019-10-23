@@ -11,6 +11,7 @@
       <Logo 
         class="download-app__logo" 
         color1="white" color2="white"
+        :size="currentWidth > 748 ? '271' : '143'"
       />
       <button class="download-app__button">Скачать</button>
     </div>
@@ -23,6 +24,22 @@ export default {
   components: {
     Back: () => import("@/icons/Back.vue"),
     Logo: () => import("@/icons/Logo.vue"),
+  },
+  mounted() {
+    window.addEventListener('resize', this.setCurrentWidth);
+  },
+  data() {
+    return {
+      currentWidth: window.innerWidth,
+    };
+  },
+  methods: {
+    setCurrentWidth(e) {
+      this.currentWidth = e.currentTarget.innerWidth;
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setCurrentWidth);
   },
 };
 </script>
@@ -75,6 +92,59 @@ export default {
 
     &:hover {
       color: $color-block-light;
+    }
+  }
+}
+
+@media (max-width: 748px) {
+  .download-app {
+    height: 100%;
+    
+    position: relative;
+
+    &__back {
+      position: sticky;
+      display: block;
+
+      top: 0;
+
+      margin: 32px 0 0 22px;
+    }
+
+    &__content {
+      margin: 57px 21px;
+      background: $color-block-light;
+      box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.45);
+    }
+
+    &__text {
+      color: $color-light;
+      font: 24px/37px Play;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+
+      &_title {
+        color: $color-accent;
+        font-weight: bold;
+      }
+    }
+
+    &__logo {
+      margin: 38px 0 34px;
+    }
+
+    &__button {
+      display: block;
+      margin: 0 auto;
+      border: 0;
+      background: transparent;
+
+      color: $color-accent;
+      font: 18px/153.2% Play;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        color: $color-block-light;
+      }
     }
   }
 }

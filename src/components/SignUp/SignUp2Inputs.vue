@@ -11,18 +11,20 @@
         "
         v-html="block.title"
       />
-      <b-form-input
+      <input
         class="input-block__input"
-        :type="block.type ? block.type : 'text'"
+        :class="{
+          'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+          'input-success': !$v[block.model].$invalid}"
         v-model="$v[block.model].$model"
-        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
-        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
+        :type="block.type ? block.type : 'text'"
       />
-      <b-form-invalid-feedback
-        :id="`input-block__invalid-feedback-${block.model}`"
+      <div
+        class="error"
+        v-if="$v[block.model].$invalid && $v[block.model].$dirty"
       >
         {{ block.error }}
-      </b-form-invalid-feedback>
+      </div>
       <p v-if="block.model == 'password'" class="input-block__description">
         Пароль должен содержать не менее 8 символов, должны присутствовать 
         строчные и заглавные буквы, должен присутствовать один из символов 
@@ -115,6 +117,7 @@ export default {
 .input-block {
 
   &-wrapper {
+    @include error;
     @include input;
   }
 
@@ -143,7 +146,7 @@ export default {
     color: $color-other;
 
     &_error {
-      top: -220px;
+      top: -182px;
     }
 
     &:hover {

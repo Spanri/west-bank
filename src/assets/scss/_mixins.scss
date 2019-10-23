@@ -32,45 +32,30 @@
 
 }
 
-@mixin input {
-
-  .was-validated {
-
-    .form-control {
-      border: 1px blueviolet solid;
-      
-      .is-valid:focus {
-        border-color: $success;
-        box-shadow: 0 0 0 2px $success;
-      }
-
-      .is-invalid:focus {
-        border: 1px blue solid;
-        border-color: $error !important;
-      }
-
-      &:invalid {
-        border: 1px blueviolet solid;
-        box-shadow: 0 0 0 2px $success;
-      }
-
-    }
-
-  }
-
-  .was-validated {
-    border: 1px blueviolet solid;
-  }
-
-  .invalid-feedback {
-    margin-top: 15px;
+/* ошибки при вводе */
+@mixin error {
+  .error {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: -56px;
     margin-left: 170px;
 
-    color: $error;
-    font: 18px/21px Play;
+    text-align: left;
+    font: 16px/21px Play;
     letter-spacing: .08em;
+    color: $error;
   }
 
+  .input-error {
+    color: $error !important;
+  }
+
+  .input-success {
+    color: $color-light !important;
+  }
+}
+
+@mixin input {
   .input-block {
     width: 729px;
 
@@ -99,7 +84,7 @@
       font: 18px/21px Play;
 
       &:focus {
-        color: $color-accent;
+        //color: $color-accent;
         @include color-opacity(background, $color-medium, .65);
       }
 

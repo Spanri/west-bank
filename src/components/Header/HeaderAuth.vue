@@ -112,7 +112,7 @@ export default {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 748px) {
 
   .auth {
     flex-direction: column;

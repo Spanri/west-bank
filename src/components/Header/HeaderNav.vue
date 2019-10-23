@@ -81,7 +81,7 @@ export default {
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 748px) {
 
   .nav {
     flex-direction: column;

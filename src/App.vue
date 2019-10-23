@@ -2,10 +2,10 @@
   <div id="app">
     <div class="app__header-wrapper">
       <component 
-        :is="currentWidth > 768 ? 'Header' : 'HeaderMobile'"
+        :is="currentWidth > 748 ? 'Header' : 'HeaderMobile'"
         class="app__header"
         :class="
-          currentWidth > 768 ? 
+          currentWidth > 748 ? 
           'app__header_not-mobile' :
           'app__header_mobile'
         "
@@ -17,7 +17,7 @@
         v-if="isLoggedIn && 
           currentRouteName != 'for-private-clients' && 
           currentRouteName != 'not-found' && 
-          currentWidth > 500" 
+          currentWidth > 748" 
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -68,7 +68,7 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.currentWidth = e.currentTarget.innerWidth;
-      if (this.currentWidth < 500 && this.isLoggedIn) {
+      if (this.currentWidth < 748 && this.isLoggedIn) {
         this.$router.push("/download-app");
       }
     },
