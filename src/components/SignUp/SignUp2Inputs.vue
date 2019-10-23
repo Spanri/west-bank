@@ -13,11 +13,7 @@
       />
       <b-form-input
         class="input-block__input"
-        :type="
-          block.model == 'password' || block.model == 'passwordRepeat'
-            ? 'password'
-            : 'text'
-        "
+        :type="block.type ? block.type : 'text'"
         v-model="$v[block.model].$model"
         :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
         :aria-describedby="`input-block__invalid-feedback-${block.model}`"
@@ -33,8 +29,15 @@
         !»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
         повторяющиеся символы в нижнем и верхнем регистре.
       </p>
-      <p v-if="block.model == 'password'" class="input-block__show-password">
-        показать
+      <p 
+        v-if="block.model == 'password'" 
+        class="input-block__show-password"
+        :class="$v[block.model].$invalid && $v[block.model].$dirty ? 
+          'input-block__show-password_error' : ''"
+        @click="block.type == 'password' ? 
+          block.type='text' : block.type='password'"
+      >
+        {{block.type == 'password' ? 'показать' : 'скрыть'}}
       </p>
     </div>
     <button type="submit" class="button input-block__submit">
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-// import { required, minLength, sameAs } from 'vuelidate/lib/validators'
+import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
 
 export default {
   name: "SignUp2Inputs",
@@ -60,11 +63,13 @@ export default {
         {
           title: "Пароль *",
           model: "password",
+          type: "password",
           error: "Пароль не соответствует правилам.",
         },
         {
           title: "Повторите<br>пароль *",
           model: "passwordRepeat",
+          type: "password",
           error: "Пароли должны совпадать.",
         },
       ],
@@ -75,22 +80,22 @@ export default {
   },
   validations: {
     login: {
-      // required,
-      // minLength: minLength(4)
+      required,
+      minLength: minLength(4),
     },
     password: {
-      // required,
-      // goodPassword:(password) => {
-      // 	return password.length >= 8 &&
-      // 	/[a-z]/.test(password) &&
-      // 	/[A-Z]/.test(password) &&
-      // 	/[0-9]/.test(password) &&
-      // 	/[!»№;%:?*?()]/.test(password)
-      // }
+      required,
+      goodPassword:(password) => {
+        return password.length >= 8 &&
+        /[a-z]/.test(password) &&
+        /[A-Z]/.test(password) &&
+        /[0-9]/.test(password) &&
+        /[!»№;%:?*?()]/.test(password);
+      },
     },
     passwordRepeat: {
-      // required,
-      // sameAsPassword: sameAs('password')
+      required,
+      sameAsPassword: sameAs('password'),
     },
   },
   methods: {
@@ -120,7 +125,7 @@ export default {
     user-select: none;
 
     color: $color-accent;
-    font: 36px/144.2% Play;
+    font: 18px/144.2% Play;
     text-align: center;
 
     &:hover {
@@ -137,8 +142,12 @@ export default {
 
     color: $color-other;
 
+    &_error {
+      top: -220px;
+    }
+
     &:hover {
-      color: $color-block-light;
+      color: $color-accent;
       cursor: pointer;
     }
 

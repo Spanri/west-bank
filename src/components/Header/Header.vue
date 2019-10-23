@@ -69,8 +69,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
 
-    font-size: 24px;
-    line-height: 28px;
+    font: 24px/28px Play;
   }
 
   &__auth-block {
@@ -81,7 +80,7 @@ export default {
 
   &__text {
     text-align: left;
-    font: 19px/22px;
+    font: 19px/22px Play;
     letter-spacing: .015em;
 
     padding: 0 0 3px 6px;

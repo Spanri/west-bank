@@ -71,13 +71,11 @@ export default {
   }
 
   &__text1 {
-    font-size: 24px;
-    line-height: 35px;
+    font: 16px/144.2% Play;
   }
 
   &__text2 {
-    font-size: 36px;
-    line-height: 52px;
+    font: 18px/144.2% Play;
   }
   
 }

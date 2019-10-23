@@ -1,15 +1,10 @@
 <template>
-  <div 
-    class="auth"
-    @mouseenter="changeColorEnter()"
-    @mouseleave="changeColorLeave()"
-    @click="goToPage()"
-  >
+  <div class="auth" @click="goToPage()">
     <router-link
       to="/signup" v-if="!isLoggedIn"
       class="auth__login auth__login_false"
     >
-      <AuthLogo class="auth__logo" :color="logoColor" />
+      <AuthLogo class="auth__logo" color="#F2F2F2" />
       <span class="auth__text">Личный кабинет</span>
     </router-link>
     <router-link
@@ -48,16 +43,6 @@ export default {
     goToPage() {
       this.$emit("goToPage");
     },
-    changeColorEnter() {
-      if(window.innerWidth < 768) {
-        this.logoColor = '#D35858';
-      }
-    },
-    changeColorLeave() {
-      if(window.innerWidth < 768) {
-        this.logoColor = 'white';
-      }
-    },
   },
 };
 </script>
@@ -82,7 +67,7 @@ export default {
       align-items: center;
 
       color: $color-light;
-      font: 16px/19px;
+      font: 16px/19px Play;
       letter-spacing: .05em;
       text-decoration: none;
 
@@ -118,7 +103,7 @@ export default {
 @media (max-width: 1200px) {
 
   .auth {
-    width: 180px;
+    width: 226px;
 
     // &__logo {
     //   display: none;
@@ -135,9 +120,9 @@ export default {
     background: transparent;
     box-shadow: none;
     
-    color: $color-light;
+    // color: $color-light;
 
-    height: 40px;
+    // height: 40px;
 
     &__login {
       background: transparent;

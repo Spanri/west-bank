@@ -4,6 +4,8 @@
     <div
       class="transfers1__button"
       v-for="(item, index) in items" :key="index"
+      @mouseenter.native="logoColor[index] = '#C66166'"
+      @mouseleave.native="logoColor[index] = 'white'"
     >
       <div
         class="transfers1__link" @click="goToNext(item.to)"
@@ -11,16 +13,10 @@
       >
         {{ item.title }}
       </div>
-      <svg
-        width="38" height="38"
-        viewBox="0 0 38 38" fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.952 35.094C5.82031 36.6809 2.12474 34.7029 2.1673 31.4627L2.49544 6.47833C2.53963 3.11435 6.55007 0.929276 9.64239 2.58435L33.4616 15.3329C36.5539 16.988 36.3506 21.2107 33.0993 22.8582L8.952 35.094Z"
-          stroke-width="3"
-        />
-      </svg>
+      <Triangle 
+
+        class="transfers1__triangle" :color="logoColor[index]"
+      /> {{logoColor[index]}} {{index}}
     </div>
   </div>
 </template>
@@ -28,6 +24,9 @@
 <script>
 export default {
   name: "Transfers",
+  components: {
+    Triangle: () => import("@/icons/Triangle.vue"),
+  },
   data() {
     return {
       items: [
@@ -38,9 +37,13 @@ export default {
         { title: 'Перевод на карту', to: 'to-card', },
         { title: 'Перевод на электронный кошелек', to: 'to-e-wallet', },
       ],
+      logoColor: [ "red", "white", "white", ],
     };
   },
   methods: {
+    mouseenter(index) {
+      this.logoColor[index] = '#C66166';
+    },
     goToNext(to) {
       this.$router.push({ name: 'transfers', params: { type: to, }, });
       this.$emit("next", 'Transfers2');
@@ -52,7 +55,7 @@ export default {
 <style scoped lang="scss">
 .transfers1 {
   color: $color-light;
-  font: 36px/42px Play;
+  font: 24px/28px Play;
   text-align: left;
 
   height: 100%;
@@ -60,15 +63,15 @@ export default {
   margin-left: 41px;
 
   &__title {
-    margin: 137px 0 165px;
+    margin: 44px 0 111px;
   }
 
   &__button + &__button {
-    margin-top: 117px;
+    margin-top: 38px;
   }
 
   &__button {
-    width: 841px;
+    width: 546px;
     display: flex;
     justify-content: space-between;
 
@@ -79,8 +82,6 @@ export default {
   }
 
   &__link {
-    color: $color-light;
-    font: normal normal normal 36px/42px Play;
 
     &-accent {
       color: $color-accent;

@@ -131,8 +131,7 @@ export default {
 
   &__text {
     color: $color-light;
-    font: 12px Roboto;
-    line-height: 144.69%;
+    font: 12px/144.69% Roboto;
 
     opacity: 0.6;
     padding-top: 32px;
@@ -179,7 +178,7 @@ export default {
         top: 25px;
 
         color: $color-light;
-        font-size: 18px;
+        font: 18px;
       }
 
       &:hover::before {
@@ -217,7 +216,7 @@ export default {
         top: -30px;
 
         color: $color-light;
-        font-size: 18px;
+        font: 18px;
       }
 
       &:hover::after {

@@ -8,11 +8,21 @@
         {{ block.title }}
       </span>
       <b-form-input
+        v-if="block.model != 'phone'"
         class="input-block__input"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
         :type="block.type ? block.type : 'text'"
-        v-mask="block.mask ? block.mask : customToken"
+        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
+        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
+      />
+      <!-- для телефона, с маской (v-mask) -->
+      <b-form-input
+        v-else class="input-block__input"
+        v-model="$v[block.model].$model"
+        :placeholder="block.placeholder ? block.placeholder : ''"
+        :type="block.type ? block.type : 'text'"
+        v-mask="'+7 (###) ###-##-##'"
         :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
         :aria-describedby="`input-block__invalid-feedback-${block.model}`"
       />
@@ -43,31 +53,12 @@
 </template>
 
 <script>
-// import { required, minLength, email, } from 'vuelidate/lib/validators';
-import { mask, } from 'vue-the-mask';
+import { required, minLength, email, } from 'vuelidate/lib/validators';
 
 export default {
   name: "SignUp1Inputs",
-  // directives: {
-  //   mask: {
-  //     ...mask,
-  //     tokens: {
-  //       ...mask.tokens,
-  //         '*': /./,
-  //       },
-  //   },
-  // },
   data() {
     return {
-      customToken: {
-        mask: {
-          ...mask,
-          tokens: {
-            ...mask.tokens,
-              '*': /./,
-            },
-        },
-      },
       blocks: [
         {
           title: "Фамилия *",
@@ -87,10 +78,9 @@ export default {
         {
           title: "Телефон *",
           type: "tel",
-          mask: "+7 (###) ###-##-##",
-          placeholder: "+7 (999) 999-99-99",
+          placeholder: "+7 (###) ###-##-##",
           model: "phone",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, 10 цифр.",
         },
         { 
           title: "Email", 
@@ -109,24 +99,23 @@ export default {
   },
   validations: {
     firstName: {
-      // required,
-      // minLength: minLength(4)
+      required,
+      minLength: minLength(4),
     },
     lastName: {
-      // required,
-      // minLength: minLength(4),
+      required,
+      minLength: minLength(4),
     },
     patronymic: {
-      // required,
-      // minLength: minLength(4)
+      required,
+      minLength: minLength(4),
     },
     phone: {
-      // type: Number,
-      // required,
-      // minLength: minLength(4)
+      required,
+      minLength: minLength(18),
     },
     email: {
-      // email,
+      email,
     },
   },
   methods: {
@@ -174,7 +163,7 @@ export default {
     user-select: none;
 
     color: $color-pre-light;
-    font: 36px/144.2% Play;
+    font: 24px/144.2% Play;
     text-align: center;
 
     &-svg {

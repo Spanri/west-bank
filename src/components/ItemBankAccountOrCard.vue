@@ -68,11 +68,7 @@ export default {
   padding: 19px;
   margin: 0 -19px;
 
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font: 24px/28px Play;
 
   &-without-currency {
     width: 878px;

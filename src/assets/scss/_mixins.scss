@@ -96,9 +96,10 @@
       box-shadow: 2px 4px 4px rgba(0, 0, 0, .25);
 
       color: $color-light;
-      font: 24px/28px Play;
+      font: 18px/21px Play;
 
       &:focus {
+        color: $color-accent;
         @include color-opacity(background, $color-medium, .65);
       }
 
@@ -109,7 +110,7 @@
 
       color: $color-light;
       text-align: left;
-      font: normal normal bold 24px/28px Play;
+      font: normal normal bold 16px/19px Play;
       letter-spacing: .08em;
 
       &-password {

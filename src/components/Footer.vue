@@ -65,7 +65,7 @@ export default {
 
     &-text {
       color: $color-light;
-      font: 18px/21px;
+      font: 18px/21px Play;
       letter-spacing: .205em;
       text-align: left;
     }

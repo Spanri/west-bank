@@ -49,7 +49,7 @@ export default {
     align-self: center;
 
     color: $color-light;
-    font: 16px/19px;
+    font: 16px/19px Play;
     text-decoration: none;
     letter-spacing: .08em;
 
