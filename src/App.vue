@@ -16,6 +16,7 @@
         class="app__nav-if-auth"
         v-if="isLoggedIn && 
           currentRouteName != 'for-private-clients' && 
+          currentRouteName != 'not-found' && 
           currentWidth > 500" 
       />
       <transition name="slide" mode="out-in">
@@ -92,15 +93,62 @@ export default {
   color: $color-light;
 }
 
+.date-picker {
+  display: inline-block;
+
+  &__input {
+    height: 37px;
+    //width: 281px;
+
+    display: inline-block;
+
+    background: $color-medium !important;
+    border: 0;
+    border-radius: 10px;
+    margin: 0 42px;
+    padding: 0 auto;
+
+    color: $color-light;
+    font: 22px/28px Play;
+    vertical-align: middle;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+  }
+
+  &__calendar {
+    background: $color-block-light !important;
+    border: 0 !important;
+    margin-right: 50px !important;
+    width: 420px  !important;
+
+    .prev {
+      color: white !important;
+    }
+
+    span:hover {
+      background: $color-accent !important;
+      border: 1px solid transparent !important;
+    }
+
+    .up:hover, .prev:hover, .next:hover {
+      border: 0 !important;
+    }
+
+  }
+
+}
+
 #app {
   background: $color-background;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: Play;
-  font-style: normal;
-  font-weight: normal;
+  font: Play;
   text-align: center;
 
   @include slide;

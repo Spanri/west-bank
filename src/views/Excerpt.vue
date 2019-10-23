@@ -31,8 +31,10 @@ export default {
       logoColor1: '#3D4168',
       logoColor2: '#F2F2F2',
       items: [],
-      dateStart: null,
-      dateEnd: null,
+      date: {
+        start: null,
+        end: null,
+      },
     };
   },
   methods: {

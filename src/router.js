@@ -174,13 +174,26 @@ const router = new Router({
       path: "/download-app",
       name: "download-app",
       component: () => import("@/views/DownloadApp.vue"),
-      // beforeRouteEnter(to, from, next) {
-      //   next(vm => {
-      //     vm.prevRoute = from;
-      //   });
-      // },
       meta: {
         title: 'Вест Банк, скачайте приложение',
+      },
+    },
+    /* страница не найдена */
+    {
+      path: "*",
+      redirect: '/not-found',
+      name: "all",
+      component: () => import("@/views/NotFound.vue"),
+      meta: {
+        title: 'Вест Банк, страница не найдена',
+      },
+    },
+    {
+      path: "/not-found",
+      name: "not-found",
+      component: () => import("@/views/NotFound.vue"),
+      meta: {
+        title: 'Вест Банк, страница не найдена',
       },
     },
   ],
