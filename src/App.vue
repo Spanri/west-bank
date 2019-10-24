@@ -127,7 +127,7 @@ export default {
   }
 
   &__content {
-    min-height: calc(100vh - 290px);
+    // min-height: calc(100vh - 290px);
     max-width: 1440px;
     margin: 0 auto;
   }

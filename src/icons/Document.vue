@@ -1,7 +1,7 @@
 <template>
   <svg
     class="document"
-    width="32" height="47"
+    :width="widthProp" height="47"
     viewBox="0 0 32 47" fill="none"
     xmlns="http://www.w3.org/2000/svg"
     :stroke="color2Prop"
@@ -50,6 +50,10 @@ export default {
       type: String,
       default: "#F2F2F2",
     },
+    width: {
+      type: String,
+      default: "32",
+    },
   },
   watch: {
     color1(newVal) {
@@ -58,11 +62,15 @@ export default {
     color2(newVal) {
       this.color2Prop = newVal;
     },
+    width(newVal) {
+      this.widthProp = newVal;
+    },
   },
   data() {
     return {
       color1Prop: this.color1,
       color2Prop: this.color2,
+      widthProp: this.width,
     };
   },
 };

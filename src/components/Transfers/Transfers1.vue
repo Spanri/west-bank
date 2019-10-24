@@ -4,8 +4,10 @@
     <div
       class="transfers1__button" @click="goToNext(item.to)"
       v-for="(item, index) in items" :key="index"
-      @mouseenter.native="logoColor[index] = '#C66166'"
-      @mouseleave.native="logoColor[index] = 'white'"
+      @mouseenter="index == 0 ? 
+        item.logoColor = 'white' : item.logoColor = '#D35858'"
+      @mouseleave=" index == 0 ? 
+        item.logoColor = '#D35858' : item.logoColor = 'white'"
     >
       <div
         class="transfers1__link" 
@@ -13,8 +15,7 @@
       >
         {{ item.title }}
       </div>
-      <Triangle class="transfers1__triangle" :color="logoColor[index]" /> 
-      {{logoColor[index]}} {{index}}
+      <Triangle class="transfers1__triangle" :color="item.logoColor" /> 
     </div>
   </div>
 </template>
@@ -31,17 +32,22 @@ export default {
         { 
           title: 'Перевод без открытия счета в рублях', 
           to: 'without-opening-an-account',
+          logoColor: '#D35858',
         },
-        { title: 'Перевод на карту', to: 'to-card', },
-        { title: 'Перевод на электронный кошелек', to: 'to-e-wallet', },
+        { 
+          title: 'Перевод на карту', 
+          to: 'to-card', 
+          logoColor: 'white',
+        },
+        { 
+          title: 'Перевод на электронный кошелек', 
+          to: 'to-e-wallet', 
+          logoColor: 'white',
+        },
       ],
-      logoColor: [ "red", "white", "white", ],
     };
   },
   methods: {
-    mouseenter(index) {
-      this.logoColor[index] = '#C66166';
-    },
     goToNext(to) {
       this.$router.push({ name: 'transfers2-' + to, });
       this.$emit("next", 2);
@@ -86,7 +92,7 @@ export default {
 
       &:hover {
         /* я не знаю, как это переопределить */
-        color: darken($color: $color-accent, $amount: 20) !important;
+        color: $color-light !important;
       }
 
     }

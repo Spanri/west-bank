@@ -11,7 +11,7 @@
     </p>
     <router-link 
       class="transfers3__link" to=""
-      @mouseenter.native="logoColor1 = 'none'; logoColor2 = '#9c2929';" 
+      @mouseenter.native="logoColor1 = 'none'; logoColor2 = 'white';" 
       @mouseleave.native="logoColor1 = 'none'; logoColor2 = '#D35858';"
     >
       <Document
@@ -64,29 +64,29 @@ export default {
   }
 
   &__text {
-    font: normal normal bold 48px/56px Play;
+    font: normal normal bold 36px/42px Play;
     letter-spacing: .09em;
     text-align: center;
   }
 
   &__link {
     color: $color-accent;
-    font: normal normal bold 36px/144.2% Play;
+    font: normal normal bold 24px/144.2% Play;
 
     &-text {
-      margin-left: 52px;
+      margin-left: 19px;
       vertical-align: middle;
     }
 
     &:hover {
-      color: darken($color: $color-accent, $amount: 20);
+      color: $color-pre-light;
       text-decoration: none; 
     }
 
   }
 
   &__block {
-    margin: 48px 0 89px;
+    margin: 97px 0 89px;
   }
   
 }

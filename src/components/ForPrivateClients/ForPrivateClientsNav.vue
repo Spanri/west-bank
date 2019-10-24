@@ -54,7 +54,7 @@ export default {
 
   display: flex;
   align-items: flex-end;
-  flex-direction: column;
+  flex-direction: row;
 
   color: $color-light;
 
@@ -159,4 +159,46 @@ export default {
   }
 
 }
+
+@media (max-width: 748px) {
+
+  .nav {
+    height: auto;
+
+    &-wrapper {
+      position: inherit;
+      margin: 22px 0 60px;
+    }
+
+    &-inner {
+      position: inherit;
+      left: calc((100vw - 1440px) / 2 * (-1));
+
+      height: 220px;
+      width: 100%;
+    }
+
+    &__item {
+      width: 100%;
+      height: 220px;
+      margin-top: 22px;
+
+    }
+
+  }
+
+  .nav-inner + .nav-inner {
+    margin-top: 7px;
+  }
+  
+  .nav__text {
+    padding-left: 44px;
+  }
+
+  .router-link-active {
+    width: 383px !important;
+  }
+
+}
+
 </style>

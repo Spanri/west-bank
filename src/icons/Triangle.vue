@@ -24,6 +24,7 @@ export default {
   },
   watch: {
     color(newVal) {
+      console.log(newVal);
       this.colorProp = newVal;
     },
   },
