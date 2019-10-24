@@ -2,21 +2,19 @@
   <div class="transfers1">
     <p class="transfers1__title">Переводы</p>
     <div
-      class="transfers1__button"
+      class="transfers1__button" @click="goToNext(item.to)"
       v-for="(item, index) in items" :key="index"
       @mouseenter.native="logoColor[index] = '#C66166'"
       @mouseleave.native="logoColor[index] = 'white'"
     >
       <div
-        class="transfers1__link" @click="goToNext(item.to)"
+        class="transfers1__link" 
         :class="index == 0 ? 'transfers1__link-accent' : ''"
       >
         {{ item.title }}
       </div>
-      <Triangle 
-
-        class="transfers1__triangle" :color="logoColor[index]"
-      /> {{logoColor[index]}} {{index}}
+      <Triangle class="transfers1__triangle" :color="logoColor[index]" /> 
+      {{logoColor[index]}} {{index}}
     </div>
   </div>
 </template>
@@ -32,7 +30,7 @@ export default {
       items: [
         { 
           title: 'Перевод без открытия счета в рублях', 
-          to: 'without-opening-an-account-in-rubles',
+          to: 'without-opening-an-account',
         },
         { title: 'Перевод на карту', to: 'to-card', },
         { title: 'Перевод на электронный кошелек', to: 'to-e-wallet', },
@@ -45,8 +43,8 @@ export default {
       this.logoColor[index] = '#C66166';
     },
     goToNext(to) {
-      this.$router.push({ name: 'transfers', params: { type: to, }, });
-      this.$emit("next", 'Transfers2');
+      this.$router.push({ name: 'transfers2-' + to, });
+      this.$emit("next", 2);
     },
   },
 };

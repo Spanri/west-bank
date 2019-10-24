@@ -3,10 +3,9 @@
     <div
       class="nav-item"
       v-for="item in 3" :key="item"
-      :class="`nav-item${item}_phase${
-        signUpPhase.substring(signUpPhase.length - 1)
-      }`"
-    >
+      :class="`nav-item${item}_phase${propPhase}`"
+    > 
+    <!-- propPhase.substring(propPhase.length - 1) -->
       <span class="nav-text">{{ item }}</span>
     </div>
   </nav>
@@ -14,26 +13,23 @@
 
 <script>
 export default {
-  name: "SignUp",
+  name: "NavPhases",
   props: {
-    phase: {
-      type: String,
-      default: "SignUp1",
-    },
+    phase: String,
   },
   watch: {
     phase: function(newVal) {
-      this.signUpPhase = newVal;
+      this.propPhase = newVal;
     },
   },
   data() {
     return {
-      signUpPhase: this.phase,
+      propPhase: this.phase,
     };
   },
   methods: {
-    next(component) {
-      this.signUpPhase = component;
+    next(val) {
+      this.propPhase = val;
     },
   },
 };

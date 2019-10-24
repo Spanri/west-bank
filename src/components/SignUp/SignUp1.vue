@@ -18,8 +18,8 @@ export default {
     SignUp1Inputs: () => import("@/components/SignUp/SignUp1Inputs.vue"),
   },
   methods: {
-    next(component) {
-      this.$emit("next", component);
+    next() {
+      this.$emit("next", 2);
     },
   },
   beforeRouteLeave(to, from, next) {

@@ -120,6 +120,9 @@ export default {
     display: flex;
     justify-content: space-between;
 
+    position: sticky;
+    top: 0px;
+
     box-sizing: border-box;
     z-index: 5;
   }
@@ -146,8 +149,10 @@ export default {
     background: $color-header;
     margin: 24px 0 0 -60px;
     z-index: 4;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.45);
+    border-radius: 9px;
 
-    height: 426px;
+    height: 375px;
     width: 100vw;
 
     &-helper {
@@ -171,9 +176,14 @@ export default {
     
     &-nav {
 
-      .nav__item {
-        align-self: center;
-        text-align: center;
+      /deep/ .nav__item {
+        // align-self: center;
+        // text-align: center;
+
+        &:last-child {
+          margin-bottom: 39px;
+        }
+
       }
 
     }

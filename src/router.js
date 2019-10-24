@@ -137,34 +137,54 @@ const router = new Router({
     /* при клике на кнопку в NavIfAuth */
     {
       path: "/transfers",
-      name: "transfers",
       component: () => import("@/views/Transfers.vue"),
       meta: {
         title: 'Вест Банк, переводы',
       },
       children: [
         {
-          path: "without-opening-an-account-in-rubles",
+          path: "",
           name: "transfers1",
-          component: () => import("@/views/Transfers.vue"),
+          component: () => 
+            import("@/components/Transfers/Transfers1.vue"),
+          meta: {
+            title: 'Вест Банк, переводы',
+          },
+        },
+        {
+          path: "without-opening-an-account",
+          name: "transfers2-without-opening-an-account",
+          component: () => 
+            import("@/components/Transfers/Transfers2WithoutOpeningAnAccount.vue"),
           meta: {
             title: 'Вест Банк, перевод без открытия счета',
           },
         },
         {
           path: "to-card",
-          name: "transfers2",
-          component: () => import("@/views/Transfers.vue"),
+          name: "transfers2-to-card",
+          component: () => 
+            import("@/components/Transfers/Transfers2ToCard.vue"),
           meta: {
             title: 'Вест Банк, перевод на карту',
           },
         },
         {
           path: "to-e-wallet",
-          name: "transfers3",
-          component: () => import("@/views/Transfers.vue"),
+          name: "transfers2-to-e-wallet",
+          component: () => 
+            import("@/components/Transfers/Transfers2ToEWallet.vue"),
           meta: {
             title: 'Вест Банк, перевод на электронный кошелек',
+          },
+        },
+        {
+          path: "success",
+          name: "transfers3",
+          component: () => 
+            import("@/components/Transfers/Transfers3.vue"),
+          meta: {
+            title: 'Вест Банк, перевод совершен',
           },
         },
       ],

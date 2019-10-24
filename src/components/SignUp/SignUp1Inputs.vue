@@ -125,7 +125,7 @@ export default {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("next", "SignUp2");
+        this.$emit("next");
       }
     },
     patternPhone(model, initial) {

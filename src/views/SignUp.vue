@@ -3,7 +3,7 @@
     <NavPhases class="signup__nav" :phase="signUpPhase"/> 
     <transition name="slide" mode="out-in">
       <component
-        :is="signUpPhase" @next="next"
+        :is="'SignUp' + signUpPhase" @next="next"
         class="signup__content" 
       />
     </transition>
@@ -19,20 +19,9 @@ export default {
     SignUp2: () => import("@/components/SignUp/SignUp2.vue"),
     SignUp3: () => import("@/components/SignUp/SignUp3.vue"),
   },
-  computed: {
-    currentRouteName() {
-      return this.$route.name;
-    },
-  },
-  watch: {
-    currentRouteName: function(newVal) {
-      console.log(newVal);
-      this.signUpPhase = 'SignUp1';
-    },
-  },
   data() {
     return {
-      signUpPhase: 'SignUp1',
+      signUpPhase: 1,
       lastName: "",
       firstName: "",
       patronymic: "",
@@ -41,8 +30,8 @@ export default {
     };
   },
   methods: {
-    next(component) {
-      this.signUpPhase = component;
+    next(val) {
+      this.signUpPhase = val;
     },
   },
 };

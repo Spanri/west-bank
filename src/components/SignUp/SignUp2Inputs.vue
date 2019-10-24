@@ -1,5 +1,9 @@
 <template>
-  <form class="input-block-wrapper" @submit.prevent="submit">
+  <form 
+    class="input-block-wrapper" 
+    @submit.prevent="submit"
+    autocomplete="off"
+  >
     <div
       class="input-block"
       v-for="(block, index) in blocks" :key="index"
@@ -32,7 +36,7 @@
         повторяющиеся символы в нижнем и верхнем регистре.
       </p>
       <p 
-        v-if="block.model == 'password'" 
+        v-if="block.model == 'password'"
         class="input-block__show-password"
         :class="$v[block.model].$invalid && $v[block.model].$dirty ? 
           'input-block__show-password_error' : ''"
@@ -105,7 +109,7 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.$store.dispatch("register").then(() => {
-          this.$emit("next", "SignUp3");
+          this.$emit("next");
         });
       }
     },
