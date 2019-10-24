@@ -1,8 +1,10 @@
 <template>
   <nav class="nav">
-    <router-link to="/home" class="nav__item nav__item_online-bank">
+    <router-link 
+    to="/home" class="nav__item nav__item_online-bank"
+    >
       <span class="nav__text">Онлайн-банк</span>
-    </router-link>
+    </router-link>    
     <router-link to="/transfers" class="nav__item nav__item_transfers">
       <span class="nav__text">Переводы</span>
     </router-link>
@@ -17,6 +19,7 @@
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   box-shadow: none !important;
   z-index: 3;
+  transform: translateY(69px);
 
   width: calc((100vw - 1440px) / 2 + 383px) !important;
 }
@@ -28,6 +31,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  flex-wrap: wrap;
 
   color: $color-light;
 
@@ -48,32 +52,30 @@
 
     position: absolute;
     right: 0;
+    top: 0;
 
     @include color-opacity(background, $color-block-medium, .85);
     background: linear-gradient(270deg, #15172D -90.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-medium;
     box-shadow: 10px 10px 4px rgba(0, 0, 0, .1);
     user-select: none;
-
+    transition: all .5s ease-in-out;
+    
     &_online-bank {
-      padding-bottom: 15px;
+      padding-bottom: 5px;
     }
 
     &_transfers {
-      padding-top: 15px;
+      padding-top: 0px;
     }
 
     &:hover {
-      z-index: 4;
+      // z-index: 4;
       text-decoration: none;
-      background: $color-block-light;
+      background: $color-accent;
       background: 
         linear-gradient(270deg, #15172D -90.71%, rgba(61, 65, 104, 0) 100%),
-        $color-block-light; 
-    }
-
-    &:focus {
-      transition: background 0 ease-in-out;
+        $color-accent;
     }
 
   }
@@ -99,7 +101,7 @@
     &:hover {
       background: 
         linear-gradient(270deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        $color-block-light; 
+        $color-accent;
     }
   }
 
