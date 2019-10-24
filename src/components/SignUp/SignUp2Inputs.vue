@@ -8,7 +8,7 @@
       class="input-block"
       v-for="(block, index) in blocks" :key="index"
     >
-      <span
+      <p
         class="input-block__title"
         :class="
           block.model == 'passwordRepeat' ? 'input-block__title-password' : ''

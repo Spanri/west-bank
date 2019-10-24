@@ -1,9 +1,9 @@
 <template>
   <div class="news-block-wrapper">
     <div class="news-block">
-      <div class="news-block__first"></div>
-      <div class="news-block__second"></div>
       <Block class="news-block__block"/>
+      <div class="news-block__second"></div>
+      <div class="news-block__third"></div>
     </div>
   </div>
 </template>

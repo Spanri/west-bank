@@ -4,9 +4,9 @@
       class="input-block" 
       v-for="(block, index) in blocks" :key="index"
     >
-      <span class="input-block__title">
+      <p class="input-block__title">
         {{ block.title }}
-      </span>
+      </p>
       <input
         v-if="block.model != 'phone'"
         class="input-block__input"
@@ -166,7 +166,7 @@ export default {
     user-select: none;
 
     color: $color-pre-light;
-    font: 24px/144.2% Play;
+    font: 18px/144.2% Play;
     text-align: center;
 
     &-svg {

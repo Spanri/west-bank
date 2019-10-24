@@ -15,7 +15,7 @@
       </p>
       <Logo 
         class="download-app__logo" 
-        color1="white" color2="white"
+        color1="#6DB0FF" color2="#766BF8"
         :size="currentWidth > 748 ? '271' : '143'"
       />
       <button class="download-app__button">Скачать</button>

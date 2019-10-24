@@ -85,4 +85,18 @@ export default {
   }
 
 }
+
+@media (max-width: 748px) {
+
+  .block-inner {
+    height: auto;
+  }
+
+  .block__content {
+    height: calc(100vw / 1.89);
+    width: 100%; 
+  }
+  
+}
+
 </style>

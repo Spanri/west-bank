@@ -195,7 +195,7 @@ const router = new Router({
       name: "download-app",
       component: () => import("@/views/DownloadApp.vue"),
       meta: {
-        title: 'Вест Банк, скачайте приложение',
+        title: 'Вест Банк, скачать приложение',
       },
     },
     /* страница не найдена */

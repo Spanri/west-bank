@@ -1,39 +1,45 @@
 <template>
   <form class="input-block-wrapper" @submit.prevent="submit">
-    <p class="input-block-wrapper__title">Переводы</p>
+    <p class="input-block-wrapper__title">
+      Перевод без открытия счета в рублях
+    </p>
     <div
       class="input-block" 
       v-for="(block, index) in blocks" :key="index"
     >
-      <span class="input-block__title" v-html="block.title"/>
-      <b-form-input
+      <p class="input-block__title" v-html="block.title"/>
+      <input
         class="input-block__input"
+        :class="{
+          'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+          'input-success': !$v[block.model].$invalid}"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
-        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
-        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
+        :type="block.type ? block.type : 'text'"
       />
-      <b-form-invalid-feedback
-        :id="`input-block__invalid-feedback-${block.model}`"
+      <div
+        class="error" 
+        v-if="$v[block.model].$invalid && $v[block.model].$dirty"
       >
         {{ block.error }}
-      </b-form-invalid-feedback>
+      </div>
     </div>
     <button
       type="submit" :class="{ invalid: $v.$invalid }"
       class="button input-block__submit"
     >
       <span class="input-block__submit-text">Далее </span>
-      <svg
+      <svg 
         class="input-block__submit-svg"
-        width="27" height="16"
-        viewBox="0 0 27 16" fill="none"
+        width="27" height="16" 
+        viewBox="0 0 27 16" fill="none" 
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.928932C19.9526 0.538408 19.3195 0.538408 18.9289 0.928932C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM1 9H26V7H1V9Z"
+        <path 
+          d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.928932C19.9526 0.538408 19.3195 0.538408 18.9289 0.928932C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM1 9H26V7H1V9Z" fill="#F2F2F2"
         />
       </svg>
+
     </button>
     <br />
   </form>
@@ -90,7 +96,6 @@ export default {
       nameOfRecipient: null,
       accountOfRecipient: null,
       nameOfPayment: null,
-      errors: [],
     };
   },
   validations: {
@@ -123,16 +128,8 @@ export default {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("next", 'Transfers3');
+        this.$router.push('/transfers/success');
       }
-    },
-    goToExcerpt() {
-      this.$router.push({
-        name: "excerpt",
-        params: {
-          id: this.item.id,
-        },
-      });
     },
   },
   beforeRouteLeave(to, from, next) {
@@ -162,25 +159,27 @@ export default {
 
 .input-block {
 
-  &-wrapper {
+  & + & {
+    margin-top: 83px;
+  }
 
+  &-wrapper {
+    @include error;
     @include input;
     margin-left: 41px;
 
-    .input-block + .input-block {
-      margin-top: 74px;
-    }
+    max-width: 808px;
 
     /* переопределение стилей */
-    .input-block {
+    /deep/.input-block {
       
       flex-shrink: 2;
-      margin: 0;
       width: 808px;
 
       &__title {
         width: 487px;
         font-weight: normal;
+        font: 24px/28px Play;
       }
 
       &__input {
@@ -189,14 +188,9 @@ export default {
 
     }
 
-    .invalid-feedback {
-      flex-basis: 487px;
-      margin: 10px 0 -31px;
-      width: 587px;
-    }
-
     &__title {
-      margin: 137px 0 34px 0;
+      margin: 39px 0 207px 0;
+      font: 18px/21px Play;
     }
 
   }
@@ -211,7 +205,7 @@ export default {
     display: block;
 
     color: $color-pre-light;
-    font: normal normal normal 36px/144.2% Play;
+    font: 24px/144.2% Play;
     text-align: center;
 
     &-svg {

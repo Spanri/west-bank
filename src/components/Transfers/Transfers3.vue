@@ -7,7 +7,7 @@
       color2="white"
     />
     <p class="transfers3__text">
-      Перевод совершен
+      Перевод совершен!
     </p>
     <router-link 
       class="transfers3__link" to=""
@@ -37,6 +37,13 @@ export default {
       logoColor1: "none",
       logoColor2: "#D35858",
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log(from);
+    if(!/^transfers2+/.test(from.name)) {
+      next('/transfers');
+    }
+    next();
   },
 };
 </script>

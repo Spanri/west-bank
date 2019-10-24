@@ -1,37 +1,40 @@
 <template>
   <form class="input-block-wrapper" @submit.prevent="submit">
-    <p class="input-block-wrapper__title">Переводы</p>
+    <p class="input-block-wrapper__title">Перевод на электронный кошелек</p>
     <div
       class="input-block" 
       v-for="(block, index) in blocks" :key="index"
     >
-      <span class="input-block__title" v-html="block.title"/>
-      <b-form-input
+      <p class="input-block__title" v-html="block.title"/>
+      <input
         class="input-block__input"
+        :class="{
+          'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+          'input-success': !$v[block.model].$invalid}"
         v-model="$v[block.model].$model"
         :placeholder="block.placeholder ? block.placeholder : ''"
-        :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
-        :aria-describedby="`input-block__invalid-feedback-${block.model}`"
+        :type="block.type ? block.type : 'text'"
       />
-      <b-form-invalid-feedback
-        :id="`input-block__invalid-feedback-${block.model}`"
+      <div
+        class="error"
+        v-if="$v[block.model].$invalid && $v[block.model].$dirty"
       >
         {{ block.error }}
-      </b-form-invalid-feedback>
+      </div>
     </div>
     <button
       type="submit" :class="{ invalid: $v.$invalid }"
       class="button input-block__submit"
     >
-      <span class="input-block__submit-text">Далее </span>
-      <svg
+      <span class="input-block__submit-text">Перевести </span>
+      <svg 
         class="input-block__submit-svg"
-        width="27" height="16"
-        viewBox="0 0 27 16" fill="none"
+        width="16" height="8" 
+        viewBox="0 0 16 8" fill="none" 
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9V7ZM26.7071 8.70711C27.0976 8.31658 27.0976 7.68342 26.7071 7.29289L20.3431 0.928932C19.9526 0.538408 19.3195 0.538408 18.9289 0.928932C18.5384 1.31946 18.5384 1.95262 18.9289 2.34315L24.5858 8L18.9289 13.6569C18.5384 14.0474 18.5384 14.6805 18.9289 15.0711C19.3195 15.4616 19.9526 15.4616 20.3431 15.0711L26.7071 8.70711ZM1 9H26V7H1V9Z"
+        <path 
+          d="M1 3.5C0.723858 3.5 0.5 3.72386 0.5 4C0.5 4.27614 0.723858 4.5 1 4.5L1 3.5ZM15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464466C11.9763 0.269204 11.6597 0.269204 11.4645 0.464466C11.2692 0.659728 11.2692 0.976311 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM1 4.5L15 4.5L15 3.5L1 3.5L1 4.5Z" fill="#F2F2F2"
         />
       </svg>
     </button>
@@ -48,91 +51,35 @@ export default {
     return {
       blocks: [
         {
+          title: "Выбор поставщика",
+          model: "provider",
+          error: "Обязательное поле.",
+        },
+        {
           title: "Сумма",
           model: "amount",
           error: "Обязательное поле, только цифры.",
         },
-        {
-          title: "БИК Банка",
-          model: "BIK",
-          error: "Обязательное поле, только цифры.",
-        },
-        {
-          title: "ИНН</br>получателя",
-          model: "INN",
-          error: "Обязательное поле, только цифры.",
-        },
-        {
-          title: "КПП получателя",
-          model: "KPP",
-          error: "Обязательное поле, только цифры.",
-        },
-        {
-          title: "Наименование получателя",
-          model: "nameOfRecipient",
-          error: "Обязательное поле.",
-        },
-        {
-          title: "Счет в банке получателя",
-          model: "accountOfRecipient",
-          error: "Обязательное поле, только цифры.",
-        },
-        {
-          title: "Название платежа",
-          model: "nameOfPayment",
-          error: "Обязательное поле.",
-        },
       ],
+      provider: null,
       amount: null,
-      BIK: null,
-      INN: null,
-      KPP: null,
-      nameOfRecipient: null,
-      accountOfRecipient: null,
-      nameOfPayment: null,
-      errors: [],
     };
   },
   validations: {
+    provider: {
+      // type: Number,
+      // required,
+    },
     amount: {
-      // type: Number,
       // required,
-    },
-    BIK: {
-      // required,
-    },
-    INN: {
-      // type: Number,
-      // required,
-    },
-    KPP: {
-      // type: Number,
-      // required,
-    },
-    nameOfRecipient: {
-      // required,
-    },
-    accountOfRecipient: {
-      // required,
-    },
-    nameOfPayment: {
-
     },
   },
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("next", 'Transfers3');
+        this.$router.push('/transfers/success');
       }
-    },
-    goToExcerpt() {
-      this.$router.push({
-        name: "excerpt",
-        params: {
-          id: this.item.id,
-        },
-      });
     },
   },
   beforeRouteLeave(to, from, next) {
@@ -162,25 +109,27 @@ export default {
 
 .input-block {
 
-  &-wrapper {
+  & + & {
+    margin-top: 83px;
+  }
 
+  &-wrapper {
+    @include error;
     @include input;
     margin-left: 41px;
 
-    .input-block + .input-block {
-      margin-top: 74px;
-    }
+    max-width: 808px;
 
     /* переопределение стилей */
-    .input-block {
+    /deep/.input-block {
       
       flex-shrink: 2;
-      margin: 0;
       width: 808px;
 
       &__title {
         width: 487px;
         font-weight: normal;
+        font: 24px/28px Play;
       }
 
       &__input {
@@ -189,14 +138,9 @@ export default {
 
     }
 
-    .invalid-feedback {
-      flex-basis: 487px;
-      margin: 10px 0 -31px;
-      width: 587px;
-    }
-
     &__title {
-      margin: 137px 0 34px 0;
+      margin: 39px 0 45px 0;
+      font: 18px/21px Play;
     }
 
   }
@@ -211,7 +155,7 @@ export default {
     display: block;
 
     color: $color-pre-light;
-    font: normal normal normal 36px/144.2% Play;
+    font: 18px/21px Play;
     text-align: center;
 
     &-svg {

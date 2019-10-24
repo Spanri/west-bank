@@ -45,6 +45,7 @@ export default {
   font: Play;
 
   margin: 0 auto;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__mobile-apps {
     width: 174px;
@@ -126,4 +127,48 @@ export default {
   }
   
 }
+
+@media (max-width: 748px) {
+
+  .footer {
+    height: auto;
+    flex-direction: column;
+    overflow: hidden;
+
+    &__search, &__mobile-apps-link {
+      align-self: flex-end;
+    }
+
+    &__contacts {
+      order: 0;
+      margin-left: 23px;
+      width: auto;
+    }
+
+    &__mobile-apps-link {
+      order: 1;
+      margin: 12px -11px 18px;
+    }
+
+    &__search {
+      order: 2;
+      margin: 0 21px 24px 0;
+
+      &-text {
+        font: 13px/15px Play;
+      }
+
+      &-input {
+        font: 18px/17px Play;
+
+        height: 36px;
+        width: 279px;
+      }
+
+    }
+
+  }
+
+}
+
 </style>

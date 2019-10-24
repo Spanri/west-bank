@@ -68,9 +68,9 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
-      if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
-        this.$router.push("/download-app");
-      }
+      // if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
+      //   this.$router.push("/download-app");
+      // }
     },
   },
   beforeDestroy() {
@@ -89,8 +89,8 @@ export default {
 }
 
 ::selection {
-  background: $color-block-light;
-  color: $color-light;
+  background: darken($color-block-light, 5);
+  color: $color-pre-light;
 }
 
 #app {
