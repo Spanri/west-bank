@@ -98,8 +98,6 @@ export default {
   display: flex;
   justify-content: center;
 
-  margin-bottom: 158px;
-
   color: $color-light;
   text-align: left;
 
@@ -240,6 +238,26 @@ export default {
       cursor: pointer;
     }
 
+  }
+
+}
+
+@media (max-width: 1066px) {
+
+  .currency {
+
+    &__rates {
+      margin: 0 32px 0 0;
+    }
+    
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .currency {
+    justify-content: flex-end;
   }
 
 }

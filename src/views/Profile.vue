@@ -207,4 +207,39 @@ export default {
   }
 
 }
+
+@media (max-width: 800px) {
+
+  .profile__data {
+    max-width: 380px;
+  }
+  
+  .profile__buttons {
+
+    &-wrapper {
+      margin-top: 100px;
+    }
+
+    &-inner + &-inner {
+      margin-top: 108px; // 90px (1ый блок) + 78px
+    }
+
+    &-inner {
+      width: 100%;
+      @include color-opacity(background, $color-block-light, .2);
+
+      &:hover {
+        background: $color-accent;
+      }
+
+    }
+
+    &-text {
+      text-align: center;
+      padding-left: 0;
+    }
+
+  }
+
+}
 </style>

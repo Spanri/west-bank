@@ -114,4 +114,26 @@ export default {
   }
   
 }
+
+@media (max-width: 1166px) {
+
+  .news-block {
+    &__first {
+      left: 0;
+      width: 60%;
+    }
+
+    &__second {
+      left: 0;
+      width: 80%;
+    }
+
+    &__block {
+      left: 0;
+      width: 100%;
+    }
+
+  }
+  
+}
 </style>
