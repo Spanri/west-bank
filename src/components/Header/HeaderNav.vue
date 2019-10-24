@@ -5,9 +5,8 @@
       v-for="(item, index) in items" :key="index"
       @click.native="goToPage()"
       :title="item.title"
-    >
-      {{ item.title }}
-    </router-link>
+      v-html="title(item)"
+    />
   </div>
 </template>
 
@@ -18,16 +17,33 @@ export default {
     return {
       items: [
         { title: 'Новости', to: '/news', },
-        { title: 'Частным клиентам', to: '/for-private-clients', },
+        { 
+          title: 'Частным клиентам', 
+          titleMobile: 'Частным<br>клиентам', 
+          to: '/for-private-clients', 
+        },
         { title: 'Бизнесу', to: '/about', },
-        { title: 'Финансовым институтам', to: '/about', },
+        { 
+          title: 'Финансовым институтам', 
+          titleMobile: 'Финансовым<br>институтам', 
+          to: '/about', 
+        },
         { title: 'О банке', to: '/about', },
       ],
     };
   },
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
+    },
+  },
   methods: {
     goToPage() {
       this.$emit("goToPage");
+    },
+    title(item) {
+      return this.currentWidth < 748 && item.titleMobile ? 
+        item.titleMobile : item.title;
     },
   },
 };
@@ -90,6 +106,12 @@ export default {
       align-self: flex-start;
       padding-left: calc(100vw/2 - 61px);
       text-align: left;
+      font: 18px/21px Play;
+
+      & + & {
+        margin-top: 28px;
+      }
+
     }
 
   }

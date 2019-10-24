@@ -46,17 +46,15 @@ export default {
   mounted() {
     window.addEventListener('resize', this.setCurrentWidth);
   },
-  data() {
-    return {
-      currentWidth: window.innerWidth,
-    };
-  },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
     currentRouteName() {
       return this.$route.name;
+    },
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
     },
   },
   created() {
@@ -69,8 +67,8 @@ export default {
   },
   methods: {
     setCurrentWidth(e) {
-      this.currentWidth = e.currentTarget.innerWidth;
-      if (this.currentWidth < 748 && this.isLoggedIn) {
+      this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
+      if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
         this.$router.push("/download-app");
       }
     },
@@ -95,55 +93,6 @@ export default {
   color: $color-light;
 }
 
-.date-picker {
-  display: inline-block;
-
-  &__input {
-    height: 37px;
-    //width: 281px;
-
-    display: inline-block;
-
-    background: $color-medium !important;
-    border: 0;
-    border-radius: 10px;
-    margin: 0 42px;
-    padding: 0 auto;
-
-    color: $color-light;
-    font: 22px/28px Play;
-    vertical-align: middle;
-    text-align: center;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-  }
-
-  &__calendar {
-    background: $color-block-light !important;
-    border: 0 !important;
-    margin-right: 50px !important;
-    width: 420px  !important;
-
-    .prev {
-      color: white !important;
-    }
-
-    span:hover {
-      background: $color-accent !important;
-      border: 1px solid transparent !important;
-    }
-
-    .up:hover, .prev:hover, .next:hover {
-      border: 0 !important;
-    }
-
-  }
-
-}
-
 #app {
   background: $color-background;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -154,6 +103,7 @@ export default {
   text-align: center;
 
   @include slide;
+  @include datepicker;
 }
 
 .app {
@@ -163,7 +113,7 @@ export default {
 
     margin: 0 auto;
 
-    position: sticky;
+    // position: sticky;
     top: 0px;
 
     &-wrapper {

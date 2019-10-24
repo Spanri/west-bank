@@ -111,7 +111,6 @@ export default {
 }
 
 .header {
-
   &-inner {
     height: 80px;
     width: 100%;

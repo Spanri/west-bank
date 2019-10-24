@@ -15,21 +15,10 @@ export default {
     DownloadAppMobile: 
       () => import("@/components/DownloadApp/DownloadAppMobile.vue"),
   },
-  mounted() {
-    window.addEventListener('resize', this.setCurrentWidth);
-  },
-  data() {
-    return {
-      currentWidth: window.innerWidth,
-    };
-  },
-  methods: {
-    setCurrentWidth(e) {
-      this.currentWidth = e.currentTarget.innerWidth;
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.setCurrentWidth);
   },
 };
 </script>

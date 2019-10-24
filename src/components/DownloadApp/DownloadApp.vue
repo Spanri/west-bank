@@ -30,21 +30,10 @@ export default {
     Logo: () => import("@/icons/Logo.vue"),
     Block: () => import("@/components/Block.vue"),
   },
-  mounted() {
-    window.addEventListener('resize', this.setCurrentWidth);
-  },
-  data() {
-    return {
-      currentWidth: window.innerWidth,
-    };
-  },
-  methods: {
-    setCurrentWidth(e) {
-      this.currentWidth = e.currentTarget.innerWidth;
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.setCurrentWidth);
   },
 };
 </script>

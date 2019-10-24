@@ -83,31 +83,20 @@ export default {
   &:hover {
     cursor: pointer;
 
-    .bar {
-      @include color-opacity(background, $color-accent, 0.6);
-      background-color: $color-block-light;
-    }
-
-    .bar2, .bar3 {
-      @include color-opacity(background, $color-accent, 0.3);
-      background-color: $color-block-light;
+    .bar, .bar2, .bar3 {
+      background-color: $color-light;
     }
   }
 }
 
 .checkbox:hover {
-  .checkbox2:checked + label > .hamburger2 > .bar2{
-    @include color-opacity(background, $color-accent, 0.6);
-    background-color: $color-block-light;
-  }
-
-  .checkbox2:checked + label > .hamburger2 > .bar3{
-    @include color-opacity(background, $color-accent, 0.6);
-    background-color: $color-block-light;
+  .checkbox2:checked + label > .hamburger2 > .bar2,
+  .checkbox2:checked + label > .hamburger2 > .bar3 {
+    background-color: $color-light;
   }
 }
 
-.checkbox2:checked + label > .hamburger2 > .bar1{
+.checkbox2:checked + label > .hamburger2 > .bar1 {
   transform: translateX(40px);
   background-color: transparent;
 }

@@ -35,21 +35,10 @@ export default {
     Back: () => import("@/icons/Back.vue"),
     Logo: () => import("@/icons/Logo.vue"),
   },
-  mounted() {
-    window.addEventListener('resize', this.setCurrentWidth);
-  },
-  data() {
-    return {
-      currentWidth: window.innerWidth,
-    };
-  },
-  methods: {
-    setCurrentWidth(e) {
-      this.currentWidth = e.currentTarget.innerWidth;
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.setCurrentWidth);
   },
 };
 </script>
@@ -91,6 +80,7 @@ export default {
 
     &_title {
       color: $color-accent;
+      font: 24px/153.2% Play;
       font-weight: bold;
     }
   }
@@ -110,7 +100,7 @@ export default {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 
     &:hover {
-      color: $color-block-light;
+      color: $color-light;
     }
   }
 
