@@ -1,5 +1,15 @@
 <template>
   <footer class="footer">
+    <router-link
+      to="/download-app"
+      class="footer__mobile-apps-link"
+    >
+      <img 
+        src="@/assets/mobileApps.png"
+        class="footer__mobile-apps"
+        alt="Скачать мобильное приложение"
+      >
+    </router-link>
     <div class="footer__contacts">
       <span class="footer__contacts-item">Контактная информация</span>
       <span class="footer__contacts-item">+7 (495) 215 57 74</span>
@@ -36,6 +46,10 @@ export default {
 
   margin: 0 auto;
 
+  &__mobile-apps {
+    width: 174px;
+  }
+
   &__contacts {
     width: 100%;
 
@@ -47,7 +61,7 @@ export default {
     letter-spacing: .135em;
     text-align: left;
 
-    margin-left: 213px;
+    margin-left: 94px;
 
     &-item {
       padding-bottom: 24px;
@@ -56,7 +70,7 @@ export default {
   }
 
   &__search {
-    width: 392px;
+    width: 279px;
 
     display: flex;
     flex-direction: column;
@@ -96,7 +110,19 @@ export default {
 @media (max-width: 1440px) {
 
   .footer__search-input {
-    width: 392px;
+    width: 279px;
+  }
+  
+}
+
+@media (max-width: 850px) {
+
+  .footer__contacts {
+    margin-left: 0px;
+  }
+
+  .footer__search-input {
+    width: 220px;
   }
   
 }

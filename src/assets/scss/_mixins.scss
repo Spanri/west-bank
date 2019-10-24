@@ -66,8 +66,8 @@
     margin: 45px auto 0;
     border: 0;
 
-    &:last-child {
-      margin-bottom: 0;
+    & + & {
+      margin-top: 45px;    
     }
 
     &__input {

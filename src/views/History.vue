@@ -1,18 +1,20 @@
 <template>
-  <div class="excerpt">
-    <div class="excerpt__content">
-      <ExcerptFilter class="excerpt__filter" @filter="filter"/>
-      <ExcerptTable class="excerpt__table"/>
-    </div>
-    <div class="excerpt__document-wrapper">
-      <div class="excerpt__document">
-        <div class="excerpt__document-button">
-          <Document
-            class="excerpt__document-button-img"
-            :color1="logoColor1" :color2="logoColor2"
-          />
-          <span>Документ</span>
-        </div>
+  <div class="history">
+    <p class="history__title">История</p>
+    <div
+      class="history__day-block"
+      v-for="(item, index) in items" :key="index"
+    >
+      <div class="history__day-header">
+        <span class="history__day-title">{{ item.date }}</span>
+        <span class="history__day-amount">4560</span>
+      </div>
+      <div 
+        class="history__action"
+        v-for="(action, index) in item.actions" :key="index"
+      >
+        <p class="history__action-title">{{ action.description }}</p>
+        <p class="history__action-amount">{{ action.amount }}</p>
       </div>
     </div>
   </div>
@@ -21,132 +23,100 @@
 <script>
 export default {
   name: "Excerpt",
-  components: {
-    Document: () => import("@/icons/Document.vue"),
-    ExcerptFilter: () => import("@/components/Excerpt/ExcerptFilter.vue"),
-    ExcerptTable: () => import("@/components/Excerpt/ExcerptTable.vue"),
-  },
   data() {
     return {
-      logoColor1: '#3D4168',
-      logoColor2: '#F2F2F2',
-      items: [],
-      dateStart: null,
-      dateEnd: null,
+      items: [
+        {
+          date: '12 октября, пн',
+          actions: [
+            {
+              description: 'Перевод на карту ***4567',
+              amount: 5500,
+            },
+            {
+              description: '***1234 Зачисление',
+              amount: 5500,
+            },
+          ],
+        },
+        {
+          date: '11 октября, вс',
+          actions: [
+            {
+              description: '***1234 Зачисление Перевод на карту ***4567 ***1234 Зачисление',
+              amount: 500,
+            },
+            {
+              description: '***1234 Зачисление',
+              amount: 2000,
+            },
+            {
+              description: '***1234 Зачисление',
+              amount: 5500,
+            },
+          ],
+        },
+        {
+          date: '10 октября, сб',
+          actions: [
+            {
+              description: 'чето',
+              amount: 5500,
+            },
+          ],
+        },
+      ],
     };
-  },
-  methods: {
-    filter(data) {
-      console.log('Данные поменялись', data);
-    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.excerpt {
-  height: 100%;
-  min-height: calc(100vh - 180px);
+.history {
+  color: $color-light;
+  font: 24px/28px Play;
+  text-align: left;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-left: 190px;
+  margin-bottom: 167px;
 
-  // &__content {
-  //   margin-left: 43px;
-  // }
-
-  &__filter {
-    margin: 41px 0 163px 187px;
+  &__title {
+    margin-top: 36px;
   }
 
-  &__document {
-    height: 62px;
-    width: calc((100vw - 1440px) / 2 + 654px);
+  &__day-header {
+    width: 654px;
+
+    margin: 36px 0;
 
     display: flex;
+    justify-content: space-between;
+  }
+
+  &__day-title {
+    font: 18px/21px Play;
+  }
+
+  &__action {
+    width: 654px;
+    height: 92px;
+
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    position: absolute;
-    left: calc((100vw - 1440px) / 2 * (-1));
-
     @include color-opacity(background, $color-block-light, .2);
-    background: 
-      linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
-      rgba(red($color-block-light), 
-        green($color-block-light), 
-        blue($color-block-light),
-        .2); 
-    
-    margin-left: 0px;
-    user-select: none;
-    
-    color: $color-light;
-    font: 24px/28px Play;
-    letter-spacing: .09em;
-    vertical-align: middle;
+    padding: 10px 26px 10px 16px;
+    overflow: hidden;
 
-    &-wrapper {
-      position: relative;
-
-      height: 62px;
-      margin: 150px 0 58px 0;
+    & > * {
+      margin: 0;
     }
 
-    &-button {
-      width: calc((100vw - 1440px) / 2 + 654px);
-
-      padding-left: calc((100vw - 1440px) / 2);
-      text-align: left;
-
-      & > * + * {
-        padding-left: 34px;
-      }
-
-      &-img {
-        margin-left: 43px;
-      }
-
+    & + & {
+      margin-top: 36px;
     }
-
-    &:hover {
-      background: $color-accent;
-      background: 
-        linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
-        $color-accent; 
-      cursor: pointer;
-    }
-
   }
 
-}
-
-@media (min-width: 1440px) {
-
-  .excerpt__document {
-    background: 
-      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-      rgba(red($color-block-light), 
-        green($color-block-light), 
-        blue($color-block-light), 
-        .2); 
-
-    &:hover {
-      background: 
-        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        $color-accent; 
-    }
-
-  }
-  
-}
-
-@media (max-width: 1440px) {
-
-  .excerpt__document {
-    left: 0;
-    width: 654px;
-  }
-  
 }
 </style>

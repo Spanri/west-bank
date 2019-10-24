@@ -61,34 +61,21 @@ export default {
 
   color: $color-light;
 
-  .input-block + .input-block{
-    margin-top: 25px;
-  }
-
-  .input-block {
-
-    &__title {
-      font: 24px/28px;
-      letter-spacing: .08em;
-    }
-
-  }
-
   &__title {
-    margin: 20px 0 82px 170px;
+    margin: 24px 0 85px 170px;
 
     color: white;
-    font: 24px/28px Play;
+    font: 18px/21px Play;
     text-align: center;
   }
 
   &__button {
     background: transparent;
     border: 0;
-    margin: 38px 0 155px 170px;
+    margin: 45px 0 155px 170px;
 
     color: $color-accent;
-    font: 24px/28px Play;
+    font: 18px/144.2% Play;
     text-align: center;
 
     &:hover {

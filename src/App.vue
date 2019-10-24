@@ -2,7 +2,8 @@
   <div id="app">
     <div class="app__header-wrapper">
       <component 
-        :is="currentWidth > 748 ? 'Header' : 'HeaderMobile'"
+        :is="currentWidth > 1080 ? 'Header' : 
+          currentWidth > 748 ? 'Header748to1080' : 'HeaderMobile'"
         class="app__header"
         :class="
           currentWidth > 748 ? 
@@ -25,7 +26,7 @@
     </main>
     <Footer 
       class="app__footer"
-      v-if="currentRouteName != 'download-app'"
+      v-if="currentRouteName != 'download-app' || currentWidth > 748"
     />
   </div>
 </template>
@@ -37,6 +38,7 @@ export default {
   name: "App",
   components: {
     Header: () => import("@/components/Header/Header.vue"),
+    Header748to1080: () => import("@/components/Header/Header748to1080.vue"),
     HeaderMobile: () => import("@/components/Header/HeaderMobile.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
     Footer: () => import("@/components/Footer.vue"),

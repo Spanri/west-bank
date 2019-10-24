@@ -1,0 +1,109 @@
+<template>
+  <div class="download-app">
+    <div class="download-app__content">
+      <Logo 
+        class="download-app__logo" 
+        color1="white" color2="white"
+        :size="currentWidth > 748 ? '271' : '143'"
+      />
+      <p class="download-app__text">
+        Для совершения быстрых операций скачайте приложение
+        <span class="download-app__text download-app__text_title">
+          ВЕСТ
+        </span>
+      </p>
+      <button class="download-app__button">Скачать</button>
+      <img 
+        src="@/assets/mobileApps.png"
+        class="download-app__mobile-apps"
+        alt="Скачать мобильное приложение"
+      >
+    </div>
+    <Block class="download-app__block" />
+  </div>
+</template>
+
+<script>
+export default {
+  name: "DownloadApp",
+  components: {
+    Logo: () => import("@/icons/Logo.vue"),
+    Block: () => import("@/components/Block.vue"),
+  },
+  mounted() {
+    window.addEventListener('resize', this.setCurrentWidth);
+  },
+  data() {
+    return {
+      currentWidth: window.innerWidth,
+    };
+  },
+  methods: {
+    setCurrentWidth(e) {
+      this.currentWidth = e.currentTarget.innerWidth;
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setCurrentWidth);
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.download-app {
+  min-height: calc(100vh - 172px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__content {
+    margin: 57px auto 21px;
+    background: transparent;
+    box-shadow: none;
+
+    max-width: 406px;
+  }
+
+  &__text {
+    color: $color-light;
+    font: 24px/37px Play;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+    margin-bottom: 36px;
+
+    &_title {
+      color: $color-accent;
+      font-weight: bold;
+    }
+  }
+
+  &__logo {
+    margin: 178px 0 36px;
+  }
+
+  &__button {
+    display: block;
+    margin: 0 auto;
+    border: 0;
+    background: transparent;
+
+    color: $color-accent;
+    font: 18px/153.2% Play;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+    margin-bottom: 26px;
+
+    &:hover {
+      color: $color-light;
+    }
+  }
+
+  &__mobile-apps {
+    width: 120px;
+  }
+
+  &__block {
+    margin-bottom: 111px;
+    margin-top: 28px;
+  }
+}
+</style>

@@ -29,23 +29,23 @@
           {{ item.constraints }}
         </span>
       </p>
-    </div>
-    <div class="bank-account-or-card__buttons-wrapper">
-      <div class="bank-account-or-card__buttons">
-        <div class="bank-account-or-card__buttons-inner">
-          <p 
-            class="bank-account-or-card__buttons-text" 
-            @click="goToExcerpt"
-          >
-            Выписка
-          </p>
-        </div>
-        <div class="bank-account-or-card__buttons-inner">
-          <p 
-            class="bank-account-or-card__buttons-text"
-          >
-            Заблокировать счёт
-          </p>
+      <div class="bank-account-or-card__buttons-wrapper">
+        <div class="bank-account-or-card__buttons">
+          <div class="bank-account-or-card__buttons-inner">
+            <p 
+              class="bank-account-or-card__buttons-text" 
+              @click="goToExcerpt"
+            >
+              Выписка
+            </p>
+          </div>
+          <div class="bank-account-or-card__buttons-inner">
+            <p 
+              class="bank-account-or-card__buttons-text"
+            >
+              Заблокировать счёт
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -96,10 +96,16 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
+  /* переопределение, так как размеры другие */
   &__item  {
     margin: 140px 0 0;
     margin-left: 43px;
     pointer-events: none;
+
+    /deep/ .item {
+      font: 36px/42px Play;
+      vertical-align: top;
+    }
 
     /* 
     Не получается переопределить то, то в 
@@ -120,10 +126,13 @@ export default {
     flex-grow: 2;
 
     margin-top: 50px;
-    margin-left: 43px;
 
     & > * + * {
       margin-top: 40px;
+    }
+
+    &-item {
+      margin-left: 43px;
     }
 
     &-item:last-child {

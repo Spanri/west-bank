@@ -1,16 +1,18 @@
 <template>
   <div class="signup3">
-    <Logo 
-      class="signup3__logo"
-      color1="white" color2="white" 
-      size="271"
-    />
-    <p class="signup3__text">
-      Добро пожаловать!
-    </p>
-    <router-link class="signup3__link" to="/news">
-      Перейти в онлайн-банк
-    </router-link>
+    <div class="signup3__content">
+      <Logo 
+        class="signup3__logo"
+        color1="white" color2="white" 
+        size="271"
+      />
+      <p class="signup3__text">
+        Добро пожаловать!
+      </p>
+      <router-link class="signup3__link" to="/news">
+        Перейти в онлайн-банк
+      </router-link>
+    </div>
     <Block class="signup3__block" />
   </div>
 </template>
@@ -38,21 +40,27 @@ export default {
 
 .signup3 {
   color: $color-light;
-  height: auto;
+
+  min-height: calc(100vh - 172px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__logo {
-    margin: 189px 0 60px;
+    margin: 178px 0 91px;
   }
 
   &__text {
-    font: normal normal bold 36px/42px Play;
+    font: normal normal bold 24px/28px Play;
     letter-spacing: 0.09em;
     text-align: center;
+    margin-bottom: 8px;
   }
 
   &__link {
     color: $color-accent;
-    font: 24px/144.2% Play;
+    font: 18px/144.2% Play;
 
     &:hover {
       color: $color-light;
@@ -62,8 +70,8 @@ export default {
   }
 
   &__block {
-    margin-top: 149px;
-    margin-bottom: 71px;
+    margin-top: 189px;
+    margin-bottom: 120px;
   }
   
 }

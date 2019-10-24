@@ -18,37 +18,43 @@
     </div>
     <div class="home__buttons-wrapper">
       <div class="home__buttons">
-        <div class="home__buttons-item home__history">
+        <div class="home__link-wrapper">
           <router-link 
             class="home__link"
             to="/history"
           >
-            <History class="home__history" width="40"/>
-            <span class="home__button-text">
-              История
-            </span>
+            <div class="home__buttons-item home__history">
+              <History class="home__history" width="40"/>
+              <span class="home__button-text">
+                История
+              </span>
+            </div>
           </router-link>
         </div>
-        <div class="home__buttons-item home__open-bank-account">
+        <div class="home__link-wrapper">
           <router-link 
             class="home__link"
             to=""
           >
-            <Cross class="home__cross" width="40"/>
-            <span class="home__button-text">
-              Открытие счета
-            </span>
+            <div class="home__buttons-item home__open-bank-account">
+              <Cross class="home__cross" width="40"/>
+              <span class="home__button-text">
+                Открытие счета
+              </span>
+            </div>
           </router-link>
         </div>
-        <div class="home__buttons-item home__mobile-network">
+        <div class="home__link-wrapper">
           <router-link 
             class="home__link"
             to=""
           >
-            <Rectangle class="home__rectangle" width="40"/>
-            <span class="home__button-text">
-              Мобильная связь
-            </span>
+            <div class="home__buttons-item home__mobile-network">
+              <Rectangle class="home__rectangle" width="40"/>
+              <span class="home__button-text">
+                Мобильная связь
+              </span>
+            </div>
           </router-link>
         </div>
         <br>
@@ -117,7 +123,7 @@ export default {
       margin-left: -15px;
       transition: background ease-in-out .2s;
 
-      max-width: 1100px;
+      max-width: 820px;
 
       &::before {
         @include color-opacity(background, $color-accent, .6);
@@ -139,12 +145,8 @@ export default {
     top: 85.25px;
 
     &-wrapper {
-      height: 402.25px;
+      height: 480px;
       position: relative;
-    }
-
-    & > * + * {
-      margin-top: 25px;
     }
 
     &-item {
@@ -160,7 +162,7 @@ export default {
           .2); 
       border: 0;
       padding-left: calc((100vw - 1440px) / 2 + 43px);    
-      padding-top: 5px;  
+      padding-top: 12px;
 
       &:hover {
         cursor: pointer;
@@ -175,12 +177,17 @@ export default {
 
   &__link {
     user-select: none;
-    text-decoration: none;
 
     color: $color-light;
-    font: normal normal normal 36px/42px Play;
+    font: 24px/28px Play;
     letter-spacing: .09em;
     text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
+
+    &-wrapper + &-wrapper {
+      margin-top: 25px;
+    }
   }
 
   &__button-text {
@@ -199,10 +206,11 @@ export default {
 
 .cards,
 .bank-accounts {
-  margin-left: 43px;
+  margin-left: 193px;
 }
 
 @media (min-width: 1440px) {
+
   .home__buttons-item {
     background: 
       linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
@@ -216,7 +224,9 @@ export default {
         linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
         $color-accent; 
     }
+
   }
+
 }
 
 @media (max-width: 1440px) {
@@ -228,6 +238,27 @@ export default {
       width: 654px;
       padding-left: 43px;
     }
+
+  }
+
+}
+
+@media (max-width: 1066px) {
+
+  .cards, .bank-accounts {
+    margin-left: 60px;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .cards, .bank-accounts {
+    margin-left: 40px;
+  }
+
+  .home__item:hover {
+    max-width: 680px;
   }
 
 }

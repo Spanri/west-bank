@@ -71,7 +71,7 @@ export default {
   font: 24px/28px Play;
 
   &-without-currency {
-    width: 878px;
+    width: 645px;
     display: flex;
     justify-content: space-between;
   }
@@ -79,7 +79,7 @@ export default {
   &__number {
     flex-grow: 2;
     align-self: center;
-    margin-left: 44.78px;
+    margin-left: 40.29px;
 
     &-svg {
       vertical-align: inherit;
@@ -108,6 +108,14 @@ export default {
   .button {
     width: 654px;
     padding-left: 43px;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .item-without-currency {
+    width: 500px;
   }
 
 }

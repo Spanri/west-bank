@@ -72,4 +72,17 @@ export default {
   }
 
 }
+
+@media (max-width: 1166px) {
+
+  .block-inner {
+    left: 0;
+    width: 100%; 
+  }
+
+  .block__content {
+    margin-left: 0;
+  }
+
+}
 </style>
