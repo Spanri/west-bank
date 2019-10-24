@@ -146,7 +146,7 @@ export default {
     margin: 22px 0 31px;
 
     &-wrapper {
-      margin: 0 30px;
+      margin: 0 21px;
     }
 
     &__first, &__second, &__block {

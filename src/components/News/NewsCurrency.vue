@@ -37,6 +37,9 @@
     <table class="currency__converter">
       <tr class="currency__title">
         <th colspan="1">Конвертер</th>
+        <th v-if="currentWidth <= 748" class="currency__text">
+          Курс актуален на 19:00:05, 2.09.2019
+        </th>
       </tr>
       <tr>
         <td class="currency__value">10000</td>
@@ -58,7 +61,7 @@
           />
         </td>
       </tr>
-      <tr>
+      <tr v-if="currentWidth > 748">
         <td colspan="2" class="currency__text">
           Курс актуален на 19:00:05, 2.09.2019
         </td>
@@ -80,6 +83,11 @@ export default {
       selected3: '$',
       selected4: '€',
     };
+  },
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
+    },
   },
   methods: {
     select(val, model) {
@@ -261,4 +269,74 @@ export default {
   }
 
 }
+
+@media (max-width: 748px) {
+
+  .currency {
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 400px;
+
+    &__title > * {
+      padding-left: 15px;
+    }
+
+    &__subtitle {
+      padding-right: 10px;
+    }
+
+    &__rates, &__converter {
+      width: 100%;
+    }
+
+    &__converter {
+      margin-top: 18px;
+      width: 100%;
+      
+      
+      .currency__title {
+        height: 53px;
+      }
+    }
+
+    &__value {
+      height: 38px;
+      font: 18px/21px Play;
+      text-align: left !important;
+    }
+
+    &__select {
+      font: 18px/21px Roboto !important;
+      padding-left: 22px;
+    }
+
+    &__type-select::before {
+      top: 20px;
+    }
+
+    &__symbol-select::after {
+      top: -23px;
+      left: 25px;
+    }
+
+    &__text {
+      width: auto;
+      padding: 0;
+      padding-left: 10px;
+    }
+
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .currency {
+    margin: 0 21px;
+
+    
+  }
+
+}
+
 </style>
