@@ -16,7 +16,7 @@
     >
     </div>
     <span 
-      v-for="item in 3" :key="item" 
+      v-for="item in 3" :key="item + 100" 
       class="nav-text"
     >
       {{ item }}
@@ -88,9 +88,9 @@ export default {
   position: absolute;
   right: 0;
 
-  margin-top: 200px;
+  margin-top: 250px;
 
-  height: calc(100% - 200px);
+  height: min-content;
 
   display: flex;
   align-items: flex-end;
@@ -99,7 +99,7 @@ export default {
   color: $color-light;
 
   &-wrapper {
-    margin-top: -200px;
+    //margin-top: -200px;
   }
 
   &-text {

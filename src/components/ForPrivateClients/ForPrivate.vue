@@ -7,6 +7,10 @@
       :class="[item.checked ? 'checked' : '',
         items[index-1] && items[index-1].checked ? 'pre-checked' : '',
         items[index+1] && items[index+1].checked ? 'pre-checked' : '',
+        items[index+2] && items[index+2].checked ? 'pre-pre-checked' : '',
+        items[index-2] && items[index-2].checked ? 'pre-pre-checked' : '',
+        items[index+3] && items[index+3].checked ? 'pre-pre-pre-checked' : '',
+        items[index-3] && items[index-3].checked ? 'pre-pre-pre-checked' : '',
       ]"
       :style="{top: -index * 20 + 'px'}"
     >
@@ -30,7 +34,7 @@ export default {
     return {
       propPhase: this.phase,
       items: [
-        { title: 'Оставить заявку', checked: false, },
+        { title: 'Оставить заявку', checked: true, },
         { title: 'Интернет Банкинг', checked: false, },
         { title: 'Тарифы', checked: false, },
         { title: 'Валютный контроль', checked: false, },
@@ -55,42 +59,24 @@ export default {
 <style scoped lang="scss">
 .checked {
   z-index: 5;
-  width: 707px !important;
+  width: calc((100vw - 1440px) / 2 + 707px) !important;
   background: $color-block-dark !important;
 }
 
 .pre-checked {
   z-index: 3;
+  width: calc((100vw - 1440px) / 2 + 633px) !important;
   background: $color-block-medium !important;
 }
 
-.checked0 {
-  transform: translateY(-80px);
+.pre-pre-checked {
+  z-index: 2;
+  width: calc((100vw - 1440px) / 2 + 507px) !important;
 }
 
-.checked12 {
-  transform: translateY(-10px);
-  z-index: 3;
-}
-
-.checked21 {
-  transform: translateY(80px);
-}
-
-.checked22 {
-  z-index: 3;
-}
-
-.checked31 {
-  transform: translateY(153px);
-}
-
-.checked32 {
-  transform: translateY(-10px);
-}
-
-.checked33 {
-  transform: translateY(-150px);
+.pre-pre-pre-checked {
+  z-index: 1;
+  width: calc((100vw - 1440px) / 2 + 407px) !important;
 }
 
 .nav {
@@ -107,12 +93,15 @@ export default {
   color: $color-light;
 
   &-text {
-    text-align: right;
+    text-align: left;
     font: 18px/21px Play;
 
     margin-top: 32px;
-    margin-left: 20px;
+    margin-left: 43px;
+    padding-left: calc((100vw - 1440px) / 2 + 43px);
+
     height: 90px;
+
     user-select: none;
   }
 
@@ -124,12 +113,15 @@ export default {
     position: relative;
 
     height: 90px;
-    width: 305px;
+    width: calc(1440px - 100vw / 2 - 305px);
+
+    left: calc((100vw - 1440px) / 2 * (-1));
+    width: calc((100vw - 1440px) / 2 + 305px);
 
     background: $color-block-light;
     user-select: none;
     transition: all .3s ease-in-out;
-    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.46);
 
     text-align: left;
     font: normal normal bold 24px/28px Play;
@@ -140,61 +132,31 @@ export default {
       z-index: 5;
     }
 
-      &1 {
-        left: calc((100vw - 1440px) / 2);
-        width: calc((100vw - 1440px) / 2 + 186px);
-
-        background: $color-block-dark;
-        background: 
-          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%), $color-block-dark;
-        box-shadow: 0 4px 4px #00000095;
-      } 
-
-      &2 {
-        left: calc((100vw - 1440px) / 2);
-        width: calc((100vw - 1440px) / 2 + 148px);
-
-        background: $color-block-medium; 
-        background: 
-          linear-gradient(270deg, #15172D -0.71%,rgba(61, 65, 104, 0) 100%), $color-block-medium;
-        box-shadow: 0px 4px 4px #00000080;
-      } 
-
-      &3 {
-        left: calc((100vw - 1440px) / 2);
-        width: calc((100vw - 1440px) / 2 + 128px);
-
-        background: $color-block-light; 
-        background: 
-          linear-gradient(270deg, #15172D -0.71%, rgba(61, 65, 104, 0) 100%),
-          $color-block-light;
-        box-shadow: 0px 4px 4px #00000060;
-      }
-
   }
 
 }
 
 @media (max-width: 1440px) {
 
-  .nav-text {
-    width: 84px;
+  .nav-item {
+    left: 0;
+    width: 305px;
   }
 
-  .nav-item {
+  .checked {
+    width: 707px !important;
+  }
 
-    &1 {
-      width: 168px;
-    } 
+  .pre-checked {
+    width: 633px !important;
+  }
 
-    &2 {
-      width: 148px;
-    } 
+  .pre-pre-checked {
+    width: 507px !important;
+  }
 
-    &3 {
-      width: 128px;
-    }
-
+  .pre-pre-pre-checked {
+    width: 407px !important;
   }
   
 }

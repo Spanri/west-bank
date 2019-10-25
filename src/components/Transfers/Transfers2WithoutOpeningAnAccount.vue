@@ -189,7 +189,8 @@ export default {
     }
 
     &__title {
-      margin: 39px 0 207px 0;
+      margin: 0 0 207px;
+      padding-top: 39px;
       font: 18px/21px Play;
     }
 

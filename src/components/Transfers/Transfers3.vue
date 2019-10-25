@@ -59,7 +59,8 @@ export default {
   text-align: center;
 
   &__logo {
-    margin: 189px auto 60px;
+    margin: 0 auto 60px;
+    padding-top: 189px;
   }
 
   &__text {

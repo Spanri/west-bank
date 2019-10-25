@@ -67,7 +67,8 @@ export default {
   margin-left: 41px;
 
   &__title {
-    margin: 44px 0 111px;
+    margin: 0 0 111px;
+    padding-top: 44px;
   }
 
   &__button + &__button {
@@ -81,6 +82,12 @@ export default {
 
     &:hover {
       cursor: pointer;
+      color: $color-accent;
+      transition: 0 ease-in-out all;
+
+      .transfers1__link-accent {
+        color: $color-light;
+      }
     }
 
   }
@@ -89,11 +96,6 @@ export default {
 
     &-accent {
       color: $color-accent;
-
-      &:hover {
-        /* я не знаю, как это переопределить */
-        color: $color-light !important;
-      }
 
     }
 

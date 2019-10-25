@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <div class="app__header-wrapper">
-      <component 
-        :is="currentWidth > 1080 ? 'Header' : 
-          currentWidth > 748 ? 'Header748to1080' : 'HeaderMobile'"
-        class="app__header"
-        :class="
-          currentWidth > 748 ? 
-          'app__header_not-mobile' :
-          'app__header_mobile'
-        "
+      <Header 
+        v-if="currentWidth > 1080" 
+        class="app__header app__header_not-mobile" 
+      />
+      <Header748to1080 
+        v-else-if="currentWidth > 748"
+        class="app__header app__header_not-mobile"
+      />
+      <HeaderMobile 
+        v-else
+        class="app__header app_header_mobile"
       />
     </div>
     <main class="app__main">
@@ -132,7 +134,7 @@ export default {
   &__main {
     height: 100%;
     max-width: 1440px;
-    margin: 0 auto auto;
+    margin: 0px auto auto;
     width: -moz-available;
   }
 

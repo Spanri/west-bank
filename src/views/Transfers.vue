@@ -40,7 +40,7 @@ export default {
   text-align: left;
 
   &__title {
-    margin: 137px 0 165px;
+    padding: 137px 0 165px;
   }
 
   &__button + &__button {
