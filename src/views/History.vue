@@ -77,7 +77,7 @@ export default {
   font: 24px/28px Play;
   text-align: left;
 
-  margin-left: 190px;
+  padding-left: 190px;
   margin-bottom: 167px;
 
   &__title {
