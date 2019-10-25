@@ -1,8 +1,6 @@
 module.exports = {
   assetsDir: './',
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/westb/'
-    : '/',
+  publicPath: '/',
   css: {
     loaderOptions: {
       sass: {
