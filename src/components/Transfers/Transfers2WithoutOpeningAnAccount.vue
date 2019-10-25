@@ -220,4 +220,28 @@ export default {
   }
 
 }
+
+@media (max-width: 950px) {
+
+  .input-block-wrapper {
+    // @include error;
+    // @include input;
+    // margin-left: 41px;
+
+    max-width: 508px;
+
+    /* переопределение стилей */
+    /deep/.input-block {
+      display: block;
+      width: 808px;
+
+      &__input {
+        width: 351px;
+      }
+
+    }
+
+  }
+
+}
 </style>

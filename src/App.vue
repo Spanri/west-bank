@@ -133,6 +133,7 @@ export default {
     height: 100%;
     max-width: 1440px;
     margin: 0 auto auto;
+    width: -moz-available;
   }
 
   &__footer {

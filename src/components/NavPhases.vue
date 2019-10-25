@@ -1,4 +1,5 @@
 <template>
+<div class="nav-wrapper">
   <nav class="nav">
     <div
       class="nav-item"
@@ -21,6 +22,8 @@
       {{ item }}
     </span>
   </nav>
+  
+</div>
 </template>
 
 <script>
@@ -85,13 +88,19 @@ export default {
   position: absolute;
   right: 0;
 
-  margin-top: 353px;
+  margin-top: 200px;
+
+  height: calc(100% - 200px);
 
   display: flex;
   align-items: flex-end;
   flex-direction: column;
 
   color: $color-light;
+
+  &-wrapper {
+    margin-top: -200px;
+  }
 
   &-text {
     display: flex;

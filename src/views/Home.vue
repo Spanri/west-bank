@@ -262,4 +262,27 @@ export default {
   }
 
 }
+
+@media (max-width: 800px) {
+
+  .home__link-wrapper {
+    margin-top: 0;
+  }
+
+  .home__buttons-item {
+    @include color-opacity(background, $color-block-light, .2);
+    width: 100vw;
+    padding-left: 70%;
+
+    &:hover {
+      @include color-opacity(background, $color-accent, .6);
+    }
+  }
+
+  .home__button-text {
+    text-align: center;
+    padding-left: 0;
+  }
+
+}
 </style>

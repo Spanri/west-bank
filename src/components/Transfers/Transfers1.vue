@@ -62,7 +62,7 @@ export default {
   font: 24px/28px Play;
   text-align: left;
 
-  height: 100%;
+  // height: 100%;
 
   margin-left: 41px;
 

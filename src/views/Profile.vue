@@ -215,6 +215,7 @@ export default {
   }
   
   .profile__buttons {
+    width: 100vw;
 
     &-wrapper {
       margin-top: 100px;
@@ -229,7 +230,7 @@ export default {
       @include color-opacity(background, $color-block-light, .2);
 
       &:hover {
-        background: $color-accent;
+        @include color-opacity(background, $color-accent, .6);
       }
 
     }
