@@ -53,8 +53,6 @@ export default {
 .login {
   @include input;
 
-  min-height: calc(100vh - 172px);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;

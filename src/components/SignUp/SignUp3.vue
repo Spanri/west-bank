@@ -41,8 +41,6 @@ export default {
 .signup3 {
   color: $color-light;
 
-  min-height: calc(100vh - 172px);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;

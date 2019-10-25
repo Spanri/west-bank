@@ -48,7 +48,6 @@ export default {
 <style scoped lang="scss">
 .excerpt {
   height: 100%;
-  min-height: calc(100vh - 180px);
 
   display: flex;
   flex-direction: column;

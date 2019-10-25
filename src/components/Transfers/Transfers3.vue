@@ -56,7 +56,6 @@ export default {
 
 .transfers3 {
   color: $color-light;
-  height: auto;
   text-align: center;
 
   &__logo {

@@ -36,7 +36,6 @@ export default {
 <style scoped lang="scss">
 .footer {
   height: 172px;
-  max-width: 1440px;
 
   display: flex;
   flex-direction: row;
@@ -44,7 +43,6 @@ export default {
   color: $color-light;
   font: Play;
 
-  margin: 0 auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__mobile-apps {

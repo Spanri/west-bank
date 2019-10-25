@@ -99,6 +99,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+
   font: Play;
   text-align: center;
 
@@ -110,25 +117,27 @@ export default {
 
   &__header {
     max-width: 1440px;
-
     margin: 0 auto;
-
-    // position: sticky;
-    top: 0px;
 
     &-wrapper {
       background: $color-header;
+      z-index: 10;
+
+      position: sticky;
+      top: 0px;
     }
 
   }
 
   &__main {
-    min-height: calc(100vh - 290px);
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto auto;
   }
 
-  &__content {
-    // min-height: calc(100vh - 290px);
+  &__footer {
     max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
   }
   

@@ -34,8 +34,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
-  min-height: calc(100vh - 172px);
-
   color: $color-light;
   font: normal normal normal 36px/42px Play;
   text-align: left;

@@ -2,24 +2,16 @@
   <nav class="nav">
     <div
       class="nav-item"
-      v-for="item in items.length" :key="item"
-      :class="[`nav-item${item}`,
-        item == 1 ? 'checked' : '',
-        item == propPhase && propPhase != 1 ? 'checked0' : '',
-        propPhase == 1 && item == 2 ? 'checked12' : '',
-        propPhase == 2 && item == 1 ? 'checked21' : '',
-        propPhase == 2 && item == 2 ? 'checked22' : '',
-        propPhase == 3 && item == 1 ? 'checked31' : '',
-        propPhase == 3 && item == 2 ? 'checked32' : '',
-        propPhase == 3 && item == 3 ? 'checked33' : '',]"
+      v-for="(item, index) in items" :key="index"
+      @click="check(index)"
+      :class="[item.checked ? 'checked' : '',
+        items[index-1] && items[index-1].checked ? 'pre-checked' : '',
+        items[index+1] && items[index+1].checked ? 'pre-checked' : '',
+      ]"
+      :style="{top: -index * 20 + 'px'}"
     >
+      <span class="nav-text">{{ item.title }}</span>
     </div>
-    <span 
-      v-for="item in items" :key="item"
-      class="nav-text"
-    >
-      {{ item }}
-    </span>
   </nav>
 </template>
 
@@ -38,17 +30,23 @@ export default {
     return {
       propPhase: this.phase,
       items: [
-        'Оставить заявку',
-        'Интернет Банкинг',
-        'Тарифы',
-        'Валютный контроль',
-        'Рассчетно-кассовое обслуживание',
+        { title: 'Оставить заявку', checked: false, },
+        { title: 'Интернет Банкинг', checked: false, },
+        { title: 'Тарифы', checked: false, },
+        { title: 'Валютный контроль', checked: false, },
+        { title: 'Рассчетно-кассовое обслуживание', checked: false, },
       ],
     };
   },
   methods: {
     next(val) {
       this.propPhase = val;
+    },
+    check(index) {
+      this.items.forEach(item => {
+        item.checked = false;
+      });
+      this.items[index].checked = true;
     },
   },
 };
@@ -57,6 +55,13 @@ export default {
 <style scoped lang="scss">
 .checked {
   z-index: 5;
+  width: 707px !important;
+  background: $color-block-dark !important;
+}
+
+.pre-checked {
+  z-index: 3;
+  background: $color-block-medium !important;
 }
 
 .checked0 {
@@ -89,50 +94,51 @@ export default {
 }
 
 .nav {
-  position: absolute;
+  position: relative;
   left: 0;
 
   margin-top: 44px;
 
   display: flex;
-  align-items: flex-start;
+  //align-items: flex-start;
+  //justify-content: flex-start;
   flex-direction: column;
 
   color: $color-light;
 
   &-text {
-    display: flex;
-    align-items: start;
-    justify-content: flex-start;
-
     text-align: right;
     font: 18px/21px Play;
 
-    position: relative;
-    top: -410px;
-    left: calc((100vw - 1440px) / 2 + 44px);
-
-    margin-top: -11px;
-    z-index: 5;
+    margin-top: 32px;
+    margin-left: 20px;
     height: 90px;
     user-select: none;
   }
 
   &-item {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    //align-items: flex-end;
+    //justify-content: flex-end;
 
     position: relative;
 
     height: 90px;
+    width: 305px;
 
-    @include color-opacity(background, $color-block-light, .8);
+    background: $color-block-light;
     user-select: none;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
 
     text-align: left;
     font: normal normal bold 24px/28px Play;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-accent;
+      z-index: 5;
+    }
 
       &1 {
         left: calc((100vw - 1440px) / 2);
@@ -164,14 +170,6 @@ export default {
           $color-block-light;
         box-shadow: 0px 4px 4px #00000060;
       }
-
-    &:nth-child(2) {
-      top: -7px;
-    }
-
-    &:nth-child(3) {
-      top: -29px;
-    }
 
   }
 

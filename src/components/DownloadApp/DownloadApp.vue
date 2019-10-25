@@ -40,8 +40,6 @@ export default {
 
 <style scoped lang="scss">
 .download-app {
-  min-height: calc(100vh - 172px);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;

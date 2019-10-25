@@ -45,8 +45,7 @@ export default {
 
 <style scoped lang="scss">
 .download-app {
-  min-height: 854px;
-
+  
   &__back {
     position: sticky;
     display: block;
