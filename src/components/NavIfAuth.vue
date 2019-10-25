@@ -5,11 +5,27 @@
     >
       <span class="nav__text">Онлайн-банк</span>
     </router-link>    
-    <router-link to="/transfers" class="nav__item nav__item_transfers">
+    <router-link 
+      to="/transfers" 
+      class="nav__item nav__item_transfers"
+      :class="!/^transfers+/.test(currentRouteName) && 
+        currentRouteName != 'home' ? 'nav__passive' : ''"
+    >
       <span class="nav__text">Переводы</span>
     </router-link>
   </nav>
 </template>
+
+<script>
+export default {
+  name: "NavIfAuth",
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .router-link-active {
@@ -42,6 +58,10 @@
     top: 62px;
   }
 
+  &__passive {
+    transform: translateY(110px);
+  }
+
   &__item {
     display: flex;
     align-items: center;
@@ -67,6 +87,7 @@
 
     &_transfers {
       padding-top: 0px;
+      // transform: translateY(169px);
     }
 
     &:hover {

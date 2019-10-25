@@ -84,7 +84,7 @@ export default {
 
     width: 100%;
 
-    margin-top: 92px;
+    padding-top: 92px;
   }
 
   &__buttons {

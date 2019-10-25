@@ -2,7 +2,7 @@
   <nav class="nav">
     <div
       class="nav-item"
-      v-for="item in 3" :key="item"
+      v-for="item in items.length" :key="item"
       :class="[`nav-item${item}`,
         item == 1 ? 'checked' : '',
         item == propPhase && propPhase != 1 ? 'checked0' : '',
@@ -15,7 +15,7 @@
     >
     </div>
     <span 
-      v-for="item in 3" :key="item" 
+      v-for="item in items" :key="item"
       class="nav-text"
     >
       {{ item }}
@@ -37,6 +37,13 @@ export default {
   data() {
     return {
       propPhase: this.phase,
+      items: [
+        'Оставить заявку',
+        'Интернет Банкинг',
+        'Тарифы',
+        'Валютный контроль',
+        'Рассчетно-кассовое обслуживание',
+      ],
     };
   },
   methods: {
@@ -83,35 +90,37 @@ export default {
 
 .nav {
   position: absolute;
-  right: 0;
+  left: 0;
 
-  margin-top: 353px;
+  margin-top: 44px;
 
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
 
   color: $color-light;
 
   &-text {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: flex-start;
 
+    text-align: right;
+    font: 18px/21px Play;
+
     position: relative;
-    top: -265px;
+    top: -410px;
+    left: calc((100vw - 1440px) / 2 + 44px);
 
     margin-top: -11px;
     z-index: 5;
     height: 90px;
     user-select: none;
-
-    width: calc((100vw - 1440px) / 2 + 84px);
   }
 
   &-item {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
 
     position: relative;
@@ -126,7 +135,8 @@ export default {
     font: normal normal bold 24px/28px Play;
 
       &1 {
-        width: calc((100vw - 1440px) / 2 + 168px);
+        left: calc((100vw - 1440px) / 2);
+        width: calc((100vw - 1440px) / 2 + 186px);
 
         background: $color-block-dark;
         background: 
@@ -135,6 +145,7 @@ export default {
       } 
 
       &2 {
+        left: calc((100vw - 1440px) / 2);
         width: calc((100vw - 1440px) / 2 + 148px);
 
         background: $color-block-medium; 
@@ -144,6 +155,7 @@ export default {
       } 
 
       &3 {
+        left: calc((100vw - 1440px) / 2);
         width: calc((100vw - 1440px) / 2 + 128px);
 
         background: $color-block-light; 

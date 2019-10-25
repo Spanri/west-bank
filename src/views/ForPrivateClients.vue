@@ -10,7 +10,7 @@ export default {
   name: "ForPrivateClients",
   components: {
     ForPrivateClientsNav: () => 
-    import("@/components/ForPrivateClients/ForPrivateClientsNav.vue"),
+    import("@/components/ForPrivateClients/ForPrivate.vue"),
   },
   data() {
     return {
