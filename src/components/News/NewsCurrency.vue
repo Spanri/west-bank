@@ -18,7 +18,7 @@ export default {
 
 <style scoped lang="scss">  
 *:hover {
-  transition: all ease-in-out 0s;
+  //transition: all ease-in-out 0s;
 }
 
 .currency {

@@ -14,7 +14,7 @@
           class="rates__select rates__type-select"
           :items="['USD', 'EUR', 'GBP', 'CHF']"
           default="USD" @select="select" 
-          model="selected1"
+          model="selected1" :icon="false"
         />
       </td>
       <td class="rates__value">65,66</td>
@@ -26,7 +26,7 @@
           class="rates__select rates__type-select"
           :items="['USD', 'EUR', 'GBP', 'CHF']"
           default="EUR" @select="select" 
-          model="selected2"
+          model="selected2" :icon="false"
         />
       </td>
       <td class="rates__value">72,12</td>
@@ -95,46 +95,10 @@ export default {
     &-select {
       color: $success;
       padding-left: 26px;
-
-      &::before {
-        content: "▼";
-
-        display: inline-block;
-
-        height: 24px;
-        width: 24px;
-        
-        position: absolute;
-        left: 0;
-        top: 25px;
-
-        color: $color-light;
-        font: 18px;
-      }
-
-      &:hover::before {
-        color: $color-accent;
-        cursor: pointer;
-      }
-
     }
 
   }
   
-}
-
-.rates__select {
-
-  &-wrapper {
-    &:hover,
-    &:hover /deep/ .select__value,
-    &:hover::before {
-      color: $color-accent;
-      cursor: pointer;
-    }
-
-  }
-
 }
 
 @media (max-width: 748px) {

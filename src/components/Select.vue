@@ -1,13 +1,18 @@
 <template>
   <div class="select">
     <div 
-      class="select__value" @click="opened = !opened"
-      v-click-outside="hide"
+      class="select__value select__icon" 
+      :class="[opened ? 'select__opened' : '',
+        icon ? 'select__icon_right' : 'select__icon_left',]"
+      @click="opened = !opened" v-click-outside="hide"
     >
       {{ value }}
     </div>
     <transition name="fade">
-      <div v-if="opened" class="select__dropdown">
+      <div 
+        v-if="opened" class="select__dropdown"
+        :class="icon ? 'select__dropdown_right' : 'select__dropdown_left'"
+      >
         <div
           v-for="(item, index) in items" :key="index"
           class="select__dropdown-item"
@@ -28,6 +33,10 @@ export default {
     default: String,
     model: String,
     items: Array,
+    icon: {
+      type: Boolean, // 1 - справа, 0 - слева
+      default: true,
+    },
   },
   directives: {
     ClickOutside,
@@ -71,8 +80,62 @@ export default {
 
   font: 24px/28px Roboto;
 
+  &__opened {
+
+    &.select__value, 
+    &.select__icon_left::before,  
+    &.select__icon_right::after {
+      color: $color-accent;
+    }
+
+  }
+
+  &__icon {
+
+    &_left::before, &_right::after {
+      content: "▼";
+      transition: all .2s ease;
+
+      display: inline-block;
+
+      height: 24px;
+      width: 24px;
+
+      color: $color-light;
+      font: 18px;
+    }
+
+    &_left:hover::before,  &_right:hover::after {
+      color: $color-accent;
+      cursor: pointer;
+    }
+
+    &_left::before {
+      position: absolute;
+      left: -3px;
+      top: 25px;
+    }
+
+    &_right::after {
+      margin: -30px 15px 0 0;
+    
+      position: relative;
+      left: 18px;
+      top: -3px;
+    }
+
+  }
+
   &__value {
     padding-top: 20px;
+    transition: all .2s ease;
+    user-select: none;
+
+    &:hover {
+      color: $color-accent;
+      cursor: pointer;
+    }
+
   }
 
   &__dropdown {
@@ -81,14 +144,26 @@ export default {
     color: $color-light;
 
     background: $color-block-medium;
-    margin: 10px 0 0 -38px;
+    
     z-index: 10;
+
+    &_left {
+      margin: 10px 0 0 -38px;
+    }
+
+    &_right {
+      margin: 10px 0 0 -15px;
+      min-width: 30px;
+    }
     
     &-item {
       padding: 10px 25px;
+      min-width: 80px;
+      text-align: center;
+      user-select: none;
 
       &:hover {
-        color: $color-accent;
+        background: $color-accent;
         cursor: pointer;
       }
 

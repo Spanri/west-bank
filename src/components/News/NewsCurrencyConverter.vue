@@ -12,6 +12,7 @@
         <Select 
           class="converter__select converter__symbol-select"
           :items="['$', '₽', '€', '£']" default="$"
+          :icon="true"
           @select="select" model="selected3"
         />
       </td>
@@ -21,7 +22,8 @@
       <td class="converter__select-wrapper converter__symbol">
         <Select 
           class="converter__select converter__symbol-select"
-          :items="['$', '₽', '€', '£dfdfd']" default="$" 
+          :items="['$', '₽', '€', '£']" default="$" 
+          :icon="true"
           @select="select" model="selected4"
         />
       </td>
@@ -101,52 +103,16 @@ export default {
 
     &-select {
       display: block;
+
       position: relative;
 
       color: $color-light;
 
       padding-left: 61px;
-
-      &::after {
-        content: "▼";
-        margin: -30px 15px 0 0;
-
-        display: inline-block;
-
-        height: 24px;
-        width: 24px;
-
-        position: relative;
-        left: 28px;
-        top: -30px;
-
-        color: $color-light;
-        font: 18px;
-      }
-
-      &:hover::after {
-        color: $color-accent;
-        cursor: pointer;
-      }
-
     }
 
   }
   
-}
-
-.converter__select {
-
-  &-wrapper {
-    &:hover,
-    &:hover /deep/ .select__value,
-    &:hover::before {
-      color: $color-accent;
-      cursor: pointer;
-    }
-
-  }
-
 }
 
 @media (max-width: 748px) {
