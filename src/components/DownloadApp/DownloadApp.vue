@@ -2,9 +2,8 @@
   <div class="download-app">
     <div class="download-app__content">
       <Logo 
-        class="download-app__logo" 
+        class="download-app__logo" size="271"
         color1="white" color2="white"
-        :size="currentWidth > 748 ? '271' : '143'"
       />
       <p class="download-app__text">
         Для совершения быстрых операций скачайте приложение
@@ -29,11 +28,6 @@ export default {
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Block: () => import("@/components/Block.vue"),
-  },
-  computed: {
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
   },
 };
 </script>

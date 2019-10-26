@@ -14,7 +14,7 @@
       ]"
       :style="{top: -index * 20 + 'px'}"
     >
-      <span class="nav-text">{{ item.title }}</span>
+      <p class="nav-text">{{ item.title }}</p>
     </div>
   </nav>
 </template>
@@ -101,6 +101,8 @@ export default {
     padding-left: calc((100vw - 1440px) / 2 + 43px);
 
     height: 90px;
+    width: 100%;
+    text-align: left;
 
     user-select: none;
   }
@@ -128,10 +130,25 @@ export default {
 
     &:hover {
       cursor: pointer;
-      background: $color-accent;
-      z-index: 5;
+      background: $color-accent !important;
+      z-index: 10;
     }
 
+  }
+
+}
+
+@media (min-width: 1440px) {
+  
+  .checked {
+    background: $color-block-dark !important;
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      $color-accent;
+  }
+
+  .pre-checked {
+    background: $color-block-medium !important;
   }
 
 }
@@ -160,4 +177,18 @@ export default {
   }
   
 }
+
+@media (max-width: 748px) {
+
+  .nav-item, .checked, .pre-checked, 
+  .pre-pre-checked, .pre-pre-pre-checked {
+    width: 100% !important;
+  }
+
+  .nav-text {
+    text-align: center;
+  }
+
+}
+
 </style>

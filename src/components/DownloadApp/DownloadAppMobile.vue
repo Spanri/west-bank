@@ -1,10 +1,5 @@
 <template>
   <div class="download-app">
-    <Back 
-      v-if="currentWidth < 768"
-      @click="$router.back()" 
-      class="download-app__back"
-    />
     <div class="download-app__content">
       <p class="download-app__text">
         Для совершения быстрых операций скачайте приложение
@@ -14,9 +9,8 @@
         </span>
       </p>
       <Logo 
-        class="download-app__logo" 
+        class="download-app__logo" size="143"
         color1="#6DB0FF" color2="#766BF8"
-        :size="currentWidth > 748 ? '271' : '143'"
       />
       <button class="download-app__button">Скачать</button>
       <img 
@@ -30,39 +24,15 @@
 
 <script>
 export default {
-  name: "DownloadApp",
+  name: "DownloadAppMobile",
   components: {
-    Back: () => import("@/icons/Back.vue"),
     Logo: () => import("@/icons/Logo.vue"),
-  },
-  computed: {
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .download-app {
-  
-  &__back {
-    position: sticky;
-    display: block;
-
-    top: 0px;
-
-    //margin: 32px 10px 10px 22px;
-    padding: 20px 30px;
-    background: $color-background;
-    z-index: 2;
-
-    width: 20px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
 
   &__content {
     margin: 27px 21px;
@@ -82,6 +52,7 @@ export default {
       font: 24px/153.2% Play;
       font-weight: bold;
     }
+
   }
 
   &__logo {
@@ -101,11 +72,13 @@ export default {
     &:hover {
       color: $color-light;
     }
+
   }
 
   &__mobile-apps {
     width: 120px;
     margin: 25px 0 48px;
   }
+
 }
 </style>

@@ -1,26 +1,16 @@
 <template>
   <div id="app">
     <div class="app__header-wrapper">
-      <Header 
-        v-if="currentWidth > 1080" 
-        class="app__header app__header_not-mobile" 
-      />
-      <Header748to1080 
-        v-else-if="currentWidth > 748"
-        class="app__header app__header_not-mobile"
-      />
-      <HeaderMobile 
-        v-else
-        class="app__header app_header_mobile"
-      />
+      <Header class="app__header width3_big" />
+      <Header748to1080 class="app__header width3_748-to-1080" />
+      <HeaderMobile class="app__header width3_mobile" />
     </div>
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth"
         v-if="isLoggedIn && 
           currentRouteName != 'for-private-clients' && 
-          currentRouteName != 'not-found' && 
-          currentWidth > 748" 
+          currentRouteName != 'not-found'" 
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -46,6 +36,7 @@ export default {
     Footer: () => import("@/components/Footer.vue"),
   },
   mounted() {
+    /* Применяется в components/Header/HeaderNav.vue */
     window.addEventListener('resize', this.setCurrentWidth);
   },
   computed: {
@@ -111,8 +102,9 @@ export default {
   font: Play;
   text-align: center;
 
-  @include slide;
-  @include datepicker;
+  @include slide; // переключение страниц
+  @include datepicker; // для дат в components/Excerpt/ExcerptFilter
+  @include width3; // показ блоков в зависимости от размера, 3 размера
 }
 
 .app {

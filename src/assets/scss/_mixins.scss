@@ -32,6 +32,96 @@
 
 }
 
+/* для показа блоков в зависимости от размера, 3 размера */
+@mixin width3 {
+
+  @media (min-width: 1081px) {
+
+    .width3 {
+
+      &_big {
+        display: block;
+      }
+
+      &_748-to-1080, &_mobile {
+        display: none;
+      }
+
+    }
+
+  }
+
+  @media (max-width: 1080px) {
+
+    .width3 {
+
+      &_748-to-1080 {
+        display: block;
+      }
+
+      &_big, &_mobile {
+        display: none;
+      }
+
+    }
+
+  }
+
+  @media (max-width: 748px) {
+
+    .width3 {
+
+      &_mobile {
+        display: block;
+      }
+
+      &_big, &_748-to-1080 {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
+/* для показа блоков в зависимости от размера, 2 размера */
+@mixin width2 {
+
+  @media (min-width: 749px) {
+
+    .width2 {
+
+      &_big {
+        display: block;
+      }
+
+      &_mobile {
+        display: none;
+      }
+
+    }
+
+  }
+
+  @media (max-width: 748px) {
+
+    .width2 {
+
+      &_mobile {
+        display: block;
+      }
+
+      &_big {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
 /* ошибки при вводе */
 @mixin error {
 

@@ -1,10 +1,8 @@
 <template>
-  <component 
-    class="download-app-wrapper"
-    :is="currentWidth > 748 ? 'DownloadApp' : 'DownloadAppMobile'"
-  >
-    
-  </component>
+  <div class="download-app-wrapper">
+    <DownloadApp class="download-app width2_big"/>
+    <DownloadAppMobile class="download-app width2_mobile"/>
+  </div>
 </template>
 
 <script>
@@ -15,10 +13,12 @@ export default {
     DownloadAppMobile: 
       () => import("@/components/DownloadApp/DownloadAppMobile.vue"),
   },
-  computed: {
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
-  },
 };
 </script>
+
+<style lang="scss" scoped>
+.download-app-wrapper {
+  @include width2; // показ блоков в зависимости от размера, 2 размера
+}
+</style>
+
