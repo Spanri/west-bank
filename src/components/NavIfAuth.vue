@@ -34,7 +34,7 @@ export default {
   background: linear-gradient(270deg, #15172D -90.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   box-shadow: none !important;
-  z-index: 3;
+  z-index: 21;
   transform: translateY(69px);
 
   width: calc((100vw - 1440px) / 2 + 383px) !important;
@@ -52,7 +52,7 @@ export default {
   color: $color-light;
 
   margin-top: 30px;
-  z-index: 2;
+  z-index: 20;
 
   & > * + * {
     top: 62px;
@@ -145,6 +145,41 @@ export default {
 
   .router-link-active {
     width: 383px !important;
+  }
+  
+}
+
+@media (max-width: 1300px) {
+
+  .nav__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav__item {
+    width: 200px;
+  }
+
+  .router-link-active {
+    width: 240px !important;
+  }
+  
+}
+
+@media (max-width: 1066px) {
+
+  .nav {
+    position: relative;
+    height: 200px;
+    right: 0;
+  }
+
+  .nav__item {
+    width: 100%;
+  }
+
+  .router-link-active {
+    width: 100% !important;
   }
   
 }

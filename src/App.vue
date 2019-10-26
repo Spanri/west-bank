@@ -7,7 +7,7 @@
     </div>
     <main class="app__main">
       <NavIfAuth
-        class="app__nav-if-auth"
+        class="app__nav-if-auth width2_big"
         v-if="isLoggedIn && 
           currentRouteName != 'for-private-clients' && 
           currentRouteName != 'not-found'" 
@@ -83,31 +83,34 @@ export default {
 }
 
 html, body {
-  height: 100%;
+  min-height: 100vh;
+  background: $color-header;
 }
 
 body {
   display: flex; /*  IE need this for its 'min-height' bug  */
   flex-direction: column;
+  background: $color-header;
 }
 
 #app {
-  background: $color-background;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Play, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
 
-  font: Play;
-  text-align: center;
-
+  min-height: 100vh;
+  
   @include slide; // переключение страниц
   @include datepicker; // для дат в components/Excerpt/ExcerptFilter
   @include width3; // показ блоков в зависимости от размера, 3 размера
+  @include width2; // показ блоков в зависимости от размера, 2 размера
+  background: $color-background;
 }
 
 .app {

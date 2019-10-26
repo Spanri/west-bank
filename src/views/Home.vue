@@ -123,7 +123,7 @@ export default {
       margin-left: -15px;
       transition: background ease-in-out .2s;
 
-      max-width: 820px;
+      max-width: 730px;
 
       &::before {
         @include color-opacity(background, $color-accent, .6);
@@ -244,7 +244,7 @@ export default {
 
 }
 
-@media (max-width: 1066px) {
+@media (max-width: 1166px) {
 
   .cards, .bank-accounts {
     margin-left: 60px;
@@ -255,11 +255,11 @@ export default {
 @media (max-width: 900px) {
 
   .cards, .bank-accounts {
-    margin-left: 40px;
+    margin-left: 60px;
   }
 
   .home__item:hover {
-    max-width: 680px;
+    max-width: 600px;
   }
 
 }

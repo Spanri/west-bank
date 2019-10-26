@@ -151,4 +151,13 @@ export default {
   }
   
 }
+
+@media (max-width: 1440px) {
+
+  .excerpt__document {
+    left: 0;
+    width: 654px;
+  }
+  
+}
 </style>

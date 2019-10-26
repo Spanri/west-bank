@@ -1,13 +1,15 @@
 <template>
   <header class="header">
     <div class="header-inner">
-      <router-link to="/home" class="header__logo">
-        <LogoText class="header__logo-text"/>
-        <Logo
-          class="header__logo-svg" size="75"
-          :color="logoColor"
-          @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
-          @mouseleave.native="logoColor = 'white'"
+      <router-link 
+        to="/home" class="header__logo"
+        @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
+        @mouseleave.native="logoColor = 'white'"
+      >
+        <LogoText class="header__logo-text" :color="logoColor" />
+        <Logo 
+          class="header__logo-svg" :color="logoColor" 
+          size="75"
         />
       </router-link>
       <div class="header__content">
@@ -25,6 +27,7 @@
 export default {
   name: "Header",
   components: {
+    LogoText: () => import("@/icons/LogoText.vue"),
     Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
@@ -70,11 +73,12 @@ export default {
 
   &__logo {
     user-select: none;
-    padding: 7px 20px 0 27px;
+    padding: 0 20px 0 27px;
 
-    &-text, &-svg {
-      display: inline-block;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
   }
 

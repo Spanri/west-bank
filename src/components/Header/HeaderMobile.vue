@@ -33,9 +33,14 @@
           to="/home" class="header__logo-link" 
           v-if="!open"
         >
+          <LogoText 
+            class="header__logo-text" :color="logoColor"
+            @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
+            @mouseleave.native="logoColor = 'white'"
+          />
           <Logo
-            class="header__logo"
-            :color="logoColor" size="58"
+            class="header__logo-svg"
+            :color="logoColor" size="56"
             @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
             @mouseleave.native="logoColor = 'white';"
           />
@@ -49,6 +54,7 @@
 export default {
   name: "Header",
   components: {
+    LogoText: () => import("@/icons/LogoText.vue"),
     Logo: () => import("@/icons/Logo.vue"),
     Hamburger: () => import("@/icons/Hamburger.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
@@ -135,6 +141,11 @@ export default {
     align-self: center;
     margin: 28px 21px 28px 0;
     user-select: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   &__menu {

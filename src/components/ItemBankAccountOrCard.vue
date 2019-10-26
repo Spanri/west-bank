@@ -19,10 +19,10 @@
           item.currency == 0
             ? "₽"
             : item.currency == 1
-            ? "долларов"
+            ? "₽"
             : item.currency == 2
-            ? "евро"
-            : "че"
+            ? "₽"
+            : "₽"
         }}
       </span>
     </div>

@@ -197,4 +197,27 @@ export default {
   }
   
 }
+
+@media (max-width: 1100px) {
+
+  .nav {
+    position: relative;
+    margin-bottom: -180px;
+    margin-top: 50px;
+  }
+
+  .nav-text {
+    width: 100%;
+    padding-left: calc(100% / 2 - 20px);
+  }
+
+  .nav-item {
+
+    &1, &2, &3 {
+      width: 100vw !important;
+    }
+
+  }
+  
+}
 </style>
