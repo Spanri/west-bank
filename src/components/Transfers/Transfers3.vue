@@ -1,11 +1,6 @@
 <template>
   <div class="transfers3">
-    <Logo
-      class="transfers3__logo"
-      size="271"
-      color1="white"
-      color2="white"
-    />
+    <Logo class="transfers3__logo" size="421" />
     <p class="transfers3__text">
       Перевод совершен!
     </p>
@@ -59,8 +54,7 @@ export default {
   text-align: center;
 
   &__logo {
-    margin: 0 auto 60px;
-    padding-top: 189px;
+    margin: 189px auto 60px;
   }
 
   &__text {

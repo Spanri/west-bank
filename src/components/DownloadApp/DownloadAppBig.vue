@@ -1,10 +1,7 @@
 <template>
   <div class="download-app">
     <div class="download-app__content">
-      <Logo 
-        class="download-app__logo" size="271"
-        color1="white" color2="white"
-      />
+      <Logo class="download-app__logo" size="401" />
       <p class="download-app__text">
         Для совершения быстрых операций скачайте приложение
         <span class="download-app__text download-app__text_title">

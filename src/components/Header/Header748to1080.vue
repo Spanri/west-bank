@@ -2,11 +2,12 @@
   <header class="header">
     <div class="header-inner">
       <router-link to="/home" class="header__logo">
+        <LogoText class="header__logo-text"/>
         <Logo
-          class="transfers3__logo" size="105"
-          :color1="logoColor1" :color2="logoColor2"
-          @mouseenter.native="logoColor1 = 'white'"
-          @mouseleave.native="logoColor1 = '#6DB0FF'"
+          class="header__logo-svg" size="75"
+          :color="logoColor"
+          @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
+          @mouseleave.native="logoColor = 'white'"
         />
       </router-link>
       <div class="header__content">
@@ -30,8 +31,7 @@ export default {
   },
   data() {
     return {
-      logoColor1: "#6DB0FF",
-      logoColor2: "#766BF8",
+      logoColor: "white",
     };
   },
 };
@@ -71,6 +71,11 @@ export default {
   &__logo {
     user-select: none;
     padding: 7px 20px 0 27px;
+
+    &-text, &-svg {
+      display: inline-block;
+    }
+
   }
 
   &__content {

@@ -35,10 +35,9 @@
         >
           <Logo
             class="header__logo"
-            :color1="logoColor1" :color2="logoColor2"
-            size="58"
-            @mouseenter.native="logoColor1 = 'white'; logoColor2 = 'white';" 
-            @mouseleave.native="logoColor1 = '#6DB0FF'; logoColor2 = '#766BF8';"
+            :color="logoColor" size="58"
+            @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
+            @mouseleave.native="logoColor = 'white';"
           />
         </router-link>
       </transition>
@@ -58,8 +57,7 @@ export default {
   data() {
     return {
       open: false,
-      logoColor1: "#6DB0FF",
-      logoColor2: "#766BF8",
+      logoColor: "white",
     };
   },
   computed: {

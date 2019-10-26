@@ -1,11 +1,7 @@
 <template>
   <div class="signup3">
     <div class="signup3__content">
-      <Logo 
-        class="signup3__logo"
-        color1="white" color2="white" 
-        size="271"
-      />
+      <Logo class="signup3__logo" size="401" />
       <p class="signup3__text">
         Добро пожаловать!
       </p>
@@ -23,9 +19,6 @@ export default {
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Block: () => import("@/components/Block.vue"),
-  },
-  data() {
-    return {};
   },
 };
 </script>
@@ -46,7 +39,7 @@ export default {
   justify-content: space-between;
 
   &__logo {
-    margin: 178px 0 91px;
+    margin: 109px 0 30.42px;
   }
 
   &__text {

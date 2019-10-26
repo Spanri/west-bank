@@ -8,10 +8,7 @@
           ВЕСТ
         </span>
       </p>
-      <Logo 
-        class="download-app__logo" size="143"
-        color1="#6DB0FF" color2="#766BF8"
-      />
+      <Logo class="download-app__logo" size="175" />
       <button class="download-app__button">Скачать</button>
       <img 
         src="@/assets/mobileApps.png"
