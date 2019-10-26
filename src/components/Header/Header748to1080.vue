@@ -8,8 +8,8 @@
       >
         <LogoText class="header__logo-text" :color="logoColor" />
         <Logo 
-          class="header__logo-svg" :color="logoColor" 
-          size="75"
+          class="header__logo-svg" 
+          :color="logoColor" size="86"
         />
       </router-link>
       <div class="header__content">

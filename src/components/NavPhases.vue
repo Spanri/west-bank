@@ -107,6 +107,8 @@ export default {
     align-items: center;
     justify-content: flex-start;
 
+    font: normal normal normal 36px/42px Play;
+
     position: relative;
     top: -265px;
 

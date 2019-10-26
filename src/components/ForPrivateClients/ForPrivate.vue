@@ -12,9 +12,11 @@
         items[index+3] && items[index+3].checked ? 'pre-pre-pre-checked' : '',
         items[index-3] && items[index-3].checked ? 'pre-pre-pre-checked' : '',
       ]"
-      :style="{top: -index * 20 + 'px'}"
+      :style="{top: currentWidth > 748 ? 
+        -index * 20 + 'px' : +index * 20 + 'px' }"
     >
       <p class="nav-text">{{ item.title }}</p>
+      <p class="nav-details">Подробнее...</p>
     </div>
   </nav>
 </template>
@@ -28,6 +30,11 @@ export default {
   watch: {
     phase: function(newVal) {
       this.propPhase = newVal;
+    },
+  },
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
     },
   },
   data() {
@@ -91,6 +98,10 @@ export default {
   flex-direction: column;
 
   color: $color-light;
+
+  &-details {
+    display: none;
+  }
 
   &-text {
     text-align: left;
@@ -182,11 +193,28 @@ export default {
 
   .nav-item, .checked, .pre-checked, 
   .pre-pre-checked, .pre-pre-pre-checked {
-    width: 100% !important;
+    width: calc(100% - 42px) !important;
+    height: 176px;
+  }
+
+  .nav-details {
+    display: block;
+    color: $color-accent;
+  }
+
+  .nav-item {
+    height: 176px;
+    margin: 0 21px;
+
+    &:last-child {
+      margin-bottom: 100px;
+    }
   }
 
   .nav-text {
-    text-align: center;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
     <svg 
-      width="auto" :height="sizeProp"
+      :width="+sizeProp / 1.14" :height="sizeProp"
       viewBox="0 0 81 92" fill="none" 
       xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_dii)">

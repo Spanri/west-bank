@@ -8,7 +8,7 @@
           @mouseleave.native="logoColor = 'white'"
         />
         <Logo
-          class="header__logo-svg" size="75"
+          class="header__logo-svg" size="86"
           :color="logoColor"
           @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
           @mouseleave.native="logoColor = 'white'"

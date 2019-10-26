@@ -35,7 +35,7 @@
 /* для показа блоков в зависимости от размера, 3 размера */
 @mixin width3 {
 
-  @media (min-width: 1081px) {
+  @media (min-width: 1080px) {
 
     .width3 {
 
@@ -88,7 +88,7 @@
 /* для показа блоков в зависимости от размера, 2 размера */
 @mixin width2 {
 
-  @media (min-width: 749px) {
+  @media (min-width: 748px) {
 
     .width2 {
 
