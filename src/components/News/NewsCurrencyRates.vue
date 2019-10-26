@@ -59,7 +59,6 @@ export default {
 
 .rates {
   width: 431px;
-  margin: 0 221px 0 232px;
 
   &__text {
     color: $color-light;
@@ -141,6 +140,7 @@ export default {
 @media (max-width: 748px) {
 
   .rates {
+    width: 100%;
 
     &__title > * {
       padding-left: 15px;

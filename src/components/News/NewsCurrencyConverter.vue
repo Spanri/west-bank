@@ -1,7 +1,7 @@
 <template>
   <table class="converter">
     <tr class="converter__title">
-      <th colspan="1">Конвертер</th>
+      <th>Конвертер</th>
       <th class="converter__text width2_mobile">
         Курс актуален на 19:00:05, 2.09.2019
       </th>
@@ -26,7 +26,7 @@
         />
       </td>
     </tr>
-    <tr class="width2_big">
+    <tr class="width2_big-tr">
       <td colspan="2" class="converter__text">
         Курс актуален на 19:00:05, 2.09.2019
       </td>
@@ -63,6 +63,8 @@ export default {
   &__text {
     color: $color-light;
     font: 12px/144.69% Roboto;
+
+    width: 100%;
 
     opacity: 0.6;
     padding-top: 32px;

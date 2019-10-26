@@ -96,6 +96,10 @@
         display: block;
       }
 
+      &_big-tr {
+        display: table-row;
+      }
+
       &_mobile {
         display: none;
       }
@@ -112,7 +116,7 @@
         display: block;
       }
 
-      &_big {
+      &_big, &_big-tr {
         display: none;
       }
 

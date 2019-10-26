@@ -31,8 +31,6 @@ export default {
   text-align: left;
 
   &__rates {
-    width: 431px;
-
     margin: 0 221px 0 232px;
 
     .currency__title {
