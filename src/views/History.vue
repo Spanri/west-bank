@@ -78,7 +78,7 @@ export default {
   text-align: left;
 
   padding-left: 190px;
-  margin-bottom: 167px;
+  padding-bottom: 167px;
 
   &__title {
     margin-top: 36px;
@@ -109,6 +109,10 @@ export default {
     padding: 10px 26px 10px 16px;
     overflow: hidden;
 
+    &-amount {
+      padding-left: 15px;
+    }
+
     & > * {
       margin: 0;
     }
@@ -119,4 +123,13 @@ export default {
   }
 
 }
+
+@media (max-width: 950px) {
+
+  .history {
+    padding-left: 50px;
+  }
+
+}
+
 </style>

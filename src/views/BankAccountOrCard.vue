@@ -187,6 +187,7 @@ export default {
           linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
           $color-accent;
         cursor: pointer;
+        transition: ease-in-out all .15s;
       }
     }
 

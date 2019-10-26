@@ -12,7 +12,7 @@ export default {
 
 <style scoped lang="scss">
 .not-found {
-  margin: 100px auto 0;
+  margin: 100px auto auto;
 
   &__text {
     color: $color-light;

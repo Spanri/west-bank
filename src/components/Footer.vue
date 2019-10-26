@@ -43,8 +43,6 @@ export default {
   color: $color-light;
   font: Play;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
   &__mobile-apps {
     width: 174px;
   }
@@ -100,6 +98,11 @@ export default {
         background: $color-block-light;
       }
 
+      &::-ms-clear {
+        width : 0;
+        height: 0;
+      }
+
     }
 
   }
@@ -126,7 +129,7 @@ export default {
   
 }
 
-@media (max-width: 748px) {
+@media (max-width: 680px) {
 
   .footer {
     height: auto;

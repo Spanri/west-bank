@@ -73,10 +73,6 @@ export default {
 </script>
 
 <style lang="scss">
-*:hover {
-  transition: ease-in-out all .15s;
-}
-
 .button:hover {
   cursor: pointer;
 }
@@ -86,13 +82,20 @@ export default {
   color: $color-pre-light;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex; /*  IE need this for its 'min-height' bug  */
+  flex-direction: column;
+}
+
 #app {
   background: $color-background;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -127,7 +130,11 @@ export default {
     height: 100%;
     max-width: 1440px;
     margin: 0px auto auto;
-    width: -moz-available;
+
+    width: 100%;
+    width: -moz-available;          /* For Mozzila */
+    width: -webkit-fill-available;  /* For Chrome */
+    width: stretch;
   }
 
   &__footer {
