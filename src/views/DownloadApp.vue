@@ -1,6 +1,6 @@
 <template>
   <div class="download-app-wrapper">
-    <DownloadApp class="download-app width2_big"/>
+    <DownloadAppBig class="download-app width2_big"/>
     <DownloadAppMobile class="download-app width2_mobile"/>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   name: "DownloadAppWrapper",
   components: {
-    DownloadApp: () => import("@/components/DownloadApp/DownloadApp.vue"),
+    DownloadAppBig: () => import("@/components/DownloadApp/DownloadAppBig.vue"),
     DownloadAppMobile: 
       () => import("@/components/DownloadApp/DownloadAppMobile.vue"),
   },

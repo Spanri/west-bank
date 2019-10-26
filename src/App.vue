@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="app__header-wrapper">
-      <Header class="app__header width3_big" />
+      <HeaderBig class="app__header width3_big" />
       <Header748to1080 class="app__header width3_748-to-1080" />
       <HeaderMobile class="app__header width3_mobile" />
     </div>
@@ -29,7 +29,7 @@ import axios from "axios";
 export default {
   name: "App",
   components: {
-    Header: () => import("@/components/Header/Header.vue"),
+    HeaderBig: () => import("@/components/Header/HeaderBig.vue"),
     Header748to1080: () => import("@/components/Header/Header748to1080.vue"),
     HeaderMobile: () => import("@/components/Header/HeaderMobile.vue"),
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
