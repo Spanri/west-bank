@@ -106,6 +106,22 @@ const router = new Router({
       },
     },
     {
+      path: "/for-business",
+      name: "for-business",
+      component: () => import("@/views/ForBusiness.vue"),
+      meta: {
+        title: 'Вест Банк, бизнесу',
+      },
+    },
+    {
+      path: "/for-financial-institutions",
+      name: "for-financial-institutions",
+      component: () => import("@/views/ForFinancialInstitutions.vue"),
+      meta: {
+        title: 'Вест Банк, финансовым институтам',
+      },
+    },
+    {
       path: "/about",
       name: "about",
       component: () => import("@/views/About.vue"),

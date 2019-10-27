@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      signUpPhase: 1,
+      signUpPhase: 2,
       lastName: "",
       firstName: "",
       patronymic: "",
@@ -47,5 +47,10 @@ export default {
 
 .signup {
   @include slide;
+
+  &__nav {
+    margin-top: 150px;
+  }
+
 }
 </style>

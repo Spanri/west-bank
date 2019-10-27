@@ -202,14 +202,35 @@ export default {
   
 }
 
+@media (max-width: 1250px) {
+
+  .nav-text {
+    width: 75px;
+  }
+
+  .nav-item {
+
+    &1 {
+      width: 138px;
+    } 
+
+    &2 {
+      width: 118px;
+    } 
+
+    &3 {
+      width: 98px;
+    }
+
+  }
+
+}
+
 @media (max-width: 1066px) {
 
   .nav {
-    margin-top: -70px;
+    margin-top: -30px;
   }
-}
-
-@media (max-width: 900px) {
 
   .nav-wrapper {
     position: relative;
@@ -225,6 +246,7 @@ export default {
     &-wrapper {
       width: 100%;
     }
+
   }
 
   .nav-item {

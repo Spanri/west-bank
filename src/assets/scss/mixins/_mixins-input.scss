@@ -12,7 +12,7 @@ transfers2
     width: 100%;
     margin-top: 5px;
     margin-bottom: -56px;
-    margin-left: 200px;
+    margin-left: 270px;
 
     text-align: left;
     font: 16px/21px Play;
@@ -28,12 +28,28 @@ transfers2
     color: $color-light !important;
   }
 
+  @media (max-width: 1250px) {
+
+    .error {
+      margin-left: 210px;
+    }
+
+  }
+
+  @media (max-width: 850px) {
+
+    .error {
+      margin-left: 150px;
+    }
+
+  }
+
 }
 
 @mixin input {
 
   .input-block {
-    width: 558px;
+    width: 728px;
 
     display: flex;
     justify-content: space-between;
@@ -49,7 +65,7 @@ transfers2
     /* к слову, в IE есть кнопка закрытия, я не стала 
       убирать ее */
     &__input {
-      width: 360px;
+      width: 460px;
       height: 42px;
 
       background: $color-medium;
@@ -87,7 +103,7 @@ transfers2
     &__submit {
       background: transparent;
       border: 0;
-      padding-left: 185px;
+      padding-left: 245px;
       user-select: none;
 
       width: 100%;
@@ -132,20 +148,42 @@ transfers2
 
   }  
 
+  @media (max-width: 1250px) {
+
+    .input-block {
+      width: 608px;
+
+      &-wrapper {
+        max-width: 808px;
+      }
+
+      &__input {
+        width: 400px;
+      }
+
+      &__submit {
+        padding-left: 185px;
+      }
+
+    }
+
+  }
+
   @media (max-width: 850px) {
 
-    .input-block-wrapper {
-      max-width: 508px;
+    .input-block {
+      width: 448px;
 
-      /* переопределение стилей */
-      /deep/.input-block {
-        display: block;
-        width: 808px;
+      &-wrapper {
+        max-width: 808px;
+      }
 
-        &__input {
-          width: 351px;
-        }
+      &__input {
+        width: 300px;
+      }
 
+      &__submit {
+        padding-left: 185px;
       }
 
     }

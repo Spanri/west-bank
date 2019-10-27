@@ -16,10 +16,7 @@
         <router-view class="app__content"/>
       </transition>
     </main>
-    <Footer 
-      class="app__footer"
-      v-if="currentRouteName != 'download-app' || currentWidth > 748"
-    />
+    <Footer class="app__footer" />
   </div>
 </template>
 
@@ -61,9 +58,9 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
-      // if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
-      //   this.$router.push("/download-app");
-      // }
+      if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
+        this.$router.push("/download-app");
+      }
     },
   },
   beforeDestroy() {

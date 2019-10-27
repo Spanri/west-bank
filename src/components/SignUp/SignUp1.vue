@@ -49,11 +49,20 @@ export default {
   &__title {
     margin: $margin-header;
     // особый margin, с отступом слева
-    margin-left: 185px;
+    margin-left: 245px;
 
     color: $color-light;
     font: $font-header;
   }
   
 }
+
+@media (max-width: 1250px) {
+
+  .signup1__title {
+    margin-left: 185px;
+  }
+
+}
+
 </style>

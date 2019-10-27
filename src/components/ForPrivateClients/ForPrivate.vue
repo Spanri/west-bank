@@ -90,8 +90,6 @@ export default {
   position: relative;
   left: 0;
 
-  margin-top: 44px;
-
   display: flex;
   //align-items: flex-start;
   //justify-content: flex-start;
@@ -143,6 +141,11 @@ export default {
       cursor: pointer;
       background: $color-accent !important;
       z-index: 7;
+
+      .nav-details {
+        color: $color-light;
+      }
+      
     }
 
   }
@@ -203,9 +206,10 @@ export default {
     align-self: flex-end;
 
     color: $color-accent;
-    font: 9px/10px Play;
+    font: 14px/16px Play;
 
     padding: 0 27px 22px;
+    margin: 0;
   }
 
   .nav-item {

@@ -128,7 +128,7 @@ export default {
   }
 
   &__description {
-    margin: 41px 0 -30px 170px;
+    margin: 41px 0 -30px 270px;
 
     color: $color-pre-medium;
     font: 18px/21px Play;
@@ -138,10 +138,12 @@ export default {
 
   &__show-password {
     position: relative;
-    top: -135px;
+    top: -175px;
     right: -740px;
 
     color: $color-other;
+
+    user-select: none;
 
     &:hover {
       color: $color-accent;
@@ -151,4 +153,32 @@ export default {
   }
 
 }
+
+@media (max-width: 1250px) {
+
+  .input-block__description {
+    margin-left: 210px;
+  }
+
+  .input-block__show-password {
+    top: -195px;
+    right: -620px;
+  }
+
+}
+
+@media (max-width: 850px) {
+
+  .input-block__description {
+    margin-left: 150px;
+    margin-top: 60px;
+  }
+
+  .input-block__show-password {
+    top: -280px;
+    right: -465px;
+  }
+
+}
+
 </style>
