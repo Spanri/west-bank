@@ -269,6 +269,95 @@
       text-align: left;
     }
 
+    &__submit {
+
+      &:hover {
+        color: $color-accent;
+
+        .input-block__submit-svg {
+        fill: $color-accent;
+      }
+      }
+
+      
+    }
+
+  }
+
+}
+
+@mixin transfers2 {
+
+  .button:hover,
+  .button:hover .input-block__submit-svg {
+    color: darken($color: $color-light, $amount: 40);
+    fill: darken($color: $color-light, $amount: 40);
+    transition: .1s all ease-in-out;
+  }
+
+  /deep/.input-block {
+
+    & + & {
+      margin-top: 83px;
+    }
+
+    &-wrapper {
+      @include error;
+      @include input;
+      margin-left: 41px;
+
+      max-width: 808px;
+
+      /* переопределение стилей */
+      /deep/.input-block {
+        flex-shrink: 2;
+        width: 658px;
+        margin: 45px 0 0;
+
+        &__title {
+          width: 327px;
+          font-weight: normal;
+          font: 24px/28px Play;
+        }
+
+        &__input {
+          width: 321px;
+        }
+
+      }
+
+      &__title {
+        margin: 0 0 45px;
+        padding-top: 39px;
+        font: 18px/21px Play;
+      }
+
+    }
+
+    &__submit {
+
+      background: transparent;
+      border: 0;
+      margin: 69px auto 78px;
+      user-select: none;
+
+      display: block;
+
+      color: $color-pre-light;
+      font: 18px/21px Play;
+      text-align: center;
+
+      &-svg {
+        fill: $color-light;
+      }
+
+      .invalid {
+        color: $color-medium;
+        pointer-events: none;
+      }
+
+    }
+
   }
 
 }

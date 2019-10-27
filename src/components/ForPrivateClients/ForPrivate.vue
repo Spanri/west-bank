@@ -199,7 +199,13 @@ export default {
 
   .nav-details {
     display: block;
+
+    align-self: flex-end;
+
     color: $color-accent;
+    font: 9px/10px Play;
+
+    padding: 0 27px 22px;
   }
 
   .nav-item {
