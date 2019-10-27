@@ -65,24 +65,24 @@ export default {
 
 <style scoped lang="scss">
 .checked {
-  z-index: 5;
+  z-index: 6;
   width: calc((100vw - 1440px) / 2 + 707px) !important;
   background: $color-block-dark !important;
 }
 
 .pre-checked {
-  z-index: 3;
+  z-index: 5;
   width: calc((100vw - 1440px) / 2 + 633px) !important;
   background: $color-block-medium !important;
 }
 
 .pre-pre-checked {
-  z-index: 2;
+  z-index: 4;
   width: calc((100vw - 1440px) / 2 + 507px) !important;
 }
 
 .pre-pre-pre-checked {
-  z-index: 1;
+  z-index: 3;
   width: calc((100vw - 1440px) / 2 + 407px) !important;
 }
 
@@ -142,7 +142,7 @@ export default {
     &:hover {
       cursor: pointer;
       background: $color-accent !important;
-      z-index: 10;
+      z-index: 7;
     }
 
   }

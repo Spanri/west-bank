@@ -111,7 +111,34 @@ font: 100%/1.6 palatino, georgia, serif;
 11. В нулевых значениях не использовать единицы измерения.
 12. Не ставить 0 в дробных значениях (`.8em`, а не `0.8em`).
 13. Все цвета делать с использованием переменных.
+14. Договоренности по z-index
 
+| Значение | Блок |
+|----------|------|
+| 10 | Header |
+| 9 | NavIfAuth .router-link-active |
+| 8 | NavIfAuth .nav (не активные) |
+| 7 | Select dropdown |
+
+| Значение | Блок |
+|----------|------|
+| 7 | ForPrivate наведение на item |
+| 6 | ForPrivate checked item |
+| 5 | ForPrivate pre-checked item |
+| 4 | ForPrivate pre-pre-checked item |
+| 3 | ForPrivate pre-pre-pre-checked item |
+
+| Значение | Блок |
+|----------|------|
+| 7 | NavPhases text |
+| 6 | NavPhases checked block (без текста) |
+| 6 | NavPhases checked 12 и 22 |
+
+| Значение | Блок |
+|----------|------|
+| 3 | NewsBlock block |
+| 2 | NewsBlock first |
+| 1 | NewsBlock second |
 
 #### HTML
 

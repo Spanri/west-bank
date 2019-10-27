@@ -52,7 +52,7 @@ export default {
 
 <style scoped lang="scss">
 .checked {
-  z-index: 5;
+  z-index: 6;
 }
 
 .checked0 {
@@ -61,7 +61,7 @@ export default {
 
 .checked12 {
   transform: translateY(-10px);
-  z-index: 3;
+  z-index: 5;
 }
 
 .checked21 {
@@ -69,7 +69,7 @@ export default {
 }
 
 .checked22 {
-  z-index: 3;
+  z-index: 5;
 }
 
 .checked31 {
@@ -113,7 +113,7 @@ export default {
     top: -265px;
 
     margin-top: -11px;
-    z-index: 5;
+    z-index: 7;
     height: 90px;
     user-select: none;
 

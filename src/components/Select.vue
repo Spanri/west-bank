@@ -145,7 +145,7 @@ export default {
 
     background: $color-block-medium;
     
-    z-index: 10;
+    z-index: 7;
 
     &_left {
       margin: 10px 0 0 -38px;

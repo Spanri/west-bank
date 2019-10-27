@@ -34,7 +34,7 @@ export default {
   background: linear-gradient(270deg, #15172D -90.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   box-shadow: none !important;
-  z-index: 21;
+  z-index: 9;
   transform: translateY(69px);
 
   width: calc((100vw - 1440px) / 2 + 383px) !important;
@@ -52,7 +52,7 @@ export default {
   color: $color-light;
 
   margin-top: 30px;
-  z-index: 20;
+  z-index: 8;
 
   & > * + * {
     top: 62px;
