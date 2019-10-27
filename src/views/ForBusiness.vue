@@ -1,7 +1,7 @@
 <template>
   <div class="for-private-clients">
     <p class="for-private-clients__title">Описание</p>
-    <ForPrivateClientsNav class="for-private-clients__menu" />
+    <ForPrivateClientsNav />
   </div>
 </template>
 
@@ -29,17 +29,6 @@ export default {
 
 <style scoped lang="scss">
 .for-private-clients {
-  margin: 100px auto auto;
-
-  &__title {
-    color: $color-light;
-    font: $font-header;
-    margin: $margin-header;
-  }
-
-  &__menu {
-    position: absolute;
-    top: 0;
-  }
+  
 }
 </style>

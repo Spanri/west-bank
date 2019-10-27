@@ -15,14 +15,15 @@
         propPhase == 3 && item == 3 ? 'checked33' : '',]"
     >
     </div>
-    <span 
-      v-for="item in 3" :key="item + 100" 
-      class="nav-text"
-    >
-      {{ item }}
-    </span>
+    <div class="nav-text-wrapper">
+      <span 
+        v-for="item in 3" :key="item + 100" 
+        class="nav-text"
+      >
+        {{ item }}
+      </span>
+    </div>
   </nav>
-  
 </div>
 </template>
 
@@ -85,10 +86,14 @@ export default {
 }
 
 .nav {
-  position: absolute;
-  right: 0;
 
-  margin-top: 250px;
+  &-wrapper {
+    position: absolute;
+    right: 0;
+  }
+
+  position: relative;
+  margin-top: 150px;
 
   height: min-content;
 
@@ -105,19 +110,17 @@ export default {
     align-items: center;
     justify-content: flex-start;
 
-    position: absolute;
-    //top: -265px;
-    height: 265px;
-
-    position: relative; 
-    bottom: 265px;
-
     margin-top: -11px;
-    z-index: 7;
     height: 90px;
     user-select: none;
 
     width: calc((100vw - 1440px) / 2 + 84px);
+
+    &-wrapper {
+      position: absolute;
+      height: 265px;
+      z-index: 7;
+    }
   }
 
   &-item {
@@ -202,21 +205,26 @@ export default {
 @media (max-width: 1066px) {
 
   .nav {
-    margin-top: -50px;
+    margin-top: -70px;
   }
 }
 
 @media (max-width: 900px) {
 
-  .nav {
+  .nav-wrapper {
     position: relative;
-    margin-bottom: -280px;
+    margin-bottom: -50px;
     margin-top: 50px;
   }
 
   .nav-text {
-    width: 100%;
+    //width: 100%;
     padding-left: calc(100% / 2 - 20px);
+    text-align: center;
+
+    &-wrapper {
+      width: 100%;
+    }
   }
 
   .nav-item {

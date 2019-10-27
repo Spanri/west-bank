@@ -105,6 +105,14 @@ const router = new Router({
         title: 'Вест Банк, для приватных клиентов',
       },
     },
+    {
+      path: "/about",
+      name: "about",
+      component: () => import("@/views/About.vue"),
+      meta: {
+        title: 'Вест Банк, о банке',
+      },
+    },
     /* вход, регистрация */
     {
       path: "/login",

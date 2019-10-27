@@ -34,6 +34,8 @@ export default {
   font: 36px/42px Play;
   text-align: left;
 
+  margin-bottom: 150px;
+
   &__title {
     padding: 137px 0 165px;
   }
