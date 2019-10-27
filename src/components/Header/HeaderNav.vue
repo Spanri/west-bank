@@ -85,7 +85,6 @@ export default {
 
     &:hover {
       color: $color-accent;
-      font-weight: bold;
     }
 
   }

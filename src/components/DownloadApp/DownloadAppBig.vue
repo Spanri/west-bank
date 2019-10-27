@@ -1,7 +1,7 @@
 <template>
   <div class="download-app">
     <div class="download-app__content">
-      <Logo class="download-app__logo" size="405" />
+      <Logo class="download-app__logo" size="305" />
       <p class="download-app__text">
         Для совершения быстрых операций скачайте приложение
         <span class="download-app__text download-app__text_title">
@@ -36,7 +36,7 @@ export default {
   justify-content: space-between;
 
   &__content {
-    margin: 57px auto 21px;
+    margin: 57px auto 80px;
     background: transparent;
     box-shadow: none;
 

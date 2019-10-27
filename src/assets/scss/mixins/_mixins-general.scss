@@ -3,6 +3,8 @@ color-opacity
 color-dark
 slide
 datepicker
+success
+login-link
 */
 
 @mixin color-opacity($property, $color, $opacity, $important: false) {
@@ -21,7 +23,7 @@ datepicker
   #{$property}: lighten($color-dark, $opacity);
 }
 
-/* для перехода между страницами */
+// для перехода между страницами
 @mixin slide {
 
   .slide-enter-active {
@@ -39,7 +41,7 @@ datepicker
 
 }
 
-/* для выписки, там надо выбирать дату */
+// для выписки, там надо выбирать дату
 @mixin datepicker {
 
   .date-picker {
@@ -95,5 +97,89 @@ datepicker
 
 // для страниц Перевод совершен, Успешно и все такое
 @mixin success {
+
+  .success__button-svg {
+    color: $color-accent;
+    fill: $color-accent;
+    transition: .1s all ease-in-out;
+  }
+
+  .success {
+    color: $color-light;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__logo {
+      margin: 109px 0 30.42px;
+    }
+
+    &__text {
+      font: $font-header;
+      letter-spacing: 0.09em;
+      text-align: center;
+      color: $color-light;
+
+      margin-bottom: 8px;
+    }
+
+    &__link {
+      color: $color-accent;
+      font: 18px/144.2% Play;
+
+      &-text {
+        margin-left: 19px;
+        vertical-align: middle;
+      }
+
+      &:hover {
+        color: $color-light;
+        text-decoration: none;
+      }
+
+    }
+
+    &__block {
+      margin-top: 189px;
+      margin-bottom: 120px;
+      text-align: center;
+    }
+    
+  }
+}
+
+// в регистрации Уже есть аккаунт? Войти
+@mixin login-link {
+
+  .login-link {
+    color: $color-accent;
+    font: Play;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    &-wrapper {
+      margin: 50px 0 150px;
+    }
+
+    &__text1 {
+      font: 22px/24px Play;
+    }
+
+    &__text2 {
+      font: 18px/144% Play;
+    }
+
+    & > * {
+      margin: 0 0 0 140px;
+    }
+
+    &:hover {
+      color: $color-light;
+      transition: .1s all ease-in-out;
+    }
+
+  }
 
 }

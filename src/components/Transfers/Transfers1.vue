@@ -59,17 +59,11 @@ export default {
 <style scoped lang="scss">
 .transfers1 {
   color: $color-light;
-  font: 24px/28px Play;
   text-align: left;
-
-  // height: 100%;
-
   margin-left: 41px;
 
   &__title {
     margin: $margin-header;
-    // особый margin, с отступом слева
-    margin-left: 155px;
     padding-top: 44px;
     
     font: $font-header;
@@ -81,8 +75,11 @@ export default {
 
   &__button {
     width: 546px;
+
     display: flex;
     justify-content: space-between;
+
+    font: $font-header;
 
     &:hover {
       cursor: pointer;

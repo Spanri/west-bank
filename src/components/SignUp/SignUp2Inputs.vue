@@ -46,9 +46,11 @@
         {{block.type == 'password' ? 'показать' : 'скрыть'}}
       </p>
     </div>
-    <button type="submit" class="button input-block__submit">
-      Зарегистрироваться
-    </button>
+    <div class="input-block__submit">
+      <button type="submit" class="input-block__submit-inner">
+        Зарегистрироваться
+      </button>
+    </div>
     <br />
   </form>
 </template>
@@ -125,33 +127,21 @@ export default {
     @include input;
   }
 
-  &__submit {
-    background: transparent;
-    border: 0;
-    margin: 90px 0 80px 155px;
-    user-select: none;
+  &__description {
+    margin: 41px 0 -30px 170px;
 
-    color: $color-accent;
-    font: 18px/144.2% Play;
-    text-align: center;
-
-    &:hover {
-      color: $color-light;
-      transition: .1s all ease-in-out;
-    }
-
+    color: $color-pre-medium;
+    font: 18px/21px Play;
+    letter-spacing: .08em;
+    text-align: left;
   }
 
   &__show-password {
     position: relative;
-    top: -180px;
+    top: -135px;
     right: -740px;
 
     color: $color-other;
-
-    &_error {
-      top: -182px;
-    }
 
     &:hover {
       color: $color-accent;
@@ -159,6 +149,6 @@ export default {
     }
 
   }
-  
+
 }
 </style>

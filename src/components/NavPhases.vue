@@ -198,11 +198,18 @@ export default {
   
 }
 
+@media (max-width: 1066px) {
+
+  .nav {
+    margin-top: -50px;
+  }
+}
+
 @media (max-width: 900px) {
 
   .nav {
     position: relative;
-    margin-bottom: -180px;
+    margin-bottom: -280px;
     margin-top: 50px;
   }
 

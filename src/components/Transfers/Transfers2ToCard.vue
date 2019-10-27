@@ -105,23 +105,4 @@ export default {
   @include transfers2;
 }
 
-@media (max-width: 850px) {
-
-  .input-block-wrapper {
-    max-width: 508px;
-
-    /* переопределение стилей */
-    /deep/.input-block {
-      display: block;
-      width: 808px;
-
-      &__input {
-        width: 351px;
-      }
-
-    }
-
-  }
-
-}
 </style>

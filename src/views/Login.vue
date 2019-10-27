@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="login__content">
+    <form class="login__content" @submit.prevent="submit">
       <p class="login__title">Вход</p>
       <div class="login__input input-block-wrapper">
         <div
@@ -15,10 +15,12 @@
           />
         </div>
       </div>
-      <button class="button login__button" @click="loginMethod">
-        Войти
-      </button>
-    </div>
+      <div class="input-block__submit">
+        <button type="submit" class="input-block__submit-inner">
+          Войти
+        </button>
+      </div>
+    </form>
     <Block class="login__block"/>
   </div>
 </template>
@@ -40,7 +42,7 @@ export default {
     };
   },
   methods: {
-    loginMethod() {
+    submit() {
       this.$store.dispatch("login").then(() => {
         this.$router.push("/");
       });
@@ -51,6 +53,7 @@ export default {
 
 <style scoped lang="scss">
 .login {
+  @include error;
   @include input;
 
   display: flex;
@@ -69,24 +72,13 @@ export default {
     text-align: center;
   }
 
-  &__button {
-    background: transparent;
-    border: 0;
-    margin: 45px 0 155px 170px;
-
-    color: $color-accent;
-    font: 18px/144.2% Play;
-    text-align: center;
-
-    &:hover {
-      color: darken($color: $color-accent, $amount: 20);
-    }
-
-  }
-
   &__block {
     margin-bottom: 96px;
   }
   
+}
+
+.input-block__submit {
+  margin-bottom: 150px;
 }
 </style>

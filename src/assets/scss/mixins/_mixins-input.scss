@@ -1,8 +1,34 @@
 /*
+error
 input
 transfers2
-error
 */
+
+// ошибки при вводе
+@mixin error {
+
+  // текст ошибки
+  .error {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: -56px;
+    margin-left: 170px;
+
+    text-align: left;
+    font: 16px/21px Play;
+    letter-spacing: .08em;
+    color: $error;
+  }
+
+  .input-error {
+    color: $error !important;
+  }
+
+  .input-success {
+    color: $color-light !important;
+  }
+
+}
 
 @mixin input {
 
@@ -58,27 +84,69 @@ error
 
     }
 
-    &__description {
-      margin-top: 41px;
-      margin-left: 170px;
-
-      color: $color-pre-medium;
-      font: 18px/21px Play;
-      letter-spacing: .08em;
-      text-align: left;
-    }
-
     &__submit {
+      background: transparent;
+      border: 0;
+      padding-left: 155px;
+      user-select: none;
 
-      &:hover {
+      width: 100%;
+
+      display: block;
+
+      color: $color-pre-light;
+      font: $font-button-auth;
+      text-align: center;
+
+      &-inner {
+        max-width: 729px;
+        
+        margin: 70px auto;
+
+        background: transparent;
+        border: 0;
+        user-select: none;
+
+        display: block;
+
+        color: $color-pre-light;
+        font: $font-button-auth;
+        text-align: center;
+      }
+
+      &-svg {
+        fill: $color-light;
+      }
+
+      &-inner:hover {
         color: $color-accent;
 
         .input-block__submit-svg {
-        fill: $color-accent;
+          fill: $color-accent;
+        }
+
       }
+      
+    }
+
+  }  
+
+  @media (max-width: 850px) {
+
+    .input-block-wrapper {
+      max-width: 508px;
+
+      /* переопределение стилей */
+      /deep/.input-block {
+        display: block;
+        width: 808px;
+
+        &__input {
+          width: 351px;
+        }
+
       }
 
-      
     }
 
   }
@@ -98,7 +166,7 @@ error
 
       max-width: 808px;
 
-      /* переопределение стилей */
+      // переопределение стилей
       /deep/.input-block {
         flex-shrink: 2;
         width: 658px;
@@ -148,32 +216,6 @@ error
 
     }
 
-  }
-
-}
-
-/* ошибки при вводе */
-@mixin error {
-
-  // текст ошибки
-  .error {
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: -56px;
-    margin-left: 170px;
-
-    text-align: left;
-    font: 16px/21px Play;
-    letter-spacing: .08em;
-    color: $error;
-  }
-
-  .input-error {
-    color: $error !important;
-  }
-
-  .input-success {
-    color: $color-light !important;
   }
 
 }

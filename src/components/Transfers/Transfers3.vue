@@ -1,21 +1,25 @@
 <template>
   <div class="transfers3">
-    <Logo class="transfers3__logo" size="421" />
-    <p class="transfers3__text">
-      Перевод совершен!
-    </p>
-    <router-link 
-      class="transfers3__link" to=""
-      @mouseenter.native="logoColor1 = 'none'; logoColor2 = 'white';" 
-      @mouseleave.native="logoColor1 = 'none'; logoColor2 = '#D35858';"
-    >
-      <Document
-        class="transfers3__link-img"
-        :color1="logoColor1" :color2="logoColor2"
-      />
-      <span class="transfers3__link-text">Показать чек</span>
-    </router-link>
-    <Block class="transfers3__block" />
+    <div class="success">
+      <div class="success__content">
+        <Logo class="success__logo" size="401" />
+        <p class="success__text">
+          Перевод совершен!
+        </p>
+        <router-link 
+          class="success__link" to=""
+          @mouseenter.native="logoColor1 = 'none'; logoColor2 = 'white';" 
+          @mouseleave.native="logoColor1 = 'none'; logoColor2 = '#D35858';"
+        >
+          <Document
+            class="success__link-img"
+            :color1="logoColor1" :color2="logoColor2"
+          />
+          <span class="success__link-text">Показать чек</span>
+        </router-link>
+      </div>
+      <Block class="success__block" />
+    </div>
   </div>
 </template>
 
@@ -50,37 +54,14 @@ export default {
 }
 
 .transfers3 {
-  color: $color-light;
-  text-align: center;
+  @include success;
 
-  &__logo {
-    margin: 189px auto 60px;
-  }
+  .success__content {
+    margin: 0 auto;
 
-  &__text {
-    font: normal normal bold 36px/42px Play;
-    letter-spacing: .09em;
+    max-width: 729px;
+
     text-align: center;
-  }
-
-  &__link {
-    color: $color-accent;
-    font: normal normal bold 24px/144.2% Play;
-
-    &-text {
-      margin-left: 19px;
-      vertical-align: middle;
-    }
-
-    &:hover {
-      color: $color-pre-light;
-      text-decoration: none; 
-    }
-
-  }
-
-  &__block {
-    margin: 97px 0 89px;
   }
   
 }
