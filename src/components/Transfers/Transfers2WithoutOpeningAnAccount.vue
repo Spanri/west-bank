@@ -150,90 +150,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button:hover,
-.button:hover .input-block__submit-svg {
-
-  color: darken($color: $color-light, $amount: 40);
-  fill: darken($color: $color-light, $amount: 40);
-  transition: .1s all ease-in-out;
-
-}
-
 .transfers2-without-opening-an-account {
   @include transfers2;
 }
 
-// .input-block {
+.input-block {
 
-//   & + & {
-//     margin-top: 83px;
-//   }
+  &-wrapper {
 
-//   &-wrapper {
-//     @include error;
-//     @include input;
-//     margin-left: 41px;
+    // &__title {
+    //   margin: 0 0 207px;
+    // }
 
-//     max-width: 808px;
+  }
 
-//     /* переопределение стилей */
-//     /deep/.input-block {
-      
-//       flex-shrink: 2;
-//       width: 808px;
-
-//       &__title {
-//         width: 487px;
-//         font-weight: normal;
-//         font: 24px/28px Play;
-//       }
-
-//       &__input {
-//         width: 321px;
-//       }
-
-//     }
-
-//     &__title {
-//       margin: 0 0 207px;
-//       padding-top: 39px;
-//       font: 18px/21px Play;
-//     }
-
-//   }
-
-//   &__submit {
-
-//     background: transparent;
-//     border: 0;
-//     margin: 69px auto 78px;
-//     user-select: none;
-
-//     display: block;
-
-//     color: $color-pre-light;
-//     font: 24px/144.2% Play;
-//     text-align: center;
-
-//     &-svg {
-//       fill: $color-light;
-//     }
-
-//     .invalid {
-//       color: $color-medium;
-//       pointer-events: none;
-//     }
-
-//   }
-
-// }
+}
 
 @media (max-width: 950px) {
 
   .input-block-wrapper {
-    // @include error;
-    // @include input;
-    // margin-left: 41px;
 
     max-width: 508px;
 

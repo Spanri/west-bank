@@ -1,0 +1,99 @@
+/*
+color-opacity
+color-dark
+slide
+datepicker
+*/
+
+@mixin color-opacity($property, $color, $opacity, $important: false) {
+
+  @if $important {
+    #{$property}: rgba(red($color), green($color), blue($color), $opacity) !important;
+  }
+  
+  @else {
+    #{$property}: rgba(red($color), green($color), blue($color), $opacity);
+  }
+
+}
+
+@mixin color-dark($property, $opacity) {
+  #{$property}: lighten($color-dark, $opacity);
+}
+
+/* для перехода между страницами */
+@mixin slide {
+
+  .slide-enter-active {
+    transition: all .4s ease;
+  }
+
+  .slide-leave-active {
+    //transform: translateX(100px);
+    transition: all .4s ease;
+  }
+
+  .slide-enter, .slide-leave-to {
+    opacity: 0;
+  }
+
+}
+
+/* для выписки, там надо выбирать дату */
+@mixin datepicker {
+
+  .date-picker {
+    display: inline-block;
+
+    &__input {
+      height: 37px;
+      //width: 281px;
+
+      display: inline-block;
+
+      background: $color-medium !important;
+      border: 0;
+      border-radius: 10px;
+      margin: 0 42px;
+      padding: 0 auto;
+
+      color: $color-light;
+      font: 22px/28px Play;
+      vertical-align: middle;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+    }
+
+    &__calendar {
+      background: $color-block-light !important;
+      border: 0 !important;
+      margin-right: 50px !important;
+      width: 420px  !important;
+
+      .prev {
+        color: white !important;
+      }
+
+      span:hover {
+        background: $color-accent !important;
+        border: 1px solid transparent !important;
+      }
+
+      .up:hover, .prev:hover, .next:hover {
+        border: 0 !important;
+      }
+
+    }
+
+  }
+
+}
+
+// для страниц Перевод совершен, Успешно и все такое
+@mixin success {
+
+}

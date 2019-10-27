@@ -29,7 +29,7 @@ const ifAuthenticated = (to, from, next) => {
     next();
     return;
   }
-  next("/login");
+  next("/signup");
 };
 
 const router = new Router({

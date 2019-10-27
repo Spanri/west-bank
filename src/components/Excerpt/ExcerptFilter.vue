@@ -51,7 +51,7 @@ export default {
 <style scoped lang="scss">
 .filter {
   color: $color-light;
-  font: 24px/28px Play;
+  font: $font-header;
   text-align: left;
   letter-spacing: .09em;
 

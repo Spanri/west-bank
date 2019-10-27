@@ -97,6 +97,7 @@ export default {
   flex-direction: column;
 
   color: $color-light;
+  font: $font-nav;
 
   &-wrapper {
     //margin-top: -200px;
@@ -106,8 +107,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    font: normal normal normal 36px/42px Play;
 
     position: relative;
     top: -265px;
@@ -134,7 +133,6 @@ export default {
     transition: all .5s ease-in-out;
 
     text-align: left;
-    font: normal normal bold 24px/28px Play;
 
       &1 {
         width: calc((100vw - 1440px) / 2 + 168px);

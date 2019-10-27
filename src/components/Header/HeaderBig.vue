@@ -79,8 +79,6 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    font: 24px/28px Play;
   }
 
   &__auth-block {

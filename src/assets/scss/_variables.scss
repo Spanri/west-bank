@@ -1,3 +1,7 @@
+//
+// цвета
+//
+
 $color-pre-light: #FFFFFF;
 $color-light: #F2F2F2;
 $color-pre-medium: #BDBDBD;
@@ -15,5 +19,22 @@ $color-background: #15172D; //15172D
 $color-header: #1F2238; //1F2238
 $color-accent: #C66166; //C66166
 
+//
+// другое
+//
+
 $error: #C66166;
 $success: #6FCF97;
+$margin-header: 50px auto;
+
+//
+// шрифты
+//
+
+$font-header: 24px/28px Play; // заголовки
+$font-nav: normal normal bold 24px/28px Play;
+
+$font-menu: 16px/18px Play;
+$font-menu-748-to-1080: 14px/16px Play;
+
+$font-footer: 18px/21px Play;

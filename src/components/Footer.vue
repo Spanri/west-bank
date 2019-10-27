@@ -41,7 +41,7 @@ export default {
   flex-direction: row;
 
   color: $color-light;
-  font: Play;
+  font: $font-footer;
 
   &__mobile-apps {
     width: 174px;

@@ -29,14 +29,9 @@ export default {
 <style scoped lang="scss">
 .transfers {
   @include slide;
-  // height: 100%;
-
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
 
   color: $color-light;
-  font: normal normal normal 36px/42px Play;
+  font: 36px/42px Play;
   text-align: left;
 
   &__title {

@@ -186,8 +186,6 @@ export default {
     &-nav {
 
       /deep/ .nav__item {
-        // align-self: center;
-        // text-align: center;
 
         &:last-child {
           margin-bottom: 39px;

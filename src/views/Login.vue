@@ -58,12 +58,14 @@ export default {
   justify-content: space-between;
 
   color: $color-light;
+  font: $font-header;
 
   &__title {
-    margin: 24px 0 85px 170px;
+    margin: $margin-header;
+    // особый margin, с отступом слева
+    margin-left: 155px;
 
     color: white;
-    font: 18px/21px Play;
     text-align: center;
   }
 

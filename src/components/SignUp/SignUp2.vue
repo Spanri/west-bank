@@ -44,10 +44,12 @@ export default {
   color: $color-light;
 
   &__title {
-    margin: 88px 0 111px 155px;
+    margin: $margin-header;
+    // особый margin, с отступом слева
+    margin-left: 155px;
 
     color: $color-light;
-    font: 24px/28px Play;
+    font: $font-header;
   }
 
   &__login {

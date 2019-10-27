@@ -113,79 +113,9 @@ export default {
   @include transfers2;
 }
 
-// .input-block {
-
-//   & + & {
-//     margin-top: 83px;
-//   }
-
-//   &-wrapper {
-//     @include error;
-//     @include input;
-    
-//     margin-left: 41px;
-
-//     max-width: 808px;
-
-    // /* переопределение стилей */
-    // /deep/.input-block {
-      
-    //   flex-shrink: 2;
-    //   width: 808px;
-
-    //   &__title {
-    //     width: 487px;
-    //     font-weight: normal;
-    //     font: 24px/28px Play;
-    //   }
-
-    //   &__input {
-    //     width: 321px;
-    //   }
-
-    // }
-
-    // &__title {
-    //   margin: 0 0 45px;
-    //   padding-top: 39px;
-    //   font: 18px/21px Play;
-    // }
-
-//   }
-
-//   &__submit {
-
-//     background: transparent;
-//     border: 0;
-//     margin: 69px auto 78px;
-//     user-select: none;
-
-//     display: block;
-
-//     color: $color-pre-light;
-//     font: 18px/21px Play;
-//     text-align: center;
-
-//     &-svg {
-//       fill: $color-light;
-//     }
-
-//     .invalid {
-//       color: $color-medium;
-//       pointer-events: none;
-//     }
-
-//   }
-
-// }
-
 @media (max-width: 950px) {
 
   .input-block-wrapper {
-    // @include error;
-    // @include input;
-    // margin-left: 41px;
-
     max-width: 508px;
 
     /* переопределение стилей */

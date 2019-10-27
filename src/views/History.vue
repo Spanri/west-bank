@@ -74,14 +74,14 @@ export default {
 <style scoped lang="scss">
 .history {
   color: $color-light;
-  font: 24px/28px Play;
+  font: $font-header;
   text-align: left;
 
   padding-left: 190px;
   padding-bottom: 167px;
 
   &__title {
-    margin-top: 36px;
+    margin-top: 36px; // особый margin
   }
 
   &__day-header {

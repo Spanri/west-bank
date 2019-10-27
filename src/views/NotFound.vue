@@ -16,9 +16,9 @@ export default {
 
   &__text {
     color: $color-light;
-    font: 18px Play;
+    font: $font-header;
 
-    margin: 0;
+    margin: $margin-header;
   }
 }
 </style>

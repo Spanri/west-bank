@@ -6,7 +6,9 @@ module.exports = {
       sass: {
         data: `
           @import "@/assets/scss/_variables.scss";
-          @import "@/assets/scss/_mixins.scss";
+          @import "@/assets/scss/mixins/_mixins-general.scss";
+          @import "@/assets/scss/mixins/_mixins-width.scss";
+          @import "@/assets/scss/mixins/_mixins-input.scss";
           @import "@/assets/scss/_fonts.scss";
           @import "vue-select/src/scss/vue-select.scss";
         `,

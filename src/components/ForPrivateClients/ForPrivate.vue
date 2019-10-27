@@ -105,7 +105,7 @@ export default {
 
   &-text {
     text-align: left;
-    font: 18px/21px Play;
+    font: $font-nav;
 
     margin-top: 32px;
     margin-left: 43px;

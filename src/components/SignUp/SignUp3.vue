@@ -43,7 +43,7 @@ export default {
   }
 
   &__text {
-    font: normal normal bold 24px/28px Play;
+    font: $font-header;
     letter-spacing: 0.09em;
     text-align: center;
     margin-bottom: 8px;

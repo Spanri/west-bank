@@ -67,8 +67,12 @@ export default {
   margin-left: 41px;
 
   &__title {
-    margin: 0 0 111px;
+    margin: $margin-header;
+    // особый margin, с отступом слева
+    margin-left: 155px;
     padding-top: 44px;
+    
+    font: $font-header;
   }
 
   &__button + &__button {

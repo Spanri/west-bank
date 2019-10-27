@@ -60,7 +60,7 @@ export default {
     
 
     /deep/ .nav__item {
-      font: 14px/16px Play;
+      font: $font-menu-748-to-1080;
       align-items: flex-start;
       vertical-align: top;
     }

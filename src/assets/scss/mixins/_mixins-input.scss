@@ -1,0 +1,179 @@
+/*
+input
+transfers2
+error
+*/
+
+@mixin input {
+
+  .input-block {
+    width: 729px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin: 45px auto 0;
+    border: 0;
+
+    & + & {
+      margin-top: 45px;    
+    }
+
+    /* к слову, в IE есть кнопка закрытия, я не стала 
+      убирать ее */
+    &__input {
+      width: 559px;
+      height: 42px;
+
+      background: $color-medium;
+      border-radius: 10px;
+      border: 0;
+      padding: 8px 18px;
+      box-shadow: 2px 4px 4px rgba(0, 0, 0, .25);
+
+      color: $color-light;
+      font: 18px/21px Play;
+
+      &:focus {
+        //color: $color-accent;
+        @include color-opacity(background, $color-medium, .65);
+      }
+
+    }
+
+    &__title {
+      align-self: flex-end;
+
+      color: $color-light;
+      text-align: left;
+      font: 20px/24px Play;
+      letter-spacing: .08em;
+
+      margin-bottom: 10px;
+
+      &-password {
+        letter-spacing: .045em;
+      }
+
+    }
+
+    &__description {
+      margin-top: 41px;
+      margin-left: 170px;
+
+      color: $color-pre-medium;
+      font: 18px/21px Play;
+      letter-spacing: .08em;
+      text-align: left;
+    }
+
+    &__submit {
+
+      &:hover {
+        color: $color-accent;
+
+        .input-block__submit-svg {
+        fill: $color-accent;
+      }
+      }
+
+      
+    }
+
+  }
+
+}
+
+/* переопределение стилей для input-block 
+и немного добавление новых */
+@mixin transfers2 {
+
+  .input-block {
+
+    &-wrapper {
+      @include error;
+      @include input;
+      margin-left: 41px;
+
+      max-width: 808px;
+
+      /* переопределение стилей */
+      /deep/.input-block {
+        flex-shrink: 2;
+        width: 658px;
+        margin: 45px 0 0; // переопр. auto ширины
+
+        &__title {
+          width: 327px;
+          font-weight: normal;
+        }
+
+        &__input {
+          width: 321px;
+        }
+
+      }
+
+      // название страницы
+      &__title {
+        margin: $margin-header;
+        padding-top: 39px;
+        font: $font-header;
+      }
+
+    }
+
+    // кнопки Далее и подобные
+    &__submit {
+      background: transparent;
+      border: 0;
+      margin: 69px auto 78px;
+      user-select: none;
+
+      display: block;
+
+      color: $color-pre-light;
+      text-align: center;
+
+      &-svg {
+        fill: $color-light;
+      }
+
+      // input становится таким, если невалиден
+      .invalid {
+        color: $color-medium;
+        pointer-events: none;
+      }
+
+    }
+
+  }
+
+}
+
+/* ошибки при вводе */
+@mixin error {
+
+  // текст ошибки
+  .error {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: -56px;
+    margin-left: 170px;
+
+    text-align: left;
+    font: 16px/21px Play;
+    letter-spacing: .08em;
+    color: $error;
+  }
+
+  .input-error {
+    color: $error !important;
+  }
+
+  .input-success {
+    color: $color-light !important;
+  }
+
+}

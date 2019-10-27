@@ -65,7 +65,7 @@ export default {
     align-self: center;
 
     color: $color-light;
-    font: 16px/19px Play;
+    font: $font-menu;
     text-decoration: none;
     letter-spacing: .08em;
 

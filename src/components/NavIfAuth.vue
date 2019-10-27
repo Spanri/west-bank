@@ -50,6 +50,7 @@ export default {
   flex-wrap: wrap;
 
   color: $color-light;
+  font: $font-nav;
 
   margin-top: 30px;
   z-index: 8;
@@ -106,7 +107,6 @@ export default {
     align-items: flex-start;
 
     color: $color-light;
-    font: normal normal bold 24px/28px Play;
     text-align: left;
     text-decoration: none;
   }
