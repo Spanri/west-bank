@@ -44,12 +44,12 @@ export default {
   height: auto;
 
   margin: 0 auto;
-  max-width: 729px;
+  max-width: 829px;
 
   &__title {
     margin: $margin-header;
     // особый margin, с отступом слева
-    margin-left: 155px;
+    margin-left: 185px;
 
     color: $color-light;
     font: $font-header;

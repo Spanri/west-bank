@@ -7,12 +7,27 @@
           class="input-block"
           v-for="(block, index) in blocks" :key="index"
         >
-          <span class="input-block__title">{{ block.title }}</span>
+          <p
+            class="input-block__title"
+            :class="
+              block.model == 'passwordRepeat' ? 'input-block__title-password' : ''
+            "
+            v-html="block.title"
+          />
           <input
             class="input-block__input"
-            :v-model="block.model" :required="block.required"
-            :type="block.type"
+            :class="{
+              'input-error': $v[block.model].$invalid && $v[block.model].$dirty,
+              'input-success': !$v[block.model].$invalid}"
+            v-model="$v[block.model].$model"
+            :type="block.type ? block.type : 'text'"
           />
+          <div
+            class="error"
+            v-if="$v[block.model].$invalid && $v[block.model].$dirty"
+          >
+            {{ block.error }}
+          </div>
         </div>
       </div>
       <div class="input-block__submit">
@@ -26,6 +41,8 @@
 </template>
 
 <script>
+import { required, } from 'vuelidate/lib/validators';
+
 export default {
   name: "Login",
   components: {
@@ -34,18 +51,38 @@ export default {
   data() {
     return {
       blocks: [
-        { title: "Логин *", model: "login", },
-        { title: "Пароль *", model: "password", type: "password", },
+        { 
+          title: "Логин *", 
+          model: "login",
+          error: "Это поле обязательно.",
+        },
+        {
+          title: "Пароль *", 
+          model: "password", 
+          type: "password", 
+          error: "Это поле обязательно.",
+        },
       ],
       login: "",
       password: "",
     };
   },
+  validations: {
+    login: {
+      required,
+    },
+    password: {
+      required,
+    },
+  },
   methods: {
     submit() {
-      this.$store.dispatch("login").then(() => {
-        this.$router.push("/");
-      });
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        this.$store.dispatch("login").then(() => {
+          this.$router.push("/");
+        });
+      }
     },
   },
 };

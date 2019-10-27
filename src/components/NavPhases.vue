@@ -98,18 +98,19 @@ export default {
 
   color: $color-light;
   font: $font-nav;
-
-  &-wrapper {
-    //margin-top: -200px;
-  }
+  overflow: hidden;
 
   &-text {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
-    position: relative;
-    top: -265px;
+    position: absolute;
+    //top: -265px;
+    height: 265px;
+
+    position: relative; 
+    bottom: 265px;
 
     margin-top: -11px;
     z-index: 7;
