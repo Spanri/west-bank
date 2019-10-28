@@ -98,11 +98,11 @@ export default {
 
       display: inline-block;
 
-      height: 24px;
-      width: 24px;
+      height: 18px;
+      width: 18px;
 
       color: $color-light;
-      font: 18px;
+      font: 16px Play;
     }
 
     &_left:hover::before,  &_right:hover::after {
