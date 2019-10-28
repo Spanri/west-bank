@@ -115,6 +115,9 @@ font: 100%/1.6 palatino, georgia, serif;
 
 | Значение | Блок |
 |----------|------|
+| 100 | HeaderMobile родительский элемент |
+| 12 | HeaderMobile hamburger |
+| 11 | HeaderMobile menu (которое открывается) |
 | 10 | Header |
 | 9 | NavIfAuth .router-link-active |
 | 8 | NavIfAuth .nav (не активные) |

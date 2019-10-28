@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" style="z-index: 100">
     <div class="header-inner">
       <Hamburger 
         class="header__hamburger" 
@@ -135,14 +135,13 @@ export default {
     top: 0px;
 
     box-sizing: border-box;
-    z-index: 5;
     overflow: hidden;
   }
 
   &__hamburger {
     align-self: center;
     margin: 15px 0 0 21px;
-    z-index: 5;
+    z-index: 112;
   }
 
   &__logo-link {
@@ -166,10 +165,11 @@ export default {
 
     position: fixed;
     top: 0;
+    left: 0;
 
     background: $color-header;
     margin: 24px 0 0;
-    z-index: 4;
+    z-index: 11;
     box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.45);
     border-radius: 9px;
 
@@ -247,6 +247,21 @@ export default {
 
   }
   
+}
+
+@media (-ms-high-contrast: none), 
+  (-ms-high-contrast: active) {
+
+  .header {
+
+    &__menu {
+      top: 0px;
+      left: 0;
+      margin-top: 50px;
+    }
+
+  }
+
 }
 
 @media (max-width: 400px) {
