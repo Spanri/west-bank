@@ -8,7 +8,11 @@
           ВЕСТ
         </span>
       </p>
-      <Logo class="download-app__logo" size="175" />
+      <img 
+        src="@/assets/logoBig.png" alt="Логотип"
+        class="download-app__logo"
+      >
+      <!-- <Logo class="download-app__logo" size="175" /> -->
       <button class="download-app__button">Скачать</button>
       <img 
         src="@/assets/mobileApps.png"
@@ -23,7 +27,7 @@
 export default {
   name: "DownloadAppMobile",
   components: {
-    Logo: () => import("@/icons/Logo.vue"),
+    // Logo: () => import("@/icons/Logo.vue"),
   },
 };
 </script>
@@ -42,7 +46,7 @@ export default {
     font: 24px/37px Play;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 
-    padding: 35px;
+    padding: 35px 35px 0;
 
     &_title {
       color: $color-accent;
@@ -53,7 +57,7 @@ export default {
   }
 
   &__logo {
-    margin: 38px 0 34px;
+    margin: 0 0 34px;
   }
 
   &__button {

@@ -3,14 +3,18 @@
     <div class="header-inner">
       <router-link 
         to="/home" class="header__logo"
-        @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
-        @mouseleave.native="logoColor = 'white'"
       >
+      <!-- @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
+        @mouseleave.native="logoColor = 'white'" -->
         <LogoText class="header__logo-text" :color="logoColor" />
-        <Logo 
+        <img 
+          src="@/assets/logoHeaderBig.png" alt="Логотип"
+          class="header__logo-svg"
+        >
+        <!-- <Logo 
           class="header__logo-svg" 
           :color="logoColor" size="86"
-        />
+        /> -->
       </router-link>
       <div class="header__content">
         <div class="header__top">
@@ -28,7 +32,7 @@ export default {
   name: "Header",
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
-    Logo: () => import("@/icons/Logo.vue"),
+    // Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },

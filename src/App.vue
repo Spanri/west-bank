@@ -58,9 +58,6 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
-      if (e.currentTarget.innerWidth < 748 && this.isLoggedIn) {
-        this.$router.push("/download-app");
-      }
     },
   },
   beforeDestroy() {

@@ -9,7 +9,7 @@
       <transition name="fade">
         <div 
           class="header__menu" 
-          v-if="open"
+          v-show="open"
           :class="{'open': open}"
         >
           <HeaderNav 
@@ -18,12 +18,13 @@
           />
         </div>
       </transition>
-      <div v-if="open" class="header__menu-helper" />
+      <!-- <div v-if="open" class="header__menu-helper" /> -->
       <transition name="slide-fade-auth">
         <router-link 
           to="/download-app" class="header__auth-link"
           @mouseenter.native="logoAuth = '#C66166'"
           @mouseleave.native="logoAuth = 'white'"
+          v-show="!open"
         >
           <AuthLogo class="header__auth-logo" :color="logoAuth" />
           <span class="header__auth-text">Войти<br>в личный кабинет</span>
@@ -31,18 +32,19 @@
       </transition>
       <transition name="slide-fade-logo">
         <router-link 
-          to="/home" v-if="!open"
+          to="/home" v-show="!open"
           class="header__logo-link"
-          @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
-          @mouseleave.native="logoColor = 'white';"
         >
+        <!-- @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
+          @mouseleave.native="logoColor = 'white';" -->
           <LogoText
             class="header__logo-text" :color="logoColor"
           />
-          <Logo
+          <img src="@/assets/logoMobile.png" alt="Логотип">
+          <!-- <Logo
             class="header__logo-svg"
             :color="logoColor" size="56"
-          />
+          /> -->
         </router-link>
       </transition>
     </div>
@@ -95,7 +97,7 @@ export default {
 
 /* для аутентификации */
 .slide-fade-auth-enter-active, .slide-fade-auth-leave-active {
-  transform: translateX(-0px);
+  // transform: translateX(-0px);
   transition: all 1s ease;
 }
 
@@ -142,6 +144,7 @@ export default {
     align-self: center;
     margin: 28px 21px 28px 0;
     user-select: none;
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
@@ -163,7 +166,7 @@ export default {
     border-radius: 9px;
 
     height: 375px;
-    width: 100vw;
+    width: 100%;
 
     &-helper {
       width: 50px;
@@ -177,8 +180,8 @@ export default {
       display: flex;
       flex-direction: row;
       align-items: center;
-      text-align: left;
 
+      text-align: left;
       text-decoration: none;
 
       &:hover {
@@ -193,6 +196,7 @@ export default {
 
     &-logo {
       margin-right: 15px;
+      overflow: hidden;
     }
 
     &-text {

@@ -4,15 +4,17 @@
       <router-link to="/home" class="header__logo">
         <LogoText 
           class="header__logo-text" :color="logoColor"
-          @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
-          @mouseleave.native="logoColor = 'white'"
         />
-        <Logo
+        <img 
+          src="@/assets/logoHeaderBig.png" alt="Логотип"
+          class="header__logo-svg"
+        >
+        <!-- <Logo
           class="header__logo-svg" size="86"
           :color="logoColor"
           @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
           @mouseleave.native="logoColor = 'white'"
-        />
+        /> -->
       </router-link>
       <div class="header__content">
         <HeaderNav class="header__nav" />

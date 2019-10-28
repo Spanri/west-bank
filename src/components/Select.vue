@@ -120,7 +120,7 @@ export default {
       margin: -30px 15px 0 0;
     
       position: relative;
-      left: 18px;
+      left: 10px;
       top: -3px;
     }
 
