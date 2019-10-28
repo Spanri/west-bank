@@ -1,9 +1,12 @@
 <template>
   <div class="for-private-clients">
-    <ForPrivateClientsNav class="for-private-clients__menu" />
-    <div class="for-private-clients__description">
+    <NavForMenuItems 
+      class="for-private-clients__menu"
+      :items="items" @description="setDescription"
+    />
+    <div class="for-private-clients__description" ref="description">
       <p class="for-private-clients__title">Описание</p>
-      <p class="for-private-clients__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?</p>
+      <p class="for-private-clients__text">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -12,20 +15,51 @@
 export default {
   name: "ForPrivateClients",
   components: {
-    ForPrivateClientsNav: () => 
-    import("@/components/ForPrivateClients/ForPrivate.vue"),
+    NavForMenuItems: () => import("@/components/NavForMenuItems.vue"),
   },
   data() {
     return {
       items: [
-        { 
-          title: 'Перевод без открытия счета в рублях', 
-          to: '/transfers/without-opening-an-account-in-rubles', 
+        {
+          title: 'Оставить заявку', 
+          checked: true,
+          description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?",
         },
-        { title: 'Перевод на карту', to: '/transfers/to-card', },
-        { title: 'Перевод на электронный кошелек', to: '/transfers/to-e-wallet', },
+        { 
+          title: 'Интернет Банкинг', 
+          checked: false,
+          description: "ipsum dolor sit amet consectetur adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?",
+        },
+        { 
+          title: 'Тарифы', 
+          checked: false,
+          description: "dolor sit amet consectetur adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?",
+        },
+        { 
+          title: 'Валютный контроль', 
+          checked: false,
+          description: "amet consectetur adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?",
+        },
+        {
+          title: 'Рассчетно-кассовое обслуживание',
+          checked: false,
+          description: "adipisicing elit. Illo culpa, totam architecto voluptas recusandae earum aliquid libero minima assumenda ullam mollitia esse dolorem! Et provident corrupti libero enim eaque! Delectus?",
+        },
       ],
+      description: '',
     };
+  },
+  created() {
+    this.description = this.items[0].description;
+  },
+  methods: {
+    setDescription(val) {
+      this.description = val;
+      this.$refs.description.scrollIntoView({
+        behavior: "smooth", 
+        block: "center",
+      });
+    },
   },
 };
 </script>
@@ -53,9 +87,21 @@ export default {
   }
 
   &__menu {
-    position: absolute;
-    top: 0;
+    //position: absolute;
+    //top: 0;
   }
+}
+
+@media (min-width: 1440px) {
+
+  .for-private-clients {
+
+    &__description {
+      margin-left: calc((100vw - 1440px) / 2 * (-1) + 30px);
+    }
+    
+  }
+
 }
 
 @media (max-width: 1200px) {

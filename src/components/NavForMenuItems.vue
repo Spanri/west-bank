@@ -2,15 +2,15 @@
   <nav class="nav">
     <div
       class="nav-item"
-      v-for="(item, index) in items" :key="index"
+      v-for="(item, index) in itemsProp" :key="index"
       @click="check(index)"
       :class="[item.checked ? 'checked' : '',
-        items[index-1] && items[index-1].checked ? 'pre-checked' : '',
-        items[index+1] && items[index+1].checked ? 'pre-checked' : '',
-        items[index+2] && items[index+2].checked ? 'pre-pre-checked' : '',
-        items[index-2] && items[index-2].checked ? 'pre-pre-checked' : '',
-        items[index+3] && items[index+3].checked ? 'pre-pre-pre-checked' : '',
-        items[index-3] && items[index-3].checked ? 'pre-pre-pre-checked' : '',
+        itemsProp[index-1] && itemsProp[index-1].checked ? 'pre-checked' : '',
+        itemsProp[index+1] && itemsProp[index+1].checked ? 'pre-checked' : '',
+        itemsProp[index+2] && itemsProp[index+2].checked ? 'pre-pre-checked' : '',
+        itemsProp[index-2] && itemsProp[index-2].checked ? 'pre-pre-checked' : '',
+        itemsProp[index+3] && itemsProp[index+3].checked ? 'pre-pre-pre-checked' : '',
+        itemsProp[index-3] && itemsProp[index-3].checked ? 'pre-pre-pre-checked' : '',
       ]"
       :style="{top: currentWidth > 748 ? 
         -index * 20 + 'px' : +index * 20 + 'px' }"
@@ -26,6 +26,7 @@ export default {
   name: "NavPhases",
   props: {
     phase: String,
+    items: Array,
   },
   watch: {
     phase: function(newVal) {
@@ -40,13 +41,7 @@ export default {
   data() {
     return {
       propPhase: this.phase,
-      items: [
-        { title: 'Оставить заявку', checked: true, },
-        { title: 'Интернет Банкинг', checked: false, },
-        { title: 'Тарифы', checked: false, },
-        { title: 'Валютный контроль', checked: false, },
-        { title: 'Рассчетно-кассовое обслуживание', checked: false, },
-      ],
+      itemsProp: this.items,
     };
   },
   methods: {
@@ -58,6 +53,7 @@ export default {
         item.checked = false;
       });
       this.items[index].checked = true;
+      this.$emit("description", this.items[index].description);
     },
   },
 };
@@ -68,12 +64,18 @@ export default {
   z-index: 6;
   width: calc((100vw - 1440px) / 2 + 707px) !important;
   background: $color-block-dark !important;
+  background: 
+    linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+    $color-block-dark !important; 
 }
 
 .pre-checked {
   z-index: 5;
   width: calc((100vw - 1440px) / 2 + 633px) !important;
   background: $color-block-medium !important;
+  background: 
+    linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+    $color-block-medium !important;
 }
 
 .pre-pre-checked {
@@ -107,7 +109,7 @@ export default {
 
     margin-top: 32px;
     margin-left: 43px;
-    padding-left: calc((100vw - 1440px) / 2 + 43px);
+    
 
     height: 90px;
     width: 100%;
@@ -129,7 +131,12 @@ export default {
     left: calc((100vw - 1440px) / 2 * (-1));
     width: calc((100vw - 1440px) / 2 + 305px);
 
+    padding-left: calc((100vw - 1440px) / 2);
+
     background: $color-block-light;
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      $color-block-light;
     user-select: none;
     transition: all .3s ease-in-out;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.46);
@@ -140,6 +147,9 @@ export default {
     &:hover {
       cursor: pointer;
       background: $color-accent !important;
+      background: 
+        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+        $color-accent !important;
       z-index: 7;
 
       .nav-details {
@@ -158,11 +168,14 @@ export default {
     background: $color-block-dark !important;
     background: 
       linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-      $color-accent;
+      $color-block-dark !important;
   }
 
   .pre-checked {
     background: $color-block-medium !important;
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      $color-block-medium !important;
   }
 
 }

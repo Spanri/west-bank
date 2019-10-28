@@ -51,6 +51,10 @@ const router = new Router({
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, главная',
+        // если экран < 748, идти на /download-app
+        redirectToDownloadApp: true,
+        // отображать ли NavIfAuth
+        navIfAuth: true,
       },
     },
     /* история, при клике на кнопку на главной */
@@ -61,6 +65,8 @@ const router = new Router({
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, история',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
     },
     /* карта/счет, при клике на блок на главной */
@@ -71,6 +77,8 @@ const router = new Router({
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
     },
     {
@@ -80,6 +88,8 @@ const router = new Router({
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
     },
     /* выписка, при клике на кнопку в карте/счете */
@@ -90,6 +100,8 @@ const router = new Router({
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, выписка',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
     },
     /* навигация в шапке */
@@ -99,6 +111,8 @@ const router = new Router({
       component: () => import("@/views/News.vue"),
       meta: {
         title: 'Вест Банк, новости',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     {
@@ -107,6 +121,8 @@ const router = new Router({
       component: () => import("@/views/ForPrivateClients.vue"),
       meta: {
         title: 'Вест Банк, для приватных клиентов',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     {
@@ -115,6 +131,8 @@ const router = new Router({
       component: () => import("@/views/ForBusiness.vue"),
       meta: {
         title: 'Вест Банк, бизнесу',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     {
@@ -123,6 +141,8 @@ const router = new Router({
       component: () => import("@/views/ForFinancialInstitutions.vue"),
       meta: {
         title: 'Вест Банк, финансовым институтам',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     {
@@ -131,6 +151,8 @@ const router = new Router({
       component: () => import("@/views/About.vue"),
       meta: {
         title: 'Вест Банк, о банке',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     /* вход, регистрация */
@@ -141,6 +163,8 @@ const router = new Router({
       beforeEnter: ifNotAuthenticated,
       meta: {
         title: 'Вест Банк, вход',
+        redirectToDownloadApp: true,
+        navIfAuth: false,
       },
     },
     {
@@ -150,6 +174,8 @@ const router = new Router({
       beforeEnter: ifNotAuthenticated,
       meta: {
         title: 'Вест Банк, регистрация',
+        redirectToDownloadApp: true,
+        navIfAuth: false,
       },
     },
     /* профиль */
@@ -160,6 +186,8 @@ const router = new Router({
       beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, профиль',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
     },
     /* при клике на кнопку в NavIfAuth */
@@ -168,6 +196,8 @@ const router = new Router({
       component: () => import("@/views/Transfers.vue"),
       meta: {
         title: 'Вест Банк, переводы',
+        redirectToDownloadApp: true,
+        navIfAuth: true,
       },
       children: [
         {
@@ -177,6 +207,8 @@ const router = new Router({
             import("@/components/Transfers/Transfers1.vue"),
           meta: {
             title: 'Вест Банк, переводы',
+            redirectToDownloadApp: true,
+            navIfAuth: true,
           },
         },
         {
@@ -186,6 +218,8 @@ const router = new Router({
             import("@/components/Transfers/Transfers2WithoutOpeningAnAccount.vue"),
           meta: {
             title: 'Вест Банк, перевод без открытия счета',
+            redirectToDownloadApp: true,
+            navIfAuth: true,
           },
         },
         {
@@ -195,6 +229,8 @@ const router = new Router({
             import("@/components/Transfers/Transfers2ToCard.vue"),
           meta: {
             title: 'Вест Банк, перевод на карту',
+            redirectToDownloadApp: true,
+            navIfAuth: true,
           },
         },
         {
@@ -204,6 +240,8 @@ const router = new Router({
             import("@/components/Transfers/Transfers2ToEWallet.vue"),
           meta: {
             title: 'Вест Банк, перевод на электронный кошелек',
+            redirectToDownloadApp: true,
+            navIfAuth: true,
           },
         },
         {
@@ -213,6 +251,8 @@ const router = new Router({
             import("@/components/Transfers/Transfers3.vue"),
           meta: {
             title: 'Вест Банк, перевод совершен',
+            redirectToDownloadApp: true,
+            navIfAuth: true,
           },
         },
       ],
@@ -224,6 +264,8 @@ const router = new Router({
       component: () => import("@/views/DownloadApp.vue"),
       meta: {
         title: 'Вест Банк, скачать приложение',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     /* страница не найдена */
@@ -234,6 +276,8 @@ const router = new Router({
       component: () => import("@/views/NotFound.vue"),
       meta: {
         title: 'Вест Банк, страница не найдена',
+        redirectToDownloadApp: false,
+        navIfAuth: false,
       },
     },
     {
@@ -242,6 +286,8 @@ const router = new Router({
       component: () => import("@/views/NotFound.vue"),
       meta: {
         title: 'Вест Банк, страница не найдена',
+        redirectToDownloadApp: false,
+        navIfAuth: true,
       },
     },
   ],

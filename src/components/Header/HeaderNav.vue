@@ -22,11 +22,11 @@ export default {
           titleMobile: 'Частным<br>клиентам', 
           to: '/for-private-clients', 
         },
-        { title: 'Бизнесу', to: '/about', },
+        { title: 'Бизнесу', to: '/for-business', },
         { 
           title: 'Финансовым институтам', 
           titleMobile: 'Финансовым<br>институтам', 
-          to: '/about', 
+          to: '/for-financial-institutions', 
         },
         { title: 'О банке', to: '/about', },
       ],

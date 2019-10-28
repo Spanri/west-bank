@@ -8,9 +8,7 @@
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth width2_big"
-        v-if="isLoggedIn && 
-          currentRouteName != 'for-private-clients' && 
-          currentRouteName != 'not-found'" 
+        v-if="isLoggedIn && this.$route.meta.navIfAuth" 
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -58,6 +56,10 @@ export default {
   methods: {
     setCurrentWidth(e) {
       this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
+      if (e.currentTarget.innerWidth < 748 &&  
+          this.$route.meta.redirectToDownloadApp) {
+        this.$router.push("/download-app");
+      }
     },
   },
   beforeDestroy() {

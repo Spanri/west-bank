@@ -132,6 +132,7 @@ export default {
 
     box-sizing: border-box;
     z-index: 5;
+    overflow: hidden;
   }
 
   &__hamburger {
@@ -159,14 +160,17 @@ export default {
     flex-shrink: 0;
     justify-content: flex-start;
 
+    position: fixed;
+    top: 0;
+
     background: $color-header;
-    margin: 24px 0 0 -60px;
+    margin: 24px 0 0;
     z-index: 4;
     box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.45);
     border-radius: 9px;
 
     height: 375px;
-    width: 100%;
+    width: 100vw;
 
     &-helper {
       width: 50px;
