@@ -49,7 +49,7 @@ export default {
   @include slide;
 
   &__nav {
-    margin-top: 150px;
+    //margin-top: 150px;
   }
 
 }

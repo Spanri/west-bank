@@ -36,7 +36,6 @@
         </button>
       </div>
     </form>
-    <Block class="login__block"/>
   </div>
 </template>
 
@@ -45,9 +44,6 @@ import { required, } from 'vuelidate/lib/validators';
 
 export default {
   name: "Login",
-  components: {
-    Block: () => import("@/components/Block.vue"),
-  },
   data() {
     return {
       blocks: [
@@ -112,10 +108,6 @@ export default {
 
     color: white;
     text-align: center;
-  }
-
-  &__block {
-    margin-bottom: 96px;
   }
   
 }
