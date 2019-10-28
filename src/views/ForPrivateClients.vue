@@ -44,7 +44,7 @@ export default {
   }
 
   &__description {
-    padding: 0 30px;
+    padding: 0 30px 30px;
   }
 
   &__text {
@@ -63,7 +63,7 @@ export default {
   .for-private-clients {
     flex-direction: column;
   }
-  
+
 }
 
 </style>

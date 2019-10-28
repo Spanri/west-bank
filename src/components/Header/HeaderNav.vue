@@ -51,7 +51,7 @@ export default {
 
 <style scoped lang="scss">
 .nav {
-  padding-right: 20px;
+  padding-right: 40px;
 
   width: 100%;
 
@@ -99,6 +99,7 @@ export default {
 @media (max-width: 748px) {
 
   .nav {
+    padding-right: 0;
     flex-direction: column;
 
     &__item {

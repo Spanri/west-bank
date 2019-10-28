@@ -1,14 +1,10 @@
 <template>
   <table class="table">
-    <tr class="table__header-wrapper">
-      <div class="table__header">
-        <div class="table__header-inner">
-          <th class="table__header-item table__header-item_first">Дата</th>
-          <th class="table__header-item">Сумма</th>
-          <th class="table__header-item">Статус</th>
-          <th class="table__header-item">Куда</th>
-        </div>
-      </div>
+    <tr class="table__header">
+      <th class="table__header-item table__header-item_first">Дата</th>
+      <th class="table__header-item">Сумма</th>
+      <th class="table__header-item">Статус</th>
+      <th class="table__header-item">Куда</th>
     </tr>
     <tr 
       class="table__item-row"
@@ -73,18 +69,10 @@ export default {
 
     height: 72px;
 
-    &-wrapper {
-      position: relative;
-      margin-bottom: 30px;
-    }
-
-    &-inner {
-      position: absolute;
-      left: calc((100vw - 1440px) / 2 * (-1));
-
-      height: 72px;
-      width: calc((100vw - 1440px) / 2 + 1033px);
-
+    /* фон заголовка */
+    &::after {
+      content: '';
+      z-index: 0;
       @include color-opacity(background, $color-block-light, .2);
       background: 
         linear-gradient(90deg, #15172D 0%, rgba(61, 65, 104, 0) 10%),
@@ -92,15 +80,19 @@ export default {
           green($color-block-light), 
           blue($color-block-light),
           .2);
-      border: 0;
-      padding-left: calc((100vw - 1440px) / 2);
-      user-select: none;
+
+      position: absolute;
+      left: 0;
+
+      width: calc((100vw - 1440px) / 2 + 1033px);
+      height: 72px;
     }
 
     &-item {
       height: 72px;
       font-weight: normal;
       padding-top: 9px;
+      z-index: 5;
       
       &_first {
         padding-left: 48px;
@@ -139,9 +131,9 @@ export default {
 
 @media (min-width: 1440px) {
   
-  .table__header-inner {
+  .table__header::after {
     background: 
-      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      linear-gradient(90deg, #15172D -70.71%, rgba(61, 65, 104, 0) 100%),
       rgba(red($color-block-light), 
         green($color-block-light), 
         blue($color-block-light),
@@ -152,7 +144,7 @@ export default {
 
 @media (max-width: 1440px) {
   
-  .table__header-inner {
+  .table__header::after {
     width: 1033px;
     left: 0;
   }

@@ -3,7 +3,7 @@
     <tr class="converter__title">
       <th>Конвертер</th>
       <th class="converter__text width2_mobile">
-        Курс актуален на 19:00:05, 2.09.2019
+        Курс актуален на {{ relevanceProp }}
       </th>
     </tr>
     <tr>
@@ -30,7 +30,7 @@
     </tr>
     <tr class="width2_big-tr">
       <td colspan="2" class="converter__text">
-        Курс актуален на 19:00:05, 2.09.2019
+        Курс актуален на {{ relevanceProp }}
       </td>
     </tr>
   </table>
@@ -42,8 +42,17 @@ export default {
   components: {
     Select: () => import("@/components/Select.vue"),
   },
+  props: {
+    relevance: String,
+  },
+  watch: {
+    relevance(newVal) {
+      this.relevanceProp = newVal;
+    },
+  },
   data() {
     return {
+      relevanceProp: this.relevance,
       selected3: '$',
       selected4: '€',
     };

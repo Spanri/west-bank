@@ -20,29 +20,28 @@
       </transition>
       <div v-if="open" class="header__menu-helper" />
       <transition name="slide-fade-auth">
-        <router-link
-          to="/download-app" v-if="!isLoggedIn"
-          class="header__auth-link"
+        <router-link 
+          to="/download-app" class="header__auth-link"
+          @mouseenter.native="logoAuth = '#C66166'"
+          @mouseleave.native="logoAuth = 'white'"
         >
-          <AuthLogo class="header__auth-logo" color="white" />
-          <span class="header__auth-text">Войти в личный кабинет</span>
+          <AuthLogo class="header__auth-logo" :color="logoAuth" />
+          <span class="header__auth-text">Войти<br>в личный кабинет</span>
         </router-link>
       </transition>
       <transition name="slide-fade-logo">
         <router-link 
-          to="/home" class="header__logo-link" 
-          v-if="!open"
+          to="/home" v-if="!open"
+          class="header__logo-link"
+          @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
+          @mouseleave.native="logoColor = 'white';"
         >
-          <LogoText 
+          <LogoText
             class="header__logo-text" :color="logoColor"
-            @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
-            @mouseleave.native="logoColor = 'white'"
           />
           <Logo
             class="header__logo-svg"
             :color="logoColor" size="56"
-            @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
-            @mouseleave.native="logoColor = 'white';"
           />
         </router-link>
       </transition>
@@ -64,6 +63,7 @@ export default {
     return {
       open: false,
       logoColor: "white",
+      logoAuth: "white",
     };
   },
   computed: {
@@ -115,6 +115,7 @@ export default {
 }
 
 .header {
+
   &-inner {
     height: 80px;
     width: 100%;
@@ -171,10 +172,39 @@ export default {
   }
 
   &__auth {
-    &-text {
+
+    &-link {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+
       text-decoration: none;
-      color: $color-light;
+
+      &:hover {
+
+        .header__auth-text {
+          color: $color-accent;
+        }
+        
+      }
+
     }
+
+    &-logo {
+      margin-right: 15px;
+    }
+
+    &-text {
+      color: $color-light;
+      font: 14px/16px Play;
+
+      &:hover {
+        color: $color-accent;
+      }
+
+    }
+
   }
 
   &__bottom {
@@ -185,7 +215,7 @@ export default {
     
     &-nav {
 
-      /deep/ .nav__item {
+      /deep/.nav__item {
 
         &:last-child {
           margin-bottom: 39px;
@@ -198,4 +228,5 @@ export default {
   }
   
 }
+
 </style>
