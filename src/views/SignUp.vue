@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      signUpPhase: 2,
+      signUpPhase: 1,
       lastName: "",
       firstName: "",
       patronymic: "",
