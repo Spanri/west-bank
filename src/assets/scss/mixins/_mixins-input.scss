@@ -197,6 +197,10 @@ transfers2
 и немного добавление новых */
 @mixin transfers2 {
 
+  .input-block-wrapper .error {
+    margin-left: 338px !important;
+  }
+
   .input-block {
 
     &-wrapper {

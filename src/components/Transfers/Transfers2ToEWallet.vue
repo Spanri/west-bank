@@ -44,7 +44,7 @@
 </template>
 
 <script>
-// import { required, minLength, email, } from 'vuelidate/lib/validators';
+import { required, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
@@ -59,7 +59,7 @@ export default {
         {
           title: "Сумма",
           model: "amount",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, минимум 100.",
         },
       ],
       provider: null,
@@ -68,11 +68,12 @@ export default {
   },
   validations: {
     provider: {
-      // type: Number,
-      // required,
+      required,
     },
     amount: {
-      // required,
+      required,
+      minValue: (value) => value >= 100,
+      isNumber: (value) => /[0-9]/i.test(value),
     },
   },
   methods: {

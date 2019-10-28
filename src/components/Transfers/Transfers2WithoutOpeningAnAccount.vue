@@ -46,7 +46,7 @@
 </template>
 
 <script>
-// import { required, minLength, email, } from 'vuelidate/lib/validators';
+import { required, minLength, maxLength, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
@@ -56,22 +56,22 @@ export default {
         {
           title: "Сумма",
           model: "amount",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, минимум 100.",
         },
         {
           title: "БИК Банка",
           model: "BIK",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, 9 цифр.",
         },
         {
           title: "ИНН</br>получателя",
           model: "INN",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, 10-12 цифр.",
         },
         {
           title: "КПП получателя",
           model: "KPP",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, 10 цифр.",
         },
         {
           title: "Наименование получателя",
@@ -100,19 +100,28 @@ export default {
   },
   validations: {
     amount: {
-      // type: Number,
-      // required,
+      type: Number,
+      required,
+      minValue: (value) => value >= 100,
+      isNumber: (value) => /[0-9]/i.test(value),
     },
     BIK: {
-      // required,
+      type: Number,
+      required,
+      minLength: minLength(9),
+      maxLength: maxLength(9),
     },
     INN: {
-      // type: Number,
-      // required,
+      type: Number,
+      required,
+      minLength: minLength(10),
+      maxLength: maxLength(12),
     },
     KPP: {
-      // type: Number,
-      // required,
+      type: Number,
+      required,
+      minLength: minLength(9),
+      maxLength: maxLength(9),
     },
     nameOfRecipient: {
       // required,
@@ -121,7 +130,7 @@ export default {
       // required,
     },
     nameOfPayment: {
-
+      // required,
     },
   },
   methods: {

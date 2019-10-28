@@ -44,7 +44,7 @@
 </template>
 
 <script>
-// import { required, minLength, email, } from 'vuelidate/lib/validators';
+import { required, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
@@ -59,7 +59,7 @@ export default {
         {
           title: "Сумма",
           model: "amount",
-          error: "Обязательное поле, только цифры.",
+          error: "Обязательное поле, минимум 100.",
         },
       ],
       cardNumber: null,
@@ -68,11 +68,14 @@ export default {
   },
   validations: {
     cardNumber: {
-      // type: Number,
-      // required,
+      type: Number,
+      required,
+      isNumber: (value) => /[0-9]/i.test(value),
     },
     amount: {
-      // required,
+      required,
+      minValue: (value) => value >= 100,
+      isNumber: (value) => /[0-9]/i.test(value),
     },
   },
   methods: {
@@ -99,9 +102,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-*, ::before, ::after {
-  overflow: hidden;
-}
+// *, ::before, ::after {
+//   overflow: hidden;
+// }
 
 .transfers2-to-card {
   @include transfers2;
