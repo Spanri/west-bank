@@ -107,7 +107,7 @@ export default {
     text-align: left;
     font: $font-nav;
 
-    margin-top: 32px;
+    margin-top: 28px;
     margin-left: 43px;
     user-select: none;
     
@@ -235,6 +235,17 @@ export default {
     text-align: left;
     margin-left: 0;
     margin-top: 10px;
+  }
+
+}
+
+// для IE
+@media (max-width: 1440px) and 
+  (-ms-high-contrast: none), 
+  (-ms-high-contrast: active) {
+
+  .nav-text {
+    margin-left: calc((100vw - 1440px) / 2 * (-1) + 43px);
   }
 
 }

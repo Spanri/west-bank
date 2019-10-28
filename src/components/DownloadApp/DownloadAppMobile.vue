@@ -35,6 +35,7 @@ export default {
 .download-app {
 
   &__content {
+    height: 100%;
     margin: 27px 21px;
     background: $color-block-dark;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.45);

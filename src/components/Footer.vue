@@ -133,7 +133,7 @@ export default {
 @media (max-width: 680px) {
 
   .footer {
-    height: 100%;
+    height: 400px;
     flex-direction: column;
     overflow: hidden;
 
@@ -169,6 +169,16 @@ export default {
 
     }
 
+  }
+
+}
+
+@media (max-width: 680px)  and 
+  (-ms-high-contrast: none), 
+  (-ms-high-contrast: active) {
+
+  .footer {
+    height: 550px;
   }
 
 }

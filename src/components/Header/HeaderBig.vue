@@ -5,12 +5,13 @@
         <LogoText 
           class="header__logo-text" :color="logoColor"
         />
+        <!-- style потому, что в IE иначе не работатет -->
         <img 
           src="@/assets/logo.png" alt="Логотип"
           class="header__logo-svg"
-          width="75" height="86"
+          style="height: 86px; width: auto;"
         >
-        <!-- 
+        <!-- 86 75
           @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
           @mouseleave.native="logoColor = 'white'"
          -->
@@ -64,13 +65,14 @@ export default {
 
   &__logo {
     user-select: none;
-    padding: 0 20px 0 27px;
+    margin: 0 20px 0 15px;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
+    width: 170px;
   }
 
   &__content {

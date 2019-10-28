@@ -46,7 +46,8 @@
           />
           <img 
             src="@/assets/logo.png" alt="Логотип"
-            class="header__logo-svg" width="49"
+            class="header__logo-svg"
+            style="height: 56px; width: auto;"
           >
         </router-link>
       </transition>

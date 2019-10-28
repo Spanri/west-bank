@@ -112,7 +112,7 @@ const router = new Router({
       meta: {
         title: 'Вест Банк, новости',
         redirectToDownloadApp: false,
-        navIfAuth: false,
+        navIfAuth: true,
       },
     },
     {

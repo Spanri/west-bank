@@ -9,7 +9,8 @@
         <LogoText class="header__logo-text" :color="logoColor" />
         <img 
           src="@/assets/logo.png" alt="Логотип"
-          class="header__logo-svg" width="75"
+          class="header__logo-svg" 
+          style="height: 86px; width: auto;"
         >
       </router-link>
       <div class="header__content">
@@ -73,13 +74,14 @@ export default {
 
   &__logo {
     user-select: none;
-    padding: 0 20px 0 27px;
+    margin: 0 15px 0 15px;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
+    width: 170px;
   }
 
   &__content {

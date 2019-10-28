@@ -79,6 +79,8 @@ export default {
   display: flex;
   flex-direction: row;
 
+  width: 100%;
+
   &-wrapper {
     display: flex;
     flex-direction: column;
