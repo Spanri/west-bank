@@ -182,4 +182,20 @@ login-link
 
   }
 
+  @media (min-width: 1250px) {
+
+    .login-link > * {
+      margin: 0 0 0 250px;
+    }
+
+  }
+
+  @media (max-width: 850px) {
+
+    .login-link > * {
+      margin: 0 0 0 150px;
+    }
+
+  }
+
 }

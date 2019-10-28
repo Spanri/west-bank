@@ -4,14 +4,11 @@
     <div
       class="transfers1__button" @click="goToNext(item.to)"
       v-for="(item, index) in items" :key="index"
-      @mouseenter="index == 0 ? 
-        item.logoColor = 'white' : item.logoColor = '#D35858'"
-      @mouseleave=" index == 0 ? 
-        item.logoColor = '#D35858' : item.logoColor = 'white'"
+      @mouseenter="item.logoColor = '#D35858'"
+      @mouseleave=" item.logoColor = 'white'"
     >
       <div
-        class="transfers1__link" 
-        :class="index == 0 ? 'transfers1__link-accent' : ''"
+        class="transfers1__link"
       >
         {{ item.title }}
       </div>
@@ -32,7 +29,7 @@ export default {
         { 
           title: 'Перевод без открытия счета в рублях', 
           to: 'without-opening-an-account',
-          logoColor: '#D35858',
+          logoColor: 'white',
         },
         { 
           title: 'Перевод на карту', 
@@ -63,9 +60,7 @@ export default {
   margin-left: 41px;
 
   &__title {
-    margin: $margin-header;
-    margin-top: 44px;
-    
+    padding: 44px 0 80px;    
     font: $font-header;
   }
 
@@ -89,16 +84,12 @@ export default {
       .transfers1__link-accent {
         color: $color-light;
       }
+      
     }
 
   }
 
   &__link {
-
-    &-accent {
-      color: $color-accent;
-
-    }
 
     &:hover {
       color: $color-accent;

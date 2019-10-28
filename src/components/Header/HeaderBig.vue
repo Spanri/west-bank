@@ -60,7 +60,7 @@ export default {
   }
 
   &__nav {
-    margin-top: 46px;
+    //margin-top: 46px;
   }
 
   &__logo {

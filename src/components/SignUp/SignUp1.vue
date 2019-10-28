@@ -65,4 +65,12 @@ export default {
 
 }
 
+@media (max-width: 850px) {
+
+  .signup1__title {
+    margin-left: 145px;
+  }
+
+}
+
 </style>

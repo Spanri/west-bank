@@ -60,7 +60,7 @@ export default {
     editData() {},
     logout() {
       this.$store.dispatch("logout").then(() => {
-        this.$router.push("/signup");
+        this.$router.push("/auth");
       });
     },
   },

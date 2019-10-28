@@ -93,7 +93,7 @@ export default {
   }
 
   position: relative;
-  margin-top: 220px;
+  margin-top: 250px;
 
   height: min-content;
 

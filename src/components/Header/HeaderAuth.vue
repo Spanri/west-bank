@@ -1,7 +1,7 @@
 <template>
   <div class="auth" @click="goToPage()">
     <router-link
-      to="/signup" v-if="!isLoggedIn"
+      to="/auth" v-if="!isLoggedIn"
       class="auth__login auth__login_false"
     >
       <AuthLogo class="auth__logo" color="#F2F2F2" />

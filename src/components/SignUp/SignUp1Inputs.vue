@@ -65,17 +65,17 @@ export default {
         {
           title: "Фамилия *",
           model: "lastName",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле.",
         },
         {
           title: "Имя *",
           model: "firstName",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле.",
         },
         {
           title: "Отчество *",
           model: "patronymic",
-          error: "Обязательное поле, минимум 4 символа.",
+          error: "Обязательное поле.",
         },
         {
           title: "Телефон *",
@@ -102,15 +102,12 @@ export default {
   validations: {
     firstName: {
       required,
-      minLength: minLength(4),
     },
     lastName: {
       required,
-      minLength: minLength(4),
     },
     patronymic: {
       required,
-      minLength: minLength(4),
     },
     phone: {
       required,

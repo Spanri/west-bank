@@ -10,7 +10,7 @@ const ifAuthenticatedAndValidId = (to, from, next) => {
     next();
     return;
   }
-  next("/signup");
+  next("/auth");
 };
 
 /* для страниц, где доступ только не авторизованным
@@ -34,7 +34,7 @@ const ifAuthenticated = (to, from, next) => {
     next();
     return;
   }
-  next("/signup");
+  next("/auth");
 };
 
 const router = new Router({
@@ -157,6 +157,17 @@ const router = new Router({
       },
     },
     /* вход, регистрация */
+    {
+      path: "/auth",
+      name: "auth",
+      component: () => import("@/views/Auth.vue"),
+      beforeEnter: ifNotAuthenticated,
+      meta: {
+        title: 'Вест Банк, аутентификация',
+        redirectToDownloadApp: true,
+        navIfAuth: false,
+      },
+    },
     {
       path: "/login",
       name: "login",

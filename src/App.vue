@@ -143,6 +143,14 @@ body {
   
 }
 
+@media (min-width: 748px) {
+
+  .app__main {
+    height: 100%;
+  }
+
+}
+
 @media (-ms-high-contrast: none), 
   (-ms-high-contrast: active) {
 

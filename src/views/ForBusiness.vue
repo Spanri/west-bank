@@ -53,16 +53,23 @@ export default {
       description: '',
     };
   },
+  computed: {
+    currentWidth() {
+      return this.$store.getters.getCurrentWidth;
+    },
+  },
   created() {
     this.description = this.items[0].description;
   },
   methods: {
     setDescription(val) {
       this.description = val;
-      this.$refs.description.scrollIntoView({
-        behavior: "smooth", 
-        block: "center",
-      });
+      if (this.currentWidth < 1080) {
+        this.$refs.description.scrollIntoView({
+          behavior: "smooth", 
+          block: "center",
+        });
+      }
     },
   },
 };

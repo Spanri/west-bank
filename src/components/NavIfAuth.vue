@@ -1,19 +1,21 @@
 <template>
-  <nav class="nav">
-    <router-link 
-    to="/home" class="nav__item nav__item_online-bank"
-    >
-      <span class="nav__text">Онлайн-банк</span>
-    </router-link>    
-    <router-link 
-      to="/transfers" 
-      class="nav__item nav__item_transfers"
-      :class="currentRouteName != 'transfers' && 
-        currentRouteName != 'home' ? 'nav__passive' : ''"
-    >
-      <span class="nav__text">Переводы</span>
-    </router-link>
-  </nav>
+  <transition name="nav">
+    <nav class="nav">
+      <router-link 
+      to="/home" class="nav__item nav__item_online-bank"
+      >
+        <span class="nav__text">Онлайн-банк</span>
+      </router-link>    
+      <router-link 
+        to="/transfers" 
+        class="nav__item nav__item_transfers"
+        :class="currentRouteName != 'transfers1' && 
+          currentRouteName != 'home' ? 'nav__passive' : ''"
+      >
+        <span class="nav__text">Переводы</span>
+      </router-link>
+    </nav>
+  </transition>
 </template>
 
 <script>
@@ -29,7 +31,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.router-link-active {
+.nav-enter-active, .nav-leave-active {
+  transition: all .3s ease-in-out;
+}
+
+.nav-enter, .nav-leave-to {
+  opacity: 0;
+}
+
+.router-link-exact-active {
   /* как убрать important */
   @include color-opacity(background, $color-block-dark, .95, true);
   background: linear-gradient(270deg, #15172D -90.71%, 
@@ -127,7 +137,7 @@ export default {
     }
   }
 
-  .router-link-active {
+  .router-link-exact-active {
     background: linear-gradient(270deg, #15172D -20.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;
   }
@@ -144,7 +154,7 @@ export default {
     width: 337px;
   }
 
-  .router-link-active {
+  .router-link-exact-active {
     width: 383px !important;
   }
   
@@ -161,7 +171,7 @@ export default {
     width: 200px;
   }
 
-  .router-link-active {
+  .router-link-exact-active {
     width: 240px !important;
   }
   
@@ -179,7 +189,7 @@ export default {
     width: 100%;
   }
 
-  .router-link-active {
+  .router-link-exact-active {
     width: 100% !important;
   }
   
