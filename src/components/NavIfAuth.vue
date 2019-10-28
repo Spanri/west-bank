@@ -8,7 +8,7 @@
     <router-link 
       to="/transfers" 
       class="nav__item nav__item_transfers"
-      :class="!/^transfers+/.test(currentRouteName) && 
+      :class="currentRouteName != 'transfers' && 
         currentRouteName != 'home' ? 'nav__passive' : ''"
     >
       <span class="nav__text">Переводы</span>
@@ -21,6 +21,7 @@ export default {
   name: "NavIfAuth",
   computed: {
     currentRouteName() {
+      console.log(this.$route.name);
       return this.$route.name;
     },
   },

@@ -126,7 +126,6 @@ body {
   }
 
   &__main {
-    height: 100%;
     max-width: 1440px;
     margin: 0px auto auto;
 
@@ -142,5 +141,14 @@ body {
     margin: 0 auto;
   }
   
+}
+
+@media (-ms-high-contrast: none), 
+  (-ms-high-contrast: active) {
+
+  .app__main {
+    height: 100%;
+  }
+
 }
 </style>

@@ -93,11 +93,11 @@ export default {
   left: 0;
 
   display: flex;
-  //align-items: flex-start;
-  //justify-content: flex-start;
   flex-direction: column;
 
   color: $color-light;
+
+  min-height: 550px;
 
   &-details {
     display: none;
@@ -111,7 +111,7 @@ export default {
     margin-left: 43px;
     user-select: none;
     
-    height: 90px;
+    //height: 90px;
     width: 100%;    
   }
 

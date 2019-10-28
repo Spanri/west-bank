@@ -18,6 +18,16 @@ export default {
 <style scoped lang="scss">
 .news {
   height: 100%;
-  padding-bottom: 158px;
+  margin-bottom: 158px;
 }
+
+@media (-ms-high-contrast: none), 
+  (-ms-high-contrast: active) {
+
+  .news {
+    margin-bottom: 30px;
+  }
+
+}
+
 </style>

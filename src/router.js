@@ -25,11 +25,12 @@ const ifNotAuthenticated = (to, from, next) => {
 
 /* Для страниц, где доступ только авторизованным. */
 const ifAuthenticated = (to, from, next) => {
+  if (store.getters.getCurrentWidth < 748) {
+    next('/download-app');
+    return;
+  } 
   if (store.getters.isLoggedIn) {
-    if (store.getters.getCurrentWidth < 748) {
-      next('/download-app');
-      return;
-    } 
+    
     next();
     return;
   }

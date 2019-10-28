@@ -168,7 +168,7 @@ export default {
     left: 0;
 
     background: $color-header;
-    margin: 24px 0 0;
+    margin: 50px 0 0;
     z-index: 11;
     box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.45);
     border-radius: 9px;
@@ -257,7 +257,6 @@ export default {
     &__menu {
       top: 0px;
       left: 0;
-      margin-top: 50px;
     }
 
   }
