@@ -53,7 +53,7 @@ export default {
     text-decoration: none;
     text-align: left;
 
-    margin: 0 auto 80px;
+    margin: 80px auto 0;
 
     width: 200px;
 
