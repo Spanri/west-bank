@@ -8,13 +8,9 @@
         @mouseleave.native="logoColor = 'white'" -->
         <LogoText class="header__logo-text" :color="logoColor" />
         <img 
-          src="@/assets/logoHeaderBig.png" alt="Логотип"
-          class="header__logo-svg"
+          src="@/assets/logo.png" alt="Логотип"
+          class="header__logo-svg" width="75"
         >
-        <!-- <Logo 
-          class="header__logo-svg" 
-          :color="logoColor" size="86"
-        /> -->
       </router-link>
       <div class="header__content">
         <div class="header__top">

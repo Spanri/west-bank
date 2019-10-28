@@ -9,10 +9,9 @@
         </span>
       </p>
       <img 
-        src="@/assets/logoBig.png" alt="Логотип"
-        class="download-app__logo"
+        src="@/assets/logo.png" alt="Логотип"
+        class="download-app__logo" width="153"
       >
-      <!-- <Logo class="download-app__logo" size="175" /> -->
       <button class="download-app__button">Скачать</button>
       <img 
         src="@/assets/mobileApps.png"

@@ -18,7 +18,6 @@
           />
         </div>
       </transition>
-      <!-- <div v-if="open" class="header__menu-helper" /> -->
       <transition name="slide-fade-auth">
         <router-link 
           to="/download-app" class="header__auth-link"
@@ -27,7 +26,12 @@
           v-show="!open"
         >
           <AuthLogo class="header__auth-logo" :color="logoAuth" />
-          <span class="header__auth-text">Войти<br>в личный кабинет</span>
+          <span class="header__auth-text header__auth-text_big">
+            Войти<br>в личный кабинет
+          </span>
+          <span class="header__auth-text header__auth-text_little">
+            Войти<br>в личный<br>кабинет
+          </span>
         </router-link>
       </transition>
       <transition name="slide-fade-logo">
@@ -40,11 +44,10 @@
           <LogoText
             class="header__logo-text" :color="logoColor"
           />
-          <img src="@/assets/logoMobile.png" alt="Логотип">
-          <!-- <Logo
-            class="header__logo-svg"
-            :color="logoColor" size="56"
-          /> -->
+          <img 
+            src="@/assets/logo.png" alt="Логотип"
+            class="header__logo-svg" width="49"
+          >
         </router-link>
       </transition>
     </div>
@@ -207,6 +210,14 @@ export default {
       color: $color-light;
       font: 14px/16px Play;
 
+      &_big {
+        display: block;
+      }
+
+      &_little {
+        display: none;
+      }
+
       &:hover {
         color: $color-accent;
       }
@@ -229,6 +240,26 @@ export default {
           margin-bottom: 39px;
         }
 
+      }
+
+    }
+
+  }
+  
+}
+
+@media (max-width: 400px) {
+
+  .header__auth {
+
+    &-text {
+
+      &_big {
+        display: none;
+      }
+
+      &_little {
+        display: block;
       }
 
     }

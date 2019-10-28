@@ -100,8 +100,10 @@ export default {
   color: $color-light;
   font: $font-header;
 
-  margin: 0 auto;
-  max-width: 729px;
+  &__content {
+    margin: 0 auto;
+    max-width: 729px;
+  }
 
   &__title {
     margin: $margin-header;

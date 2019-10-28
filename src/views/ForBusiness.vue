@@ -103,11 +103,6 @@ export default {
     font: 18px/20px Play;
   }
 
-  &__menu {
-    position: absolute;
-    top: 0;
-  }
-
   &__block {
     margin-bottom: 150px;
     align-self: flex-start;

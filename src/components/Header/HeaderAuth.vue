@@ -94,6 +94,10 @@ export default {
     width: 35px;
   }
 
+  &__text {
+    padding-left: 15px;
+  }
+
   &:hover {
     background: $color-block-light;
   }

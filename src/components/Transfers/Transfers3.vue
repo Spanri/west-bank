@@ -2,7 +2,10 @@
   <div class="transfers3">
     <div class="success">
       <div class="success__content">
-        <Logo class="success__logo" size="401" />
+        <img 
+          src="@/assets/logo.png" class="success__logo"
+          alt="Логотип" width="300"
+        >
         <p class="success__text">
           Перевод совершен!
         </p>

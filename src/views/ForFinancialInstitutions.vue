@@ -85,11 +85,7 @@ export default {
     color: $color-light;
     font: 18px/20px Play;
   }
-
-  &__menu {
-    //position: absolute;
-    //top: 0;
-  }
+  
 }
 
 @media (min-width: 1440px) {

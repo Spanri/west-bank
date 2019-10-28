@@ -2,10 +2,9 @@
   <div class="download-app">
     <div class="download-app__content">
       <img 
-        src="@/assets/logoBig.png" alt="Логотип"
-        class="download-app__logo"
+        src="@/assets/logo.png" alt="Логотип"
+        class="download-app__logo" width="300"
       >
-      <!-- <Logo class="download-app__logo" size="305" /> -->
       <p class="download-app__text">
         Для совершения быстрых операций скачайте приложение
         <span class="download-app__text download-app__text_title">
@@ -60,7 +59,7 @@ export default {
   }
 
   &__logo {
-    margin: 178px 0 36px;
+    margin: 15px 0 36px;
   }
 
   &__button {

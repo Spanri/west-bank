@@ -64,7 +64,7 @@ export default {
 
   &__title {
     margin: $margin-header;
-    padding-top: 44px;
+    margin-top: 44px;
     
     font: $font-header;
   }
