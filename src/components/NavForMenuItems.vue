@@ -109,13 +109,10 @@ export default {
 
     margin-top: 32px;
     margin-left: 43px;
-    
-
-    height: 90px;
-    width: 100%;
-    text-align: left;
-
     user-select: none;
+    
+    height: 90px;
+    width: 100%;    
   }
 
   &-item {
