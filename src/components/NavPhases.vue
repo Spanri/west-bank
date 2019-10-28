@@ -117,7 +117,8 @@ export default {
     width: calc((100vw - 1440px) / 2 + 84px);
 
     &-wrapper {
-      position: absolute;
+      //position: absolute;
+      margin-top: -260px;
       height: 265px;
       z-index: 7;
     }

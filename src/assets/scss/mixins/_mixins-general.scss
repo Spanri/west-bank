@@ -60,7 +60,7 @@ login-link
       padding: 0 auto;
 
       color: $color-light;
-      font: 22px/28px Play;
+      font: 22px/28px Play, sans-serif;
       vertical-align: middle;
       text-align: center;
 
@@ -126,7 +126,7 @@ login-link
 
     &__link {
       color: $color-accent;
-      font: 18px/144.2% Play;
+      font: 18px/144.2% Play, sans-serif;
 
       &-text {
         margin-left: 19px;
@@ -154,7 +154,7 @@ login-link
 
   .login-link {
     color: $color-accent;
-    font: Play;
+    font: Play, sans-serif;
     
     text-align: center;
     text-decoration: none;
@@ -164,11 +164,11 @@ login-link
     }
 
     &__text1 {
-      font: 22px/24px Play;
+      font: 22px/24px Play, sans-serif;
     }
 
     &__text2 {
-      font: 18px/144% Play;
+      font: 18px/144% Play, sans-serif;
     }
 
     & > * {

@@ -64,7 +64,7 @@ export default {
 
   &__header {
     color: $color-light;
-    font: 18px/21px Play;
+    font: 18px/21px Play, sans-serif;
     text-align: left;
 
     height: 72px;
@@ -104,7 +104,7 @@ export default {
 
   &__item {
     color: $color-light;
-    font: 18px/21px Play;
+    font: 18px/21px Play, sans-serif;
     text-align: left;
 
     padding: 0.75rem;

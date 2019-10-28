@@ -31,10 +31,10 @@ $margin-header: 80px auto;
 // шрифты
 //
 
-$font-header: 24px/28px Play; // заголовки
-$font-nav: normal normal bold 24px/28px Play;
-$font-button-auth: 20px/24px Play; // кнопки в регистрации и входе
-$font-footer: 18px/21px Play;
+$font-header: 24px/28px Play, sans-serif; // заголовки
+$font-nav: normal normal bold 24px/28px Play, sans-serif;
+$font-button-auth: 20px/24px Play, sans-serif; // кнопки в регистрации и входе
+$font-footer: 18px/21px Play, sans-serif;
 
-$font-menu: 16px/18px Play;
-$font-menu-748-to-1080: 13px/15px Play;
+$font-menu: 16px/18px Play, sans-serif;
+$font-menu-748-to-1080: 13px/15px Play, sans-serif;

@@ -84,7 +84,7 @@ export default {
   &__value {
     /* нужно задавать высоту, ибо иначе она ставится по select */
     height: 75px;
-    font: 24px/28px Play;
+    font: 24px/28px Play, sans-serif;
   }
 
   /* для select курсов */
@@ -116,7 +116,7 @@ export default {
 
     &__value {
       height: 38px;
-      font: 18px/21px Play;
+      font: 18px/21px Play, sans-serif;
       text-align: left !important;
     }
 

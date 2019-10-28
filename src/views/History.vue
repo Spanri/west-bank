@@ -94,7 +94,7 @@ export default {
   }
 
   &__day-title {
-    font: 18px/21px Play;
+    font: 18px/21px Play, sans-serif;
   }
 
   &__action {

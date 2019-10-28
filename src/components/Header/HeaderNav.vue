@@ -106,7 +106,7 @@ export default {
       align-self: flex-start;
       padding-left: calc(100vw/2 - 61px);
       text-align: left;
-      font: 18px/21px Play;
+      font: 18px/21px Play, sans-serif;
 
       & + & {
         margin-top: 28px;

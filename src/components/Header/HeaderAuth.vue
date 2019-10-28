@@ -67,7 +67,7 @@ export default {
       align-items: center;
 
       color: $color-light;
-      font: 16px/19px Play;
+      font: 16px/19px Play, sans-serif;
       letter-spacing: .05em;
       text-decoration: none;
 

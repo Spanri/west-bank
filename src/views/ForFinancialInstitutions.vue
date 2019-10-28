@@ -83,9 +83,9 @@ export default {
 
   &__text {
     color: $color-light;
-    font: 18px/20px Play;
+    font: 18px/20px Play, sans-serif;
   }
-  
+
 }
 
 @media (min-width: 1440px) {

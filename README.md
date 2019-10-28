@@ -64,7 +64,7 @@ display (если flex, то здесь же всё, что относится �
   justify-content: space-between;
 
   color: red;
-  font-family: Play;
+  font-family: Play, sans-serif;
   text-align: center;
 }
 ```

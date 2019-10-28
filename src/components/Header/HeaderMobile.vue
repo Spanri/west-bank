@@ -208,7 +208,7 @@ export default {
 
     &-text {
       color: $color-light;
-      font: 14px/16px Play;
+      font: 14px/16px Play, sans-serif;
 
       &_big {
         display: block;

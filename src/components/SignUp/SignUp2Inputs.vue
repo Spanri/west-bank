@@ -131,7 +131,7 @@ export default {
     margin: 41px 0 -30px 270px;
 
     color: $color-pre-medium;
-    font: 18px/21px Play;
+    font: 18px/21px Play, sans-serif;
     letter-spacing: .08em;
     text-align: left;
   }

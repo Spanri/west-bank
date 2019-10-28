@@ -90,7 +90,7 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
 
-    font: 24px/28px Play;
+    font: 24px/28px Play, sans-serif;
   }
 
   &__top {
@@ -102,7 +102,7 @@ export default {
 
   &__text {
     text-align: left;
-    font: 19px/22px Play;
+    font: 19px/22px Play, sans-serif;
     letter-spacing: .015em;
 
     padding: 15px 0 0;

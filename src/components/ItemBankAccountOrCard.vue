@@ -68,7 +68,7 @@ export default {
   padding: 19px;
   margin: 0 -19px;
 
-  font: 24px/28px Play;
+  font: 24px/28px Play, sans-serif;
 
   &-without-currency {
     width: 645px;

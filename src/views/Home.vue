@@ -94,7 +94,7 @@ export default {
   height: auto;
 
   color: $color-light;
-  font: 24px/28px Play;
+  font: 24px/28px Play, sans-serif;
   text-align: left;
 
   &__title {
@@ -180,7 +180,7 @@ export default {
     user-select: none;
 
     color: $color-light;
-    font: 24px/28px Play;
+    font: 24px/28px Play, sans-serif;
     letter-spacing: .09em;
     text-align: left;
     text-decoration: none;

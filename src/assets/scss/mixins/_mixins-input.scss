@@ -15,7 +15,7 @@ transfers2
     margin-left: 270px;
 
     text-align: left;
-    font: 16px/21px Play;
+    font: 16px/21px Play, sans-serif;
     letter-spacing: .08em;
     color: $error;
   }
@@ -75,7 +75,7 @@ transfers2
       box-shadow: 2px 4px 4px rgba(0, 0, 0, .25);
 
       color: $color-light;
-      font: 18px/21px Play;
+      font: 18px/21px Play, sans-serif;
 
       &:focus {
         //color: $color-accent;
@@ -89,7 +89,7 @@ transfers2
 
       color: $color-light;
       text-align: left;
-      font: 20px/24px Play;
+      font: 20px/24px Play, sans-serif;
       letter-spacing: .08em;
 
       margin-bottom: 10px;

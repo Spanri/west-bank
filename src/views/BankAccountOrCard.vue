@@ -103,7 +103,7 @@ export default {
     pointer-events: none;
 
     /deep/ .item {
-      font: 36px/42px Play;
+      font: 36px/42px Play, sans-serif;
       vertical-align: top;
     }
 
@@ -119,7 +119,7 @@ export default {
   }
 
   &__info {
-    font: 24px/28px Play;
+    font: 24px/28px Play, sans-serif;
 
     max-width: 929px;
 
@@ -178,7 +178,7 @@ export default {
       user-select: none;
 
       color: $color-light;
-      font: normal normal normal 24px/28px Play;
+      font: normal normal normal 24px/28px Play, sans-serif;
       letter-spacing: .09em;
 
       &:hover {

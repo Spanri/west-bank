@@ -48,7 +48,7 @@ export default {
 
   &__text {
     color: $color-light;
-    font: 24px/37px Play;
+    font: 24px/37px Play, sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
     margin-bottom: 36px;
 
@@ -69,7 +69,7 @@ export default {
     background: transparent;
 
     color: $color-accent;
-    font: 18px/153.2% Play;
+    font: 18px/153.2% Play, sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
     margin-bottom: 26px;
 

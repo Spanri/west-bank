@@ -42,14 +42,14 @@ export default {
 
   &__text {
     color: $color-light;
-    font: 24px/37px Play;
+    font: 24px/37px Play, sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 
     padding: 35px 35px 0;
 
     &_title {
       color: $color-accent;
-      font: 24px/153.2% Play;
+      font: 24px/153.2% Play, sans-serif;
       font-weight: bold;
     }
 
@@ -66,7 +66,7 @@ export default {
     background: transparent;
 
     color: $color-accent;
-    font: 18px/153.2% Play;
+    font: 18px/153.2% Play, sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
 
     &:hover {

@@ -114,7 +114,7 @@ export default {
       user-select: none;
 
       color: $color-light;
-      font: normal normal normal 24px/28px Play;
+      font: normal normal normal 24px/28px Play, sans-serif;
       letter-spacing: .09em;
 
       &:hover {
@@ -156,7 +156,7 @@ export default {
     padding: 24px 10px;
 
     color: $color-accent;
-    font: 14px/16px Play;
+    font: 14px/16px Play, sans-serif;
     text-align: right;
 
     &::after {
@@ -187,7 +187,7 @@ export default {
     }
 
     &-item {
-      font: 24px/28px Play;
+      font: 24px/28px Play, sans-serif;
       color: $color-light;
 
       &:first-child {

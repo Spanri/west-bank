@@ -139,7 +139,7 @@ export default {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.46);
 
     text-align: left;
-    font: normal normal bold 24px/28px Play;
+    font: normal normal bold 24px/28px Play, sans-serif;
 
     &:hover {
       cursor: pointer;
@@ -216,7 +216,7 @@ export default {
     align-self: flex-end;
 
     color: $color-accent;
-    font: 14px/16px Play;
+    font: 14px/16px Play, sans-serif;
 
     padding: 0 27px 22px;
     margin: 0;

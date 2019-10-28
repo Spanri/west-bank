@@ -36,6 +36,7 @@ export default {
 <style scoped lang="scss">
 .footer {
   height: 172px;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
@@ -54,20 +55,20 @@ export default {
     flex-direction: column;
 
     color: $color-light;
-    font: 18px/21px Play;
+    font: 18px/21px Play, sans-serif;
     letter-spacing: .135em;
     text-align: left;
 
     margin-left: 94px;
 
     &-item {
-      padding-bottom: 24px;
+      margin-bottom: 24px;
     }
 
   }
 
   &__search {
-    width: 279px;
+    //width: 279px;
 
     display: flex;
     flex-direction: column;
@@ -76,7 +77,7 @@ export default {
 
     &-text {
       color: $color-light;
-      font: 18px/21px Play;
+      font: 18px/21px Play, sans-serif;
       letter-spacing: .205em;
       text-align: left;
     }
@@ -91,7 +92,7 @@ export default {
       padding: 0 10px;
 
       color: $color-light;
-      font: 16px/19px Play;
+      font: 16px/19px Play, sans-serif;
       letter-spacing: .05em;
 
       &:focus {
@@ -156,11 +157,11 @@ export default {
       margin: 0 21px 24px 0;
 
       &-text {
-        font: 13px/15px Play;
+        font: 13px/15px Play, sans-serif;
       }
 
       &-input {
-        font: 18px/17px Play;
+        font: 18px/17px Play, sans-serif;
 
         height: 36px;
         width: 279px;

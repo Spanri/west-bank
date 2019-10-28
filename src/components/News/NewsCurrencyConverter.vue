@@ -102,7 +102,7 @@ export default {
     height: 75px;
     width: 90px;
 
-    font: 24px/28px Play;
+    font: 24px/28px Play, sans-serif;
     text-align: right;
   }
 
@@ -145,7 +145,7 @@ export default {
 
     &__value {
       height: 38px;
-      font: 18px/21px Play;
+      font: 18px/21px Play, sans-serif;
       text-align: left !important;
     }
 

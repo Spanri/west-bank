@@ -31,7 +31,7 @@ export default {
   @include slide;
 
   color: $color-light;
-  font: 36px/42px Play;
+  font: 36px/42px Play, sans-serif;
   text-align: left;
 
   margin-bottom: 150px;
@@ -52,7 +52,7 @@ export default {
   }
 
   &__link {
-    font: normal normal normal 36px/42px Play;
+    font: normal normal normal 36px/42px Play, sans-serif;
     color: $color-light;
 
     &-accent {

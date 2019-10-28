@@ -7,7 +7,8 @@
         />
         <img 
           src="@/assets/logo.png" alt="Логотип"
-          class="header__logo-svg" width="75"
+          class="header__logo-svg"
+          width="75" height="86"
         >
         <!-- 
           @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
@@ -89,7 +90,7 @@ export default {
 
   &__text {
     text-align: left;
-    font: 19px/22px Play;
+    font: 19px/22px Play, sans-serif;
     letter-spacing: .015em;
 
     padding: 0 0 3px 6px;
