@@ -1,7 +1,9 @@
 module.exports = {
   assetsDir: './',
-  publicPath: '/',
-  //'babel-polyfill': 'babel-polyfill',
+  //publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/westb/'
+    : '/',
   css: {
     loaderOptions: {
       sass: {
