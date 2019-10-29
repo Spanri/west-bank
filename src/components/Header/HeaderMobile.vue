@@ -131,7 +131,7 @@ export default {
     top: 0px;
 
     box-sizing: border-box;
-    overflow: hidden;
+    //overflow: hidden;
   }
 
   &__hamburger {
@@ -169,7 +169,7 @@ export default {
     left: 0;
 
     background: $color-header;
-    margin: 50px 0 0;
+    padding: 30px 0 0;
     z-index: 11;
     box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.45);
     border-radius: 9px;
