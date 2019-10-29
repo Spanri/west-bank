@@ -11,6 +11,8 @@ import vSelect from 'vue-select';
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
+//require('es6-promise').polyfill();
+
 Vue.use(VueTheMask);
 Vue.component('v-select', vSelect);
 Vue.config.productionTip = false;

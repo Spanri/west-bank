@@ -1,20 +1,14 @@
 <template>
   <header class="header">
     <div class="header-inner">
-      <router-link to="/home" class="header__logo">
-        <LogoText 
-          class="header__logo-text" :color="logoColor"
-        />
-        <!-- style потому, что в IE иначе не работатет -->
-        <img 
-          src="@/assets/logo.png" alt="Логотип"
-          class="header__logo-svg"
-          style="height: 86px; width: auto;"
-        >
-        <!-- 86 75
-          @mouseenter.native="logoColor = 'rgb(255, 190, 190)'"
-          @mouseleave.native="logoColor = 'white'"
-         -->
+      <router-link 
+        to="/home" class="header__logo"
+        @mouseenter.native="logoColor = '#C66166'; 
+          logo = 'logoHover.png'"
+        @mouseleave.native="logoColor = 'white'; logo = 'logo.png'"
+      >
+        <LogoText class="header__logo-text" :color="logoColor" />
+        <img :src="getImgUrl(logo)" class="header__logo-svg" />
       </router-link>
       <div class="header__content">
         <HeaderNav class="header__nav" />
@@ -28,11 +22,13 @@
 </template>
 
 <script>
+import { getImgUrl, } from "@/mixins/getImgUrl";
+
 export default {
   name: "Header",
+  mixins: [getImgUrl,], // data - logo, methods - getImgUrl
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
-    Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },
@@ -73,6 +69,12 @@ export default {
     align-items: center;
 
     width: 170px;
+
+    &-svg {
+      height: 86px; 
+      width: auto;
+    }
+
   }
 
   &__content {

@@ -3,15 +3,12 @@
     <div class="header-inner">
       <router-link 
         to="/home" class="header__logo"
+        @mouseenter.native="logoColor = '#C66166'; 
+          logo = 'logoHover.png'"
+        @mouseleave.native="logoColor = 'white'; logo = 'logo.png'"
       >
-      <!-- @mouseenter.native="logoColor = 'rgb(255, 180, 180)'"
-        @mouseleave.native="logoColor = 'white'" -->
         <LogoText class="header__logo-text" :color="logoColor" />
-        <img 
-          src="@/assets/logo.png" alt="Логотип"
-          class="header__logo-svg" 
-          style="height: 86px; width: auto;"
-        >
+        <img :src="getImgUrl(logo)" class="header__logo-svg" />
       </router-link>
       <div class="header__content">
         <div class="header__top">
@@ -25,11 +22,13 @@
 </template>
 
 <script>
+import { getImgUrl, } from "@/mixins/getImgUrl";
+
 export default {
   name: "Header",
+  mixins: [getImgUrl,], // data - logo, methods - getImgUrl
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
-    // Logo: () => import("@/icons/Logo.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },
@@ -82,6 +81,12 @@ export default {
     align-items: center;
 
     width: 170px;
+
+    &-svg {
+      height: 86px; 
+      width: auto;
+    }
+
   }
 
   &__content {

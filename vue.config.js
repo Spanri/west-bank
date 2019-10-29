@@ -1,6 +1,7 @@
 module.exports = {
   assetsDir: './',
   publicPath: '/',
+  //'babel-polyfill': 'babel-polyfill',
   css: {
     loaderOptions: {
       sass: {

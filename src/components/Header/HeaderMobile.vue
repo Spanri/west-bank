@@ -36,19 +36,13 @@
       </transition>
       <transition name="slide-fade-logo">
         <router-link 
-          to="/home" v-show="!open"
-          class="header__logo-link"
+          to="/home" class="header__logo"
+          @mouseenter.native="logoColor = '#C66166'; 
+            logo = 'logoHover.png'"
+          @mouseleave.native="logoColor = 'white'; logo = 'logo.png'"
         >
-        <!-- @mouseenter.native="logoColor = 'rgb(255, 180, 180)';" 
-          @mouseleave.native="logoColor = 'white';" -->
-          <LogoText
-            class="header__logo-text" :color="logoColor"
-          />
-          <img 
-            src="@/assets/logo.png" alt="Логотип"
-            class="header__logo-svg"
-            style="height: 56px; width: auto;"
-          >
+          <LogoText class="header__logo-text" :color="logoColor" />
+          <img :src="getImgUrl(logo)" class="header__logo-svg" />
         </router-link>
       </transition>
     </div>
@@ -56,11 +50,13 @@
 </template>
 
 <script>
+import { getImgUrl, } from "@/mixins/getImgUrl";
+
 export default {
   name: "Header",
+  mixins: [getImgUrl,], // data - logo, methods - getImgUrl
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
-    Logo: () => import("@/icons/Logo.vue"),
     Hamburger: () => import("@/icons/Hamburger.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     AuthLogo: () => import("@/icons/AuthLogo.vue"),
@@ -144,7 +140,7 @@ export default {
     z-index: 112;
   }
 
-  &__logo-link {
+  &__logo {
     align-self: center;
     margin: 28px 21px 28px 0;
     user-select: none;
@@ -154,6 +150,11 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  &__logo-svg {
+    height: 56px; 
+    width: auto;
   }
 
   &__menu {

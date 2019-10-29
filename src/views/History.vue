@@ -12,6 +12,8 @@
       <div 
         class="history__action"
         v-for="(action, index) in item.actions" :key="index"
+        :class="action.sign ? 'history__action_plus' : 
+          'history__action_minus'"
       >
         <p class="history__action-title">{{ action.description }}</p>
         <p class="history__action-amount">{{ action.amount }}</p>
@@ -32,10 +34,12 @@ export default {
             {
               description: 'Перевод на карту ***4567',
               amount: 5500,
+              sign: false, // 1 - плюс, 0 - минус
             },
             {
               description: '***1234 Зачисление',
               amount: 5500,
+              sign: true,
             },
           ],
         },
@@ -45,14 +49,17 @@ export default {
             {
               description: '***1234 Зачисление Перевод на карту ***4567 ***1234 Зачисление',
               amount: 500,
+              sign: true,
             },
             {
-              description: '***1234 Зачисление',
+              description: '***1234 Перевод',
               amount: 2000,
+              sign: false,
             },
             {
               description: '***1234 Зачисление',
               amount: 5500,
+              sign: true,
             },
           ],
         },
@@ -62,6 +69,7 @@ export default {
             {
               description: 'чето',
               amount: 5500,
+              sign: false,
             },
           ],
         },
@@ -108,6 +116,14 @@ export default {
     @include color-opacity(background, $color-block-light, .2);
     padding: 10px 26px 10px 16px;
     overflow: hidden;
+
+    &_plus {
+      color: $success;      
+    }
+
+    &_minus {
+      color: $error;
+    }
 
     &-amount {
       padding-left: 15px;
