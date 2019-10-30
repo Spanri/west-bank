@@ -207,7 +207,7 @@ export default {
   .nav-item, .checked, .pre-checked, 
   .pre-pre-checked, .pre-pre-pre-checked {
     width: calc(100% - 42px) !important;
-    height: 176px;
+    height: 55px;
   }
 
   .nav-details {
@@ -218,12 +218,12 @@ export default {
     color: $color-accent;
     font: 14px/16px Play, sans-serif;
 
-    padding: 0 27px 22px;
-    margin: 0;
+    padding: 0 27px 0px;
+    margin: auto 0;
   }
 
   .nav-item {
-    height: 176px;
+    height: 70px;
     margin: 0 21px;
 
     &:last-child {
@@ -233,8 +233,7 @@ export default {
 
   .nav-text {
     text-align: left;
-    margin-left: 0;
-    margin-top: 10px;
+    margin: auto 10px auto 20px;
   }
 
 }
