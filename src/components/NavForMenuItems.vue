@@ -238,6 +238,24 @@ export default {
 
 }
 
+@media (max-width: 500px) {
+
+  .nav-item, .checked, .pre-checked, 
+  .pre-pre-checked, .pre-pre-pre-checked {
+    height: 90px;
+  }
+
+  .nav-details {
+    padding: 0 27px 0px;
+    margin: auto 0;
+  }
+
+  .nav-item {
+    height: 95px;
+  }
+
+}
+
 // для IE
 @media (max-width: 1440px) and 
   (-ms-high-contrast: none), 
