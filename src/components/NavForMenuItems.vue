@@ -94,6 +94,7 @@ export default {
 
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 
   color: $color-light;
 
@@ -117,6 +118,7 @@ export default {
 
   &-item {
     display: flex;
+    flex-wrap: wrap;
     //align-items: flex-end;
     //justify-content: flex-end;
 
@@ -218,13 +220,14 @@ export default {
     color: $color-accent;
     font: 14px/16px Play, sans-serif;
 
-    padding: 0 27px 0px;
+    padding: 0 27px 0px 20px;
     margin: auto 0;
   }
 
   .nav-item {
     height: 70px;
     margin: 0 21px;
+    justify-content: space-between;
 
     &:last-child {
       margin-bottom: 100px;
@@ -234,11 +237,13 @@ export default {
   .nav-text {
     text-align: left;
     margin: auto 10px auto 20px;
+    max-width: max-content;
+    max-width: 400px;
   }
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
   .nav-item, .checked, .pre-checked, 
   .pre-pre-checked, .pre-pre-pre-checked {
@@ -246,12 +251,23 @@ export default {
   }
 
   .nav-details {
-    padding: 0 27px 0px;
+    padding: 0 27px 0px 20px;
     margin: auto 0;
   }
 
   .nav-item {
     height: 95px;
+    width: calc(100% - 42px) !important;
+    //flex-wrap: nowrap;
+    word-wrap: break-word;
+  }
+
+  .nav-text {
+    width: auto;
+    width: calc(100% - 42px) !important;
+    word-wrap: break-word;
+    // flex-basis: 100%;
+    // min-width: 400px;
   }
 
 }
