@@ -11,7 +11,9 @@
           ВЕСТ
         </span>
       </p>
-      <button class="download-app__button">Скачать</button>
+      <button class="download-app__button" @click="download">
+        Скачать
+      </button>
       <img 
         src="@/assets/mobileApps.png"
         class="download-app__mobile-apps"
@@ -26,8 +28,10 @@
 export default {
   name: "DownloadApp",
   components: {
-    Logo: () => import("@/icons/Logo.vue"),
     Block: () => import("@/components/Block.vue"),
+  },
+  methods: {
+    download() { },
   },
 };
 </script>

@@ -13,3 +13,12 @@ body {
   background: darken($color-block-light, 5);
   color: $color-pre-light;
 }
+
+button {
+  border: 0;
+  background: transparent;
+}
+
+button:focus, button:active {
+  outline: none;
+}

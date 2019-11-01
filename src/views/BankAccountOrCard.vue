@@ -29,22 +29,15 @@
           {{ item.constraints }}
         </span>
       </p>
-      <div class="bank-account-or-card__buttons-wrapper">
-        <div class="bank-account-or-card__buttons">
-          <div class="bank-account-or-card__buttons-inner">
-            <p 
-              class="bank-account-or-card__buttons-text" 
-              @click="goToExcerpt"
-            >
-              Выписка
-            </p>
+      <div class="bank-account-or-card__buttons button-left-wrapper">
+        <div class="button-left">
+          <div class="button-left-inner" @click="goToExcerpt">
+            <span class="button-left-text">Выписка</span>
           </div>
-          <div class="bank-account-or-card__buttons-inner">
-            <p 
-              class="bank-account-or-card__buttons-text"
-            >
-              Заблокировать счёт
-            </p>
+        </div>
+        <div class="button-left">
+          <div class="button-left-inner" @click="lockout">
+            <span class="button-left-text">Заблокировать счёт</span>
           </div>
         </div>
       </div>
@@ -80,6 +73,7 @@ export default {
         },
       });
     },
+    lockout() {},
   },
 };
 </script>
@@ -87,6 +81,8 @@ export default {
  
 <style scoped lang="scss">
 .bank-account-or-card {
+  @include button-left;
+
   height: 100%;
 
   color: $color-light;
@@ -152,54 +148,11 @@ export default {
   }
 
   &__buttons {
-    height: 268px;
+    margin: 71px 0 188px;
 
-    &-wrapper {
-      position: relative;
-      margin: 71px 0 188px;
+    & > * + * {
+      margin-top: 223px;
     }
-
-    &-inner {      
-      position: absolute;
-      left: calc((100vw - 1440px) / 2 * (-1));
-
-      height: 62px;
-      width: calc((100vw - 1440px) / 2 + 654px);
-
-      @include color-opacity(background, $color-block-light, .2);
-      background: 
-        linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
-        rgba(red($color-block-light), 
-          green($color-block-light), 
-          blue($color-block-light),
-          .2); 
-      border: 0;
-      padding-left: calc((100vw - 1440px) / 2);
-      user-select: none;
-
-      color: $color-light;
-      font: normal normal normal 24px/28px Play, sans-serif;
-      letter-spacing: .09em;
-
-      &:hover {
-        background: $color-accent;
-        background: 
-          linear-gradient(90deg, #15172D -80.71%, rgba(61, 65, 104, 0) 100%),
-          $color-accent;
-        cursor: pointer;
-        transition: ease-in-out all .15s;
-      }
-    }
-
-    &-inner + &-inner {
-      margin-top: 313px; // 90px (1ый блок) + 223px
-    }
-
-    &-text {
-      margin: 0;
-      padding: 15px 0 15px 42px;
-      text-align: left;
-    }    
 
   }
 
@@ -222,34 +175,5 @@ export default {
 
   }
   
-}
-
-@media (min-width: 1440px) {
-
-  .bank-account-or-card__buttons-inner {
-    background: 
-        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        rgba(red($color-block-light), 
-          green($color-block-light), 
-          blue($color-block-light),
-          .2); 
-
-    &:hover {
-      background:
-        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        $color-accent;
-    }
-
-  }
-  
-}
-
-@media (max-width: 1440px) {
-
-  .bank-account-or-card__buttons-inner {
-    width: 654px;
-    left: 0;
-  }
-
 }
 </style>

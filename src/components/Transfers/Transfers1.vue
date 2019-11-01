@@ -1,7 +1,7 @@
 <template>
   <div class="transfers1">
     <p class="transfers1__title">Переводы</p>
-    <div
+    <button
       class="transfers1__button" @click="goToNext(item.to)"
       v-for="(item, index) in items" :key="index"
       @mouseenter="item.logoColor = '#D35858'"
@@ -13,7 +13,7 @@
         {{ item.title }}
       </div>
       <Triangle class="transfers1__triangle" :color="item.logoColor" /> 
-    </div>
+    </button>
   </div>
 </template>
 

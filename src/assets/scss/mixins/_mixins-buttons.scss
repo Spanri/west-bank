@@ -5,15 +5,15 @@
     rgba(red($color-block-light), 
       green($color-block-light), 
       blue($color-block-light), 
-      .2); 
+      .2);
   
   &:hover {
     background: $color-accent;
-      background: 
-        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        $color-accent; 
-      cursor: pointer;
-      transition: ease-in-out all .15s;
+    background: 
+      linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+      $color-accent;
+    cursor: pointer;
+    transition: ease-in-out all .15s;
   }
 
 }
@@ -23,29 +23,85 @@
   .button-left {
     height: 62px;
     width: 654px;
-    
-    color: $color-light;
-    text-align: left;
-    font: 24px/28px Play, sans-serif;
-    letter-spacing: .09em;
-
-    z-index: 2;
+    display: block;
 
     &-wrapper {
       position: relative;
     }
 
-    &-color {
-      content: '';
-      @include button-color;
-      padding-left: 42px;
-      z-index: 1;
-
+    &-inner {
       position: absolute;
       left: calc((100vw - 1440px) / 2 * (-1));
 
       width: calc((100vw - 1440px) / 2 + 654px);
       height: 62px;
+      
+      padding-left: calc((100vw - 1440px) / 2 + 42px);
+      @include button-color;
+      border: 0;
+      user-select: none;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    &-text {
+      color: $color-light;
+      text-align: left;
+      font: 24px/28px Play, sans-serif;
+      letter-spacing: .09em;
+    }
+
+  }
+
+  @media (max-width: 1440px) {
+
+    .button-left {
+
+      &-inner {
+        left: 0;
+        width: 654px;
+        padding-left: 42px;
+      }
+
+    }
+
+  }
+
+  @media (max-width: 900px) {
+
+    .button-left {
+      width: 100vw;
+
+      &-inner {
+        width: 100%;
+        @include color-opacity(background, $color-block-light, .2);
+        text-align: center;
+        padding-left: 0;
+        justify-content: center;
+
+        &:hover {
+          @include color-opacity(background, $color-accent, .6);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@mixin button-right {
+
+  .button-right {
+    height: 62px;
+    width: 654px;
+
+    &-wrapper {
+      position: relative;
     }
 
     &-inner {
@@ -70,7 +126,7 @@
 
   @media (max-width: 1440px) {
 
-    .button-left {
+    .button-right {
 
       &-inner {
         left: 0;
@@ -81,9 +137,5 @@
     }
 
   }
-
-}
-
-@mixin button-right {
 
 }

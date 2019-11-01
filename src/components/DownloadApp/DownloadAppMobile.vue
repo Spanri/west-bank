@@ -12,7 +12,9 @@
         src="@/assets/logo.png" alt="Логотип"
         class="download-app__logo" width="153"
       >
-      <button class="download-app__button">Скачать</button>
+      <button class="download-app__button" @click="download">
+        Скачать
+      </button>
       <img 
         src="@/assets/mobileApps.png"
         class="download-app__mobile-apps"
@@ -25,8 +27,8 @@
 <script>
 export default {
   name: "DownloadAppMobile",
-  components: {
-    // Logo: () => import("@/icons/Logo.vue"),
+  methods: {
+    download() { },
   },
 };
 </script>
