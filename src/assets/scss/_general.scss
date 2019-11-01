@@ -1,0 +1,15 @@
+html, body {
+  min-height: 100vh;
+  background: $color-background;
+}
+
+body {
+  display: flex; /*  IE need this for its 'min-height' bug  */
+  flex-direction: column;
+  background: $color-background;
+}
+
+::selection {
+  background: darken($color-block-light, 5);
+  color: $color-pre-light;
+}

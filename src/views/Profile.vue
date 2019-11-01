@@ -26,7 +26,18 @@
         <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
-    <div class="profile__buttons-wrapper">
+    <div class="profile__buttons button-left-wrapper">
+      <div class="button-left">
+        <div class="button-left-color" />
+        Редактировать данные
+      </div>
+      <div class="button-left">
+        <div class="button-left-inner" @click="logout">
+          Выйти из аккаунта
+        </div>
+      </div>
+    </div>
+    <!-- <div class="profile__buttons-wrapper">
       <div class="profile__buttons">
         <div class="profile__buttons-inner">
           <p class="profile__buttons-text" @click="editData">
@@ -39,7 +50,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -69,6 +80,7 @@ export default {
 
 <style scoped lang="scss">
 .profile {
+  @include button-left;
   position: relative;
 
   &__content {
@@ -87,58 +99,58 @@ export default {
     padding-top: 92px;
   }
 
-  &__buttons {
-    height: 268px;
+  // &__buttons {
+  //   height: 268px;
 
-    &-wrapper {
-      position: relative;
-      margin: 185px 0 100px;
-    }
+  //   &-wrapper {
+  //     position: relative;
+  //     margin: 185px 0 100px;
+  //   }
 
-    &-inner {      
-      position: absolute;
-      left: calc((100vw - 1440px) / 2 * (-1));
+  //   &-inner {      
+  //     position: absolute;
+  //     left: calc((100vw - 1440px) / 2 * (-1));
 
-      height: 62px;
-      width: calc((100vw - 1440px) / 2 + 654px);
+  //     height: 62px;
+  //     width: calc((100vw - 1440px) / 2 + 654px);
 
-      @include color-opacity(background, $color-block-light, .2);
-      background: 
-        linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-        rgba(red($color-block-light), 
-          green($color-block-light), 
-          blue($color-block-light), 
-          .2); 
-      border: 0;
-      padding-left: calc((100vw - 1440px) / 2);
-      user-select: none;
+  //     @include color-opacity(background, $color-block-light, .2);
+  //     background: 
+  //       linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+  //       rgba(red($color-block-light), 
+  //         green($color-block-light), 
+  //         blue($color-block-light), 
+  //         .2); 
+  //     border: 0;
+  //     padding-left: calc((100vw - 1440px) / 2);
+  //     user-select: none;
 
-      color: $color-light;
-      font: normal normal normal 24px/28px Play, sans-serif;
-      letter-spacing: .09em;
+  //     color: $color-light;
+  //     font: normal normal normal 24px/28px Play, sans-serif;
+  //     letter-spacing: .09em;
 
-      &:hover {
-        background: $color-accent;
-        background: 
-          linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
-          $color-accent; 
-        cursor: pointer;
-        transition: ease-in-out all .15s;
-      }
+  //     &:hover {
+  //       background: $color-accent;
+  //       background: 
+  //         linear-gradient(90deg, #15172D -20.71%, rgba(61, 65, 104, 0) 100%),
+  //         $color-accent; 
+  //       cursor: pointer;
+  //       transition: ease-in-out all .15s;
+  //     }
       
-    }
+  //   }
 
-    &-inner + &-inner {
-      margin-top: 168px; // 90px (1ый блок) + 78px
-    }
+  //   &-inner + &-inner {
+  //     margin-top: 168px; // 90px (1ый блок) + 78px
+  //   }
 
-    &-text {
-      margin: 0;
-      padding: 15px 0 15px 42px;
-      text-align: left;
-    }
+  //   &-text {
+  //     margin: 0;
+  //     padding: 15px 0 15px 42px;
+  //     text-align: left;
+  //   }
 
-  }
+  // }
 
   &__photo-block {
     display: flex;

@@ -69,26 +69,6 @@ export default {
 </script>
 
 <style lang="scss">
-.button:hover {
-  cursor: pointer;
-}
-
-::selection {
-  background: darken($color-block-light, 5);
-  color: $color-pre-light;
-}
-
-html, body {
-  min-height: 100vh;
-  background: $color-header;
-}
-
-body {
-  display: flex; /*  IE need this for its 'min-height' bug  */
-  flex-direction: column;
-  background: $color-header;
-}
-
 #app {
   font-family: Play, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
