@@ -18,6 +18,7 @@ function login(username, password) {
 
   requestOptions; // убрать при не фейке
   config.apiUrl;
+  handleResponse;
 
   // return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
   //   .then(handleResponse)
