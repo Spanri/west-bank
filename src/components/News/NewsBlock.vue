@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "NewsBlock",
+  
   components: {
     Block: () => import("@/components/Block.vue"),
   },

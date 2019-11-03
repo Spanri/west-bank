@@ -25,9 +25,11 @@ import { ru, } from 'vuejs-datepicker/dist/locale';
 
 export default {
   name: "ExcerptFilter",
+
   components: {
     Datepicker,
   },
+
   data() {
     return {
       date: {
@@ -37,6 +39,7 @@ export default {
       ru: ru,
     };
   },
+  
   methods: {
     filter() {
       this.$emit("filter", {

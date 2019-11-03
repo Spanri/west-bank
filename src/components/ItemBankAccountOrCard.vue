@@ -32,6 +32,7 @@
 <script>
 export default {
   name: "Home",
+
   props: {
     type: String,
     item: {
@@ -41,10 +42,12 @@ export default {
       currency: 0,
     },
   },
+
   components: {
     Card: () => import("@/icons/Card.vue"),
     CardNumber: () => import("@/icons/CardNumber.vue"),
   },
+  
   methods: {
     goToBankAccountorCard(id) {
       this.$router.push({

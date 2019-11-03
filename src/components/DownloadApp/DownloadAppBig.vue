@@ -27,9 +27,11 @@
 <script>
 export default {
   name: "DownloadApp",
+
   components: {
     Block: () => import("@/components/Block.vue"),
   },
+  
   methods: {
     download() { },
   },

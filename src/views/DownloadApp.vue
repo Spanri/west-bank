@@ -8,6 +8,7 @@
 <script>
 export default {
   name: "DownloadAppWrapper",
+
   components: {
     DownloadAppBig: () => import("@/components/DownloadApp/DownloadAppBig.vue"),
     DownloadAppMobile: 

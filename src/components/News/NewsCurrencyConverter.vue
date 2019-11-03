@@ -39,17 +39,21 @@
 <script>
 export default {
   name: "NewsCurrencyConverter",
+
   components: {
     Select: () => import("@/components/Select.vue"),
   },
+
   props: {
     relevance: String,
   },
+
   watch: {
     relevance(newVal) {
       this.relevanceProp = newVal;
     },
   },
+
   data() {
     return {
       relevanceProp: this.relevance,
@@ -57,6 +61,7 @@ export default {
       selected4: '€',
     };
   },
+  
   methods: {
     select(val, model) {
       this[model] = val;

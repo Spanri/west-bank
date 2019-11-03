@@ -17,10 +17,12 @@
 <script>
 export default {
   name: "ForBusiness",
+  
   components: {
     NavForMenuItems: () => import("@/components/NavForMenuItems.vue"),
     Block: () => import("@/components/Block.vue"),
   },
+
   data() {
     return {
       items: [
@@ -53,14 +55,17 @@ export default {
       description: '',
     };
   },
+
   computed: {
     currentWidth() {
       return this.$store.getters.getCurrentWidth;
     },
   },
+
   created() {
     this.description = this.items[0].description;
   },
+  
   methods: {
     setDescription(val) {
       this.description = val;

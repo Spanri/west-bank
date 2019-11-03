@@ -44,18 +44,23 @@
 <script>
 export default {
   name: "Profile",
+
   components: {
     ProfilePhoto: () => import("@/icons/ProfilePhoto.vue"),
   },
+
   computed: {
     profile() {
       let user = this.$store.getters.getUser;
       return user.profile;
     },
   },
+
   methods: {
     editPhoto() {},
+
     editData() {},
+    
     logout() {
       this.$store.dispatch("logout").then(() => {
         this.$router.push("/auth");

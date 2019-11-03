@@ -60,6 +60,7 @@ import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
 
 export default {
   name: "SignUp2Inputs",
+
   data() {
     return {
       blocks: [
@@ -86,6 +87,7 @@ export default {
       passwordRepeat: "",
     };
   },
+
   validations: {
     login: {
       required,
@@ -106,6 +108,7 @@ export default {
       sameAsPassword: sameAs('password'),
     },
   },
+  
   methods: {
     submit() {
       this.$v.$touch();

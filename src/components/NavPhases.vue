@@ -30,19 +30,23 @@
 <script>
 export default {
   name: "NavPhases",
+
   props: {
     phase: String,
   },
+
   watch: {
     phase: function(newVal) {
       this.propPhase = newVal;
     },
   },
+
   data() {
     return {
       propPhase: this.phase,
     };
   },
+  
   methods: {
     next(val) {
       this.propPhase = val;

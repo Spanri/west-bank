@@ -50,6 +50,7 @@ import { required, minLength, maxLength, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
+
   data() {
     return {
       blocks: [
@@ -98,6 +99,7 @@ export default {
       nameOfPayment: null,
     };
   },
+
   validations: {
     amount: {
       type: Number,
@@ -133,6 +135,7 @@ export default {
       // required,
     },
   },
+
   methods: {
     submit() {
       this.$v.$touch();
@@ -141,6 +144,7 @@ export default {
       }
     },
   },
+  
   beforeRouteLeave(to, from, next) {
     if (this.$route.params.type == undefined) {
       next();

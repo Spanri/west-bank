@@ -59,6 +59,7 @@ import { required, minLength, email, } from 'vuelidate/lib/validators';
 
 export default {
   name: "SignUp1Inputs",
+
   data() {
     return {
       blocks: [
@@ -99,6 +100,7 @@ export default {
       errors: [],
     };
   },
+
   validations: {
     firstName: {
       required,
@@ -117,6 +119,7 @@ export default {
       email,
     },
   },
+
   methods: {
     submit() {
       this.$v.$touch();
@@ -124,6 +127,7 @@ export default {
         this.$emit("next");
       }
     },
+    
     patternPhone(model, initial) {
       if (model == "phone") {
         initial = initial.replace(

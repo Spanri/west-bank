@@ -25,6 +25,7 @@
 <script>
 export default {
   name: "Excerpt",
+  
   data() {
     return {
       items: [

@@ -14,9 +14,11 @@
 <script>
 export default {
   name: "ForFinancialInstitutions",
+
   components: {
     NavForMenuItems: () => import("@/components/NavForMenuItems.vue"),
   },
+
   data() {
     return {
       items: [
@@ -49,14 +51,17 @@ export default {
       description: '',
     };
   },
+
   computed: {
     currentWidth() {
       return this.$store.getters.getCurrentWidth;
     },
   },
+
   created() {
     this.description = this.items[0].description;
   },
+  
   methods: {
     setDescription(val) {
       this.description = val;

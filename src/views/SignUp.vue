@@ -13,12 +13,14 @@
 <script>
 export default {
   name: "SignUp",
+
   components: {
     NavPhases: () => import("@/components/NavPhases.vue"),
     SignUp1: () => import("@/components/SignUp/SignUp1.vue"),
     SignUp2: () => import("@/components/SignUp/SignUp2.vue"),
     SignUp3: () => import("@/components/SignUp/SignUp3.vue"),
   },
+
   data() {
     return {
       signUpPhase: 1,
@@ -29,6 +31,7 @@ export default {
       email: "",
     };
   },
+
   methods: {
     next(val) {
       this.signUpPhase = val;

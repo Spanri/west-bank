@@ -156,7 +156,6 @@ font: 100%/1.6 palatino, georgia, serif;
 #### VUE
 
 1. template
-2. script
-Порядок следования опций компонента/экземпляра (data, created и т.д.), а также порядок атрибутов элемента (v-for, id, ref и т.д.) смотреть в рекомендациях Vue => [кликать сюда](https://ru.vuejs.org/v2/style-guide/index.html#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA-%D0%BE%D0%BF%D1%86%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B0-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%B0-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D1%82%D1%81%D1%8F)
-3. style
-Использовать scoped (кроме App.vue) и scss.
+2. В script порядок следования опций компонента/экземпляра (data, created и т.д.), а также порядок атрибутов элемента (v-for, id, ref и т.д.) смотреть в рекомендациях Vue => [кликать сюда](https://ru.vuejs.org/v2/style-guide/index.html#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA-%D0%BE%D0%BF%D1%86%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%B0-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%B0-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D1%82%D1%81%D1%8F)
+3. В script опции компонента разделять пробелами, если в опции несколько функций, то их тоже пробелами.
+4. В style использовать scoped (кроме App.vue) и scss.

@@ -54,13 +54,16 @@ import { getImgUrl, } from "@/mixins/getImgUrl";
 
 export default {
   name: "Header",
+
   mixins: [getImgUrl,], // data - logo, methods - getImgUrl
+
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
     Hamburger: () => import("@/icons/Hamburger.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     AuthLogo: () => import("@/icons/AuthLogo.vue"),
   },
+
   data() {
     return {
       open: false,
@@ -68,15 +71,18 @@ export default {
       logoAuth: "white",
     };
   },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
   },
+
   methods: {
     openMenu(value) {
       this.open = value;
     },
+    
     goToPage() {
       console.log('aaa');
       this.open = false;

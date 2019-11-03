@@ -16,6 +16,7 @@
 <script>
 export default {
   name: "SignUp3",
+  
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Block: () => import("@/components/Block.vue"),

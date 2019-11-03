@@ -29,17 +29,20 @@
 <script>
 export default {
   name: "SignUp3",
+
   components: {
     Logo: () => import("@/icons/Logo.vue"),
     Document: () => import("@/icons/Document.vue"),
     Block: () => import("@/components/Block.vue"),
   },
+
   data() {
     return {
       logoColor1: "none",
       logoColor2: "#D35858",
     };
   },
+  
   beforeRouteEnter(to, from, next) {
     console.log(from);
     if(!/^transfers2+/.test(from.name)) {

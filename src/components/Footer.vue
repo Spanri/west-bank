@@ -25,6 +25,7 @@
 <script>
 export default {
   name: "Footer",
+  
   methods: {
     search() {
       console.log('Поиск');

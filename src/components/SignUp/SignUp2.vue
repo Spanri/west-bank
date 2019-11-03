@@ -14,14 +14,17 @@
 <script>
 export default {
   name: "SignUp2",
+
   components: {
     SignUp2Inputs: () => import("@/components/SignUp/SignUp2Inputs.vue"),
   },
+
   methods: {
     next() {
       this.$emit("next", 3);
     },
   },
+  
   beforeRouteLeave(to, from, next) {
     if (to.name == 'login') {
       next();

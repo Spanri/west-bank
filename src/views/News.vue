@@ -8,6 +8,7 @@
 <script>
 export default {
   name: "News",
+
   components: {
     NewsBlock: () => import("@/components/News/NewsBlock.vue"),
     NewsCurrency: () => import("@/components/News/NewsCurrency.vue"),

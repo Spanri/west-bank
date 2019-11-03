@@ -13,6 +13,7 @@
 <script>
 export default {
   name: "HeaderNav",
+
   data() {
     return {
       items: [
@@ -32,15 +33,18 @@ export default {
       ],
     };
   },
+
   computed: {
     currentWidth() {
       return this.$store.getters.getCurrentWidth;
     },
   },
+
   methods: {
     goToPage() {
       this.$emit("goToPage");
     },
+    
     title(item) {
       return this.currentWidth < 748 && item.titleMobile ? 
         item.titleMobile : item.title;

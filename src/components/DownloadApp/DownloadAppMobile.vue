@@ -27,6 +27,7 @@
 <script>
 export default {
   name: "DownloadAppMobile",
+  
   methods: {
     download() { },
   },

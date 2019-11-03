@@ -21,24 +21,29 @@
 <script>
 export default {
   name: "HeaderAuth",
+
   components: {
     AuthLogo: () => import("@/icons/AuthLogo.vue"),
     ProfileLogo: () => import("@/icons/ProfileLogo.vue"),
   },
+
   data() {
     return {
       logoColor: '#F2F2F2',
     };
   },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
+
     name() {
       let user = this.$store.getters.getUser;
       return user.profile.firstName;
     },
   },
+  
   methods: {
     goToPage() {
       this.$emit("goToPage");

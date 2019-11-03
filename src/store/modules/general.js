@@ -9,7 +9,10 @@ export default {
     currentWidth: '',
   },
   getters: {
-    getCurrentWidth: state => state.currentWidth,
+    getCurrentWidth: state => {
+      console.log(state.currentWidth);
+      return state.currentWidth;
+    },
   },
   mutations: {
     setCurrentWidth(state, data) {

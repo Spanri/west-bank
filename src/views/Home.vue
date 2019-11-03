@@ -42,6 +42,7 @@
 <script>
 export default {
   name: "Home",
+
   components: {
     History: () => import("@/icons/History.vue"),
     Cross: () => import("@/icons/Cross.vue"),
@@ -49,6 +50,7 @@ export default {
     ItemBankAccountOrCard: () => 
       import("@/components/ItemBankAccountOrCard.vue"),
   },
+  
   data() {
     return {
       bankAccounts: [

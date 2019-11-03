@@ -10,14 +10,17 @@
 <script>
 export default {
   name: "Transfers",
+
   components: {
     NavPhases: () => import("@/components/NavPhases.vue"),
   },
+
   computed: {
     transfersPhase() {
       return this.$route.name[9];
     },
   },
+
   methods: {
     next(val) {
       this.transfersPhase = val;

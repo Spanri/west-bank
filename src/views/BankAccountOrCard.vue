@@ -48,9 +48,11 @@
 <script>
 export default {
   name: "bankAccountOrCard",
+
   components: {
     ItemBankAccountOrCard: () => import("@/components/ItemBankAccountOrCard.vue"),
   },
+
   data() {
     return {
       item: {
@@ -64,6 +66,7 @@ export default {
       },
     };
   },
+
   methods: {
     goToExcerpt() {
       this.$router.push({
@@ -73,6 +76,7 @@ export default {
         },
       });
     },
+
     lockout() {},
   },
 };

@@ -21,11 +21,13 @@
 <script>
 export default {
   name: "Excerpt",
+
   components: {
     Document: () => import("@/icons/Document.vue"),
     ExcerptFilter: () => import("@/components/Excerpt/ExcerptFilter.vue"),
     ExcerptTable: () => import("@/components/Excerpt/ExcerptTable.vue"),
   },
+
   data() {
     return {
       logoColor1: '#3D4168',
@@ -37,6 +39,7 @@ export default {
       },
     };
   },
+  
   methods: {
     filter(data) {
       console.log('Данные поменялись', data);

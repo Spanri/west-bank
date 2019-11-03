@@ -20,9 +20,11 @@
 <script>
 export default {
   name: "Transfers",
+
   components: {
     Triangle: () => import("@/icons/Triangle.vue"),
   },
+
   data() {
     return {
       items: [
@@ -44,6 +46,7 @@ export default {
       ],
     };
   },
+  
   methods: {
     goToNext(to) {
       this.$router.push({ name: 'transfers2-' + to, });

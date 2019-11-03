@@ -24,30 +24,36 @@
 <script>
 export default {
   name: "NavPhases",
+
   props: {
     phase: String,
     items: Array,
   },
+
   watch: {
     phase: function(newVal) {
       this.propPhase = newVal;
     },
   },
+
   computed: {
     currentWidth() {
       return this.$store.getters.getCurrentWidth;
     },
   },
+
   data() {
     return {
       propPhase: this.phase,
       itemsProp: this.items,
     };
   },
+
   methods: {
     next(val) {
       this.propPhase = val;
     },
+    
     check(index) {
       this.items.forEach(item => {
         item.checked = false;

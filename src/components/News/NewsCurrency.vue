@@ -11,11 +11,13 @@
 <script>
 export default {
   name: "NewsCurrency",
+
   components: {
     NewsCurrencyRates: () => import("@/components/News/NewsCurrencyRates.vue"),
     NewsCurrencyConverter: () => 
       import("@/components/News/NewsCurrencyConverter.vue"),
   },
+  
   data() {
     return {
       converter: {

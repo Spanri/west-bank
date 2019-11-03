@@ -38,15 +38,18 @@
 <script>
 export default {
   name: "NewsCurrencyRates",
+
   components: {
     Select: () => import("@/components/Select.vue"),
   },
+
   data() {
     return {
       selected1: 'USD',
       selected2: 'EUR',
     };
   },
+  
   methods: {
     select(val, model) {
       this[model] = val;

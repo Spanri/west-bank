@@ -29,6 +29,8 @@
 import ClickOutside from 'vue-click-outside';
 
 export default {
+  name: "Select",
+
   props: {
     default: String,
     model: String,
@@ -38,19 +40,23 @@ export default {
       default: true,
     },
   },
-  directives: {
+
+  directives: { 
     ClickOutside,
   },
+
   data() {
     return {
       opened: false,
       value: this.default,
     };
   },
+
   methods: {
     hide() {
       this.opened = false;
     },
+
     selectVal(val) {
       this.value = val;
       this.$emit("select", val, this.model);

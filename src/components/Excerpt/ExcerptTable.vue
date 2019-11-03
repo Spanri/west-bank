@@ -26,6 +26,7 @@
 <script>
 export default {
   name: "ExcerptTable",
+
   data() {
     return {
       items: [
@@ -39,6 +40,7 @@ export default {
       dateEnd: null,
     };
   },
+
   filters: {
     excerptFilter(value) {
       if (!value) return this.items;
@@ -46,6 +48,7 @@ export default {
       return value.charAt(0).toUpperCase() + value.slice(1);
     },
   },
+  
   methods: {
     filter(data) {
       console.log('Данные поменялись', data);

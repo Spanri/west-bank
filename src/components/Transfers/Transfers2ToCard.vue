@@ -48,6 +48,7 @@ import { required, } from 'vuelidate/lib/validators';
 
 export default {
   name: "TransfersInputs",
+
   data() {
     return {
       blocks: [
@@ -66,6 +67,7 @@ export default {
       amount: null,
     };
   },
+
   validations: {
     cardNumber: {
       type: Number,
@@ -78,6 +80,7 @@ export default {
       isNumber: (value) => /[0-9]/i.test(value),
     },
   },
+
   methods: {
     submit() {
       this.$v.$touch();
@@ -86,6 +89,7 @@ export default {
       }
     },
   },
+  
   beforeRouteLeave(to, from, next) {
     if (this.$route.params.type == undefined) {
       next();

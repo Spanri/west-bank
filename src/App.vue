@@ -8,7 +8,7 @@
     <main class="app__main">
       <NavIfAuth
         class="app__nav-if-auth width2_big"
-        v-if="isLoggedIn && this.$route.meta.navIfAuth" 
+        v-if="isLoggedIn && (this.$route.meta.type & 0b010)" 
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -23,6 +23,7 @@ import axios from "axios";
 
 export default {
   name: "App",
+
   components: {
     HeaderBig: () => import("@/components/Header/HeaderBig.vue"),
     Header748to1080: () => import("@/components/Header/Header748to1080.vue"),
@@ -30,38 +31,51 @@ export default {
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
+
   mounted() {
-    /* Применяется в components/Header/HeaderNav.vue */
+    /* 
+      Применяется в components/Header/HeaderNav.vue и ниже в 
+      methods, setCurrentWidth
+    */
     window.addEventListener('resize', this.setCurrentWidth);
   },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
+
     currentRouteName() {
       return this.$route.name;
     },
+    
     currentWidth() {
       return this.$store.getters.getCurrentWidth;
     },
   },
+
   created() {
     const token = this.$store.state.token;
+
     console.log("token", token);
     if (token) {
       axios.defaults.headers.common["Authorization"] = token;
       localStorage.setItem("token", token);
     }
   },
+
   methods: {
     setCurrentWidth(e) {
-      this.$store.commit('setCurrentWidth', e.currentTarget.innerWidth);
-      if (e.currentTarget.innerWidth < 748 &&  
-          this.$route.meta.redirectToDownloadApp) {
+      const currentWidth = e.currentTarget.innerWidth;
+      const isAuth = this.$route.meta.type & 0b100;
+
+      this.$store.commit('setCurrentWidth', currentWidth);
+      if (currentWidth < 748 && isAuth) {
         this.$router.push("/download-app");
       }
     },
   },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.setCurrentWidth);
   },

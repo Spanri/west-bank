@@ -2,29 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
-import BootstrapVue from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.css";
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vuelidate from "vuelidate";
 import VueTheMask from 'vue-the-mask';
-import vSelect from 'vue-select';
+//import BootstrapVue from "bootstrap-vue";
+//import "bootstrap/dist/css/bootstrap.css";
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
-//require('es6-promise').polyfill();
-
 Vue.use(VueTheMask);
-Vue.component('v-select', vSelect);
-Vue.config.productionTip = false;
+//Vue.use(BootstrapVue);
 
-vSelect.props.components.default = () => ({
-  Deselect: {
-    render: createElement => createElement('span', ''),
-  },
-  OpenIndicator: {
-    render: createElement => createElement('span', ''),
-  },
-});
+Vue.config.productionTip = false;
 
 new Vue({
   router,

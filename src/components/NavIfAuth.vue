@@ -21,6 +21,7 @@
 <script>
 export default {
   name: "NavIfAuth",
+  
   computed: {
     currentRouteName() {
       console.log(this.$route.name);

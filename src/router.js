@@ -4,33 +4,9 @@ import store from "./store";
 
 Vue.use(Router);
 
-// как определять это?
+// для страниц с id, захардкожено
 const ifAuthenticatedAndValidId = (to, from, next) => {
   if (store.getters.isLoggedIn) {
-    next();
-    return;
-  }
-  next("/auth");
-};
-
-/* для страниц, где доступ только не авторизованным
-  (вход, регистрация) */
-const ifNotAuthenticated = (to, from, next) => {
-  if (!store.getters.isLoggedIn) {
-    next();
-    return;
-  }
-  next("/");
-};
-
-/* Для страниц, где доступ только авторизованным. */
-const ifAuthenticated = (to, from, next) => {
-  if (store.getters.getCurrentWidth < 748) {
-    next('/download-app');
-    return;
-  } 
-  if (store.getters.isLoggedIn) {
-    
     next();
     return;
   }
@@ -44,18 +20,25 @@ const router = new Router({
     {
       path: "/",
       redirect: '/news',
+      meta: {
+        title: 'Вест Банк, главная',
+        /*
+          1) для доступа нужна авторизация (используется в router.beforeEach и 
+            App.vue (script, methods, setCurrentWidth))
+          2) отображать ли NavIfAuth, используется в App.vue (template)
+          3) для доступа авторизации быть не должно (login и тд)   
+            (router.beforeEach)
+        */
+        type: 0b110,
+      },
     },
     {
       path: "/home",
       name: "home",
       component: () => import("@/views/Home.vue"),
-      beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, главная',
-        // если экран < 748, идти на /download-app
-        redirectToDownloadApp: true,
-        // отображать ли NavIfAuth
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     /* история, при клике на кнопку на главной */
@@ -63,11 +46,9 @@ const router = new Router({
       path: "/history",
       name: "history",
       component: () => import("@/views/History.vue"),
-      beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, история',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     /* карта/счет, при клике на блок на главной */
@@ -78,8 +59,7 @@ const router = new Router({
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     {
@@ -89,8 +69,7 @@ const router = new Router({
       beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     /* выписка, при клике на кнопку в карте/счете */
@@ -98,11 +77,9 @@ const router = new Router({
       path: "/excerpt/:id",
       name: "excerpt",
       component: () => import("@/views/Excerpt.vue"),
-      beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, выписка',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     /* навигация в шапке */
@@ -112,8 +89,7 @@ const router = new Router({
       component: () => import("@/views/News.vue"),
       meta: {
         title: 'Вест Банк, новости',
-        redirectToDownloadApp: false,
-        navIfAuth: true,
+        type: 0b010,
       },
     },
     {
@@ -122,8 +98,7 @@ const router = new Router({
       component: () => import("@/views/ForPrivateClients.vue"),
       meta: {
         title: 'Вест Банк, для приватных клиентов',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     {
@@ -132,8 +107,7 @@ const router = new Router({
       component: () => import("@/views/ForBusiness.vue"),
       meta: {
         title: 'Вест Банк, бизнесу',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     {
@@ -142,8 +116,7 @@ const router = new Router({
       component: () => import("@/views/ForFinancialInstitutions.vue"),
       meta: {
         title: 'Вест Банк, финансовым институтам',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     {
@@ -152,8 +125,7 @@ const router = new Router({
       component: () => import("@/views/About.vue"),
       meta: {
         title: 'Вест Банк, о банке',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     /* вход, регистрация */
@@ -161,33 +133,27 @@ const router = new Router({
       path: "/auth",
       name: "auth",
       component: () => import("@/views/Auth.vue"),
-      beforeEnter: ifNotAuthenticated,
       meta: {
         title: 'Вест Банк, аутентификация',
-        redirectToDownloadApp: true,
-        navIfAuth: false,
+        type: 0b101,
       },
     },
     {
       path: "/login",
       name: "login",
       component: () => import("@/views/Login.vue"),
-      beforeEnter: ifNotAuthenticated,
       meta: {
         title: 'Вест Банк, вход',
-        redirectToDownloadApp: true,
-        navIfAuth: false,
+        type: 0b101,
       },
     },
     {
       path: "/signup",
       name: "signup",
       component: () => import("@/views/SignUp.vue"),
-      beforeEnter: ifNotAuthenticated,
       meta: {
         title: 'Вест Банк, регистрация',
-        redirectToDownloadApp: true,
-        navIfAuth: false,
+        type: 0b101,
       },
     },
     /* профиль */
@@ -195,11 +161,9 @@ const router = new Router({
       path: "/profile",
       name: "profile",
       component: () => import("@/views/Profile.vue"),
-      beforeEnter: ifAuthenticated,
       meta: {
         title: 'Вест Банк, профиль',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
     },
     /* при клике на кнопку в NavIfAuth */
@@ -208,8 +172,7 @@ const router = new Router({
       component: () => import("@/views/Transfers.vue"),
       meta: {
         title: 'Вест Банк, переводы',
-        redirectToDownloadApp: true,
-        navIfAuth: true,
+        type: 0b110,
       },
       children: [
         {
@@ -219,8 +182,7 @@ const router = new Router({
             import("@/components/Transfers/Transfers1.vue"),
           meta: {
             title: 'Вест Банк, переводы',
-            redirectToDownloadApp: true,
-            navIfAuth: true,
+            type: 0b110,
           },
         },
         {
@@ -230,8 +192,7 @@ const router = new Router({
             import("@/components/Transfers/Transfers2WithoutOpeningAnAccount.vue"),
           meta: {
             title: 'Вест Банк, перевод без открытия счета',
-            redirectToDownloadApp: true,
-            navIfAuth: true,
+            type: 0b110,
           },
         },
         {
@@ -241,8 +202,7 @@ const router = new Router({
             import("@/components/Transfers/Transfers2ToCard.vue"),
           meta: {
             title: 'Вест Банк, перевод на карту',
-            redirectToDownloadApp: true,
-            navIfAuth: true,
+            type: 0b110,
           },
         },
         {
@@ -252,8 +212,7 @@ const router = new Router({
             import("@/components/Transfers/Transfers2ToEWallet.vue"),
           meta: {
             title: 'Вест Банк, перевод на электронный кошелек',
-            redirectToDownloadApp: true,
-            navIfAuth: true,
+            type: 0b110,
           },
         },
         {
@@ -263,8 +222,7 @@ const router = new Router({
             import("@/components/Transfers/Transfers3.vue"),
           meta: {
             title: 'Вест Банк, перевод совершен',
-            redirectToDownloadApp: true,
-            navIfAuth: true,
+            type: 0b110,
           },
         },
       ],
@@ -276,8 +234,7 @@ const router = new Router({
       component: () => import("@/views/DownloadApp.vue"),
       meta: {
         title: 'Вест Банк, скачать приложение',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     /* страница не найдена */
@@ -288,8 +245,7 @@ const router = new Router({
       component: () => import("@/views/NotFound.vue"),
       meta: {
         title: 'Вест Банк, страница не найдена',
-        redirectToDownloadApp: false,
-        navIfAuth: false,
+        type: 0b000,
       },
     },
     {
@@ -298,11 +254,39 @@ const router = new Router({
       component: () => import("@/views/NotFound.vue"),
       meta: {
         title: 'Вест Банк, страница не найдена',
-        redirectToDownloadApp: false,
-        navIfAuth: true,
+        type: 0b010,
       },
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  const isNotAuth = to.matched.some(auth => auth.meta.type & 0b100);
+  const isAuth = to.matched.some(auth => auth.meta.type & 0b001);
+  const isLoggedIn = store.getters.isLoggedIn;
+  const isCurrentWidthSmall = store.getters.getCurrentWidth < 748;
+
+  // если авторизации быть не должно
+  if(isNotAuth) {
+    if (!store.getters.isLoggedIn) {
+      next();
+      return;
+    }
+    next("/");
+  // иначе, если нужна авторизация
+  } else if(isAuth) {
+    if (isCurrentWidthSmall) {
+      next('/download-app');
+      return;
+    } 
+    if (isLoggedIn) {
+      next();
+      return;
+    }
+    next("/auth");
+  }
+  // всё равно на авторизацию
+  next();
 });
 
 router.afterEach((to) => {

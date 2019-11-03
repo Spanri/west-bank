@@ -26,12 +26,15 @@ import { getImgUrl, } from "@/mixins/getImgUrl";
 
 export default {
   name: "Header",
+
   mixins: [getImgUrl,], // data - logo, methods - getImgUrl
+
   components: {
     LogoText: () => import("@/icons/LogoText.vue"),
     HeaderNav: () => import("@/components/Header/HeaderNav.vue"),
     HeaderAuth: () => import("@/components/Header/HeaderAuth.vue"),
   },
+  
   data() {
     return {
       logoColor: "white",
