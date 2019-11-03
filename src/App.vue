@@ -20,6 +20,7 @@
 
 <script>
 import axios from "axios";
+import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "App",
@@ -40,7 +41,11 @@ export default {
     window.addEventListener('resize', this.setCurrentWidth);
   },
 
-  computed: {
+  computed: 
+    {
+      ...mapGetters('auth', [
+      'isLoggedIn',
+    ]),
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
@@ -65,6 +70,10 @@ export default {
   },
 
   methods: {
+    ...mapActions('auth', [
+        'login',
+    ]),
+      
     setCurrentWidth(e) {
       const currentWidth = e.currentTarget.innerWidth;
       const isAuth = this.$route.meta.type & 0b100;

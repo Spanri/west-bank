@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "./store";
-import { TokenService } from './services/storage.service'
 
 Vue.use(Router);
 
@@ -33,6 +32,7 @@ const router = new Router({
         type: 0b110,
       },
     },
+    // домашняя страница / Онлайн-банк
     {
       path: "/home",
       name: "home",
@@ -52,7 +52,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    // карта/счет, при клике на блок на главной
+    // счет, при клике на блок на главной
     {
       path: "/bank-account/:id",
       name: "bank-account",
@@ -63,6 +63,7 @@ const router = new Router({
         type: 0b110,
       },
     },
+    // карта, при клике на блок на главной
     {
       path: "/card/:id",
       name: "card",
@@ -167,7 +168,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    // при клике на кнопку в NavIfAuth
+    // переводы, при клике на кнопку в NavIfAuth
     {
       path: "/transfers",
       component: () => import("@/views/Transfers.vue"),
@@ -264,8 +265,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const isNotAuth = to.matched.some(auth => auth.meta.type & 0b100);
   const isAuth = to.matched.some(auth => auth.meta.type & 0b001);
-  //const isLoggedIn = store.getters.isLoggedIn;
-  const isLoggedIn = !!TokenService.getToken();
+  const isLoggedIn = store.getters.isLoggedIn;
   const isCurrentWidthSmall = store.getters.getCurrentWidth < 748;
 
   // если авторизации быть не должно

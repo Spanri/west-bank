@@ -14,14 +14,6 @@ Vue.use(VueTheMask);
 
 Vue.config.productionTip = false;
 
-// Set the base URL of the API
-ApiService.init(process.env.VUE_APP_ROOT_API)
-
-// If token exists set header
-if (TokenService.getToken()) {
-  ApiService.setHeader()
-}
-
 new Vue({
   router,
   store,
