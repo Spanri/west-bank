@@ -41,7 +41,7 @@ export default {
 }
 
 .router-link-exact-active {
-  /* как убрать important */
+  // как убрать important
   @include color-opacity(background, $color-block-dark, .95, true);
   background: linear-gradient(270deg, #15172D -90.71%, 
       rgba(61, 65, 104, 0) 100%), $color-block-dark !important;

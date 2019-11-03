@@ -85,12 +85,12 @@ export default {
   }
 
   &__value {
-    /* нужно задавать высоту, ибо иначе она ставится по select */
+    // нужно задавать высоту, ибо иначе она ставится по select
     height: 75px;
     font: 24px/28px Play, sans-serif;
   }
 
-  /* для select курсов */
+  // для select курсов
   &__type {
     position: relative;
     width: 150px;

@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/* для меню */
+// для меню
 .fade-enter-active, .fade-leave-active {
   transition: all .3s;
 }
@@ -101,9 +101,8 @@ export default {
   opacity: 0;
 }
 
-/* для аутентификации */
+// для аутентификации
 .slide-fade-auth-enter-active, .slide-fade-auth-leave-active {
-  // transform: translateX(-0px);
   transition: all 1s ease;
 }
 
@@ -112,7 +111,7 @@ export default {
   opacity: 0;
 }
 
-/* для логотипа */
+// для логотипа
 .slide-fade-logo-enter-active, .slide-fade-logo-leave-active {
   transition: all .8s ease;
 }
@@ -137,7 +136,6 @@ export default {
     top: 0px;
 
     box-sizing: border-box;
-    //overflow: hidden;
   }
 
   &__hamburger {

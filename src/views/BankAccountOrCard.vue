@@ -96,7 +96,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
-  /* переопределение, так как размеры другие */
+  // переопределение, так как размеры другие
   &__item  {
     margin: 140px 0 0;
     margin-left: 43px;
@@ -107,9 +107,9 @@ export default {
       vertical-align: top;
     }
 
-    /* 
-    Не получается переопределить то, то в 
-    компоненте ItembankAccountOrCard:^(
+    /**
+    * Не получается переопределить то, то в 
+    * компоненте ItembankAccountOrCard:^(
     */
     .item:hover {
       cursor: default !important;

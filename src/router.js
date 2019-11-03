@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "./store";
+import { TokenService } from './services/storage.service'
 
 Vue.use(Router);
 
@@ -22,12 +23,12 @@ const router = new Router({
       redirect: '/news',
       meta: {
         title: 'Вест Банк, главная',
-        /*
-          1) для доступа нужна авторизация (используется в router.beforeEach и 
-            App.vue (script, methods, setCurrentWidth))
-          2) отображать ли NavIfAuth, используется в App.vue (template)
-          3) для доступа авторизации быть не должно (login и тд)   
-            (router.beforeEach)
+        /** 
+         * 1) для доступа нужна авторизация (используется в 
+         * router.beforeEach и App.vue (script, methods, setCurrentWidth))
+         * 2) отображать ли NavIfAuth, используется в App.vue (template)
+         * 3) для доступа авторизации быть не должно (login и тд)
+         * (router.beforeEach)
         */
         type: 0b110,
       },
@@ -41,7 +42,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    /* история, при клике на кнопку на главной */
+    // история, при клике на кнопку на главной
     {
       path: "/history",
       name: "history",
@@ -51,7 +52,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    /* карта/счет, при клике на блок на главной */
+    // карта/счет, при клике на блок на главной
     {
       path: "/bank-account/:id",
       name: "bank-account",
@@ -72,7 +73,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    /* выписка, при клике на кнопку в карте/счете */
+    // выписка, при клике на кнопку в карте/счете
     {
       path: "/excerpt/:id",
       name: "excerpt",
@@ -82,7 +83,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    /* навигация в шапке */
+    // навигация в шапке
     {
       path: "/news",
       name: "news",
@@ -128,7 +129,7 @@ const router = new Router({
         type: 0b000,
       },
     },
-    /* вход, регистрация */
+    // вход, регистрация
     {
       path: "/auth",
       name: "auth",
@@ -156,7 +157,7 @@ const router = new Router({
         type: 0b101,
       },
     },
-    /* профиль */
+    // профиль
     {
       path: "/profile",
       name: "profile",
@@ -166,7 +167,7 @@ const router = new Router({
         type: 0b110,
       },
     },
-    /* при клике на кнопку в NavIfAuth */
+    // при клике на кнопку в NavIfAuth
     {
       path: "/transfers",
       component: () => import("@/views/Transfers.vue"),
@@ -227,7 +228,7 @@ const router = new Router({
         },
       ],
     },
-    /* если мобильная версия */
+    // если мобильная версия
     {
       path: "/download-app",
       name: "download-app",
@@ -237,7 +238,7 @@ const router = new Router({
         type: 0b000,
       },
     },
-    /* страница не найдена */
+    // страница не найдена
     {
       path: "*",
       redirect: '/not-found',
@@ -263,12 +264,13 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const isNotAuth = to.matched.some(auth => auth.meta.type & 0b100);
   const isAuth = to.matched.some(auth => auth.meta.type & 0b001);
-  const isLoggedIn = store.getters.isLoggedIn;
+  //const isLoggedIn = store.getters.isLoggedIn;
+  const isLoggedIn = !!TokenService.getToken();
   const isCurrentWidthSmall = store.getters.getCurrentWidth < 748;
 
   // если авторизации быть не должно
   if(isNotAuth) {
-    if (!store.getters.isLoggedIn) {
+    if (!isLoggedIn) {
       next();
       return;
     }

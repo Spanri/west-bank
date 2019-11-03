@@ -33,9 +33,9 @@ export default {
   },
 
   mounted() {
-    /* 
-      Применяется в components/Header/HeaderNav.vue и ниже в 
-      methods, setCurrentWidth
+    /** 
+     * Применяется в components/Header/HeaderNav.vue и ниже в 
+     * methods, setCurrentWidth
     */
     window.addEventListener('resize', this.setCurrentWidth);
   },
@@ -124,8 +124,8 @@ export default {
     margin: 0px auto auto;
 
     width: 100%;
-    width: -moz-available;          /* For Mozzila */
-    width: -webkit-fill-available;  /* For Chrome */
+    width: -moz-available;
+    width: -webkit-fill-available;
     width: stretch;
   }
 

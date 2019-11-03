@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  display: flex; /*  IE need this for its 'min-height' bug  */
+  display: flex; // IE need this for its 'min-height' bug
   flex-direction: column;
   background: $color-background;
 }

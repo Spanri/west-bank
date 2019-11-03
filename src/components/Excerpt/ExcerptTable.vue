@@ -72,7 +72,7 @@ export default {
 
     height: 72px;
 
-    /* фон заголовка */
+    // фон заголовка
     &::after {
       content: '';
       z-index: 0;

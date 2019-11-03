@@ -103,7 +103,7 @@ export default {
   }
 
   &__value {
-    /* нужно задавать высоту, ибо иначе она ставится по select */
+    // нужно задавать высоту, ибо иначе она ставится по select
     height: 75px;
     width: 90px;
 
@@ -111,7 +111,7 @@ export default {
     text-align: right;
   }
 
-  /* для select конвертера */
+  // для select конвертера
   &__symbol {
     position: relative;
 

@@ -126,7 +126,7 @@ export default {
 
   }
 
-  /* Иконки для кнопок */
+  // Иконки для кнопок
 
   &__icon {
     margin-right: 37px;
