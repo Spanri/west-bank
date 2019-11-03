@@ -1,10 +1,12 @@
 import config from '@/config';
-import { authHeader, } from '@/helpers';
+
+/**
+ * здесь есть функции login и getAll, бекендерам нужно настроить их
+ */
 
 export const userService = {
   login,
   logout,
-  getAll,
 };
 
 function login(username, password) {
@@ -14,31 +16,34 @@ function login(username, password) {
     body: JSON.stringify({ username, password, }),
   };
 
-  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
-    .then(handleResponse)
-    .then(user => {
-      // login successful if there's a jwt token in the response
-      if (user.token) {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-      }
+  requestOptions; // убрать при не фейке
+  config.apiUrl;
 
-      return user;
-    });
+  // return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+  //   .then(handleResponse)
+  //   .then(user => {
+  //     if (user.token) {
+  //       localStorage.setItem('user', JSON.stringify(user));
+  //     }
+
+  //     return user;
+  //   });
+
+  let user = {
+    photo: '', // как хранить медиа?
+    firstName: 'Иванов',
+    lastName: 'Иван',
+    patronymic: 'Иванович',
+    phone: '88005553535',
+    email: 'email@mail.ru',
+  };
+  localStorage.setItem('user', JSON.stringify(user));
+  return new Promise(() => user);
 }
 
 function logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('user');
-}
-
-function getAll() {
-  const requestOptions = {
-    method: 'GET',
-    headers: authHeader(),
-  };
-
-  return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

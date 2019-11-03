@@ -84,7 +84,6 @@ export default {
     },
     
     goToPage() {
-      console.log('aaa');
       this.open = false;
     },
   },

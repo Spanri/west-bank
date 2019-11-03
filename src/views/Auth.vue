@@ -32,6 +32,12 @@
 <script>
 export default {
   name: "Auth",
+  created() {
+    /** 
+     * сбросить login статус
+    */
+    this.$store.dispatch('auth/logout');
+  },
 };
 </script>
 

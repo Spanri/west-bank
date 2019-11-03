@@ -3,16 +3,19 @@ import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import createMutationsSharer from "vuex-shared-mutations";
 import createCache from "vuex-cache";
-import auth from "./auth.module";
 import general from "./general.module";
+import alert from "./alert.module";
+import auth from "./auth.module";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    auth,
     general,
+    alert,
+    auth,
   },
+
   plugins: [
     createPersistedState(),
     createCache(),

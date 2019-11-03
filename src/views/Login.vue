@@ -44,12 +44,13 @@ import { required, } from 'vuelidate/lib/validators';
 
 export default {
   name: "Login",
+
   data() {
     return {
       blocks: [
         { 
           title: "Логин *", 
-          model: "login",
+          model: "username",
           error: "Это поле обязательно.",
         },
         {
@@ -59,25 +60,41 @@ export default {
           error: "Это поле обязательно.",
         },
       ],
-      login: "",
+      username: "",
       password: "",
     };
   },
+
   validations: {
-    login: {
+    username: {
       required,
     },
+
     password: {
       required,
     },
   },
+
+  computed: {
+    loggingIn() {
+      return this.$store.state.auth.status.loggingIn;
+    },
+  },
+
+  created() {
+    /** 
+     * сбросить login статус (он сбрасывается в Auth.vue, но тут 
+     * на всякий случай)
+    */
+    this.$store.dispatch('auth/logout');
+  },
+
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$store.dispatch("login").then(() => {
-          this.$router.push("/");
-        });
+        const { username, password, } = this;
+        this.$store.dispatch('auth/login', { username, password, });
       }
     },
   },

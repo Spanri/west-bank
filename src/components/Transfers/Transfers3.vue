@@ -44,7 +44,6 @@ export default {
   },
   
   beforeRouteEnter(to, from, next) {
-    console.log(from);
     if(!/^transfers2+/.test(from.name)) {
       next('/transfers');
     }

@@ -32,6 +32,14 @@ export default {
     };
   },
 
+  created() {
+    /** 
+     * сбросить login статус (он сбрасывается в Auth.vue, но тут 
+     * на всякий случай)
+    */
+    this.$store.dispatch('auth/logout');
+  },
+
   methods: {
     next(val) {
       this.signUpPhase = val;

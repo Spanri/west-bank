@@ -2,7 +2,8 @@
   <div class="profile">
     <div class="profile__info">
       <div class="profile__photo-block">
-        <ProfilePhoto class="profile__not-photo" v-if="!profile.photo"/>
+        <!-- заглушка, типа всегда нет фото -->
+        <ProfilePhoto class="profile__not-photo" v-if="!user.photo"/>
         <ProfilePhoto class="profile__photo" v-else/>
         <div 
           class="profile__edit-photo" 
@@ -15,15 +16,15 @@
       <div class="profile__data">
         <p class="profile__data-item">
           {{
-            profile.lastName +
+            user.lastName +
               " " +
-              profile.firstName +
+              user.firstName +
               " " +
-              profile.patronymic
+              user.patronymic
           }}
         </p>
-        <p class="profile__data-item">{{ profile.phone }}</p>
-        <p class="profile__data-item">{{ profile.email }}</p>
+        <p class="profile__data-item">{{ user.phone }}</p>
+        <p class="profile__data-item">{{ user.email }}</p>
       </div>
     </div>
     <div class="profile__buttons button-left-wrapper">
@@ -33,9 +34,9 @@
         </div>
       </button>
       <button class="button-left">
-        <div class="button-left-inner" @click="logout">
+        <router-link class="button-left-inner" to="/auth">
           <span class="button-left-text">Выйти из аккаунта</span>
-        </div>
+        </router-link>
       </button>
     </div>
   </div>
@@ -50,9 +51,8 @@ export default {
   },
 
   computed: {
-    profile() {
-      let user = this.$store.getters.getUser;
-      return user.profile;
+    user() {
+      return this.$store.state.authentication.user;
     },
   },
 
@@ -60,12 +60,6 @@ export default {
     editPhoto() {},
 
     editData() {},
-    
-    logout() {
-      this.$store.dispatch("logout").then(() => {
-        this.$router.push("/auth");
-      });
-    },
   },
 };
 </script>
