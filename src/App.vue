@@ -30,10 +30,6 @@ export default {
     NavIfAuth: () => import("@/components/NavIfAuth.vue"),
     Footer: () => import("@/components/Footer.vue"),
   },
-  mounted() {
-    /* Применяется в components/Header/HeaderNav.vue */
-    window.addEventListener('resize', this.setCurrentWidth);
-  },
   computed: {
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
@@ -46,6 +42,9 @@ export default {
     },
   },
   created() {
+    /* Применяется в components/Header/HeaderNav.vue */
+    window.addEventListener('resize', this.setCurrentWidth);
+
     const token = this.$store.state.token;
     console.log("token", token);
     if (token) {
