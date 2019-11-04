@@ -265,8 +265,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const isNotAuth = to.matched.some(auth => auth.meta.type & 0b100);
   const isAuth = to.matched.some(auth => auth.meta.type & 0b001);
-  const isLoggedIn = store.getters.isLoggedIn;
-  const isCurrentWidthSmall = store.getters.getCurrentWidth < 748;
+  const isLoggedIn = store.getters.isloggedIn;
+  const isCurrentWidthSmall = store.getters.currentWidth < 748;
 
   // если авторизации быть не должно
   if(isNotAuth) {

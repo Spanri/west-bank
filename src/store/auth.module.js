@@ -13,7 +13,7 @@ const state =  {
 };
 
 const getters = {
-  loggedIn: state => state.accessToken ? true : false,
+  isloggedIn: state => state.accessToken ? true : false,
   authenticationErrorCode: state => state.authenticationErrorCode,
   authenticationError: state => state.authenticationError,
   authenticating: state => state.authenticating,

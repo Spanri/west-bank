@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { mapGetters, } from "vuex";
+
 export default {
   name: "NavPhases",
 
@@ -37,9 +39,7 @@ export default {
   },
 
   computed: {
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
+    ...mapGetters('general', [ 'currentWidth', ]),
   },
 
   data() {

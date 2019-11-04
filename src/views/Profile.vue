@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <div v-if="!getProfileError" class="profile__info">
+    <div v-if="!profileError" class="profile__info">
       <div class="profile__photo-block">
         <!-- заглушка, типа всегда нет фото -->
         <ProfilePhoto class="profile__not-photo" v-if="!profile.photo"/>
@@ -27,7 +27,7 @@
         <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
-    <div v-if="!getProfileError" class="profile__buttons button-left-wrapper">
+    <div v-if="!profileError" class="profile__buttons button-left-wrapper">
       <button class="button-left">
         <div class="button-left-inner" @click="editData">
           <span class="button-left-text">Редактировать данные</span>
@@ -39,7 +39,7 @@
         </router-link>
       </button>
     </div>
-    <div v-if="getProfileError" class="profile__error">
+    <div v-if="profileError" class="profile__error">
       <p>Что-то пошло не так.</p>
       <p>Ошибка: {{ getprofileError }}</p>
     </div>
@@ -59,7 +59,7 @@ export default {
   computed: {
     ...mapGetters('user', [
       'profile',
-      'getProfileError',
+      'profileError',
     ]),
   },
 

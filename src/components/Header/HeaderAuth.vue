@@ -1,7 +1,7 @@
 <template>
   <div class="auth" @click="goToPage()">
     <router-link
-      to="/auth" v-if="!loggedIn"
+      to="/auth" v-if="!isloggedIn"
       class="auth__login auth__login_false"
     >
       <AuthLogo class="auth__logo" color="#F2F2F2" />
@@ -10,10 +10,10 @@
     <router-link
       to="/profile"
       class="auth__login auth__login_true"
-      v-if="loggedIn"
+      v-if="isloggedIn"
     >
       <ProfileLogo class="auth__logo" :color="logoColor" />
-      <span v-if="!getProfileError" class="auth__text">
+      <span v-if="!profileError" class="auth__text">
         {{ profile.firstName }}
       </span>
       <span v-else class="auth__text">Профиль</span>
@@ -39,14 +39,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters(
-      'user', [
-        'profile',
-        'getProfileError',
-      ],
-      'auth', [
-        'loggedIn',
-      ]),
+    ...mapGetters('auth', [ 'isloggedIn', ]),
+
+    ...mapGetters('user', [
+      'profile',
+      'profileError',
+    ]),
   },
 
   created() {

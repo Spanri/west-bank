@@ -51,6 +51,7 @@
 
 <script>
 import { getImgUrl, } from "@/mixins/getImgUrl";
+import { mapGetters, } from "vuex";
 
 export default {
   name: "Header",
@@ -73,9 +74,7 @@ export default {
   },
 
   computed: {
-    isLoggedIn() {
-      return this.$store.getters.isLoggedIn;
-    },
+    ...mapGetters('auth', [ 'isloggedIn', ]),
   },
 
   methods: {

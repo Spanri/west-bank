@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-  getCurrentWidth: state => {
+  currentWidth: state => {
     console.log('Ширина экрана ', state.currentWidth);
     return state.currentWidth;
   },

@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { mapGetters, } from "vuex";
+
 export default {
   name: "ForFinancialInstitutions",
 
@@ -53,9 +55,7 @@ export default {
   },
 
   computed: {
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
+    ...mapGetters('general', [ 'currentWidth', ]),
   },
 
   created() {

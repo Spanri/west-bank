@@ -19,8 +19,7 @@
 </template>
 
 <script>
-// import axios from "axios";
-// import { mapGetters, mapActions, } from "vuex";
+import { mapGetters, } from "vuex";
 
 export default {
   name: "App",
@@ -33,40 +32,20 @@ export default {
     Footer: () => import("@/components/Footer.vue"),
   },
 
-  mounted() {
+  computed: {
+    ...mapGetters('auth', [ 'isLoggedIn', ]),
+
+    currentRouteName() {
+      return this.$route.name;
+    },
+  },
+
+  created() {
     /** 
      * Применяется в components/Header/HeaderNav.vue и ниже в 
      * methods, setCurrentWidth
     */
     window.addEventListener('resize', this.setCurrentWidth);
-  },
-
-  computed: {
-    // ...mapGetters('auth', [
-    //   'isLoggedIn',
-    // ]),
-
-    isLoggedIn() {
-      return this.$store.getters.isLoggedIn;
-    },
-
-    currentRouteName() {
-      return this.$route.name;
-    },
-    
-    currentWidth() {
-      return this.$store.getters.getCurrentWidth;
-    },
-  },
-
-  created() {
-    // const token = this.$store.state.token;
-
-    // console.log("token", token);
-    // if (token) {
-    //   axios.defaults.headers.common["Authorization"] = token;
-    //   localStorage.setItem("token", token);
-    // }
   },
 
   methods: {
