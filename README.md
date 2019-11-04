@@ -3,9 +3,9 @@
 Мне сказали сделать только верстку.
 
 Но я сделала немного больше (не доделала), вам следует посмотреть следующие файлы:
-`src/services/user.service.js` (функция login)
-`src/config.js` (адрес вашего сервера)
-
+`src/services/user.service.js`
+`src/config.js`
+! Рядом с `config.example.js` в `src` надо добавить файл `config.js`.
 
 ## Договоренности по стилю кода
 

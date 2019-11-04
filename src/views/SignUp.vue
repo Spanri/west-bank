@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapActions, } from "vuex";
+
 export default {
   name: "SignUp",
 
@@ -37,10 +39,14 @@ export default {
      * сбросить login статус (он сбрасывается в Auth.vue, но тут 
      * на всякий случай)
     */
-    this.$store.dispatch('auth/logout');
+    this.logout();
   },
 
   methods: {
+    ...mapActions('auth', [
+      'logout',
+    ]),
+
     next(val) {
       this.signUpPhase = val;
     },

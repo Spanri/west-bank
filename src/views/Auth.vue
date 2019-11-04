@@ -30,13 +30,18 @@
 </template>
 
 <script>
+import { mapActions, } from "vuex";
+
 export default {
   name: "Auth",
   created() {
-    /** 
-     * сбросить login статус
-    */
-    this.$store.dispatch('auth/logout');
+    // сбросить login статус
+    this.logout();
+  },
+  methods: {
+    ...mapActions('auth', [
+      'logout',
+    ]),
   },
 };
 </script>

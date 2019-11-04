@@ -1,7 +1,7 @@
 <template>
   <div class="auth" @click="goToPage()">
     <router-link
-      to="/auth" v-if="!isLoggedIn"
+      to="/auth" v-if="!loggedIn"
       class="auth__login auth__login_false"
     >
       <AuthLogo class="auth__logo" color="#F2F2F2" />
@@ -10,15 +10,20 @@
     <router-link
       to="/profile"
       class="auth__login auth__login_true"
-      v-if="isLoggedIn"
+      v-if="loggedIn"
     >
       <ProfileLogo class="auth__logo" :color="logoColor" />
-      <span class="auth__text">{{ name }}</span>
+      <span v-if="!getProfileError" class="auth__text">
+        {{ profile.firstName }}
+      </span>
+      <span v-else class="auth__text">Профиль</span>
     </router-link>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions, } from "vuex";
+
 export default {
   name: "HeaderAuth",
 
@@ -34,17 +39,25 @@ export default {
   },
 
   computed: {
-    isLoggedIn() {
-      return this.$store.getters.isLoggedIn;
-    },
-
-    name() {
-      let user = this.$store.getters.getUser;
-      return user.profile.firstName;
-    },
+    ...mapGetters(
+      'user', [
+        'profile',
+        'getProfileError',
+      ],
+      'auth', [
+        'loggedIn',
+      ]),
   },
-  
+
+  created() {
+    this.getProfile();
+  },
+
   methods: {
+    ...mapActions('user', [
+      'getProfile',
+    ]),
+
     goToPage() {
       this.$emit("goToPage");
     },

@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import axios from "axios";
-import { mapGetters, mapActions, } from "vuex";
+// import axios from "axios";
+// import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "App",
@@ -41,11 +41,11 @@ export default {
     window.addEventListener('resize', this.setCurrentWidth);
   },
 
-  computed: 
-    {
-      ...mapGetters('auth', [
-      'isLoggedIn',
-    ]),
+  computed: {
+    // ...mapGetters('auth', [
+    //   'isLoggedIn',
+    // ]),
+
     isLoggedIn() {
       return this.$store.getters.isLoggedIn;
     },
@@ -60,19 +60,19 @@ export default {
   },
 
   created() {
-    const token = this.$store.state.token;
+    // const token = this.$store.state.token;
 
-    console.log("token", token);
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = token;
-      localStorage.setItem("token", token);
-    }
+    // console.log("token", token);
+    // if (token) {
+    //   axios.defaults.headers.common["Authorization"] = token;
+    //   localStorage.setItem("token", token);
+    // }
   },
 
   methods: {
-    ...mapActions('auth', [
-        'login',
-    ]),
+    // ...mapActions('auth', [
+    //     'login',
+    // ]),
       
     setCurrentWidth(e) {
       const currentWidth = e.currentTarget.innerWidth;

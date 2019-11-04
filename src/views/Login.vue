@@ -28,6 +28,9 @@
           >
             {{ block.error }}
           </div>
+          <div class="error" v-if="authenticationError">
+            {{ authenticationError }}
+          </div>
         </div>
       </div>
       <div class="input-block__submit">
@@ -41,6 +44,7 @@
 
 <script>
 import { required, } from 'vuelidate/lib/validators';
+import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "Login",
@@ -76,9 +80,9 @@ export default {
   },
 
   computed: {
-    loggingIn() {
-      return this.$store.state.auth.status.loggingIn;
-    },
+    ...mapGetters('auth', [
+      'authenticationError',
+    ]),
   },
 
   created() {
@@ -86,15 +90,22 @@ export default {
      * сбросить login статус (он сбрасывается в Auth.vue, но тут 
      * на всякий случай)
     */
-    this.$store.dispatch('auth/logout');
+    this.logout();
   },
 
   methods: {
+    ...mapActions('auth', [
+      'login',
+      'logout',
+    ]),
+
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        const { username, password, } = this;
-        this.$store.dispatch('auth/login', { username, password, });
+        this.login({
+          username: this.username, 
+          password: this.password,
+        });
       }
     },
   },

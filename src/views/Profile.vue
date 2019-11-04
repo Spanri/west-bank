@@ -1,9 +1,9 @@
 <template>
   <div class="profile">
-    <div class="profile__info">
+    <div v-if="!getProfileError" class="profile__info">
       <div class="profile__photo-block">
         <!-- заглушка, типа всегда нет фото -->
-        <ProfilePhoto class="profile__not-photo" v-if="!user.photo"/>
+        <ProfilePhoto class="profile__not-photo" v-if="!profile.photo"/>
         <ProfilePhoto class="profile__photo" v-else/>
         <div 
           class="profile__edit-photo" 
@@ -16,18 +16,18 @@
       <div class="profile__data">
         <p class="profile__data-item">
           {{
-            user.lastName +
-              " " +
-              user.firstName +
-              " " +
-              user.patronymic
+            profile.lastName +
+            " " +
+            profile.firstName +
+            " " +
+            profile.patronymic
           }}
         </p>
-        <p class="profile__data-item">{{ user.phone }}</p>
-        <p class="profile__data-item">{{ user.email }}</p>
+        <p class="profile__data-item">{{ profile.phone }}</p>
+        <p class="profile__data-item">{{ profile.email }}</p>
       </div>
     </div>
-    <div class="profile__buttons button-left-wrapper">
+    <div v-if="!getProfileError" class="profile__buttons button-left-wrapper">
       <button class="button-left">
         <div class="button-left-inner" @click="editData">
           <span class="button-left-text">Редактировать данные</span>
@@ -39,10 +39,16 @@
         </router-link>
       </button>
     </div>
+    <div v-if="getProfileError" class="profile__error">
+      <p>Что-то пошло не так.</p>
+      <p>Ошибка: {{ getprofileError }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions, } from "vuex";
+
 export default {
   name: "Profile",
 
@@ -51,12 +57,21 @@ export default {
   },
 
   computed: {
-    user() {
-      return this.$store.state.authentication.user;
-    },
+    ...mapGetters('user', [
+      'profile',
+      'getProfileError',
+    ]),
+  },
+
+  created() {
+    this.getProfile();
   },
 
   methods: {
+    ...mapActions('user', [
+      'getProfile',
+    ]),
+
     editPhoto() {},
 
     editData() {},
@@ -120,15 +135,12 @@ export default {
 
       display: block;
       
-      font-weight: bold;
-      
       height: 0;
     }
 
     &:hover {
       color: $color-light;
       cursor: pointer;
-      font-weight: bold;
     }
 
   }
