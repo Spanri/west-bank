@@ -4,9 +4,14 @@ import { TokenService, } from './storage.service';
 /**
  * методы login, logout, getProfile, refreshToken
  * истекший токен обновляется с помощью ApiService.unmount401Interceptor
- * все эти штуки используются в store/auth.module.js
+ * все эти штуки используются в store/auth.module.js и store/user.module.js
 */ 
 
+/** 
+ * сообщения ошибок никак не расшифровываются и 
+ * показываются пользователю так, как они были 
+ * переданы сюда
+*/
 class AuthenticationError extends Error {
   constructor(errorCode, message) {
     super(message);
@@ -27,10 +32,7 @@ const UserService = {
       const requestData = {
         method: 'post',
         url: "/o/token/",
-        data: {
-          username: username,
-          password: password,
-        },
+        data: { username, password, },
       };
 
       try {
@@ -97,6 +99,79 @@ const UserService = {
         );
       }
 
+    },
+
+    /**
+     * Регистрация, фаза 1 - проверка phone/email на наличие в 
+     * базе (должно отсутствовать)
+     * 
+     * @returns true
+     * @throws AuthenticationError 
+    **/
+    signupPhase1: async function(type, value) {
+      // type: 0 - проверка phone, 1 - email
+      const requestData = {
+        method: 'post',
+        url: "/o/token/",
+        data: {
+          [type == 0 ? 'phone' : 'email']: value,
+        },
+      };
+
+      try {
+        // возвращает или ошибку, или что угодно
+        // await ApiService.customRequest(requestData);
+        requestData; // чтобы eslint не ругался
+
+        return true;
+      } catch (error) {
+        throw new AuthenticationError(
+          error.response.status, 
+          error.response.data.detail
+        );
+      }
+    },
+
+    /**
+     * Регистрация, фаза 2 - проверка username на уникальность и 
+     * собственно сама регистрация
+     * 
+     * @returns true
+     * @throws AuthenticationError 
+    **/
+    signupPhase2: async function({
+      username, password,
+      firstName, lastName, patronymic, 
+      phone, email,
+    }) {
+      // type: 0 - проверка phone, 1 - email
+      const requestData = {
+        method: 'post',
+        url: "/o/token/",
+        data: {
+          username, password,
+          firstName, lastName, patronymic, 
+          phone, email, 
+        },
+      };
+
+      try {
+        // const response = await ApiService.customRequest(requestData);
+        const response = {
+          data: {
+            access_token: '12345',
+            refresh_token: '54321',
+          },
+        };
+        requestData; // чтобы eslint не ругался
+
+        return response.data.access_token;
+      } catch (error) {
+        throw new AuthenticationError(
+          error.response.status, 
+          error.response.data.detail
+        );
+      }
     },
 
     /**

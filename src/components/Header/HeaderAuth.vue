@@ -46,10 +46,6 @@ export default {
     ]),
   },
 
-  created() {
-    this.getProfile();
-  },
-
   methods: {
     ...mapActions('user', [
       'getProfile',
@@ -58,6 +54,10 @@ export default {
     goToPage() {
       this.$emit("goToPage");
     },
+  },
+
+  created() {
+    this.getProfile();
   },
 };
 </script>

@@ -63,10 +63,6 @@ export default {
     ]),
   },
 
-  created() {
-    this.getProfile();
-  },
-
   methods: {
     ...mapActions('user', [ 'getProfile', ]),
     ...mapActions('auth', [ 'logout', ]),
@@ -79,6 +75,10 @@ export default {
       this.logout();
       this.$router.push("/auth");
     },
+  },
+
+  created() {
+    this.getProfile();
   },
 };
 </script>

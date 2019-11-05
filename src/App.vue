@@ -36,17 +36,17 @@ export default {
     ...mapGetters('general', [ 'currentWidth', ]),
   },
 
-  created() {
-    window.addEventListener('resize', this.setCurrentWidthInner);
-    this.setCurrentWidth(window.innerWidth);
-  },
-
   methods: {
     ...mapActions('general', [ 'setCurrentWidth', ]),
       
     setCurrentWidthInner(e) {
       this.setCurrentWidth(e.currentTarget.innerWidth);
     },
+  },
+
+  created() {
+    window.addEventListener('resize', this.setCurrentWidthInner);
+    this.setCurrentWidth(window.innerWidth);
   },
 
   beforeDestroy() {

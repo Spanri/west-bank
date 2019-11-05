@@ -34,14 +34,14 @@ import { mapActions, } from "vuex";
 
 export default {
   name: "Auth",
+  
+  methods: {
+    ...mapActions('auth', [ 'logout', ]),
+  },
+
   created() {
     // сбросить login статус
     this.logout();
-  },
-  methods: {
-    ...mapActions('auth', [
-      'logout',
-    ]),
   },
 };
 </script>

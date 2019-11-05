@@ -57,10 +57,6 @@ export default {
   computed: {
     ...mapGetters('general', [ 'currentWidth', ]),
   },
-
-  created() {
-    this.description = this.items[0].description;
-  },
   
   methods: {
     setDescription(val) {
@@ -72,6 +68,10 @@ export default {
         });
       }
     },
+  },
+
+  created() {
+    this.description = this.items[0].description;
   },
 };
 </script>

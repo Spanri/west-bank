@@ -10,6 +10,9 @@ const state =  {
   accessToken: TokenService.getToken(),
   authenticationErrorCode: 0,
   authenticationError: '',
+  signuping: false,
+  signupErrorCode: 0,
+  signupError: '',
   refreshTokenPromise: null,  // Holds the promise of the refresh token
 };
 
@@ -45,13 +48,38 @@ const actions = {
     }
   },
 
-  // не сделано
-  async signup({ commit, }, {email, password,}) {
-    commit('loginRequest');
+  /** 
+   * 1 фаза, когда проверяется, не зарегистрирован 
+   * ли уже такой email и phone
+  */ 
+  async signupPhase1({ commit, }, {phone, email,}) {
+    commit('signupRequest');
 
     try {
-      const token = await UserService.login(email, password);
-      commit('loginSuccess', token);
+      // 1ый параметр: 0 - проверка phone, 1 - email
+      await UserService.signupPhase1(0, phone);
+      await UserService.signupPhase1(1, email);
+      commit('signupPhaseSuccess');
+
+      return true;
+    } catch (e) {
+      if (e instanceof AuthenticationError) {
+        commit('signupError', {
+          errorCode: e.errorCode, 
+          errorMessage: e.message,
+        });
+      }
+
+      return false;
+    }
+  },
+
+  async signup({ commit, }, data) {
+    commit('signupRequest');
+
+    try {
+      const token = await UserService.signup(data);
+      commit('signupSuccess', token);
 
       // Redirect the user to the page he first tried to visit or to /home
       router.push(router.history.current.query.redirect || '/home');
@@ -59,7 +87,7 @@ const actions = {
       return true;
     } catch (e) {
       if (e instanceof AuthenticationError) {
-        commit('loginError', {
+        commit('signupError', {
           errorCode: e.errorCode, 
           errorMessage: e.message,
         });
@@ -121,6 +149,27 @@ const mutations = {
     state.authenticating = false;
     state.authenticationErrorCode = errorCode;
     state.authenticationError = errorMessage;
+  },
+
+  signupRequest(state) {
+    state.signuping = true;
+    state.signupError = '';
+    state.signupErrorCode = 0;
+  },
+
+  signupSuccess(state, accessToken) {
+    state.accessToken = accessToken;
+    state.signuping = false;
+  },
+
+  signupPhaseSuccess(state) {
+    state.signuping = false;
+  },
+
+  signupError(state, {errorCode, errorMessage,}) {
+    state.signuping = false;
+    state.signupErrorCode = errorCode;
+    state.signupError = errorMessage;
   },
 
   logoutSuccess(state) {

@@ -85,14 +85,6 @@ export default {
     ]),
   },
 
-  created() {
-    /** 
-     * сбросить login статус (он сбрасывается в Auth.vue, но тут 
-     * на всякий случай)
-    */
-    this.logout();
-  },
-
   methods: {
     ...mapActions('auth', [
       'login',
@@ -110,6 +102,14 @@ export default {
         });
       }
     },
+  },
+
+  created() {
+    /** 
+     * сбросить login статус (он сбрасывается в Auth.vue, но тут 
+     * на всякий случай)
+    */
+    this.logout();
   },
 };
 </script>
