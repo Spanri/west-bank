@@ -1,12 +1,14 @@
 <template>
-  <div class="nav">
-    <router-link 
-      :to="item.to" class="nav__item"
-      v-for="(item, index) in items" :key="index"
-      @click.native="goToPage()"
-      :title="item.title"
-      v-html="title(item)"
-    />
+  <div class="nav-wrapper">
+    <nav class="nav">
+      <router-link 
+        :to="item.to" class="nav__item"
+        v-for="(item, index) in items" :key="index"
+        @click.native="goToPage()"
+        :title="item.title"
+        v-html="title(item)"
+      />
+    </nav>
   </div>
 </template>
 
@@ -64,6 +66,15 @@ export default {
   flex-wrap: wrap;
   flex-basis: 100%;
   justify-content: space-between;
+
+  // чтобы padding в .nav норм отображался
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
 
   &__item {
     align-self: center;
