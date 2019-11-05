@@ -63,9 +63,7 @@ export default {
 
   .success__content {
     margin: 0 auto;
-
     max-width: 729px;
-
     text-align: center;
   }
   

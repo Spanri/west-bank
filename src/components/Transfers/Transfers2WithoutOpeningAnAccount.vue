@@ -75,17 +75,17 @@ export default {
           error: "Обязательное поле, 10 цифр.",
         },
         {
-          title: "Наименование получателя",
+          title: "Наименование</br>получателя",
           model: "nameOfRecipient",
           error: "Обязательное поле.",
         },
         {
-          title: "Счет в банке получателя",
+          title: "Счет в банке</br>получателя",
           model: "accountOfRecipient",
           error: "Обязательное поле, только цифры.",
         },
         {
-          title: "Название платежа",
+          title: "Название</br>платежа",
           model: "nameOfPayment",
           error: "Обязательное поле.",
         },
@@ -163,16 +163,19 @@ export default {
 <style scoped lang="scss">
 
 .transfers2-without-opening-an-account {
-  @include transfers2;
+  @include input-transfers2;
+  @include input-submit;
 
   .input-block-wrapper {
 
-    .input-block__submit {
-      padding-left: 0;
+    // название страницы
+    &__title {
+      margin: $margin-header;
+      margin-top: 44px;
+      font: $font-header;
     }
 
   }
-
 }
 
 </style>

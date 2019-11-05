@@ -49,7 +49,7 @@ const actions = {
   },
 
   /** 
-   * 1 фаза, когда проверяется, не зарегистрирован 
+   * Регистрация, 1 фаза, проверяется, не зарегистрирован 
    * ли уже такой email и phone
   */ 
   async signupPhase1({ commit, }, {phone, email,}) {
@@ -59,7 +59,7 @@ const actions = {
       // 1ый параметр: 0 - проверка phone, 1 - email
       await UserService.signupPhase1(0, phone);
       await UserService.signupPhase1(1, email);
-      commit('signupPhaseSuccess');
+      commit('signupPhase1Success');
 
       return true;
     } catch (e) {
@@ -74,14 +74,18 @@ const actions = {
     }
   },
 
-  async signup({ commit, }, data) {
+  /** 
+   * Регистрация, 2 фаза, проверяется, уникален ли username
+   * и, если да, то происходит регистрация и выдача токена
+  */ 
+  async signupPhase2({ commit, dispatch, }, data) {
     commit('signupRequest');
 
     try {
-      const token = await UserService.signup(data);
-      commit('signupSuccess', token);
+      const token = await UserService.signupPhase2(data);
+      commit('signupPhase2Success', token);
+      await dispatch('user/getProfile', null, {root: true,});
 
-      // Redirect the user to the page he first tried to visit or to /home
       router.push(router.history.current.query.redirect || '/home');
 
       return true;
@@ -100,7 +104,14 @@ const actions = {
   logout({ commit, rootState, }) {
     UserService.logout();
     commit('logoutSuccess');
-    rootState.user.profile = '';
+    /**  
+     * задержка, чтобы анимация перехода со страницы
+     * норм отработала (иначе во время перехода значения из
+     * profile будут undefined)
+    */
+    setTimeout(() => {
+      rootState.user.profile = '';
+    }, 2000);
   },
 
   refreshToken({ commit, state, }) {
@@ -162,7 +173,12 @@ const mutations = {
     state.signuping = false;
   },
 
-  signupPhaseSuccess(state) {
+  signupPhase1Success(state) {
+    state.signuping = false;
+  },
+
+  signupPhase2Success(state, accessToken) {
+    state.accessToken = accessToken;
     state.signuping = false;
   },
 

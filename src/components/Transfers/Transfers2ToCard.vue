@@ -111,12 +111,16 @@ export default {
 // }
 
 .transfers2-to-card {
-  @include transfers2;
+  @include input-transfers2;
+  @include input-submit;
 
   .input-block-wrapper {
 
-    .input-block__submit {
-      padding-left: 0;
+    // название страницы
+    &__title {
+      margin: $margin-header;
+      margin-top: 44px;
+      font: $font-header;
     }
 
   }

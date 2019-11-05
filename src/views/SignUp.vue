@@ -1,13 +1,16 @@
 <template>
-  <div class="signup">
+  <form
+    class="signup" novalidate
+    @submit.prevent="submit"
+  >
     <NavPhases class="signup__nav" :phase="signUpPhase"/> 
     <transition name="slide" mode="out-in">
       <component
         :is="'SignUp' + signUpPhase" @next="next"
-        class="signup__content" 
+        class="signup__content" :dataOfPhase1="dataOfPhase1"
       />
     </transition>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -25,12 +28,8 @@ export default {
 
   data() {
     return {
-      signUpPhase: 1,
-      lastName: "",
-      firstName: "",
-      patronymic: "",
-      phone: "",
-      email: "",
+      signUpPhase: '1',
+      dataOfPhase1: {},
     };
   },
 
@@ -39,8 +38,16 @@ export default {
       'logout',
     ]),
 
-    next(val) {
-      this.signUpPhase = val;
+    next(data) {
+      if (data.dataOfPhase1) {
+        this.dataOfPhase1 = data.dataOfPhase1;
+      }
+      this.signUpPhase = data.val;
+    },
+
+    setInfo(valName, val) {
+      console.log(valName, val);
+      this[valName] = val;
     },
   },
 
@@ -64,10 +71,6 @@ export default {
 
 .signup {
   @include slide;
-
-  &__nav {
-    //margin-top: 150px;
-  }
 
 }
 </style>

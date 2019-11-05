@@ -35,6 +35,12 @@
         {{ block.error }}
       </div>
     </div>
+    <div class="input-block">
+      <div class="error error-from-server" v-if="signupError">
+        {{ signupError }}
+      </div>
+    </div>
+    
     <div class="input-block__submit">
       <button type="submit" class="input-block__submit-inner">
         <span class="input-block__submit-text">Далее </span>
@@ -56,6 +62,7 @@
 
 <script>
 import { required, minLength, email, } from 'vuelidate/lib/validators';
+import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "SignUp1Inputs",
@@ -81,7 +88,7 @@ export default {
         {
           title: "Телефон *",
           type: "tel",
-          placeholder: "+7 (###) ###-##-##",
+          placeholder: "+7 (___) ___-__-__",
           model: "phone",
           error: "Обязательное поле, 10 цифр.",
         },
@@ -97,7 +104,6 @@ export default {
       patronymic: null,
       phone: null,
       email: null,
-      errors: [],
     };
   },
 
@@ -120,11 +126,25 @@ export default {
     },
   },
 
+  computed: {
+    ...mapGetters('auth', [
+      'signupError',
+    ]),
+  },
+
   methods: {
+    ...mapActions('auth', [
+      'signupPhase1',
+    ]),
+
     submit() {
+      const { lastName, firstName, patronymic, phone, email,} = this;
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("next");
+        this.$emit("next", {
+          lastName, firstName, patronymic,
+          phone, email,
+        });
       }
     },
     
@@ -149,5 +169,9 @@ export default {
 .input-block-wrapper {
   @include error;
   @include input;
+
+  .error-from-server {
+    padding-bottom: 30px;
+  }
 }
 </style>

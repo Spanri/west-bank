@@ -1,7 +1,9 @@
 /**
  * error
+ * input-title
+ * input-submit
  * input
- * transfers2
+ * input-transfers2
 */
 
 // ошибки при вводе
@@ -10,9 +12,14 @@
   // текст ошибки
   .error {
     width: 100%;
+
     margin-top: 5px;
     margin-bottom: -56px;
-    margin-left: 270px;
+    margin-left: calc(40% - 36px);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 
     text-align: left;
     font: 16px/21px Play, sans-serif;
@@ -28,18 +35,92 @@
     color: $color-light !important;
   }
 
+}
+
+@mixin input-title {
+  .input-block__title {
+    align-self: flex-end;
+
+    color: $color-light;
+    text-align: left;
+    font: 20px/24px Play, sans-serif;
+    letter-spacing: .08em;
+
+    margin: 0;
+    margin-bottom: 10px;
+
+    &-password {
+      letter-spacing: .045em;
+    }
+
+  }
+
+}
+
+@mixin input-submit {
+
+  .input-block__submit {
+    background: transparent;
+    border: 0;
+    //margin: 0 45px;
+    
+    user-select: none;
+
+    width: 728px;
+
+    display: block;
+
+    color: $color-pre-light;
+    font: $font-button-auth;
+    text-align: center;
+
+    &-inner {
+      width: 100%;
+      
+      margin: 70px 0;
+      margin-bottom: 30px;
+      padding: 0;
+      padding-left: calc(40% - 36px);
+
+      background: transparent;
+      border: 0;
+      user-select: none;
+
+      display: block;
+
+      color: $color-pre-light;
+      font: $font-button-auth;
+      text-align: center;
+    }
+
+    &-svg {
+      fill: $color-light;
+      margin-left: 5px;
+    }
+
+    &-inner:hover {
+      color: $color-accent;
+
+      .input-block__submit-svg {
+        fill: $color-accent;
+      }
+
+    }
+    
+  }  
+
   @media (max-width: 1250px) {
 
-    .error {
-      margin-left: 210px;
+    .input-block__submit {
+      width: 608px;
     }
 
   }
 
   @media (max-width: 850px) {
 
-    .error {
-      margin-left: 150px;
+    .input-block__submit {
+      width: 470px;
     }
 
   }
@@ -49,6 +130,9 @@
 @mixin input {
 
   .input-block {
+    @include input-title;
+    @include input-submit;
+
     width: 728px;
 
     display: flex;
@@ -67,8 +151,8 @@
      * убирать ее 
     */
     &__input {
-      width: 460px;
-      height: 42px;
+      width: 60%;
+      height: 26px;
 
       background: $color-medium;
       border-radius: 10px;
@@ -80,73 +164,9 @@
       font: 18px/21px Play, sans-serif;
 
       &:focus {
-        //color: $color-accent;
         @include color-opacity(background, $color-medium, .65);
       }
 
-    }
-
-    &__title {
-      align-self: flex-end;
-
-      color: $color-light;
-      text-align: left;
-      font: 20px/24px Play, sans-serif;
-      letter-spacing: .08em;
-
-      margin-bottom: 10px;
-
-      &-password {
-        letter-spacing: .045em;
-      }
-
-    }
-
-    &__submit {
-      background: transparent;
-      border: 0;
-      padding-left: 245px;
-      user-select: none;
-
-      width: 100%;
-
-      display: block;
-
-      color: $color-pre-light;
-      font: $font-button-auth;
-      text-align: center;
-
-      &-inner {
-        max-width: 729px;
-        
-        margin: 70px auto;
-        margin-bottom: 30px;
-
-        background: transparent;
-        border: 0;
-        user-select: none;
-
-        display: block;
-
-        color: $color-pre-light;
-        font: $font-button-auth;
-        text-align: center;
-      }
-
-      &-svg {
-        fill: $color-light;
-        margin-left: 5px;
-      }
-
-      &-inner:hover {
-        color: $color-accent;
-
-        .input-block__submit-svg {
-          fill: $color-accent;
-        }
-
-      }
-      
     }
 
   }  
@@ -155,19 +175,6 @@
 
     .input-block {
       width: 608px;
-
-      &-wrapper {
-        max-width: 808px;
-      }
-
-      &__input {
-        width: 400px;
-      }
-
-      &__submit {
-        padding-left: 185px;
-      }
-
     }
 
   }
@@ -175,20 +182,7 @@
   @media (max-width: 850px) {
 
     .input-block {
-      width: 448px;
-
-      &-wrapper {
-        max-width: 808px;
-      }
-
-      &__input {
-        width: 300px;
-      }
-
-      &__submit {
-        padding-left: 155px;
-      }
-
+      width: 470px;
     }
 
   }
@@ -199,10 +193,10 @@
  * переопределение стилей для input-block 
  * и немного добавление новых 
 */
-@mixin transfers2 {
+@mixin input-transfers2 {
 
   .input-block-wrapper .error {
-    margin-left: 338px !important;
+    margin-left: calc(40% - 36px) !important;
   }
 
   .input-block {
@@ -214,56 +208,30 @@
 
       max-width: 808px;
 
-      // переопределение стилей
       /deep/.input-block {
-        flex-shrink: 2;
-        width: 658px;
-        margin: 45px 0 0; // переопр. auto ширины
-
-        &__title {
-          width: 327px;
-          font-weight: normal;
-        }
-
-        &__input {
-          width: 321px;
-        }
-
-      }
-
-      // название страницы
-      &__title {
-        margin: $margin-header;
-        margin-top: 44px;
-        font: $font-header;
+        margin: 45px 0 0;
       }
 
     }
 
-    // кнопки Далее и подобные
     &__submit {
-      background: transparent;
-      border: 0;
-      margin: 69px auto 78px;
-      user-select: none;
-
-      display: block;
-
-      color: $color-pre-light;
-      text-align: center;
-
-      &-svg {
-        fill: $color-light;
-      }
-
-      // input становится таким, если невалиден
-      .invalid {
-        color: $color-medium;
-        pointer-events: none;
+      
+      &-inner {
+        padding-left: 0 !important;
+        text-align: left !important;
       }
 
     }
 
   }
+
+  @media (max-width: 850px) {
+
+    .input-block {
+      width: 600px !important;
+    }
+
+  }
+
 
 }

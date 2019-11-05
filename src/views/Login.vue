@@ -118,6 +118,7 @@ export default {
 .login {
   @include error;
   @include input;
+  @include input-submit;
 
   // display: flex;
   // flex-direction: column;
@@ -134,7 +135,7 @@ export default {
   &__title {
     margin: $margin-header;
     // особый margin, с отступом слева
-    margin-left: 245px;
+    margin-left: calc(40% - 36px);
 
     color: white;
     text-align: center;
@@ -142,28 +143,22 @@ export default {
   
 }
 
-.input-block__submit {
-  margin-bottom: 150px;
-}
-
 @media (max-width: 1250px) {
-
-  
 
   .login {
 
-    &__title {
-      margin-left: 105px;
+    &__content {
+      max-width: 608px;
     }
 
-    .input-block {
+  }
 
-      &__submit {
-        padding-left: 105px;
-      }
+}
 
-    }
+@media (max-width: 850px) {
 
+  .login__content {
+    max-width: 470px;
   }
 
 }

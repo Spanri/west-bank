@@ -64,7 +64,7 @@ export default {
     text-decoration: none;
     text-align: left;
 
-    margin: 80px auto 0;
+    margin: 30px auto 30px;
 
     width: 200px;
 

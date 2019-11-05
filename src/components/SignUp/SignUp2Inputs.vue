@@ -61,6 +61,10 @@ import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
 export default {
   name: "SignUp2Inputs",
 
+  props: {
+    dataOfPhase1: Object,
+  },
+
   data() {
     return {
       blocks: [
@@ -131,7 +135,8 @@ export default {
   }
 
   &__description {
-    margin: 41px 0 -30px 270px;
+    margin: 41px 0 -30px;
+    margin-left: calc(40% - 36px);
 
     color: $color-pre-medium;
     font: 18px/21px Play, sans-serif;
@@ -142,7 +147,7 @@ export default {
   &__show-password {
     position: relative;
     top: -175px;
-    right: -740px;
+    right: -102%;
 
     color: $color-other;
 
@@ -159,13 +164,8 @@ export default {
 
 @media (max-width: 1250px) {
 
-  .input-block__description {
-    margin-left: 210px;
-  }
-
   .input-block__show-password {
-    top: -195px;
-    right: -620px;
+    top: -210px;
   }
 
 }
@@ -173,13 +173,11 @@ export default {
 @media (max-width: 850px) {
 
   .input-block__description {
-    margin-left: 150px;
     margin-top: 60px;
   }
 
   .input-block__show-password {
-    top: -280px;
-    right: -465px;
+    top: -275px;
   }
 
 }

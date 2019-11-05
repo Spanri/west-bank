@@ -1,7 +1,10 @@
 <template>
   <div class="signup2">
     <p class="signup2__title">Регистрация</p>
-    <SignUp2Inputs class="signup2__inputs" @next="next" />
+    <SignUp2Inputs 
+      class="signup2__inputs" @next="next"
+      :dataOfPhase1="dataOfPhase1"
+    />
     <p class="signup1__login login-link-wrapper">
       <router-link to="/login" class="login-link">
         <p class="login-link__text1">Уже есть аккаунт?</p>
@@ -15,13 +18,17 @@
 export default {
   name: "SignUp2",
 
+  props: {
+    dataOfPhase1: Object,
+  },
+
   components: {
     SignUp2Inputs: () => import("@/components/SignUp/SignUp2Inputs.vue"),
   },
 
   methods: {
     next() {
-      this.$emit("next", 3);
+      this.$emit("next", { val: '3', });
     },
   },
   
@@ -52,7 +59,7 @@ export default {
   &__title {
     margin: $margin-header;
     // особый margin, с отступом слева
-    margin-left: 245px;
+    margin-left: calc(40% - 36px);
 
     color: $color-light;
     font: $font-header;
@@ -62,16 +69,16 @@ export default {
 
 @media (max-width: 1250px) {
 
-  .signup2__title {
-    margin-left: 185px;
+  .signup2 {
+    max-width: 608px;
   }
 
 }
 
 @media (max-width: 850px) {
 
-  .signup2__title {
-    margin-left: 145px;
+  .signup2 {
+    max-width: 470px;
   }
 
 }

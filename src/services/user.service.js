@@ -139,19 +139,18 @@ const UserService = {
      * @returns true
      * @throws AuthenticationError 
     **/
-    signupPhase2: async function({
-      username, password,
-      firstName, lastName, patronymic, 
-      phone, email,
-    }) {
-      // type: 0 - проверка phone, 1 - email
+    signupPhase2: async function(data) {
       const requestData = {
         method: 'post',
         url: "/o/token/",
         data: {
-          username, password,
-          firstName, lastName, patronymic, 
-          phone, email, 
+          username: data.username, 
+          password: data.password,
+          firstName: data.firstName, 
+          lastName: data.lastName, 
+          patronymic: data.patronymic, 
+          phone: data.phone, 
+          email: data.email, 
         },
       };
 
@@ -164,6 +163,11 @@ const UserService = {
           },
         };
         requestData; // чтобы eslint не ругался
+
+        TokenService.saveToken(response.data.access_token);
+        TokenService.saveRefreshToken(response.data.refresh_token);
+        ApiService.setHeader();
+        ApiService.mount401Interceptor();
 
         return response.data.access_token;
       } catch (error) {

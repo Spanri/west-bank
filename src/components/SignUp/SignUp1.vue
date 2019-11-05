@@ -20,8 +20,11 @@ export default {
   },
 
   methods: {
-    next() {
-      this.$emit("next", 2);
+    next(data) {
+      this.$emit("next", {
+        val: '2',
+        dataOfPhase1: data,
+      });
     },
   },
   
@@ -50,9 +53,8 @@ export default {
   max-width: 829px;
 
   &__title {
-    margin: $margin-header;
-    // особый margin, с отступом слева
-    margin-left: 245px;
+    margin: 80px 45px;
+    padding-left: calc(40% - 36px);
 
     color: $color-light;
     font: $font-header;
@@ -62,16 +64,16 @@ export default {
 
 @media (max-width: 1250px) {
 
-  .signup1__title {
-    margin-left: 185px;
+  .signup1 {
+    max-width: 608px;
   }
 
 }
 
 @media (max-width: 850px) {
 
-  .signup1__title {
-    margin-left: 145px;
+  .signup1 {
+    max-width: 470px;
   }
 
 }
