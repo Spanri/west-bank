@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div class="app__header-wrapper">
+    <section class="app__header-wrapper">
       <HeaderBig class="app__header width3_big" />
       <Header748to1080 class="app__header width3_748-to-1080" />
       <HeaderMobile class="app__header width3_mobile" />
-    </div>
+    </section>
     <main class="app__main">
-      <NavIfAuth
-        class="app__nav-if-auth width2_big"
-        v-if="isLoggedIn && (this.$route.meta.type & 0b010)" 
+      <NavIfAuth 
+        class="app__nav-if-auth width2_big" 
+        v-if="$route.meta.type & 0b010"
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, } from "vuex";
+import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "App",
@@ -33,39 +33,24 @@ export default {
   },
 
   computed: {
-    ...mapGetters('auth', [ 'isLoggedIn', ]),
-
-    currentRouteName() {
-      return this.$route.name;
-    },
+    ...mapGetters('general', [ 'currentWidth', ]),
   },
 
   created() {
-    /** 
-     * Применяется в components/Header/HeaderNav.vue и ниже в 
-     * methods, setCurrentWidth
-    */
-    window.addEventListener('resize', this.setCurrentWidth);
+    window.addEventListener('resize', this.setCurrentWidthInner);
+    this.setCurrentWidth(window.innerWidth);
   },
 
   methods: {
-    // ...mapActions('auth', [
-    //     'login',
-    // ]),
+    ...mapActions('general', [ 'setCurrentWidth', ]),
       
-    setCurrentWidth(e) {
-      const currentWidth = e.currentTarget.innerWidth;
-      const isAuth = this.$route.meta.type & 0b100;
-
-      this.$store.commit('setCurrentWidth', currentWidth);
-      if (currentWidth < 748 && isAuth) {
-        this.$router.push("/download-app");
-      }
+    setCurrentWidthInner(e) {
+      this.setCurrentWidth(e.currentTarget.innerWidth);
     },
   },
 
   beforeDestroy() {
-    window.removeEventListener('resize', this.setCurrentWidth);
+    window.removeEventListener('resize', this.setCurrentWidthInner);
   },
 };
 </script>

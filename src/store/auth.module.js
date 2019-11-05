@@ -1,6 +1,7 @@
 import { UserService, AuthenticationError, } from '../services/user.service';
 import { TokenService, } from '@/services/storage.service';
 import router from '@/router';
+//import store from '@/store';
 
 // методы login, getUserData, logout, refreshToken
 
@@ -20,12 +21,13 @@ const getters = {
 };
 
 const actions = {
-  async login({ commit, }, {email, password,}) {
+  async login({ commit, dispatch, }, {email, password,}) {
     commit('loginRequest');
 
     try {
       const token = await UserService.login(email, password);
       commit('loginSuccess', token);
+      await dispatch('user/getProfile', null, {root: true,});
 
       // Redirect the user to the page he first tried to visit or to /home
       router.push(router.history.current.query.redirect || '/home');
@@ -67,9 +69,10 @@ const actions = {
     }
   },
 
-  logout({ commit, }) {
+  logout({ commit, rootState, }) {
     UserService.logout();
     commit('logoutSuccess');
+    rootState.user.profile = '';
   },
 
   refreshToken({ commit, state, }) {

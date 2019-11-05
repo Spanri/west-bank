@@ -1,3 +1,5 @@
+import router from '@/router';
+
 // Переменные, которые никуда не относятся
 
 const state = {
@@ -5,23 +7,29 @@ const state = {
 };
 
 const getters = {
-  currentWidth: state => {
-    console.log('Ширина экрана ', state.currentWidth);
-    return state.currentWidth;
+  currentWidth: state => state.currentWidth,
+};
+
+const actions = {
+  setCurrentWidth({commit,}, currentWidth) {
+    const isAuth = router.currentRoute.meta.type & 0b100;
+
+    commit('currentWidthSuccess', currentWidth);
+    if (currentWidth < 748 && isAuth) {
+      router.push("/download-app");
+    }
   },
 };
 
 const mutations = {
-  setCurrentWidth(state, data) {
-    state.currentWidth = data;
+  currentWidthSuccess(state, currentWidth) {
+    console.log('Ширина экрана', currentWidth);
+    state.currentWidth = currentWidth;
   },
 };
 
-const actions = {
-
-};
-
 export default {
+  namespaced: true,
   state,
   getters,
   actions,

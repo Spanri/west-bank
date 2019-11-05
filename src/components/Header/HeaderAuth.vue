@@ -8,9 +8,8 @@
       <span class="auth__text">Личный кабинет</span>
     </router-link>
     <router-link
-      to="/profile"
-      class="auth__login auth__login_true"
-      v-if="isloggedIn"
+      to="/profile" v-else
+      class="auth__login auth__login_true" 
     >
       <ProfileLogo class="auth__logo" :color="logoColor" />
       <span v-if="!profileError" class="auth__text">

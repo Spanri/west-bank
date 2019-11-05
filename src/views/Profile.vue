@@ -34,9 +34,9 @@
         </div>
       </button>
       <button class="button-left">
-        <router-link class="button-left-inner" to="/auth">
+        <div class="button-left-inner" @click="logoutInner">
           <span class="button-left-text">Выйти из аккаунта</span>
-        </router-link>
+        </div>
       </button>
     </div>
     <div v-if="profileError" class="profile__error">
@@ -68,13 +68,17 @@ export default {
   },
 
   methods: {
-    ...mapActions('user', [
-      'getProfile',
-    ]),
+    ...mapActions('user', [ 'getProfile', ]),
+    ...mapActions('auth', [ 'logout', ]),
 
     editPhoto() {},
 
     editData() {},
+
+    logoutInner() {
+      this.logout();
+      this.$router.push("/auth");
+    },
   },
 };
 </script>

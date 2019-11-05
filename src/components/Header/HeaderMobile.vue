@@ -3,14 +3,12 @@
     <div class="header-inner">
       <Hamburger 
         class="header__hamburger" 
-        @openMenu="openMenu"
-        :open="open"
+        @openMenu="openMenu" :open="open"
       />
       <transition name="fade">
         <div 
           class="header__menu" 
-          v-show="open"
-          :class="{'open': open}"
+          v-show="open" :class="{'open': open}" 
         >
           <HeaderNav 
             class="header__bottom-nav" 
@@ -36,7 +34,7 @@
       </transition>
       <transition name="slide-fade-logo">
         <router-link 
-          to="/home" class="header__logo"
+          to="/download-app" class="header__logo"
           @mouseenter.native="logoColor = '#C66166'; 
             logo = 'logoHover.png'"
           @mouseleave.native="logoColor = 'white'; logo = 'logo.png'"

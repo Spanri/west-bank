@@ -4,7 +4,8 @@
       class="nav-item"
       v-for="(item, index) in itemsProp" :key="index"
       @click="check(index)"
-      :class="[item.checked ? 'checked' : '',
+      :class="[`nav-item${index}`,
+        item.checked ? 'checked' : '',
         itemsProp[index-1] && itemsProp[index-1].checked ? 'pre-checked' : '',
         itemsProp[index+1] && itemsProp[index+1].checked ? 'pre-checked' : '',
         itemsProp[index+2] && itemsProp[index+2].checked ? 'pre-pre-checked' : '',
@@ -12,8 +13,6 @@
         itemsProp[index+3] && itemsProp[index+3].checked ? 'pre-pre-pre-checked' : '',
         itemsProp[index-3] && itemsProp[index-3].checked ? 'pre-pre-pre-checked' : '',
       ]"
-      :style="{top: currentWidth > 748 ? 
-        -index * 20 + 'px' : +index * 20 + 'px' }"
     >
       <p class="nav-text">{{ item.title }}</p>
       <p class="nav-details">Подробнее...</p>
@@ -22,8 +21,6 @@
 </template>
 
 <script>
-import { mapGetters, } from "vuex";
-
 export default {
   name: "NavPhases",
 
@@ -36,10 +33,6 @@ export default {
     phase: function(newVal) {
       this.propPhase = newVal;
     },
-  },
-
-  computed: {
-    ...mapGetters('general', [ 'currentWidth', ]),
   },
 
   data() {
@@ -161,6 +154,26 @@ export default {
         color: $color-light;
       }
       
+    }
+
+  }
+
+  @for $i from 0 through 4 {
+
+    @media (min-width: 748px) {
+
+      &-item#{$i} {
+        top: $i * (-20px);
+      }
+      
+    }
+
+    @media (max-width: 748px) {
+
+      &-item#{$i} {
+        top: $i * 20px;
+      }
+
     }
 
   }

@@ -4,14 +4,9 @@ import store from "./store";
 
 Vue.use(Router);
 
-// для страниц с id, захардкожено
-const ifAuthenticatedAndValidId = (to, from, next) => {
-  if (store.getters.isLoggedIn) {
-    next();
-    return;
-  }
-  next("/auth");
-};
+/**
+ * для страниц с id тоже надо сделать
+*/
 
 const router = new Router({
   mode: "history",
@@ -29,7 +24,7 @@ const router = new Router({
          * 3) для доступа авторизации быть не должно (login и тд)
          * (router.beforeEach)
         */
-        type: 0b110,
+        type: 0b010,
       },
     },
     // домашняя страница / Онлайн-банк
@@ -57,7 +52,6 @@ const router = new Router({
       path: "/bank-account/:id",
       name: "bank-account",
       component: () => import("@/views/BankAccountOrCard.vue"),
-      beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
         type: 0b110,
@@ -68,7 +62,6 @@ const router = new Router({
       path: "/card/:id",
       name: "card",
       component: () => import("@/views/BankAccountOrCard.vue"),
-      beforeEnter: ifAuthenticatedAndValidId,
       meta: {
         title: 'Вест Банк, счет/карта',
         type: 0b110,
@@ -262,11 +255,11 @@ const router = new Router({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  const isNotAuth = to.matched.some(auth => auth.meta.type & 0b100);
-  const isAuth = to.matched.some(auth => auth.meta.type & 0b001);
-  const isLoggedIn = store.getters.isloggedIn;
-  const isCurrentWidthSmall = store.getters.currentWidth < 748;
+router.beforeEach(async(to, from, next) => {
+  const isNotAuth = to.matched.some(auth => auth.meta.type & 0b001);
+  const isAuth = to.matched.some(auth => auth.meta.type & 0b100);
+  const isLoggedIn = await store.getters["auth/isloggedIn"];
+  const isCurrentWidthSmall = store.getters["general/currentWidth"] < 748;
 
   // если авторизации быть не должно
   if(isNotAuth) {
