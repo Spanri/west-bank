@@ -46,6 +46,11 @@
         {{block.type == 'password' ? 'показать' : 'скрыть'}}
       </p>
     </div>
+    <div class="input-block">
+      <div class="error error-from-server" v-if="signupError">
+        {{ signupError }}
+      </div>
+    </div>
     <div class="input-block__submit">
       <button type="submit" class="input-block__submit-inner">
         Зарегистрироваться
@@ -57,6 +62,7 @@
 
 <script>
 import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
+import { mapGetters, } from "vuex";
 
 export default {
   name: "SignUp2Inputs",
@@ -112,6 +118,10 @@ export default {
       sameAsPassword: sameAs('password'),
     },
   },
+
+  computed: {
+    ...mapGetters('auth', [ 'signupError', ]),
+  },
   
   methods: {
     submit() {
@@ -132,6 +142,7 @@ export default {
   &-wrapper {
     @include error;
     @include input;
+    @include input-submit;
   }
 
   &__description {
@@ -160,6 +171,10 @@ export default {
 
   }
 
+}
+
+.error-from-server {
+  padding-bottom: 30px;
 }
 
 @media (max-width: 1250px) {

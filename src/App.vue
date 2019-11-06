@@ -8,7 +8,7 @@
     <main class="app__main">
       <NavIfAuth 
         class="app__nav-if-auth width2_big" 
-        v-if="$route.meta.type & 0b010"
+        v-if="isloggedIn && $route.meta.type & 0b010"
       />
       <transition name="slide" mode="out-in">
         <router-view class="app__content"/>
@@ -34,11 +34,15 @@ export default {
 
   computed: {
     ...mapGetters('general', [ 'currentWidth', ]),
+
+    isloggedIn() {
+      return this.$store.getters['auth/isloggedIn'];
+    },
   },
 
   methods: {
     ...mapActions('general', [ 'setCurrentWidth', ]),
-      
+
     setCurrentWidthInner(e) {
       this.setCurrentWidth(e.currentTarget.innerWidth);
     },

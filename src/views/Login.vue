@@ -28,9 +28,11 @@
           >
             {{ block.error }}
           </div>
-          <div class="error" v-if="authenticationError">
-            {{ authenticationError }}
-          </div>
+        </div>
+      </div>
+      <div class="input-block">
+        <div class="error error-from-server" v-if="authenticationError">
+          {{ authenticationError }}
         </div>
       </div>
       <div class="input-block__submit">
@@ -141,6 +143,10 @@ export default {
     text-align: center;
   }
   
+}
+
+.error-from-server {
+  padding-bottom: 30px;
 }
 
 @media (max-width: 1250px) {

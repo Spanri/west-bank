@@ -40,7 +40,6 @@
         {{ signupError }}
       </div>
     </div>
-    
     <div class="input-block__submit">
       <button type="submit" class="input-block__submit-inner">
         <span class="input-block__submit-text">Далее </span>
@@ -127,15 +126,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters('auth', [
-      'signupError',
-    ]),
+    ...mapGetters('auth', [ 'signupError', ]),
   },
 
   methods: {
-    ...mapActions('auth', [
-      'signupPhase1',
-    ]),
+    ...mapActions('auth', [ 'signupPhase1', ]),
 
     submit() {
       const { lastName, firstName, patronymic, phone, email,} = this;
@@ -169,6 +164,7 @@ export default {
 .input-block-wrapper {
   @include error;
   @include input;
+  @include input-submit;
 
   .error-from-server {
     padding-bottom: 30px;

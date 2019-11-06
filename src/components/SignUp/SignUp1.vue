@@ -46,6 +46,7 @@ export default {
 <style scoped lang="scss">
 .signup1 {
   @include login-link;
+
   color: $color-light;
   height: auto;
 
