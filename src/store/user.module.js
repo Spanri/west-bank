@@ -1,4 +1,4 @@
-import { UserService, AuthenticationError, } from '../services/user.service';
+import { UserService, AuthenticationError, } from '@/services/user.service';
 
 // методы login, getUserData, logout, refreshToken
 

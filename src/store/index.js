@@ -6,6 +6,7 @@ import createCache from "vuex-cache";
 import general from "./general.module";
 import auth from "./auth.module";
 import user from "./user.module";
+import currency from "./currency.module";
 
 Vue.use(Vuex);
 
@@ -14,12 +15,15 @@ export default new Vuex.Store({
     general,
     auth,
     user,
+    currency,
   },
 
   plugins: [
     createPersistedState(),
     createCache(),
     // для расшаривания store мутаций в несколько вкладок
-    createMutationsSharer({ predicate: ["auth.login", "auth.logout",], }),
+    createMutationsSharer({ 
+      predicate: ["auth.login", "auth.logout", "auth.signup",], 
+    }),
   ],
 });

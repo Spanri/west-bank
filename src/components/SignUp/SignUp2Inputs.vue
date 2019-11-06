@@ -62,7 +62,7 @@
 
 <script>
 import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
-import { mapGetters, } from "vuex";
+import { mapGetters, mapActions, } from "vuex";
 
 export default {
   name: "SignUp2Inputs",
@@ -124,14 +124,25 @@ export default {
   },
   
   methods: {
+    ...mapActions('auth', [ 'signupPhase2', ]),
+
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$store.dispatch("register").then(() => {
+        const {login, password, dataOfPhase1,} = this;
+        this.signupPhase2({
+          username: login,
+          password: password,
+          ...dataOfPhase1,
+        }).then(() => {
           this.$emit("next");
         });
       }
     },
+  },
+
+  created() {
+    console.log(this.dataOfPhase1);
   },
 };
 </script>

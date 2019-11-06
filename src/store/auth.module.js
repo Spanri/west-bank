@@ -1,4 +1,4 @@
-import { UserService, AuthenticationError, } from '../services/user.service';
+import { UserService, AuthenticationError, } from '@/services/user.service';
 import { TokenService, } from '@/services/storage.service';
 import router from '@/router';
 //import store from '@/store';
@@ -21,6 +21,9 @@ const getters = {
   authenticationErrorCode: state => state.authenticationErrorCode,
   authenticationError: state => state.authenticationError,
   authenticating: state => state.authenticating,
+  signuping: state => state.signuping,
+  signupErrorCode: state => state.signupErrorCode,
+  signupError: state => state.signupError,
 };
 
 const actions = {
@@ -82,6 +85,7 @@ const actions = {
     commit('signupRequest');
 
     try {
+      console.log(data);
       const token = await UserService.signupPhase2(data);
       commit('signupPhase2Success', token);
       await dispatch('user/getProfile', null, {root: true,});
