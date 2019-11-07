@@ -1,10 +1,7 @@
 <template>
   <div class="currency">
     <NewsCurrencyRates  class="currency__rates" />
-    <NewsCurrencyConverter 
-      :relevance="converter.relevance"
-      class="currency__converter"
-    />
+    <NewsCurrencyConverter class="currency__converter" />
   </div>
 </template>
 
@@ -16,25 +13,6 @@ export default {
     NewsCurrencyRates: () => import("@/components/News/NewsCurrencyRates.vue"),
     NewsCurrencyConverter: () => 
       import("@/components/News/NewsCurrencyConverter.vue"),
-  },
-  
-  data() {
-    return {
-      converter: {
-        relevance: (new Date()).toLocaleDateString("ru-RU", { 
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric', 
-          year: 'numeric', 
-          month: 'numeric', 
-          day: 'numeric', 
-        }),
-        ruble: 1,
-        dollar: 50,
-        euro: 60,
-        pound: 80,
-      },
-    };
   },
 };
 </script>

@@ -3,7 +3,7 @@
     <tr class="converter__title">
       <th>Конвертер</th>
       <th class="converter__text width2_mobile">
-        Курс актуален на {{ relevanceProp }}
+        Курс актуален на {{ relevance }}
       </th>
     </tr>
     <tr>
@@ -30,13 +30,15 @@
     </tr>
     <tr class="width2_big-tr">
       <td colspan="2" class="converter__text">
-        Курс актуален на {{ relevanceProp }}
+        Курс актуален на {{ relevance }}
       </td>
     </tr>
   </table>
 </template>
 
 <script>
+import { mapGetters, mapActions, } from "vuex";
+
 export default {
   name: "NewsCurrencyConverter",
 
@@ -44,28 +46,38 @@ export default {
     Select: () => import("@/components/Select.vue"),
   },
 
-  props: {
-    relevance: String,
-  },
-
-  watch: {
-    relevance(newVal) {
-      this.relevanceProp = newVal;
-    },
-  },
-
   data() {
     return {
-      relevanceProp: this.relevance,
       selected3: '$',
       selected4: '€',
     };
   },
+
+  computed: {
+    ...mapGetters('general', [ 'currencyConverter', ]),
+
+    relevance: this.currencyConverter.relevance.toLocaleDateString(
+      "ru-RU", { 
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric', 
+        year: 'numeric', 
+        month: 'numeric', 
+        day: 'numeric', 
+      }
+    ),
+  },
   
   methods: {
+    ...mapActions('general', [ 'getCurrencyConverter', ]),
+
     select(val, model) {
       this[model] = val;
     },
+  },
+
+  created() {
+    this.getCurrencyConverter();
   },
 };
 </script>

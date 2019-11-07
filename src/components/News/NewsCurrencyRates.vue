@@ -47,6 +47,9 @@ export default {
     return {
       selected1: 'USD',
       selected2: 'EUR',
+      rates: {
+
+      },
     };
   },
   
