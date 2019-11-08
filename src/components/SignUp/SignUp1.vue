@@ -51,7 +51,7 @@ export default {
   height: auto;
 
   margin: 0 auto;
-  max-width: 829px;
+  max-width: 728px;
 
   &__title {
     margin: 80px 45px;

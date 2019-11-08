@@ -55,13 +55,15 @@ const actions = {
    * Регистрация, 1 фаза, проверяется, не зарегистрирован 
    * ли уже такой email и phone
   */ 
-  async signupPhase1({ commit, }, {phone, email,}) {
+  async signupPhase1({ commit, }, data) {
     commit('signupRequest');
 
     try {
       // 1ый параметр: 0 - проверка phone, 1 - email
-      await UserService.signupPhase1(0, phone);
-      await UserService.signupPhase1(1, email);
+      await UserService.signupPhase1(0, data.phone);
+      if(data.email) {
+        await UserService.signupPhase1(1, data.email);
+      }
       commit('signupPhase1Success');
 
       return true;
@@ -89,8 +91,6 @@ const actions = {
       const token = await UserService.signupPhase2(data);
       commit('signupPhase2Success', token);
       await dispatch('user/getProfile', null, {root: true,});
-
-      router.push(router.history.current.query.redirect || '/home');
 
       return true;
     } catch (e) {

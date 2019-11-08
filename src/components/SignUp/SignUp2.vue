@@ -54,7 +54,7 @@ export default {
   color: $color-light;
 
   margin: 0 auto;
-  max-width: 729px;
+  max-width: 728px;
 
   &__title {
     margin: $margin-header;
