@@ -142,10 +142,6 @@ export default {
       }
     },
   },
-
-  created() {
-    console.log(this.dataOfPhase1);
-  },
 };
 </script>
 
