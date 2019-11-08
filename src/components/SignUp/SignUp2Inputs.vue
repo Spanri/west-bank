@@ -30,10 +30,7 @@
         {{ block.error }}
       </div>
       <p v-if="block.model == 'password'" class="input-block__description">
-        Пароль должен содержать не менее 8 символов, должны присутствовать 
-        строчные и заглавные буквы, должен присутствовать один из символов 
-        !»№;%:?*?(), должны присутствовать цифры, не должны присутствовать 
-        повторяющиеся символы в нижнем и верхнем регистре.
+        Пароль должен содержать не менее 8 символов, должны присутствовать    строчные и заглавные буквы, должен присутствовать один из символов     <span class="special-symbols">!»№;%:?*?()</span>, должны присутствовать цифры, не должны присутствовать повторяющиеся символы в нижнем и верхнем регистре (последнее не сделала).
       </p>
       <p 
         v-if="block.model == 'password'"
@@ -61,6 +58,11 @@
 </template>
 
 <script>
+/**
+ * TODO:
+ * Уточнить, что нужно в проверке пароля и что значит последнее условие.
+ */
+
 import { required, minLength, sameAs, } from 'vuelidate/lib/validators';
 import { mapGetters, mapActions, } from "vuex";
 
@@ -140,14 +142,14 @@ export default {
       }
     },
   },
-
-  created() {
-    console.log(this.dataOfPhase1);
-  },
 };
 </script>
 
 <style scoped lang="scss">
+.special-symbols {
+  background: $color-block-light;
+}
+
 .input-block {
 
   &-wrapper {

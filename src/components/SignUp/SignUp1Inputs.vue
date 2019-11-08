@@ -136,9 +136,15 @@ export default {
       const { lastName, firstName, patronymic, phone, email,} = this;
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit("next", {
-          lastName, firstName, patronymic,
-          phone, email,
+        let data = { phone, };
+        if (email) {
+          data.email = email;
+        }
+        this.signupPhase1(data).then(() => {
+          this.$emit("next", {
+            lastName, firstName, patronymic,
+            phone, email,
+          });
         });
       }
     },

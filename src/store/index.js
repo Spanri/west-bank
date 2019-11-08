@@ -6,7 +6,6 @@ import createCache from "vuex-cache";
 import general from "./general.module";
 import auth from "./auth.module";
 import user from "./user.module";
-import currency from "./currency.module";
 
 Vue.use(Vuex);
 
@@ -15,7 +14,6 @@ export default new Vuex.Store({
     general,
     auth,
     user,
-    currency,
   },
 
   plugins: [

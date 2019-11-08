@@ -149,7 +149,7 @@
   }
 }
 
-// в регистрации Уже есть аккаунт? Войти
+// в регистрации "Уже есть аккаунт? Войти"
 @mixin login-link {
 
   .login-link {
@@ -157,9 +157,12 @@
     font: Play, sans-serif;
     text-align: center;
     text-decoration: none;
+
+    
     
     &-wrapper {
-      margin: 0 0 150px;
+      margin: 0 auto 150px;
+      padding-left: calc(40% - 36px);
     }
 
     &__text1 {
@@ -172,7 +175,7 @@
 
     & > * {
       margin: 0;
-      margin-left: calc(40% - 36px);
+      //padding-left: calc(40% - 36px);
     }
 
     &:hover {

@@ -12,30 +12,32 @@
       <td class="rates__select-wrapper rates__type">
         <Select 
           class="rates__select rates__type-select"
-          :items="['USD', 'EUR', 'GBP', 'CHF']"
-          default="USD" @select="select" 
+          :items="items1"
+          :default="selected1" @select="select"
           model="selected1" :icon="false"
         />
       </td>
-      <td class="rates__value">65,66</td>
-      <td class="rates__value">67,85</td>
+      <td class="rates__value">{{ rates[selected1][0] }}</td>
+      <td class="rates__value">{{ rates[selected1][1] }}</td>
     </tr>
     <tr>
       <td class="rates__select-wrapper rates__type">
         <Select 
           class="rates__select rates__type-select"
-          :items="['USD', 'EUR', 'GBP', 'CHF']"
-          default="EUR" @select="select" 
+          :items="items2"
+          :default="selected2" @select="select" 
           model="selected2" :icon="false"
         />
       </td>
-      <td class="rates__value">72,12</td>
-      <td class="rates__value">74,57</td>
+      <td class="rates__value">{{ rates[selected2][0] }}</td>
+      <td class="rates__value">{{ rates[selected2][1] }}</td>
     </tr>
   </table>
 </template>
 
 <script>
+import { mapGetters, mapActions, } from "vuex";
+
 export default {
   name: "NewsCurrencyRates",
 
@@ -45,15 +47,42 @@ export default {
 
   data() {
     return {
-      selected1: 'USD',
-      selected2: 'EUR',
+      selected1: 'EUR',
+      selected2: 'USD',
     };
+  },
+
+  computed: {
+    ...mapGetters('general', [ 'currencyRates', ]),
+
+    items1() {
+      return ['USD', 'EUR', 'GBP',].filter(item => item != this.selected2);
+    },
+
+    items2() {
+      return ['USD', 'EUR', 'GBP',].filter(item => item != this.selected1);
+    },
+
+    rates() {
+      return {
+        RUB: this.currencyRates.ruble,
+        USD: this.currencyRates.dollar,
+        EUR: this.currencyRates.euro,
+        GBP: this.currencyRates.pound,
+      };
+    },
   },
   
   methods: {
+    ...mapActions('general', [ 'getCurrencyRates', ]),
+
     select(val, model) {
       this[model] = val;
     },
+  },
+
+  created() {
+    this.getCurrencyRates();
   },
 };
 </script>

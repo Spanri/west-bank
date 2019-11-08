@@ -3,40 +3,55 @@
     <tr class="converter__title">
       <th>Конвертер</th>
       <th class="converter__text width2_mobile">
-        Курс актуален на {{ relevanceProp }}
+        Курс актуален на {{ relevance }}
       </th>
     </tr>
     <tr>
-      <td class="converter__value">10000</td>
+      <td class="converter__value">
+        <input 
+          class="converter__input" v-model="inputValue"
+          maxlength="6" title="Максимум 6 цифр"
+        >
+      </td>
       <td class="converter__select-wrapper converter__symbol">
         <Select 
           class="converter__select converter__symbol-select"
-          :items="['$', '₽', '€', '£']" default="$"
+          :items="['$', '₽', '€', '£']" :default="selected1"
           :icon="true"
-          @select="select" model="selected3"
+          @select="select" model="selected1"
         />
       </td>
     </tr>
     <tr>
-      <td class="converter__value">134,10</td>
+      <td class="converter__value">
+        {{ 
+          parseFloat(
+            (
+              inputValue * (converter[selected2] / converter[selected1])
+            ).toFixed(3)
+          )
+        }}
+      </td>
       <td class="converter__select-wrapper converter__symbol">
         <Select 
           class="converter__select converter__symbol-select"
-          :items="['$', '₽', '€', '£']" default="$" 
+          :items="['$', '₽', '€', '£']" :default="selected2" 
           :icon="true"
-          @select="select" model="selected4"
+          @select="select" model="selected2"
         />
       </td>
     </tr>
     <tr class="width2_big-tr">
       <td colspan="2" class="converter__text">
-        Курс актуален на {{ relevanceProp }}
+        Курс актуален на {{ relevance }}
       </td>
     </tr>
   </table>
 </template>
 
 <script>
+import { mapGetters, mapActions, } from "vuex";
+
 export default {
   name: "NewsCurrencyConverter",
 
@@ -44,28 +59,55 @@ export default {
     Select: () => import("@/components/Select.vue"),
   },
 
-  props: {
-    relevance: String,
-  },
-
-  watch: {
-    relevance(newVal) {
-      this.relevanceProp = newVal;
-    },
-  },
-
   data() {
     return {
-      relevanceProp: this.relevance,
-      selected3: '$',
-      selected4: '€',
+      selected1: '$',
+      selected2: '€',
+      inputValue: 1,
     };
+  },
+
+  computed: {
+    ...mapGetters('general', [ 'currencyConverter', ]),
+
+    relevance() {
+      const relevance = this.currencyConverter.relevance;
+      return this.formatDate(relevance);
+    },
+
+    converter() {
+      return {
+        '₽': this.currencyConverter.ruble,
+        '$': this.currencyConverter.dollar,
+        '€': this.currencyConverter.euro,
+        '£': this.currencyConverter.pound,
+      };
+    },
   },
   
   methods: {
+    ...mapActions('general', [ 'getCurrencyConverter', ]),
+
+    formatDate(date) {
+      return (new Date(date)).toLocaleDateString(
+        "ru-RU", {
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric', 
+          year: 'numeric', 
+          month: 'numeric', 
+          day: 'numeric', 
+        }
+      );
+    },
+
     select(val, model) {
       this[model] = val;
     },
+  },
+
+  created() {
+    this.getCurrencyConverter();
   },
 };
 </script>
@@ -102,10 +144,29 @@ export default {
     vertical-align: top;
   }
 
+  &__input {
+    height: 35px;
+    width: 90px;
+
+    background: none;
+    border: 0;
+    margin: 20px -10px 20px 0;
+    padding: 0 10px;
+
+    font: 24px/28px Play, sans-serif;
+    color: $color-light;
+    text-align: right;
+
+    &:hover, &:focus {
+      background-color: $color-block-light;
+    }
+  }
+
   &__value {
     // нужно задавать высоту, ибо иначе она ставится по select
     height: 75px;
     width: 90px;
+    max-width: 100px;
 
     font: 24px/28px Play, sans-serif;
     text-align: right;

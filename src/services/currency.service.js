@@ -25,7 +25,7 @@ const CurrencyService = {
      * @returns currency
      * @throws CurrencyError 
     **/
-    getCurrency: async function() {
+    getCurrencyRates: async function() {
       const requestData = {
         method: 'get',
         url: "/o/token/",
@@ -33,13 +33,14 @@ const CurrencyService = {
 
       try {
         // const response = await ApiService.customRequest(requestData);
+        // коэффициенты к рублю
+        // 0 - покупка, 1 - продажа
         const response = {
           data: {
             currency: {
-              rub: 1,
-              euro: 80,
-              dol: 70,
-              gbp: 90,
+              dollar: [50, 55,],
+              euro: [60, 65,],
+              pound: [80, 85,],
             },
           },
         };
@@ -60,7 +61,7 @@ const CurrencyService = {
      * @returns converter
      * @throws CurrencyError 
     **/
-    getConverter: async function() {
+    getCurrencyConverter: async function() {
       const requestData = {
         method: 'get',
         url: "/o/token/",
@@ -71,10 +72,11 @@ const CurrencyService = {
         const response = {
           data: {
             converter: {
-              rub: 1,
+              relevance: new Date(2019, 7, 19, 12, 31), // месяцы с 0
+              ruble: 1,
+              dollar: 70, // коэффициенты к рублю
               euro: 80,
-              dol: 70,
-              gbp: 90,
+              pound: 90,
             },
           },
         };
