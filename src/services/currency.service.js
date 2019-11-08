@@ -72,7 +72,7 @@ const CurrencyService = {
         const response = {
           data: {
             converter: {
-              relevance: new Date(), // месяцы с 0 // 2019, 7, 19, 12, 31
+              relevance: new Date(2019, 7, 19, 12, 31), // месяцы с 0
               ruble: 1,
               dollar: 70, // коэффициенты к рублю
               euro: 80,

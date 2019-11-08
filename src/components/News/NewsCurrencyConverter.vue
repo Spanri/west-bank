@@ -72,9 +72,7 @@ export default {
 
     relevance() {
       const relevance = this.currencyConverter.relevance;
-      console.log(relevance);
-      // return this.formatDate(relevance);
-      return new Date();
+      return this.formatDate(relevance);
     },
 
     converter() {
@@ -91,7 +89,7 @@ export default {
     ...mapActions('general', [ 'getCurrencyConverter', ]),
 
     formatDate(date) {
-      const result = date.toLocaleDateString(
+      return (new Date(date)).toLocaleDateString(
         "ru-RU", {
           hour: 'numeric',
           minute: 'numeric',
@@ -101,7 +99,6 @@ export default {
           day: 'numeric', 
         }
       );
-      return result;
     },
 
     select(val, model) {
@@ -110,14 +107,7 @@ export default {
   },
 
   created() {
-    this.getCurrencyConverter().then(() => {
-      this.converter = {
-        '₽': this.currencyConverter.ruble,
-        '$': this.currencyConverter.dollar,
-        '€': this.currencyConverter.euro,
-        '£': this.currencyConverter.pound,
-      };
-    });
+    this.getCurrencyConverter();
   },
 };
 </script>
