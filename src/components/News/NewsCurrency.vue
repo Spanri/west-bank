@@ -1,6 +1,6 @@
 <template>
   <div class="currency">
-    <NewsCurrencyRates  class="currency__rates" />
+    <NewsCurrencyRates class="currency__rates" />
     <NewsCurrencyConverter class="currency__converter" />
   </div>
 </template>

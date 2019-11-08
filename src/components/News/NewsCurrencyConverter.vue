@@ -7,24 +7,37 @@
       </th>
     </tr>
     <tr>
-      <td class="converter__value">10000</td>
+      <td class="converter__value">
+        <input 
+          class="converter__input" v-model="inputValue"
+          maxlength="6" title="Максимум 6 цифр"
+        >
+      </td>
       <td class="converter__select-wrapper converter__symbol">
         <Select 
           class="converter__select converter__symbol-select"
-          :items="['$', '₽', '€', '£']" default="$"
+          :items="['$', '₽', '€', '£']" :default="selected1"
           :icon="true"
-          @select="select" model="selected3"
+          @select="select" model="selected1"
         />
       </td>
     </tr>
     <tr>
-      <td class="converter__value">134,10</td>
+      <td class="converter__value">
+        {{ 
+          parseFloat(
+            (
+              inputValue * (converter[selected2] / converter[selected1])
+            ).toFixed(3)
+          )
+        }}
+      </td>
       <td class="converter__select-wrapper converter__symbol">
         <Select 
           class="converter__select converter__symbol-select"
-          :items="['$', '₽', '€', '£']" default="$" 
+          :items="['$', '₽', '€', '£']" :default="selected2" 
           :icon="true"
-          @select="select" model="selected4"
+          @select="select" model="selected2"
         />
       </td>
     </tr>
@@ -48,28 +61,48 @@ export default {
 
   data() {
     return {
-      selected3: '$',
-      selected4: '€',
+      selected1: '$',
+      selected2: '€',
+      inputValue: 1,
     };
   },
 
   computed: {
     ...mapGetters('general', [ 'currencyConverter', ]),
 
-    relevance: this.currencyConverter.relevance.toLocaleDateString(
-      "ru-RU", { 
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric', 
-        year: 'numeric', 
-        month: 'numeric', 
-        day: 'numeric', 
-      }
-    ),
+    relevance() {
+      const relevance = this.currencyConverter.relevance;
+      console.log(relevance);
+      // return this.formatDate(relevance);
+      return new Date();
+    },
+
+    converter() {
+      return {
+        '₽': this.currencyConverter.ruble,
+        '$': this.currencyConverter.dollar,
+        '€': this.currencyConverter.euro,
+        '£': this.currencyConverter.pound,
+      };
+    },
   },
   
   methods: {
     ...mapActions('general', [ 'getCurrencyConverter', ]),
+
+    formatDate(date) {
+      const result = date.toLocaleDateString(
+        "ru-RU", {
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric', 
+          year: 'numeric', 
+          month: 'numeric', 
+          day: 'numeric', 
+        }
+      );
+      return result;
+    },
 
     select(val, model) {
       this[model] = val;
@@ -77,7 +110,14 @@ export default {
   },
 
   created() {
-    this.getCurrencyConverter();
+    this.getCurrencyConverter().then(() => {
+      this.converter = {
+        '₽': this.currencyConverter.ruble,
+        '$': this.currencyConverter.dollar,
+        '€': this.currencyConverter.euro,
+        '£': this.currencyConverter.pound,
+      };
+    });
   },
 };
 </script>
@@ -114,10 +154,29 @@ export default {
     vertical-align: top;
   }
 
+  &__input {
+    height: 35px;
+    width: 90px;
+
+    background: none;
+    border: 0;
+    margin: 20px -10px 20px 0;
+    padding: 0 10px;
+
+    font: 24px/28px Play, sans-serif;
+    color: $color-light;
+    text-align: right;
+
+    &:hover, &:focus {
+      background-color: $color-block-light;
+    }
+  }
+
   &__value {
     // нужно задавать высоту, ибо иначе она ставится по select
     height: 75px;
     width: 90px;
+    max-width: 100px;
 
     font: 24px/28px Play, sans-serif;
     text-align: right;

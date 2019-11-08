@@ -6,7 +6,13 @@ import router from '@/router';
 const state = {
   currentWidth: '',
   currencyRates: {},
-  currencyConverter: {},
+  currencyConverter: {
+    relevence: new Date(),
+    rubles: '',
+    dollar: '',
+    euro: '',
+    pound: '',
+  },
 };
 
 const getters = {

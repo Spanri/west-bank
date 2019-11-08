@@ -33,13 +33,14 @@ const CurrencyService = {
 
       try {
         // const response = await ApiService.customRequest(requestData);
+        // коэффициенты к рублю
+        // 0 - покупка, 1 - продажа
         const response = {
           data: {
             currency: {
-              ruble: 1,
-              dollar: 50,
-              euro: 60,
-              pound: 80,
+              dollar: [50, 55,],
+              euro: [60, 65,],
+              pound: [80, 85,],
             },
           },
         };
@@ -71,9 +72,9 @@ const CurrencyService = {
         const response = {
           data: {
             converter: {
-              relevance: '02/01/2019',
+              relevance: new Date(), // месяцы с 0 // 2019, 7, 19, 12, 31
               ruble: 1,
-              dollar: 70,
+              dollar: 70, // коэффициенты к рублю
               euro: 80,
               pound: 90,
             },
